@@ -17,9 +17,9 @@
 lib/*
 
 # CMake
-*.cmake
+#*.cmake
 *.dir
-CMakeFiles
+#CMakeFiles
 INSTALL.*
 ZERO_CHECK.*
 CMakeCache.txt
