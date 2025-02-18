@@ -1,0 +1,2719 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Testing-BSIP81%3A-Simple-Maker-Taker-Fees/">
+      
+      
+        <link rel="next" href="../Testing-HF-1270%3A-Effects-of-MCR-Change-on-Call-Price/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Preface - Bitshares Core refreshed Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#preface" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Bitshares Core refreshed Docs" class="md-header__button md-logo" aria-label="Bitshares Core refreshed Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bitshares Core refreshed Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Preface
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mi4uu/bitshares-core-refreshed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Bitshares Core refreshed Docs" class="md-nav__button md-logo" aria-label="Bitshares Core refreshed Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bitshares Core refreshed Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mi4uu/bitshares-core-refreshed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Building
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Building
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/BUILD_UBUNTU/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu (64-bit) Build and Install Instructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/BUILD_WIN32/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows development environment setup and build instructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/BUILD_WinDevEnv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BUILD WinDevEnv
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/Building-on-macOS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BitShares-Core Build Instructions for macOS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building on OS X
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SPV
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            SPV
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/spv/SPV/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SPV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Threading
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Threading
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/threading/Threading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Threading in BitShares Core
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/Blockchain-Objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/chain-locked-tx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chain locked tx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/P2P-network-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P2P network protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/StealthTransfers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StealthTransfers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Nodes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Nodes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Delayed-Node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Delayed Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/distributed-access-to-the-bitshares-decentralised-exchange/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distributed Access to the BitShares Decentralised Exchange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Guide-to-setup-personal-nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run your own decentralised exchange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/HaProxy-and-BitShares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using BitShares-core behind HaProxy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Manage-your-nodes-by-using-gnu-screen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage your nodes by using gnu screen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Memory-Reduction-for-Nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Reduction for Nodes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Node-Initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Initialization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Wallet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/CLI-Wallet-Cookbook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphene CLI Wallet Cookbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/HTLC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTLC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Import-account-to-cli-wallet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import account to cli wallet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Import-BitShares-0.9.3c-wallets-into-BitShares-2.0-CLI-wallet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import BitShares 0.9.3c wallets into BitShares 2.0 CLI wallet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Plasma---Wallet-API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plasma   Wallet API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-2-Factor-Authentication-Protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet 2 Factor Authentication Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Argument-Format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Argument Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Backup Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Login-Protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Login Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Merchant-Protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Merchant Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Server-Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Server Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet_Full-Nodes_Witness_Nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Full Nodes Witness Nodes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Web-and-light-wallets-release-procedure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web and light wallets release procedure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Witnesses
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Witnesses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../witnesses/How-To-become-an-active-witness-in-BitShares-2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How To become an active witness in BitShares 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../witnesses/How-to-setup-your-witness-for-test-net-%28Ubuntu-14.04-LTS-64-bit%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to setup your witness for test net (Ubuntu 14.04 LTS 64 bit)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../witnesses/witness-rng/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Witness rng
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../witnesses/witness-scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Witness scheduler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/DEV_README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DEV README
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/design-issues/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/dpos-slot-tickets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dpos slot tickets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/quick-tips-for-devs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Tips for BitShares Developers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Testing-BSIP40%3A-Custom-Authorities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Testing-BSIP81%3A-Simple-Maker-Taker-Fees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Testing-HF-1270%3A-Effects-of-MCR-Change-on-Call-Price/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/Monitoring-accounts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring accounts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/Contribution-Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contribution Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/Git-Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development / Release / Bugfix Workflows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/Style-Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Style Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Other
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Other
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/blacklizard-app-finarch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blacklizard app finarch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/blacklizard-app-ideas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blacklizard app ideas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TO_BE_SORTED
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            TO_BE_SORTED
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Creating-a-new-FBA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a new FBA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Custom-Authority-Precautions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Restricting the Power of Custom Authorities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Custom-Authority-Templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/ElasticSearch-Plugin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ElasticSearch Plugins Suite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/egenesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Egenesis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Howto-import-an-existing-delegate-as-witness-in-BitShares-2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Howto import an existing delegate as witness in BitShares 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Howto-propose-committee-actions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Howto propose committee actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/private-testnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Private testnet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/public-testnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public testnet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/README-debug_node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    README debug node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/resolvable-bitassets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resolvable bitassets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Scripting-websockets-easy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scripting websockets easy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/theoretical-theories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Theoretical theories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Websocket-Subscriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Websocket Subscriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="preface">Preface</h1>
+<p>The instructions below are intended to assist with manual testing of changes made to <a href="https://github.com/bitshares/bsips/blob/master/bsip-0043.md">share market fees between an asset owner and a trader's registrar and referrer</a> in <a href="https://github.com/bitshares/bitshares-core/milestone/16?closed=1">BitShares Core v.3.0.0</a>.</p>
+<p>These test instructions should be executed from a command line interface wallet (CLI) that has been <strong>built for your test environment</strong>.  For example, testing performed with the public testnet requires the CLI built for the <a href="https://testnet.bitshares.eu">BitShares Public Testnet</a>.  The following instructions were executed on a private testing environment where TEST was the core token.  These exact instructions may differ on your test environment in the following ways:</p>
+<ul>
+<li>The core token may be different than "TEST" (e.g. "BTS").  Modify the commands to use your core token symbol.</li>
+<li>The account names that are created might already exist in your test environment.  Check for their existence by running <code>get_account &lt;ACCOUNT_NAME&gt;</code>.  Modify the commands to use alternate account names).</li>
+<li>The asset names that are created might already exist in your test environment.  Check for the existence by running <code>get_asset &lt;ACCOUNT_NAME&gt;</code>.  Modify the commands to use alternate account names).</li>
+</ul>
+<h1 id="overview">Overview</h1>
+<p>From <a href="https://github.com/bitshares/bsips/blob/master/bsip-0043.md">BSIP-43</a>:</p>
+<p><em>"At this time unfortunately an assets owner is not able to share market fees with registrars and referrers to stimulate them to market the asset trading, so we suggest to add this possibility. Furthermore, enabling this feature for MPAs (e.g. bitCNY or bitUSD) can provide additional bounty for Bitshares registrars and referrals which can lead to more traders joining to the ecosystem.</em></p>
+<p><em>An asset owner defines the <strong>market_fee_reward_percent</strong>  in asset options - what percentage of the market fee he wants to share with the registrar.
+<strong>market_fee</strong> * <strong>market_fee_reward_percent</strong> goes the registrar.
+<strong>market_fee</strong> * (1 - <strong>market_fee_reward_percent</strong>) goes to the asset owner.</em></p>
+<p><em>Registrar splits the reward between itself and its referrers by defining <strong>reward_percent</strong>, which defines referrer's percentage. 
+It is defined per each other using the already existing BitShares mechanism.</em></p>
+<p><em>Market fee reward is accumulated on the user account.</em></p>
+<p><em>Each user decides when he wants to claim the market fee reward and move it to their active balance."</em></p>
+<p>The distribution variables are summarized in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Distribution Variable</th>
+<th>Determined by</th>
+<th>Distributed to</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>market_fee_percent</td>
+<td>Asset Owner</td>
+<td>Asset Owner</td>
+<td>Portion of the market trade that is collected as a fee</td>
+</tr>
+<tr>
+<td>market_fee_reward_percent</td>
+<td>Asset Owner</td>
+<td>Registrar of trader that is receiving the asset from the filled order</td>
+<td>Portion of the market_fee that is shared with the registrar</td>
+</tr>
+<tr>
+<td>reward_percent</td>
+<td>Registrar of trader that is receiving the asset from the filled order</td>
+<td>Referrer of trader that is receiving the asset from the filled order</td>
+<td>Portion of the registrar's portion that is shared with referrers</td>
+</tr>
+</tbody>
+</table>
+<p>The formulas for calculating the fee distribution are in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Distribution Recipient</th>
+<th><div id="distribution-formula" /> Formula for Distribution Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asset Owner</td>
+<td>filled_trade &times; market_fee_percent &times; (1 - market_fee_reward_percent)</td>
+</tr>
+<tr>
+<td>Registrar</td>
+<td>filled_trade &times; market_fee_percent &times; market_fee_reward_percent &times; (1 - reward_percent)</td>
+</tr>
+<tr>
+<td>Referrer</td>
+<td>filled_trade &times; market_fee_percent &times; market_fee_reward_percent &times; reward_percent</td>
+</tr>
+</tbody>
+</table>
+<p><strong><div id="example-1" /> Example 1 </div></strong></p>
+<p>100 units of an asset, called ASSET, is traded and filled on the DEX.  The market fee percent for the asset is 2%.  The resulting market fee is 2 ASSET.</p>
+<p>The market_fee_reward_percent is 40%, and the reward_percent is 80%.</p>
+<table>
+<thead>
+<tr>
+<th>Distribution Recipient</th>
+<th>Distribution Calculation per <a href="#distribution-formula">Formula</a></th>
+<th>Distribution Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asset Owner</td>
+<td>100 ASSET &times; 0.02 &times; (1 - 0.40)</td>
+<td>1.20 ASSET</td>
+</tr>
+<tr>
+<td>Registrar</td>
+<td>100 ASSET &times; 0.02 &times; 0.40 &times; (1 - 0.80)</td>
+<td>0.16 ASSET</td>
+</tr>
+<tr>
+<td>Referrer</td>
+<td>100 ASSET &times; 0.02 &times; 0.40 &times; 0.80</td>
+<td>0.64 ASSET</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>-</td>
+<td><strong>2.00 ASSET</strong></td>
+</tr>
+</tbody>
+</table>
+<h1 id="test-scenario-shared-market-fees-for-a-uia">Test Scenario: Shared Market Fees for a UIA</h1>
+<p>This test scenario will demonstrate the sharing of market fees of a user-issued asset (UIA) by using the same settings that are described in <a href="#example-1">Example 1</a>.</p>
+<h2 id="initialize-accounts"><div id="initialize_accounts" /> Initialize Accounts</h2>
+<p>The following test scenario portrays the interaction of six actors: a faucet account ("faucet"), an account registrar ("registrar"), a referrer ("referrer"), an asset owner ("asset-owner"), and two trading accounts ("trader-80" and "trader-30").  Each will require their own wallet with their own keys (see <a href="#tips-for-creating-keys">Tips for Creating New Keys</a>).  Certain steps must be performed by specific actors from their respective wallet.  Each step of the instructions describe which actor is performing that step (e.g. "Registrar: ..." indicates that the action should be performed from the wallet of the registrar account).  The reader should use the respective actor's wallet.</p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Testers who prefer convenience over strict separation of keys may prefer to keep the private keys of every actor in a single wallet.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="faucet-register-the-registrar-and-referrers">Faucet: Register the registrar and referrers</h3>
+<p>Create the accounts of the registrar, and the referrers from the <strong>faucet</strong> account (or any other LTM account)</p>
+<pre><code>register_account registrar TEST... TEST... faucet faucet 0 true
+transfer faucet registrar 20000 TEST &quot;&quot; true
+
+register_account referrer TEST... TEST... faucet faucet 0 true
+transfer faucet referrer 1000 TEST &quot;&quot; true
+
+register_account asset-owner TEST... TEST... faucet faucet 0 true
+transfer faucet asset-owner 50000 TEST &quot;&quot; true
+
+</code></pre>
+<h3 id="referrer-upgrade-to-lifetime-membership">Referrer: Upgrade to Lifetime Membership</h3>
+<pre><code>upgrade_account referrer true
+</code></pre>
+<h3 id="registrar-upgrade-to-lifetime-membership">Registrar: Upgrade to Lifetime Membership</h3>
+<pre><code>upgrade_account registrar true
+</code></pre>
+<h3 id="asset-owner-upgrade-to-lifetime-membership">Asset Owner: Upgrade to Lifetime Membership</h3>
+<pre><code>upgrade_account asset-owner true
+</code></pre>
+<h3 id="registrar-create-the-trader-accounts">Registrar: Create the trader accounts</h3>
+<p>Trader 80 will be created to be consistent with <a href="#example-1">Example 1</a> such that 80% of all registrar-destined fees are distributed to the referrer.</p>
+<pre><code>register_account trader-80 TEST... TEST... registrar referrer 80 true
+</code></pre>
+<p>Trader 30 will be created as another trader such that 30% of all registrar-destined fees are distributed to the referrer.</p>
+<pre><code>register_account trader-30 TEST... TEST... registrar referrer 30 true
+</code></pre>
+<h3 id="faucet-fund-the-trader-accounts">Faucet: Fund the trader accounts</h3>
+<pre><code>transfer faucet trader-80 5000 TEST &quot;&quot; true
+transfer faucet trader-30 5000 TEST &quot;&quot; true
+</code></pre>
+<h2 id="create-and-issue-the-uia">Create and Issue the UIA</h2>
+<h3 id="asset-owner-create-the-asset-type">Asset Owner: Create the Asset Type</h3>
+<p>The asset, called ASSET, will be created to be consistent with <a href="#example-1">Example 1</a> with a 20% market fee (expressed as 2000 in terms of hundredths of a percent) and a 40% reward fee (expressed as 4000 in terms of the hundredths of a percent) that is shared with the registrar of the trading account that receives the asset.</p>
+<pre><code>create_asset asset-owner ASSET 2 {&quot;max_supply&quot;:&quot;1000000000000000&quot;,&quot;market_fee_percent&quot;:2000,&quot;max_market_fee&quot;:&quot;1000000000000000&quot;,&quot;issuer_permissions&quot;:1,&quot;flags&quot;:1,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.0&quot;},&quot;quote&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.1&quot;}},&quot;whitelist_authorities&quot;:[],&quot;blacklist_authorities&quot;:[],&quot;whitelist_markets&quot;:[],&quot;blacklist_markets&quot;:[],&quot;description&quot;:&quot;&quot;,&quot;extensions&quot;:{&quot;reward_percent&quot;:4000}} null 
+</code></pre>
+<h3 id="asset-owner-issue-the-asset">Asset Owner: Issue the Asset</h3>
+<p>The asset will be issued to one of the trading accounts, "trader-30".</p>
+<pre><code>issue_asset trader-30 5000 ASSET &quot;&quot; true
+</code></pre>
+<h2 id="place-orders">Place Orders</h2>
+<p>Two orders will be constructed such that Trader 80 should receive 100 ASSET minus the market fee that is dictated by <a href="#example-1">Example 1</a>.</p>
+<p>Trader 30 will offer to sell 100 ASSET in exchange for 50 TEST.</p>
+<p>Trader 80 will offer to sell 50 TEST in exchange for 100 ASSET.</p>
+<p>Those orders will be matched and filled and the market fee of 2% will be deducted such that Trader 80 will finally receive 98 ASSET.</p>
+<h3 id="trader-30-sell-100-asset">Trader 30: Sell 100 ASSET</h3>
+<p>Place an order to sell 100 ASSET for at least 50 TEST.</p>
+<pre><code>sell_asset trader-30 100 ASSET 50 TEST 600 false true
+</code></pre>
+<p>Check the order book to find the newly placed order.</p>
+<pre><code>get_order_book ASSET TEST 1
+</code></pre>
+<p>The order will be waiting on the books for a match.</p>
+<h3 id="trader-80-sell-50-test">Trader 80: Sell 50 TEST</h3>
+<p>Place an order to sell 50 TEST for at least 100 ASSET.</p>
+<pre><code>sell_asset trader-80 50 TEST 100 ASSET 600 false true
+</code></pre>
+<p>Check the order book and find the order</p>
+<pre><code>get_order_book ASSET TEST 1
+</code></pre>
+<p>The original order by trader-30 will no longer be in the book because it was matched and filled against the order from trader-80.</p>
+<p>Check the account history for more details</p>
+<pre><code>get_account_history trader-80 2
+</code></pre>
+<p>The fee for the filled transaction should be 2% of the filled order of 100 ASSET = 2 ASSET.</p>
+<p>Check the balance of Trader 80 to confirm reception of 98 ASSET.</p>
+<pre><code>list_account_balances trader-80
+</code></pre>
+<h2 id="check-the-distribution-of-the-market-fee">Check the Distribution of the Market Fee</h2>
+<p>The market fee of 2 ASSET should now be distributed between the asset owner, the registrar, and the referrer per the description from <a href="#example-1">Example 1</a>.</p>
+<h3 id="any-wallet-check-the-fees-distributed-to-the-asset-owner"><div id="check-vesting-balances-of-asset-owner" /> Any Wallet: Check the fees distributed to the Asset Owner</h3>
+<p>First find the <code>dynamic_asset_data_id</code> of the asset</p>
+<pre><code>get_asset ASSET
+</code></pre>
+<p>Use the value for <code>dynamic_asset_data_id</code> field in an invocation of <code>get_object</code></p>
+<pre><code>get_object 2.3.x
+</code></pre>
+<p>Inspect the value found in the output for <code>accumulated_fees</code> which will be listed in satoshis.  This asset has a precision of 2 which means that the actual fees collected should be divided by 10<sup>2</sup>.  <em>The result should be 1.20 ASSET.</em></p>
+<h3 id="any-wallet-check-the-fees-distributed-to-the-registrar">Any Wallet: Check the fees distributed to the Registrar</h3>
+<pre><code>get_vesting_balances registrar
+</code></pre>
+<p>There might be many vesting balances listed.  Find the vesting balance of type <code>market_fee_sharing</code> with <code>asset_id</code> that matches the <code>id</code> of ASSET (Call <code>get_asset ASSET</code> to identify its <code>id</code> which will be of the form "1.3.x").</p>
+<p>Inspect the value for the <code>balance</code> field for the ASSET.  This asset has a precision of 2 which means that the actual fees collected should be divided by 10<sup>2</sup>.  <em>The result should be 0.16 ASSET.</em></p>
+<h3 id="any-wallet-check-the-fees-distributed-to-the-referrer">Any Wallet: Check the fees distributed to the Referrer</h3>
+<pre><code>get_vesting_balances referrer
+</code></pre>
+<p>There might be many vesting balances listed.  Find the vesting balance of type <code>market_fee_sharing</code> with <code>asset_id</code> that matches the <code>id</code> of ASSET (Call <code>get_asset ASSET</code> to identify its <code>id</code> which will be of the form "1.3.x").</p>
+<p>Inspect the value for the <code>balance</code> field for the ASSET.  This asset has a precision of 2 which means that the actual fees collected should be divided by 10^2.  <em>The result should be 0.64 ASSET.</em></p>
+<h2 id="optional-withdraw-the-distributed-fees">(Optional) Withdraw the Distributed Fees</h2>
+<p>Withdrawal of fees may optionally be tested by following <a href="#tips-for-withdrawing-distributed-fees">these instructions</a>.</p>
+<h1 id="reference-unit-tests">Reference: Unit Tests</h1>
+<p>For reference, the following unit tests that have been prepared to test the new functionality (<a href="https://github.com/bitshares/bitshares-core/pull/1419">1419</a>) for the issue (<a href="https://github.com/bitshares/bsips/blob/master/bsip-0043.md">BSIP-43</a>, <a href="https://github.com/bitshares/bitshares-core/issues/1270">1268</a>).</p>
+<ul>
+<li>Market Fee Rewards<ul>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L214">asset_rewards_test for Smart Asset</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L328">asset_claim_reward_test for UIA</a></li>
+</ul>
+</li>
+<li>Asset Configuration<ul>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L119">cannot_create_asset_with_additional_options_before_hf</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L144">create_asset_with_additional_options_after_hf</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L176">cannot_update_additional_options_before_hf</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L192">update_additional_options_after_hf</a></li>
+</ul>
+</li>
+<li>Tests with no rewards for registrar and referrer<ul>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L875">white_list_asset_rewards_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L416">white_list_is_empty_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L450">white_list_doesnt_contain_registrar_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L485">white_list_contains_referrer_test</a></li>
+</ul>
+</li>
+<li>Sanity checks<ul>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L947">create_vesting_balance_object_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L655">issue_asset</a></li>
+</ul>
+</li>
+<li>Blockchain Integration Tests<ul>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L551">create_asset_via_proposal_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L605">update_asset_via_proposal_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L764">create_vesting_balance_with_instant_vesting_policy_before_hf1268_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L787">create_vesting_balance_with_instant_vesting_policy_after_hf1268_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L830">create_vesting_balance_with_instant_vesting_policy_via_proposal_test</a></li>
+</ul>
+</li>
+<li>Asset Fee accumulation<ul>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L681">accumulated_fees_before_hf_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L705">accumulated_fees_after_hf_test</a></li>
+<li><a href="https://github.com/bitshares/bitshares-core/blob/bf7ff54d9a17aa43f4663521e371b8c0ddfc2284/tests/tests/market_fee_sharing_tests.cpp#L731">accumulated_fees_with_additional_options_after_hf_test</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="reference-creating-new-keys"><div id="tips-for-creating-keys" /> Reference: Creating New Keys</h1>
+<p>Registering a new account in BitShares requires the provision of at least two public keys to the registrar: one for the owner key and another for the active key.  Some registrars require a third public key for the memo.</p>
+<p>Random keys for a BitShares account can be created by using the CLI Wallet command <code>suggest_brain_key</code>.</p>
+<pre><code>locked &gt;&gt;&gt; suggest_brain_key 
+{
+  &quot;brain_priv_key&quot;: &quot;XXXXXX ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......&quot;,
+  &quot;wif_priv_key&quot;: &quot;5......&quot;,
+  &quot;pub_key&quot;: &quot;TEST......&quot;
+}
+</code></pre>
+<p>The public key is provided to a registrar during account registration.  The WIF private key should be securely archived.</p>
+<p>After account registration, a key can be imported into a CLI wallet with the command <code>import_key</code>.</p>
+<pre><code>locked &gt;&gt;&gt; gethelp import_key
+
+usage: import_key ACCOUNT_NAME_OR_ID  WIF_PRIVATE_KEY
+
+example: import_key &quot;1.3.11&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+example: import_key &quot;usera&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+</code></pre>
+<h1 id="reference-withdraw-the-distributed-fees"><div id="tips-for-withdrawing-distributed-fees" /> Reference: Withdraw the Distributed Fees</h1>
+<h2 id="registrar-and-referrer-withdraw-from-vesting-balances">Registrar and Referrer: Withdraw from Vesting Balances</h2>
+<p>The vesting balances for either the registrar or the referrer can be withdrawn with the following steps.</p>
+<p>Three identifiers will be needed to withdraw the vesting balance.</p>
+<ul>
+<li>The identifier of the account</li>
+<li>The identifier of the asset</li>
+<li>The identifier of the vesting balance</li>
+</ul>
+<p>The identifier of the account can be found by inspecting the <code>id</code> ("1.3.x") in the output of <code>get_account</code></p>
+<pre><code>get_account &lt;ACCOUNT_NAME&gt;
+</code></pre>
+<p>The identifier of the asset can be found by inspecting the <code>id</code> in the output of <code>get_asset</code> ("1.2.y").</p>
+<pre><code>get_asset &lt;ACCOUNT_NAME&gt;
+</code></pre>
+<p>The identifier of the vesting balance can be found by inspecting the <code>id</code> in the output of <code>get_vesting_balances</code> ("1.13.z").</p>
+<pre><code>get_vesting_balances &lt;ACCOUNT_NAME&gt;
+</code></pre>
+<p>There might be many vesting balances listed.  Find the vesting balance of type <code>market_fee_sharing</code> with <code>asset_id</code> that matches the <code>id</code> of ASSET.   Note the <code>id</code> of the vesting balance (e.g. "1.13.z") to use in the next step.</p>
+<p>Withdraw the vesting balance with the <code>vesting_balance_withdraw_operation</code> which has an <a href="https://github.com/bitshares/bitshares-core/blob/8c1a78b7f3f0083abee695c1b8a9b944f2c4a1be/libraries/chain/include/graphene/chain/protocol/operations.hpp#L84">operation identifier of 33</a>.  This will require building a transaction in the CLI Wallet.</p>
+<pre><code>begin_builder_transaction
+add_operation_to_builder_transaction 0 [33, {&quot;vesting_balance&quot;:&quot;1.13.z&quot;, &quot;owner&quot;:&quot;1.2.x&quot;, &quot;amount&quot;:{&quot;amount&quot;:16, &quot;asset_id&quot;:&quot;1.3.y&quot;}}]
+set_fees_on_builder_transaction 0 1.3.0
+</code></pre>
+<p>Optionally preview the transaction before signing.</p>
+<pre><code>preview_builder_transaction 0
+</code></pre>
+<p>Sign and broadcast the transaction.</p>
+<pre><code>sign_builder_transaction 0 true
+</code></pre>
+<h2 id="asset-owner-withdraw-from-accumulated-fees">Asset Owner: Withdraw from Accumulated Fees</h2>
+<p>The vesting balances for either the registrar or the referrer can be withdrawn with the following steps.</p>
+<p>Three identifiers will be needed to withdraw the vesting balance.</p>
+<ul>
+<li>The identifier of the account</li>
+<li>The identifier of the asset</li>
+</ul>
+<p>The identifier of the account can be found by inspecting the <code>id</code> ("1.3.x") in the output of <code>get_account</code></p>
+<pre><code>get_account &lt;ACCOUNT_NAME&gt;
+</code></pre>
+<p>The identifier of the asset can be found by inspecting the <code>id</code> in the output of <code>get_asset</code> ("1.2.y").</p>
+<pre><code>get_asset &lt;ACCOUNT_NAME&gt;
+</code></pre>
+<p>Withdraw the vesting balance with the <code>asset_claim_fees_operation</code> which has an <a href="https://github.com/bitshares/bitshares-core/blob/8c1a78b7f3f0083abee695c1b8a9b944f2c4a1be/libraries/chain/include/graphene/chain/protocol/operations.hpp#L94">operation identifier of 43</a>.  This will require building a transaction in the CLI Wallet.</p>
+<pre><code>begin_builder_transaction
+add_operation_to_builder_transaction 0 [43, {&quot;issuer&quot;:&quot;1.2.x&quot;, &quot;amount_to_claim&quot;:{&quot;amount&quot;:N, &quot;asset_id&quot;:&quot;1.3.y&quot;}}]
+set_fees_on_builder_transaction 0 1.3.0
+</code></pre>
+<p>Optionally preview the transaction before signing.</p>
+<pre><code>preview_builder_transaction 0
+</code></pre>
+<p>Sign and broadcast the transaction.</p>
+<pre><code>sign_builder_transaction 0 true
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

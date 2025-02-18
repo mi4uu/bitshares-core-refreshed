@@ -1,0 +1,11 @@
+site_name: Bitshares Core refreshed Docs
+repo_url: https://github.com/mi4uu/bitshares-core-refreshed
+plugins:
+  - search
+  - autorefs:
+      resolve_closest: true
+  - autolinks 
+  - awesome-nav
+
+theme:
+  name: material

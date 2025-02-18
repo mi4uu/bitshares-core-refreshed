@@ -1,0 +1,2716 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Contribution-Guide/">
+      
+      
+        <link rel="next" href="../Style-Guide/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Development / Release / Bugfix Workflows - Bitshares Core refreshed Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#development-release-bugfix-workflows" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Bitshares Core refreshed Docs" class="md-header__button md-logo" aria-label="Bitshares Core refreshed Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bitshares Core refreshed Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Development / Release / Bugfix Workflows
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mi4uu/bitshares-core-refreshed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Bitshares Core refreshed Docs" class="md-nav__button md-logo" aria-label="Bitshares Core refreshed Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bitshares Core refreshed Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mi4uu/bitshares-core-refreshed" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Building
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Building
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/BUILD_UBUNTU/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu (64-bit) Build and Install Instructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/BUILD_WIN32/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows development environment setup and build instructions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/BUILD_WinDevEnv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BUILD WinDevEnv
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/Building-on-macOS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BitShares-Core Build Instructions for macOS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building on OS X
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SPV
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            SPV
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/spv/SPV/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SPV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Threading
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Threading
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/threading/Threading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Threading in BitShares Core
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/Blockchain-Objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/chain-locked-tx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chain locked tx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/P2P-network-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P2P network protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/StealthTransfers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StealthTransfers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Nodes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Nodes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Delayed-Node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Delayed Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/distributed-access-to-the-bitshares-decentralised-exchange/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distributed Access to the BitShares Decentralised Exchange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Guide-to-setup-personal-nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run your own decentralised exchange
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/HaProxy-and-BitShares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using BitShares-core behind HaProxy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Manage-your-nodes-by-using-gnu-screen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manage your nodes by using gnu screen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Memory-Reduction-for-Nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Reduction for Nodes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nodes/Node-Initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Initialization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Wallet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/CLI-Wallet-Cookbook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphene CLI Wallet Cookbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/HTLC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTLC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Import-account-to-cli-wallet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import account to cli wallet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Import-BitShares-0.9.3c-wallets-into-BitShares-2.0-CLI-wallet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Import BitShares 0.9.3c wallets into BitShares 2.0 CLI wallet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Plasma---Wallet-API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plasma   Wallet API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-2-Factor-Authentication-Protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet 2 Factor Authentication Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Argument-Format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Argument Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Backup Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Login-Protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Login Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Merchant-Protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Merchant Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet-Server-Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Server Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Wallet_Full-Nodes_Witness_Nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wallet Full Nodes Witness Nodes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/Web-and-light-wallets-release-procedure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web and light wallets release procedure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Witnesses
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Witnesses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../witnesses/How-To-become-an-active-witness-in-BitShares-2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How To become an active witness in BitShares 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../witnesses/How-to-setup-your-witness-for-test-net-%28Ubuntu-14.04-LTS-64-bit%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to setup your witness for test net (Ubuntu 14.04 LTS 64 bit)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../witnesses/witness-rng/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Witness rng
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../witnesses/witness-scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Witness scheduler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/DEV_README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DEV README
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/design-issues/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/dpos-slot-tickets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dpos slot tickets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/quick-tips-for-devs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Tips for BitShares Developers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/Testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/Testing-BSIP40%3A-Custom-Authorities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/Testing-BSIP81%3A-Simple-Maker-Taker-Fees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/Testing-HF-1268%3A-Market-Fee-Sharing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/Testing-HF-1270%3A-Effects-of-MCR-Change-on-Call-Price/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/Monitoring-accounts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring accounts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Contribution-Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contribution Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Development / Release / Bugfix Workflows
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Development / Release / Bugfix Workflows
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goals-to-achieve" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goals To Achieve:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Rules:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-create-a-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To Create a Release
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-create-an-emergency-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To Create an Emergency Fix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-update-the-readmemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To Update the README.md
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Style-Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Style Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Other
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Other
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/blacklizard-app-finarch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blacklizard app finarch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/blacklizard-app-ideas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blacklizard app ideas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TO_BE_SORTED
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            TO_BE_SORTED
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Creating-a-new-FBA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a new FBA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Custom-Authority-Precautions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Restricting the Power of Custom Authorities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Custom-Authority-Templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/ElasticSearch-Plugin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ElasticSearch Plugins Suite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/egenesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Egenesis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Howto-import-an-existing-delegate-as-witness-in-BitShares-2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Howto import an existing delegate as witness in BitShares 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Howto-propose-committee-actions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Howto propose committee actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/private-testnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Private testnet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/public-testnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public testnet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/README-debug_node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    README debug node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/resolvable-bitassets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resolvable bitassets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Scripting-websockets-easy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scripting websockets easy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/theoretical-theories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Theoretical theories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_sort/Websocket-Subscriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Websocket Subscriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goals-to-achieve" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goals To Achieve:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Rules:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-create-a-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To Create a Release
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-create-an-emergency-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To Create an Emergency Fix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-update-the-readmemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To Update the README.md
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="development-release-bugfix-workflows">Development / Release / Bugfix Workflows</h1>
+<p>The purpose of this document is to describe and define how changes flow into our
+code and through the various stages of development until it finally goes into
+production.</p>
+<p>The general idea is based on <a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">git-flow</a>.</p>
+<p>For our purposes, the general concept behind gitflow has been extended to allow
+for these additional needs:</p>
+<ol>
+<li>We have two different types of releases, mainnet and testnet, with a master-like branch for each one.</li>
+<li>We have to distinguish consensus-breaking changes (aka hardforks) from
+   non-consensus-breaking changes.</li>
+</ol>
+<h2 id="goals-to-achieve">Goals To Achieve:</h2>
+<ol>
+<li>Maintain two independent release versions, testnet and mainnet.</li>
+<li>Decouple development from releases, i. e. maintain the ability to create
+   emergency bugfixes for current release without bringing incomplete new
+   features into production.</li>
+<li>Separate consensus-related changes from non-consensus-related changes.</li>
+<li>Keep development branches compatible with mainnet.</li>
+</ol>
+<h2 id="basic-rules">Basic Rules:</h2>
+<ol>
+<li>Development always happens in private feature-branches. The only exception is
+   a change that must be distinguished in the destination branch (typical
+   example: hardfork date in testnet).</li>
+<li>Features are merged after they are reasonably complete, i. e. they come with
+   unit tests that provide reasonable coverage and do not report any errors.<ol>
+<li>"Completed" features that are not consensus-related are merged into
+   "develop".</li>
+<li>"Completed" features that are consensus-related are merged into the
+   "hardfork" branch, with a hardfork date in the far future.</li>
+<li>All merges into "develop" or "hardfork" are performed via github PR's and
+   require review and approval from core developers (if the PR is created
+   by a core dev at least one other core dev must review and approve).</li>
+<li>To maintain a clean history and make reviewing and merging easier,
+   feature branches must be rebased onto current "develop" (or "hardfork")
+   before creating a PR.</li>
+<li>Merges are always done as real merges, not as fast-forwards, and not
+   squashed.</li>
+<li>For each branch, maintain a correct <code>sonar.branch.target</code> value in the
+   <code>sonar-project.properties</code> file until we develop a script to maintain it.</li>
+</ol>
+</li>
+<li>Core developers coordinate regular merges from "develop" into "hardfork".</li>
+<li>Both "develop" and "hardfork" should always remain compatible with mainnet,
+   i. e. a full replay must be possible.</li>
+<li>the planned version is set in the <code>sonar-project.properties</code> file</li>
+</ol>
+<h2 id="how-to-create-a-release">How To Create a Release</h2>
+<p>For a release,</p>
+<ol>
+<li>Check and bump stuff</li>
+<li>Check whether need to bump <code>DB_VERSION</code> to force a replay after upgraded:
+   if there is a data schema change, or logic change that affects historical
+   data, the answer is yes.</li>
+<li>FC version usually has been bumped already during development, but it
+   doesn't harm if check again.</li>
+<li>Check version in the <code>sonar-project.properties</code> file</li>
+<li>May need to bump baseimage version in Dockerfile</li>
+<li>Check reflection with <code>doxygen &amp;&amp; programs/build_helpers/check_reflect.py</code></li>
+<li>A "release" branch is created based on "develop" or "hardfork".</li>
+<li>A draft of release notes is prepared as a Github issue, with links to issues
+   and pull requests, and info that users might have interest in.</li>
+<li>The "release" branch is merged into "testnet".</li>
+<li>For a hardfork release, the hardfork date is adapted directly on the
+   testnet branch.</li>
+<li>The "testnet" branch is tagged as test-<i>version</i>. A pre-release is
+   created for that tag, with a link to the draft release notes.</li>
+<li>Create binaries for Linux, macOS and Windows with
+     <a href="https://github.com/bitshares/bitshares-gitian">bitshares-gitian</a> and
+     upload them to the pre-release page.<ul>
+<li>Note 1: some license files are stored in bitshares-gitian. If any of
+   them changed, need to update the copy in bitshares-gitian.</li>
+<li>Note 2: we may like to update libraries in bitshares-gitian, E.G. OpenSSL,
+   zlib and Curl may have new releases.</li>
+<li>Note 3: create a new branch in bitshares-gitian for each new release or
+   pre-release of bitshares-core.</li>
+</ul>
+</li>
+<li>A Docker image should be built and pushed to Docker Hub automatically
+     by Github Actions. Check it.
+     Link: https://hub.docker.com/r/bitshares/bitshares-core</li>
+<li>Bugfixes for the release are created on the "release" branch and merged into
+   "testnet". Additional test-<i>version</i>s are tagged as needed.
+   Additional pre-releases too.</li>
+<li>After sufficient testing, the release must be approved. In the case of a
+   hardfork release, witness approval is required.</li>
+<li>After approval, a <em>version</em> will be decided. If it is a hardfork release,
+   the mainnet hardfork date is decided and set in the "release" branch.</li>
+<li>Bump docs sub-module which links to wiki in the "release" branch.</li>
+<li>Update Doxyfile with the planned version in the "release" branch.</li>
+<li>Update CONTRIBUTORS.txt in the "release" branch according to instructions
+    inside. Update the CONTRIBUTORS.txt file in FC too, and bump FC if needed.</li>
+<li>The "release" branch is merged into "master", and a <em>version</em> tag is created
+    on "master". Create the tag by git command line and push to github.
+    This is needed for Docker to catch the new tag.<ul>
+<li>Note 1: normally, a docker build will be triggered automatically in Github
+  Actions after the tag is pushed, and a new Docker image will be pushed to
+  Docker Hub when it's done.</li>
+<li>Note 2: The project description on Docker Hub is not updated automatically.
+  Edit it manually (copy and modify from README.md) if needed.</li>
+</ul>
+</li>
+<li>Create binaries for Linux, macOS and Windows with
+    <a href="https://github.com/bitshares/bitshares-gitian">bitshares-gitian</a>.<ul>
+<li>Note 1: some license files are stored in bitshares-gitian. If any of
+  them changed, need to update the copy in bitshares-gitian.</li>
+<li>Note 2: we may like to update libraries in bitshares-gitian, E.G. OpenSSL,
+  zlib and Curl may have new releases.</li>
+<li>Note 3: create a new branch in bitshares-gitian for each new release or
+  pre-release of bitshares-core.</li>
+</ul>
+</li>
+<li>Create the release on Github by attaching the prepared release notes to the
+    tag, attach the binaries and add checksums of the binaries in the release
+    notes.</li>
+<li>Update online code documentation by using updated <code>Doxyfile</code> as config file
+    in the <code>master</code> branch.<ul>
+<li>Send pull request to https://github.com/bitshares/doxygen.bitshares.org with
+  new content in html format.</li>
+<li>Note: the HTML files are hosted on Github Pages, thus the <code>CNAME</code> file in
+    the target directory need to be kept. </li>
+<li>Note: need to edit <code>index.html</code>, remove the "Build Status" CI badges.</li>
+<li>Send pull request to https://github.com/bitshares/dev.bitshares.works with
+  new content in xml format.</li>
+</ul>
+</li>
+<li><del>Update date of last core <a href="https://github.com/bitshares/bitshares.org/blob/master/download.php">download page of bitshares.org site</a>.</del></li>
+<li>The "release" branch is merged back into "develop" and "hardfork".</li>
+<li>The "release" branch is merged into "testnet". This will produce a merge
+    conflict for the hardfork dates, which must be resolved without changing the
+    testnet hardfork date.</li>
+</ol>
+<p><strong>Note:</strong> Solving conflicts by github(web) will merge branches in unintended
+directions. Avoid solving this way, merge and resolve conflicts manually through
+the git command line. Conflicts generally occur when merging release to testnet.</p>
+<p><strong>Note 2:</strong> Follow command line github suggestion to resolve conflicts but at the
+end of the process you will not have permission to merge directly to <code>testnet</code>,
+never push the fix to <code>release</code>. Create a new branch and push there, then create
+a new pull request between <code>testnet</code> and <code>new_branch</code>, merge <code>new_branch</code> to
+<code>testnet</code> and <code>release</code> will be automatically added to the merge.</p>
+<p><strong>Note 3:</strong> When creating tag for testnet do it from the command line with
+<code>git tag</code>. Github don't have the option to create a tag without a release.</p>
+<p><strong>Note 4:</strong> Don't change tags on github. This is a source of confusion, and of
+irreproducible bug reports. Making a new one is better (ex: test-3.0.1).</p>
+<p><strong>Note 5:</strong> Do not mark mainnet releases as "pre-release" unless there is a new
+version coming immediately after.
+Never upgrade "pre-release" to "release" as new emails to subscribers will not
+be sent when doing so.</p>
+<h2 id="how-to-create-an-emergency-fix">How To Create an Emergency Fix</h2>
+<p>An emergency fix may become necessary when a serious problem in mainnet is
+discovered. The goal here is to fix the problem as soon as possible, while
+keeping the risk for creating additional problems as low as possible.</p>
+<p>First of all, the problem must be analyzed and debugged. This happens,
+naturally, directly on the release version.</p>
+<p>Presumably the developer who creates the fix will work on his private master
+branch. That is OK. But for publishing the fix, the following steps should be
+taken:</p>
+<ol>
+<li>Find the version of the "release" branch that was merged into "master"
+   when creating the broken release version, name it "old-release".</li>
+<li>The fix is applied to "old-release" via pull requests.</li>
+<li>The new "old-release" branch (with the fix) is merged into "master", and
+   a <em>version</em> tag is created on "master".</li>
+<li>A new Docker image will be built and pushed to Docker Hub automatically.</li>
+<li>Witnesses update to the new <em>version</em>, and production continues.</li>
+<li>A unit test is created on the original "old-release" (without the fix)
+   that reproduces the problem.</li>
+<li>The two "old-release" branches (one with the fix and the other with the
+   unit test) are merged, and it is verified that the fix resolves the
+   problem, by running the unit test.</li>
+<li>Follow the normal release workflow to create a release, upload binaries,
+   update docs and etc.</li>
+<li>The new "old-release" branch (with both the fix and the unit test) is
+   merged into "testnet". Follow the normal workflow to create a testnet
+   release.</li>
+<li>The new "old-release" branch (with both the fix and the unit test) is
+   merged back into "develop", and if needed, into "hardfork" and the
+   current "release".</li>
+</ol>
+<h2 id="how-to-update-the-readmemd">How To Update the README.md</h2>
+<p>In general we want changes in the README to be visible fast in <code>master</code>.</p>
+<ol>
+<li>If the <code>release</code> branch contains changes that we don't want to merge into
+   <code>master</code> yet, create a new branch from the version of the latest <code>release</code>
+   branch that was merged into <code>master</code>, and update the README.md file in the
+   new branch via pull requests. Otherwise, update the README.md file in the
+   <code>release</code> branch via pull requests.</li>
+<li>If created a new branch in the last step, merge the new branch into <code>release</code>
+   and <code>master</code>. Otherwise, merge <code>release</code> into <code>master</code>.</li>
+<li>Merge <code>release</code> back into <code>develop</code>.</li>
+<li>Merge <code>release</code> into <code>testnet</code> and/or merge <code>develop</code> into <code>hardfork</code> if
+   changes need to be visible in the branches, or wait until these merges
+   occur naturally.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

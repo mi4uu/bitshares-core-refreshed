@@ -1,0 +1,17 @@
+nav:
+  - Home: index.md
+  - Building: docs/build
+  - Architecture: 
+    - SPV: docs/architecture/spv/
+    - Threading: docs/architecture/threading/
+    - docs/architecture/
+
+  - Nodes: docs/nodes/
+  - Wallet: docs/wallet/
+  - Witnesses: docs/witnesses/
+  - Dev: docs/dev/
+  - Testing: docs/testing/
+  - Integration: docs/integration/
+  - Contributing: docs/contributing/
+  - Other: docs/other/
+  - TO_BE_SORTED: docs/to_sort/
