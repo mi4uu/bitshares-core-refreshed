@@ -1,1 +1,1 @@
-cmd='/home/mi4u/Work/bitshares-core/libraries/fc/vendor/secp256k1-zkp/configure;--prefix=/home/mi4u/Work/bitshares-core/build/libraries/fc/vendor/secp256k1-zkp;--with-bignum=no'
+cmd='/workspaces/bitshares-core/libraries/fc/vendor/secp256k1-zkp/configure;--prefix=/workspaces/bitshares-core/build/libraries/fc/vendor/secp256k1-zkp;--with-bignum=no'

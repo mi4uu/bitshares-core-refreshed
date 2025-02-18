@@ -1,6 +1,7 @@
 #include <fc/crypto/openssl.hpp>
 
 #include <fc/filesystem.hpp>
+#include <openssl/crypto.h>
 
 #include <boost/filesystem/path.hpp>
 
@@ -43,11 +44,11 @@ namespace  fc
 
        ~openssl_scope()
        {
-#if not defined(LIBRESSL_VERSION_NUMBER)
-          // No FIPS in LibreSSL.
-          // https://marc.info/?l=openbsd-misc&m=139819485423701&w=2
-          FIPS_mode_set(0);
-#endif
+// #if not defined(LIBRESSL_VERSION_NUMBER)
+//           // No FIPS in LibreSSL.
+//           // https://marc.info/?l=openbsd-misc&m=139819485423701&w=2
+//           FIPS_mode_set(0);
+// #endif
           CONF_modules_unload(1);
           EVP_cleanup();
           CRYPTO_cleanup_all_ex_data();

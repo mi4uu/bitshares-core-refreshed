@@ -2,11 +2,11 @@ pkgconfigdir    = $(libdir)/pkgconfig
 pkgconfig_DATA  = libeditline.pc
 doc_DATA        = README.md LICENSE
 EXTRA_DIST      = README.md LICENSE ChangeLog.md INSTALL.md
-SUBDIRS         = src include man examples
+SUBDIRS         = src include man
 
-## Generate .deb package
-package build-deb:
-	@dpkg-buildpackage -uc -us
+if ENABLE_EXAMPLES
+SUBDIRS            += examples
+endif
 
 ## Generate MD5 checksum file
 MD5 = md5sum
@@ -39,7 +39,7 @@ package:
 	dpkg-buildpackage -uc -us -B
 
 ## Target to run when building a release
-release: distcheck release-hook md5-dist package
+release: release-hook distcheck md5-dist package
 	@echo
 	@echo "Resulting release files:"
 	@echo "========================================================================="

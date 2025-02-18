@@ -197,14 +197,14 @@ char *el_filename_complete(char *pathname, int *match)
     if (ac == 1) {
         /* Exactly one match -- finish it off. */
         *match = 1;
-        j = strlen(av[0]) - len + 2;
-	p = malloc(sizeof(char) * (j + 1));
+        j = strlen(av[0]) - len + 1;
+        p = malloc(sizeof(char) * (j + 1));
         if (p) {
             memcpy(p, av[0] + len, j);
-	    len = strlen(dir) + strlen(av[0]) + 2;
-	    path = malloc(sizeof(char) * len);
+            len = strlen(dir) + strlen(av[0]) + 2;
+            path = malloc(sizeof(char) * len);
             if (path) {
-		snprintf(path, len, "%s/%s", dir, av[0]);
+                snprintf(path, len, "%s/%s", dir, av[0]);
                 rl_add_slash(path, p);
                 free(path);
             }
@@ -278,7 +278,7 @@ static char *rl_find_token(size_t *len)
     int pos;
 
     for (pos = rl_point; pos < rl_end; pos++) {
-	if (isspace(rl_line_buffer[pos])) {
+	if (isspace((unsigned char) rl_line_buffer[pos])) {
 	    if (pos > 0)
 		pos--;
 	    break;
@@ -286,7 +286,7 @@ static char *rl_find_token(size_t *len)
     }
 
     ptr = &rl_line_buffer[pos];
-    while (pos >= 0 && !isspace(rl_line_buffer[pos])) {
+    while (pos >= 0 && !isspace((unsigned char) rl_line_buffer[pos])) {
 	if (pos == 0)
 	    break;
 

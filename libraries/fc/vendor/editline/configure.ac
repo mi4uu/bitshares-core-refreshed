@@ -1,5 +1,6 @@
-AC_INIT(editline, 1.16.1-dev, https://github.com/troglobit/editline/issues)
-AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz])
+AC_INIT(editline, 1.17.1, https://github.com/troglobit/editline/issues)
+AC_CONFIG_AUX_DIR(aux)
+AM_INIT_AUTOMAKE([1.11 foreign dist-xz])
 AM_SILENT_RULES([yes])
 
 AC_CONFIG_MACRO_DIR([m4])
@@ -60,29 +61,35 @@ AC_ARG_ENABLE(terminal-bell,
 AC_ARG_ENABLE(termcap,
    AS_HELP_STRING([--enable-termcap], [Use termcap library to query terminal size.]))
 
+AC_ARG_ENABLE([examples],
+	[AC_HELP_STRING([--enable-examples], [Build examples/ directory])],
+	[], [enable_examples=no])
+
 #
 # Check what features have been enabled
 #
-AS_IF([test "x$enable_unique_history" != "xno"],
-   AC_DEFINE(CONFIG_UNIQUE_HISTORY, 1, [Define to skip duplicate lines in the scrollback history.]))
+AS_IF([test "x$enable_unique_history" != "xno"], [
+   AC_DEFINE(CONFIG_UNIQUE_HISTORY, 1, [Define to skip duplicate lines in the scrollback history.])])
 
-AS_IF([test "x$enable_terminal_bell" != "xno"],
-   AC_DEFINE(CONFIG_ANSI_ARROWS, 1, [Define to include ANSI arrow keys support.]))
+AS_IF([test "x$enable_terminal_bell" != "xno"], [
+   AC_DEFINE(CONFIG_ANSI_ARROWS, 1, [Define to include ANSI arrow keys support.])])
 
-AS_IF([test "x$enable_eof" != "xno"],
-   AC_DEFINE(CONFIG_EOF, 1, [Define to enable EOF (Ctrl-D) key.]))
+AS_IF([test "x$enable_eof" != "xno"], [
+   AC_DEFINE(CONFIG_EOF, 1, [Define to enable EOF (Ctrl-D) key.])])
 
-AS_IF([test "x$enable_sigint" != "xno"],
-   AC_DEFINE(CONFIG_SIGINT, 1, [Define to enable SIGINT (Ctrl-C) key.]))
+AS_IF([test "x$enable_sigint" != "xno"], [
+   AC_DEFINE(CONFIG_SIGINT, 1, [Define to enable SIGINT (Ctrl-C) key.])])
 
-AS_IF([test "x$enable_sigstop" = "xyes"],
-   AC_DEFINE(CONFIG_SIGSTOP, 1, [Define to enable SIGSTOP (Ctrl-Z) key.]))
+AS_IF([test "x$enable_sigstop" = "xyes"], [
+   AC_DEFINE(CONFIG_SIGSTOP, 1, [Define to enable SIGSTOP (Ctrl-Z) key.])])
 
-AS_IF([test "x$enable_terminal_bell" = "xyes"],
-   AC_DEFINE(CONFIG_TERMINAL_BELL, 1, [Define to enable terminal bell on completion.]))
+AS_IF([test "x$enable_terminal_bell" = "xyes"], [
+   AC_DEFINE(CONFIG_TERMINAL_BELL, 1, [Define to enable terminal bell on completion.])])
+
+AM_CONDITIONAL([ENABLE_EXAMPLES], [test "$enable_examples" = yes])
 
 # Check for a termcap compatible library if enabled
-AS_IF([test "x$enable_termcap" = "xyes"],
+AS_IF([test "x$enable_termcap" = "xyes"], [
    AC_DEFINE(CONFIG_USE_TERMCAP, 1, [Define to use the termcap library for terminal size.])
    AC_CHECK_LIB(terminfo, tgetent, , [
       AC_CHECK_LIB(termcap, tgetent, , [
@@ -93,7 +100,7 @@ AS_IF([test "x$enable_termcap" = "xyes"],
                ])
             ])
          ])
-      ]))
+      ])])
 
 # Generate all files
 AC_OUTPUT

@@ -1,1 +1,1 @@
-cmd='/home/mi4u/Work/bitshares-core/libraries/fc/vendor/editline/configure;--prefix=/home/mi4u/Work/bitshares-core/build/libraries/fc/vendor/editline'
+cmd='/workspaces/bitshares-core/libraries/fc/vendor/editline/configure;--prefix=/workspaces/bitshares-core/build/libraries/fc/vendor/editline'

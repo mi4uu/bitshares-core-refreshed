@@ -33,14 +33,17 @@ to use the library is available in the `examples/` directory.
 
 Editline is maintained collaboratively at [GitHub][].
 
+> **Note:** Windows is not a supported target for editline.
+
 
 Example
 -------
 
-Below follows a brief example to  illustrate how one can use Editline to
-create a  simple CLI, use  Ctrl-D to exit  the program.  For  a slightly
-more  advanced example,  see <https://github.com/troglobit/jush/>.   The
-Editline sources also include an `examples/` sub-directory.
+Below is a very brief example to illustrate how one can use Editline to
+create a simple CLI, Ctrl-D exits the program.  A slightly more advanced
+example is Jush, <https://github.com/troglobit/jush/>, a small and very
+simplistic UNIX shell.  The Editline sources also include an `examples/`
+sub-directory.
 
 1. Build and install the library, preferably using a [release tarball][]
    The configure script defaults to a `/usr/local` prefix.
@@ -55,6 +58,7 @@ Editline sources also include an `examples/` sub-directory.
    e.g. `~/src/example.c`
 
 ```C
+    #include <stdio.h>
     #include <stdlib.h>
     #include <editline.h>
 
@@ -194,6 +198,7 @@ current maintainer works exclusively on GNU/Linux systems, so it may use
 GCC and  GNU Make specific  extensions here and  there.  This is  not on
 purpose and patches or pull requests to correct this are most welcome!
 
+0. Call <kbd>./autogen.sh</kbd> if you build from git
 1. Configure editline with default features: <kbd>./configure</kbd>
 2. Build the library and examples: <kbd>make all</kbd>
 3. Install using <kbd>make install</kbd>

@@ -99,9 +99,9 @@ if(NOT MANUAL_SUBMODULES)
       endif()
     endfunction ()
 
-    message(STATUS "Checking submodules")
-    check_submodule(docs)
-    check_submodule(libraries/fc)
+    message(STATUS "NOT Checking submodules")
+    # check_submodule(docs)
+    # check_submodule(libraries/fc)
   endif()
 endif()
 # Make sure to always re-run the test.

@@ -2,7 +2,7 @@ Contributors to this repository, in descending order by number of commits. Updat
   head -5 CONTRIBUTORS.txt >contrib.tmp && git shortlog -s -e -n | cut -f 2 >>contrib.tmp && mv contrib.tmp CONTRIBUTORS.txt
 
 ==============================================================================
-
+Michal Lipinski <michal.lipinski.gmail.com>
 abitmore <abitmore@users.noreply.github.com>
 Alfredo Garcia <oxarbitrage@gmail.com>
 John M. Jones <jmjatlanta@gmail.com>

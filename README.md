@@ -1,6 +1,12 @@
 BitShares Core
 ==============
 
+### update
+
+updated to work on current ubuntu based system.
+updated to build / develop / debug using devcontainers.
+
+
 [BitShares Core](https://github.com/bitshares/bitshares-core) is the BitShares blockchain node software and command-line wallet software.
 For UI reference wallet software (browser-based wallet and desktop wallet) visit [BitShares UI](https://github.com/bitshares/bitshares-ui).
 

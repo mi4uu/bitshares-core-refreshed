@@ -1,0 +1,11 @@
+services:
+  fullnode:
+  # Image to run
+    build: .
+    environment:
+      - BITSHARESD_ARGS=--help
+    ports:
+      - "0.0.0.0:8090:8090"
+    volumes:
+       - ./docker/conf/:/etc/bitshares/
+       - ../build/:/bitshares-core/
