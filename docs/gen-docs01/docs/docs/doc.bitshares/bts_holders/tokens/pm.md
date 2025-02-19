@@ -13,16 +13,11 @@ asset is 1-to-1.
 Table of Contents
 :::
 
-:::: note
-::: title
-Note
-:::
-
-In the following, we denote a *positive outcome* as a predication market
-that resolves to [true]{.title-ref} (i.e. a price feed of
-[1]{.title-ref}) and a *negative outcome* to resolve to
-[false]{.title-ref} (i.e., a price feed of [0]{.title-ref})
-::::
+> [!NOTE]
+> In the following, we denote a *positive outcome* as a predication
+> market that resolves to [true]{.title-ref} (i.e. a price feed of
+> [1]{.title-ref}) and a *negative outcome* to resolve to
+> [false]{.title-ref} (i.e., a price feed of [0]{.title-ref})
 
 If the bet resolves to [true]{.title-ref} (i.e. a price feed of
 [1]{.title-ref}), then the PM-asset can be settled release the
@@ -68,12 +63,12 @@ make [80%]{.title-ref} profits at a risk of loosing with
 After closing of the bet, a user can claim his profits by **settling**
 his borrow position and taking out the collateral:
 
--   **Settlement in the CLI wallet**: :
+- **Settlement in the CLI wallet**: :
 
-        >>> settle_asset <account> <amount> <symbol> True
+      >>> settle_asset <account> <amount> <symbol> True
 
--   **Borrowing in the GUI wallet**: A settlement button is available
-    when hovering the asset in your account\'s overview.
+- **Borrowing in the GUI wallet**: A settlement button is available when
+  hovering the asset in your account\'s overview.
 
 ### Betting for a Negative Outcome
 
@@ -88,14 +83,9 @@ a negative outcome with [100k BTS]{.title-ref}, you can borrow [100k
 PM.PRESIDENT2016]{.title-ref} by paying [100k BTS]{.title-ref} to the
 network.
 
-:::: note
-::: title
-Note
-:::
-
-Since PM-Assets can technically be pegged by any other asset, you may
-need to pay USD (or anything else) instead of BTS.
-::::
+> [!NOTE]
+> Since PM-Assets can technically be pegged by any other asset, you may
+> need to pay USD (or anything else) instead of BTS.
 
 Once you borrowed the token, you can sell them at any price between
 [0]{.title-ref} and [1]{.title-ref}. If you thing the probability of a
@@ -114,15 +104,15 @@ If, by the end of the bet, you still have some of the tokens left, you
 can of course close your borrow position partly and redeem the
 corresponding percentage of the collateral.
 
--   **Borrowing in the CLI wallet**: :
+- **Borrowing in the CLI wallet**: :
 
-        >>> borrow_asset <account> <amount> <PMsymbol> <1:1-amount> true
+      >>> borrow_asset <account> <amount> <PMsymbol> <1:1-amount> true
 
--   **Borrowing in the GUI wallet**: Of course, the asset can also be
-    borrowed in the **GUI/web wallet** by using the [Borrow
-    x]{.title-ref} button in the market.
+- **Borrowing in the GUI wallet**: Of course, the asset can also be
+  borrowed in the **GUI/web wallet** by using the [Borrow x]{.title-ref}
+  button in the market.
 
-    ![Borrow PM-Asset](pm-borrow-btn.png){.align-center width="400px"}
+  ![Borrow PM-Asset](pm-borrow-btn.png){.align-center width="400px"}
 
 ## Resolving
 
@@ -131,9 +121,3 @@ issuer or feed producer. It is essentially a global settlement which
 will set the parameters of the asset such that the holders of the asset
 can settle at the outcome of the bet (0, or 1). The details are shown in
 the guide pm-close-manual (ref: *docs.bitshares.dev* material)
-
-| 
-
-| 
-
-| 

@@ -59,14 +59,9 @@ Base Asset Amount
 
 :   Core exchange rate
 
-:::: note
-::: title
-Note
-:::
-
-Symbols with less than 5 characters are very expensive. Please consult
-the Networks fees in the explorer!
-::::
+> [!NOTE]
+> Symbols with less than 5 characters are very expensive. Please consult
+> the Networks fees in the explorer!
 
 ### Description
 
@@ -98,32 +93,22 @@ Even though the default settings should be fine for most UIAs, we have
 the option to opt-out of some available features. (By default, or
 permissions are enabled).
 
-:::: note
-::: title
-Note
-:::
-
-Once a permission has been set to false, the permission cannot be
-reactivated!
-::::
+> [!NOTE]
+> Once a permission has been set to false, the permission cannot be
+> reactivated!
 
 We have the options to opt-out of:
 
--   Enabling Market Fees
--   Requiring holders to be white-listed
--   Issuer may transfer asset back to himself
--   Issuer must approve all transactions
--   Disable confidential transactions
+- Enabling Market Fees
+- Requiring holders to be white-listed
+- Issuer may transfer asset back to himself
+- Issuer must approve all transactions
+- Disable confidential transactions
 
-:::: note
-::: title
-Note
-:::
-
-that setting these permissions does not imply that the features is
-enabled. To do so, we would also require to enable the corresponding
-flag(s). (See below)
-::::
+> [!NOTE]
+> that setting these permissions does not imply that the features is
+> enabled. To do so, we would also require to enable the corresponding
+> flag(s). (See below)
 
 ### Flags (Optional)
 
@@ -158,7 +143,5 @@ days).
 Go to **\[Explore\]** - **\[Asset\]** - **\[User Issues Assets\]**
 
 ![BitShares](uia-ui-7.png){.align-center width="600px"}
-
-| 
 
 ------------------------------------------------------------------------

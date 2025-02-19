@@ -61,11 +61,11 @@ those that are owned by the BitShares Committee, are called
 
 *SmartCoins*. Among these are:
 
--   (Bit)USD
--   (Bit)CNY
--   (Bit)EUR
--   (Bit)GOLD
--   (Bit)Silver
+- (Bit)USD
+- (Bit)CNY
+- (Bit)EUR
+- (Bit)GOLD
+- (Bit)Silver
 
 Balances in these assets are labeled with [USD]{.title-ref},
 [CNY]{.title-ref}, etc., because represent the same value as their
@@ -99,9 +99,3 @@ changed by the witnesses.
 Read more about the
 `margin call mechanics <dex-margin-mechanics>`{.interpreted-text
 role="ref"} before trading.
-
-| 
-
-| 
-
-| 

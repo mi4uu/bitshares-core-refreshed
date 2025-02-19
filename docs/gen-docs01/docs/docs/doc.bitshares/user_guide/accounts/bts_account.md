@@ -5,7 +5,7 @@ name for your BitShares account. You do not need to write down a long
 random number as your account name. The BitShares account name would be
 helpful to identify other BitShares accounts.
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
@@ -40,8 +40,8 @@ the BitShares account name to communicate (e.g., sending fund) with
 of using account name is you, and other people can identify the account
 holder.
 
--   If you want to see the BitShares wallet, go to this link. It opens
-    [BitShare UI wallet](https://wallet.bitshares.org)
+- If you want to see the BitShares wallet, go to this link. It opens
+  [BitShare UI wallet](https://wallet.bitshares.org)
 
 ## Identifier
 
@@ -70,11 +70,7 @@ Also, most transactions are tied to the account name and can be linked
 to individuals (this includes transfers, trades, shorts, etc. but not
 stealthed transactions).
 
-| 
-
 ## Accounts and keys
 
 ![UI Account create](../../_static/structures/ui_create_account_keys.png){.align-center
 width="700px"}
-
-| 

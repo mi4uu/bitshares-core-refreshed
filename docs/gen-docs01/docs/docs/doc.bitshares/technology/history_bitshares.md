@@ -1,6 +1,6 @@
 # The History of BitShares
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
@@ -12,12 +12,12 @@ pleased with them. This series is intended to be a resource for newbies
 and a summary of all that has been accomplished in the past year. Think
 of this as the Official Year One Newsletter.\"
 
--   [Part One
-    Source](https://bitsharestalk.org/index.php?topic=4833.msg63464#msg63464)
--   [Part Two
-    Source](https://bitsharestalk.org/index.php?topic=4833.msg63678#msg63678)
--   [Part Three
-    Source](https://bitsharestalk.org/index.php?topic=4833.msg64045#msg64045)
+- [Part One
+  Source](https://bitsharestalk.org/index.php?topic=4833.msg63464#msg63464)
+- [Part Two
+  Source](https://bitsharestalk.org/index.php?topic=4833.msg63678#msg63678)
+- [Part Three
+  Source](https://bitsharestalk.org/index.php?topic=4833.msg64045#msg64045)
 
 ## Part One
 
@@ -29,8 +29,8 @@ key insight that makes BitShares possible. Before sundown he had
 reworked his original BitShares whitepaper and published the whole new
 concept at bitcointalk.org:
 
--   [Creating a Fiat/Bitcoin Exchange without Fiat
-    Deposits](https://bitcointalk.org/index.php?topic=223747.0)
+- [Creating a Fiat/Bitcoin Exchange without Fiat
+  Deposits](https://bitcointalk.org/index.php?topic=223747.0)
 
 Over the next five weeks, Bytemaster engaged in a series of vigorous
 forum discussions defending and refining the concept. There he met
@@ -48,10 +48,10 @@ In September, the concept of a Distributed Autonomous Company (DAC) was
 invented and introduced to the world in two groundbreaking
 LetsTalkBitcoin.com articles:
 
--   [Overpaying for
-    Security](http://letstalkbitcoin.com/is-bitcoin-overpaying-for-false-security/#.Ui-p9WTFT7s)
--   [Bitcoin and the Three Laws of
-    Robotics](http://letstalkbitcoin.com/bitcoin-and-the-three-laws-of-robotics/)
+- [Overpaying for
+  Security](http://letstalkbitcoin.com/is-bitcoin-overpaying-for-false-security/#.Ui-p9WTFT7s)
+- [Bitcoin and the Three Laws of
+  Robotics](http://letstalkbitcoin.com/bitcoin-and-the-three-laws-of-robotics/)
 
 Invictus introduced the BitShares Vision to the world via presentations
 by Hoskinson and Larimer at the Atlanta Bitcoin Conference in October
@@ -209,7 +209,7 @@ It was just our opening shot.
 
 ## Part Three
 
-### December\'s Innovation -- TAPOS and the End of Mining
+### December\'s Innovation -- TAPOS and the End of Mining {#decembers-innovation-tapos-and-the-end-of-mining}
 
 In the weeks that followed it became increasingly obvious that the whole
 paradigm of mining on which the crypto-currency industry is founded was
@@ -350,40 +350,38 @@ made to be kept under the current level of Bitcoin inflation, but
 delivering direct and meaningful value. Timeline of BitShares by forum
 announcements
 
--   Momentum Proof of Work Introduced on BTT - October 18 2013
-    -   <https://bitcointalk.org/index.php?topic=313479.0>
-    -   <http://static.squarespace.com/static/51fb043ee4b0608e46483caf/t/52654716e4b01acd1ac8a085/1382369046208/MomentumProofOfWork.pdf>
-        (White Paper)
-    -   <https://bitsharestalk.org/index.php?topic=962.msg9752#msg9752>
--   Keyhotee ID Preorder - November 3, 2013
-    -   <https://bitsharestalk.org/index.php?topic=2.msg2#msg2>
--   Mining of Bitshares PTS (Protoshares) - November 5, 2013
-    -   <https://bitsharestalk.org/index.php?topic=4.msg4#msg4>
--   Transactions as Proof of Stake - November 30, 2013
-    -   <https://bitsharestalk.org/index.php?topic=1138.msg12010#msg12010>
-    -   <http://the-iland.net/static/downloads/TransactionsAsProofOfStake.pdf>
-    -   <https://bitsharestalk.org/index.php?topic=1138.msg11968#msg11968>
-    -   <https://bitsharestalk.org/index.php?topic=1138.msg12967#msg12967>
--   Consensus + TaPoS
-    -   <https://bitsharestalk.org/index.php?topic=1138.msg29905#msg29905>
-    -   <https://bitsharestalk.org/index.php?topic=3588.msg45119#msg45119>
--   The Inception of DPOS - December 8, 2013
-    -   <https://bitsharestalk.org/index.php?topic=1138.msg13602#msg13602>
-    -   <https://bitsharestalk.org/index.php?topic=1138.msg14784#msg14784>
--   The Inception of AGS - December 14, 2013
-    -   <https://bitsharestalk.org/index.php?topic=1397.msg14794#msg14794>
--   Official AGS Announcement - December 25, 2013
-    -   <https://bitsharestalk.org/index.php?topic=2644.msg32817#msg32817>
--   February 28 Snapshot Announced - January 26, 2014
-    -   <https://bitsharestalk.org/index.php?topic=2591.45>
--   Bitshares X Whitepaper - February 14th, 2014
-    -   <https://docs.google.com/document/d/1RLcjSXWuU9vBJzzqLEXVACSCdn8zXKTTJRN_LfoCjNY/edit?pli=1#>
--   TaPos with a Trustee - March 28, 2014
-    -   <https://bitsharestalk.org/index.php?topic=3865.msg48605#msg48605>
--   BitShares X released by DACsunlimited, July 19th, 2014
-    -   <https://bitsharestalk.org/index.php?topic=5750.0>
+- Momentum Proof of Work Introduced on BTT - October 18 2013
+  - <https://bitcointalk.org/index.php?topic=313479.0>
+  - <http://static.squarespace.com/static/51fb043ee4b0608e46483caf/t/52654716e4b01acd1ac8a085/1382369046208/MomentumProofOfWork.pdf>
+    (White Paper)
+  - <https://bitsharestalk.org/index.php?topic=962.msg9752#msg9752>
+- Keyhotee ID Preorder - November 3, 2013
+  - <https://bitsharestalk.org/index.php?topic=2.msg2#msg2>
+- Mining of Bitshares PTS (Protoshares) - November 5, 2013
+  - <https://bitsharestalk.org/index.php?topic=4.msg4#msg4>
+- Transactions as Proof of Stake - November 30, 2013
+  - <https://bitsharestalk.org/index.php?topic=1138.msg12010#msg12010>
+  - <http://the-iland.net/static/downloads/TransactionsAsProofOfStake.pdf>
+  - <https://bitsharestalk.org/index.php?topic=1138.msg11968#msg11968>
+  - <https://bitsharestalk.org/index.php?topic=1138.msg12967#msg12967>
+- Consensus + TaPoS
+  - <https://bitsharestalk.org/index.php?topic=1138.msg29905#msg29905>
+  - <https://bitsharestalk.org/index.php?topic=3588.msg45119#msg45119>
+- The Inception of DPOS - December 8, 2013
+  - <https://bitsharestalk.org/index.php?topic=1138.msg13602#msg13602>
+  - <https://bitsharestalk.org/index.php?topic=1138.msg14784#msg14784>
+- The Inception of AGS - December 14, 2013
+  - <https://bitsharestalk.org/index.php?topic=1397.msg14794#msg14794>
+- Official AGS Announcement - December 25, 2013
+  - <https://bitsharestalk.org/index.php?topic=2644.msg32817#msg32817>
+- February 28 Snapshot Announced - January 26, 2014
+  - <https://bitsharestalk.org/index.php?topic=2591.45>
+- Bitshares X Whitepaper - February 14th, 2014
+  - <https://docs.google.com/document/d/1RLcjSXWuU9vBJzzqLEXVACSCdn8zXKTTJRN_LfoCjNY/edit?pli=1#>
+- TaPos with a Trustee - March 28, 2014
+  - <https://bitsharestalk.org/index.php?topic=3865.msg48605#msg48605>
+- BitShares X released by DACsunlimited, July 19th, 2014
+  - <https://bitsharestalk.org/index.php?topic=5750.0>
 
 In addition there are numerous threads discussing The Great
 Consolidation.
-
-| 

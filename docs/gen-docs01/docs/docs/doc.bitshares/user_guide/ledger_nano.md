@@ -18,10 +18,10 @@ companion GUI app called *SimpleGUIWallet*.
 
 ## Requirements
 
--   A Ledger Nano S hardware wallet, with latest firmware.
--   An existing BitShares account (optional).
--   Ledger-aware wallet software, such as SimpleGUIWallet (described
-    below), for managing your hardware-secured BitShares accounts.
+- A Ledger Nano S hardware wallet, with latest firmware.
+- An existing BitShares account (optional).
+- Ledger-aware wallet software, such as SimpleGUIWallet (described
+  below), for managing your hardware-secured BitShares accounts.
 
 ## Installation and Setup
 
@@ -60,8 +60,8 @@ installed.</figcaption>
 A companion app, compatible with Windows, Mac, and Linux, for
 communicating with the the BitShares Nano app, is available from:
 
--   [SimpleGUIWallet
-    (ledger-app-bitshares)](https://github.com/bitshares/ledger-app-bitshares/tree/master/SimpleGUIWallet)
+- [SimpleGUIWallet
+  (ledger-app-bitshares)](https://github.com/bitshares/ledger-app-bitshares/tree/master/SimpleGUIWallet)
 
 ## Securing a BitShares Account with the Ledger Nano
 
@@ -135,22 +135,22 @@ this as follows:
 1.  Start up the companion app, *SimpleGUIWallet*.
 2.  Connect your Ledger Nano S hardware wallet device, unlock with PIN
     code, and start the BitShares app.
-    -   The Nano should display the BitShares logo and the words **Use
-        wallet to view accounts**.
+    - The Nano should display the BitShares logo and the words **Use
+      wallet to view accounts**.
 3.  In the companion app, select the \"Public Keys\" tab from the main
     tab array.
-    -   The window will show list boxes of
-        [SLIP-0048](https://github.com/satoshilabs/slips/blob/master/slip-0048.md)
-        derivation paths for three different \"roles\": Owner role,
-        Active role, and Memo role.
-    -   (Note: SLIP-0048 is a key derivation scheme analogous to
-        Bitcoin\'s BIP-44, but tailored for the key roles used in
-        Graphene-based blockchains such as BitShares.)
-    -   Each path will not yet show a public key, but instead will show
-        \"(??)\".
+    - The window will show list boxes of
+      [SLIP-0048](https://github.com/satoshilabs/slips/blob/master/slip-0048.md)
+      derivation paths for three different \"roles\": Owner role, Active
+      role, and Memo role.
+    - (Note: SLIP-0048 is a key derivation scheme analogous to
+      Bitcoin\'s BIP-44, but tailored for the key roles used in
+      Graphene-based blockchains such as BitShares.)
+    - Each path will not yet show a public key, but instead will show
+      \"(??)\".
 4.  Click the \"Query Addresses\" button to retrieve the public keys
     corresponding to each derivation path from the Nano device.
-    -   The list boxes will now be populated with paths and public keys.
+    - The list boxes will now be populated with paths and public keys.
 
 <figure>
 <img src="ledger_nano/Public_Keys_Tab_Annotated.png"
@@ -271,21 +271,20 @@ SLIP-0048 derivation path) to use when signing transactions.
 
 The *SimpleGUIWallet* window is divided into four general areas:
 
--   **Top**: This is where you type the name of a BitShares account that
-    you wish to act as, and which key will be used to sign transactions.
--   **Middle Left**: Here there are two tabs that show information about
-    the selected account. After clicking \"Refresh Balances,\" the
-    Assets tab will populate with a list of assets (tokens) held by the
-    account, and the History tab will populate with a list of recent
-    transactions conducted by the account.
--   **Middle Right**: Here are tabs where you can \"do things.\" There
-    is a tab for transferring tokens, a tab for querying the Ledger Nano
-    to determine what keys it manages, and a tab for Raw Transactions,
-    which can be used for advanced purposes not covered by this
-    tutorial.
--   **Bottom**: At the bottom is a status pane that will print messages
-    informing you of how the app is interacting with the BitShares
-    network and with the Ledger Nano hardware device.
+- **Top**: This is where you type the name of a BitShares account that
+  you wish to act as, and which key will be used to sign transactions.
+- **Middle Left**: Here there are two tabs that show information about
+  the selected account. After clicking \"Refresh Balances,\" the Assets
+  tab will populate with a list of assets (tokens) held by the account,
+  and the History tab will populate with a list of recent transactions
+  conducted by the account.
+- **Middle Right**: Here are tabs where you can \"do things.\" There is
+  a tab for transferring tokens, a tab for querying the Ledger Nano to
+  determine what keys it manages, and a tab for Raw Transactions, which
+  can be used for advanced purposes not covered by this tutorial.
+- **Bottom**: At the bottom is a status pane that will print messages
+  informing you of how the app is interacting with the BitShares network
+  and with the Ledger Nano hardware device.
 
 When you start up *SimpleGUIWallet*, it will automatically connect to
 the BitShares network by locating a public API node to communicate with.
@@ -322,15 +321,15 @@ order to receive funds.
 Sending tokens from your account can be done on the \"Transfers\" tab.
 
 1.  Enter your account name in the \"BitShares User Account\" field.
-    -   Optional: Click \"Refresh Balances\" to see asset balances for
-        this account in the Assets tab.
+    - Optional: Click \"Refresh Balances\" to see asset balances for
+      this account in the Assets tab.
 2.  Select the \"Transfer\" tab.
 3.  Fill out the \"Send To\", \"Amount\", and \"Asset\" fields.
-    -   The \"Asset\" field takes a ticker symbol for the token type
-        that you wish to send. See the \"Assets\" tab for a list of
-        tokens in your account.
-    -   Tip: Clicking an asset balance in the Assets list will
-        auto-populate the asset symbol field on the Transfer tab.
+    - The \"Asset\" field takes a ticker symbol for the token type that
+      you wish to send. See the \"Assets\" tab for a list of tokens in
+      your account.
+    - Tip: Clicking an asset balance in the Assets list will
+      auto-populate the asset symbol field on the Transfer tab.
 4.  Connect your Ledger Nano and start the BitShares app.
 5.  Click \"Send Transfer\".
 6.  Review transaction details on the Ledger Nano\'s display screen, and
@@ -362,14 +361,14 @@ BitShares community via forums or chat rooms.
 
 ## Getting Support
 
--   <https://bitshares.org>
--   <https://docs.bitshares.eu> --- BitShares documentation
--   <https://docs.bitshares.dev> --- BitShares developer documentation
--   <https://bitsharestalk.org> --- BitShares forum
--   [Ledger Nano BitShares App Issue
-    Tracker](https://github.com/bitshares/ledger-app-bitshares/issues)
-    --- Submit bug reports here.
--   Various Telegram groups:
-    -   [t.me/BitSharesDEV](https://t.me/BitSharesDEV)
-    -   [t.me/BitSharesDAC](https://t.me/BitSharesDAC)
-    -   [t.me/btsWalletHelp](https://t.me/btsWalletHelp)
+- <https://bitshares.org>
+- <https://docs.bitshares.eu> --- BitShares documentation
+- <https://docs.bitshares.dev> --- BitShares developer documentation
+- <https://bitsharestalk.org> --- BitShares forum
+- [Ledger Nano BitShares App Issue
+  Tracker](https://github.com/bitshares/ledger-app-bitshares/issues) ---
+  Submit bug reports here.
+- Various Telegram groups:
+  - [t.me/BitSharesDEV](https://t.me/BitSharesDEV)
+  - [t.me/BitSharesDAC](https://t.me/BitSharesDAC)
+  - [t.me/btsWalletHelp](https://t.me/btsWalletHelp)

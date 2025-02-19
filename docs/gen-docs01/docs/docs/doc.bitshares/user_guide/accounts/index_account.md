@@ -13,5 +13,3 @@ BitShares Accounts information to learn more.
 bts_account bts_membership bts_fees referral vesting_balances
 bts_permissions bts_multi-sign voting
 :::
-
-| 

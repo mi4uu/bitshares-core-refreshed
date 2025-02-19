@@ -4,7 +4,7 @@ In BitShares 2.0, some balances are vesting over time. This feature has
 been introduced initially in BitShares 1 when merging several blockchain
 businesses into one blockchain.
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
@@ -22,10 +22,10 @@ balances are available.
 We make even more use of this functionality in such that an account\'s
 income in form of
 
--   worker pay,
--   witness pay,
--   the referral program, or
--   cashback
+- worker pay,
+- witness pay,
+- the referral program, or
+- cashback
 
 is vesting over several days with different strategies.
 
@@ -49,8 +49,6 @@ additional sell pressure from the worker.
 > contracts where each day a certain amount vests until it is fully
 > matured.
 
-| 
-
 ## Claiming A Vesting Balance
 
 > You can claim vesting balances by using BitShares User interface. (You
@@ -61,7 +59,3 @@ additional sell pressure from the worker.
 ![Vesting Balances](vesting2.png){.align-center width="200px"}
 
 ![Vesting Balances](vesting1.png){.align-center width="600px"}
-
-| 
-
-| 

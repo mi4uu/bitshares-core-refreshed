@@ -48,12 +48,12 @@ majority of users.
 
 ## Rationale Behind DPOS
 
--   Give shareholders a way to delegate their vote to a key (one that
-    doesn\'t control coins \'so they can mine\')
--   Maximize the dividends shareholders earn
--   Minimize the amount paid to secure the network
--   Maximize the performance of the network
--   Minimize the cost of running the network (bandwidth, CPU, etc)
+- Give shareholders a way to delegate their vote to a key (one that
+  doesn\'t control coins \'so they can mine\')
+- Maximize the dividends shareholders earn
+- Minimize the amount paid to secure the network
+- Maximize the performance of the network
+- Minimize the cost of running the network (bandwidth, CPU, etc)
 
 ### Shareholders are in Control
 
@@ -90,12 +90,12 @@ with becomes a matter of politics.
 
 ### Reasons to not randomly select representatives from all users
 
--   High probability they are not online.
--   Attackers would gain control proportional to their stake, without
-    any peer review.
--   Without any mining at all, the generation of a random number in a
-    decentralized manner is impossible and thus an attacker could
-    control the random number generation.
+- High probability they are not online.
+- Attackers would gain control proportional to their stake, without any
+  peer review.
+- Without any mining at all, the generation of a random number in a
+  decentralized manner is impossible and thus an attacker could control
+  the random number generation.
 
 ## Scalability
 
@@ -144,32 +144,32 @@ consequence.
 
 ## Role of Delegates
 
--   A witness is an authority that is allowed to produce and broadcast
-    blocks.
--   Producing a block consists of collecting transactions of the P2P
-    network and signing it with the witness\' signing private key.
--   A witness\' spot in the round is assigned randomly at the end of the
-    previous block
+- A witness is an authority that is allowed to produce and broadcast
+  blocks.
+- Producing a block consists of collecting transactions of the P2P
+  network and signing it with the witness\' signing private key.
+- A witness\' spot in the round is assigned randomly at the end of the
+  previous block
 
 ## Voting Algorithm
 
 ### How do I get \"votes?\"
 
--   Persuade others to give upvotes to your witness
--   When another user gives an upvote to your (and possibly other)
-    delegates
--   A user can give an upvote for more than one witness. As a result all
-    upvoted witnesses get a vote
--   Convince proxies (that vote on behalf of their followers) to vote
-    for you
+- Persuade others to give upvotes to your witness
+- When another user gives an upvote to your (and possibly other)
+  delegates
+- A user can give an upvote for more than one witness. As a result all
+  upvoted witnesses get a vote
+- Convince proxies (that vote on behalf of their followers) to vote for
+  you
 
 ### Why use only upvotes?
 
--   Giving only upvotes, and allowing multiple votes per share, is
-    called **Approval Voting**, and comes with several advantages over
-    the old *delegation* voting.
--   No downvotes are needed, which not only simplifies usability but
-    also reduces code and complexity.
+- Giving only upvotes, and allowing multiple votes per share, is called
+  **Approval Voting**, and comes with several advantages over the old
+  *delegation* voting.
+- No downvotes are needed, which not only simplifies usability but also
+  reduces code and complexity.
 
 ### How are \'votes\' counted?
 
@@ -184,15 +184,14 @@ the developers decided to use **Approval Voting**.
 
 ## Disincentives for Attacks
 
--   By choosing not to produce a block, a witness risks getting fired
-    and they lose guaranteed profits in the future.
--   A dishonest delegate would only fail to produce a block if they were
-    sure to win something from it
--   If a lottery only payed out 50% to a jackpot (giving the other 50%
-    to charity) then the most this dishonest delegate could do is break
-    even.
--   Witnesses can\'t sign invalid blocks as the block needs confirmation
-    by the other witnesses as well
+- By choosing not to produce a block, a witness risks getting fired and
+  they lose guaranteed profits in the future.
+- A dishonest delegate would only fail to produce a block if they were
+  sure to win something from it
+- If a lottery only payed out 50% to a jackpot (giving the other 50% to
+  charity) then the most this dishonest delegate could do is break even.
+- Witnesses can\'t sign invalid blocks as the block needs confirmation
+  by the other witnesses as well
 
 ## How many witnesses are securing the network
 
@@ -207,14 +206,12 @@ width="660px"}
 
 ## Sources and Discussions
 
--   <https://bitsharestalk.org/index.php?topic=5164.msg67657#msg67657>
--   <https://bitsharestalk.org/index.php?topic=5205.0>
--   <https://github.com/BitShares/bitshares_toolkit/wiki/Delegated-Proof-of-Stake>
--   <https://bitsharestalk.org/index.php?topic=4984.0>
--   <https://bitsharestalk.org/index.php?topic=4927.0>
--   <https://bitsharestalk.org/index.php?topic=4869.0>
--   <https://bitsharestalk.org/index.php?topic=4853.0>
--   <https://bitsharestalk.org/index.php?topic=4836.0>
--   <https://bitsharestalk.org/index.php?topic=4714.0>
-
-| 
+- <https://bitsharestalk.org/index.php?topic=5164.msg67657#msg67657>
+- <https://bitsharestalk.org/index.php?topic=5205.0>
+- <https://github.com/BitShares/bitshares_toolkit/wiki/Delegated-Proof-of-Stake>
+- <https://bitsharestalk.org/index.php?topic=4984.0>
+- <https://bitsharestalk.org/index.php?topic=4927.0>
+- <https://bitsharestalk.org/index.php?topic=4869.0>
+- <https://bitsharestalk.org/index.php?topic=4853.0>
+- <https://bitsharestalk.org/index.php?topic=4836.0>
+- <https://bitsharestalk.org/index.php?topic=4714.0>

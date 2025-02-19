@@ -7,7 +7,7 @@ opt-out by upgrading their account to a Life-Time Member (LTM). Every
 lifetime member can get a cut of the fees based on child accounts linked
 to ours via referral.
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
@@ -30,21 +30,21 @@ affiliate referrer, that brought in the new user.
 The referral fees are controlled by the blockchain and are distributed
 like this:
 
-> -   20% go to the network
-> -   80% go to the referral program
->     -   of this 80%, x% go to the registrar
->     -   of this 80%, 100%-x% go to the affiliate referrer
+> - 20% go to the network
+> - 80% go to the referral program
+>   - of this 80%, x% go to the registrar
+>   - of this 80%, 100%-x% go to the affiliate referrer
 
 ## How can I do?
 
 If you want to participate in the referral program, you need to have a
 life-time member account, first! Then you can bring in new users by
 
-> -   (1)- running your own faucet and actually register new accounts
->     (will give you 80% of all the fees of those minus a fraction that
->     you decide to give to affiliates (the referrers)
-> -   (2)- referring people to a hosted wallet that offers you a cut of
->     the fees as an affiliate.
+> - (1)- running your own faucet and actually register new accounts
+>   (will give you 80% of all the fees of those minus a fraction that
+>   you decide to give to affiliates (the referrers)
+> - (2)- referring people to a hosted wallet that offers you a cut of
+>   the fees as an affiliate.
 >
 > The case below, most hosted wallets add your account as affiliate if
 > you provide the following link structure to people
@@ -54,22 +54,18 @@ life-time member account, first! Then you can bring in new users by
 > with `<your-account>` being the name of your BitShares Lite-Time
 > Member account.
 >
-> :::: note
-> ::: title
-> Note
-> :::
+> > [!NOTE]
+> > If you want link to pages with in the wallet(e.g., a particular
+> > decentralized market), you need to have the `?r=` parameter
+> > **before** the `#`. Example :
+> > `https://<url>/?r=<your-account>#/market/USD_BTC`
 >
-> If you want link to pages with in the wallet(e.g., a particular
-> decentralized market), you need to have the `?r=` parameter **before**
-> the `#`. Example : `https://<url>/?r=<your-account>#/market/USD_BTC`
-> ::::
+> - (3)- or sending your referral link to people you want to refer to
+>   BitShares, your referral link would be:
 >
-> -   (3)- or sending your referral link to people you want to refer to
->     BitShares, your referral link would be:
+>       https://wallet.bitshares.org/?r=<your-account-name>
 >
->         https://wallet.bitshares.org/?r=<your-account-name>
->
->         (*You might want to use yow wallet address instead of "wallet.bitshares.org"*)
+>       (*You might want to use yow wallet address instead of "wallet.bitshares.org"*)
 
 **Example:**
 
@@ -78,8 +74,6 @@ life-time member account, first! Then you can bring in new users by
 > and \$20 is paid to the Network. After this point the Lifetime Member
 > becomes its own referrer and nearest Lifetime Member and its prior
 > Referrers no longer get any revenue from this user.
-
-| 
 
 ## Fee Division
 
@@ -109,15 +103,11 @@ To see your vesting balances, open the side menu and select **Vesting
 balance**. Vesting balances are recalculated hourly, so you might not
 yet see them right away.
 
-| 
-
 ## Claiming Referral Bonus and Cashback
 
 > If you have a lifetime memb1er account and
 >
-> -   already paid some fees, or
-> -   have referred people that paid some fees,
+> - already paid some fees, or
+> - have referred people that paid some fees,
 >
 > you can claim them in the \"Vesting balances\" of your account.
-
-| 

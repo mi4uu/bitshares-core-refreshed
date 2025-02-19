@@ -1,10 +1,10 @@
 # What is BitShares?
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
-## BitShares 2.0
+## BitShares 2.0 {#bitshares-2.0}
 
 BitShares is a technology supported by next generation entrepreneurs,
 investors, and developers with a common interest in finding free market
@@ -103,5 +103,3 @@ Team and third parties who use Graphene (the toolkit that makes
 BitShares possible) to create their own Distributed Autonomous
 Companies. The main discussions in the BitShares community takes place
 openly at [BitSharestalk.org](http://bitsharestalk.org).
-
-| 

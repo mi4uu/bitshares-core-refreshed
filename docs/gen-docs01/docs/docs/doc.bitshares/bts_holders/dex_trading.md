@@ -3,9 +3,9 @@
 This page will give a very quick introduction on how to interpret the
 terms used by the DEX and how trading pairs are presented.
 
+::: {.contents local=""}
 Table of Contents
-
-[TOC]
+:::
 
 ## Pairs
 
@@ -54,13 +54,10 @@ pairs do not have a preferred orientation, and can be flipped, the
 following table shall give an overview of ask/bid and the corresponding
 buy/sell operations for each side:
 
-  --------------------------------
-  Side         Sell      Buy
-  ------------ --------- ---------
-  Ask          *quote*   *base*
-
-  Bid          *base*    *quote*
-  --------------------------------
+| Side | Sell    | Buy     |
+|------|---------|---------|
+| Ask  | *quote* | *base*  |
+| Bid  | *base*  | *quote* |
 
 Obviously, what is on the bid side of the USD:EUR pair will be on the
 ask side on the EUR:USD pair. Of course prices are internally
@@ -104,8 +101,8 @@ here describe the user interface of the official wallet.
 
 Orders can be placed in the same way as everywhere else, by providing
 
--   the amount to buy/sell
--   the price at which to buy/sell
+- the amount to buy/sell
+- the price at which to buy/sell
 
 ![Placing orders](../images/dex-buysell.png){.align-center
 width="660px"}
@@ -120,9 +117,3 @@ If you cancel an order that has not been fully or partially filled, 90%
 of the fee will be payed back to your account. However, this chargeback
 will be in `BTS` and not in the asset you have originally paid the fee
 in.
-
-| 
-
-| 
-
-| 

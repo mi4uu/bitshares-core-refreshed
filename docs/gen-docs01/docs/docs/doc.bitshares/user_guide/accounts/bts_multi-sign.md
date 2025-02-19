@@ -1,6 +1,6 @@
 # Multi-Signature {#bts-multi-sign}
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
@@ -11,11 +11,11 @@ Table of Contents
 In BitShares an *authority* consists of one or many entities that
 authorize an action, such as transfers or trades.
 
--   An authority consists of one or several pairs of an account name
-    with a *weight*.
--   In order to obtain a valid transaction, the sum of the weights from
-    signing the parties has to exceed the threshold as defined in the
-    permissions.
+- An authority consists of one or several pairs of an account name with
+  a *weight*.
+- In order to obtain a valid transaction, the sum of the weights from
+  signing the parties has to exceed the threshold as defined in the
+  permissions.
 
 **Examples**
 
@@ -36,19 +36,13 @@ Let\'s assume, Alice, Bob, Charlie and Dennis have common funds. We want
 to be able to construct a valid transaction if only two of those agree.
 Hence a **2-of-4** (N-of-M) scheme can look as follows:
 
-  -------------------------
-  Account          Weight
-  ---------------- --------
-  Alice            1
-
-  Bob              1
-
-  Charlie          1
-
-  Dennis           1
-
-  **Threshold:**   3
-  -------------------------
+| Account        | Weight |
+|----------------|--------|
+| Alice          | 1      |
+| Bob            | 1      |
+| Charlie        | 1      |
+| Dennis         | 1      |
+| **Threshold:** | 3      |
 
 This means that each party has the same weight of 1 while 3 parties need
 to sign the transaction/proposal.
@@ -74,19 +68,13 @@ secure here funds against theft by a multi-signature scheme but she does
 not want to hand over too much control to her friends. Hence, we create
 an authority similar to:
 
-  -------------------------
-  Account          Weight
-  ---------------- --------
-  Alice            49%
-
-  Bob              25%
-
-  Charlie          25%
-
-  Dennis           10%
-
-  **Threshold:**   51%
-  -------------------------
+| Account        | Weight |
+|----------------|--------|
+| Alice          | 49%    |
+| Bob            | 25%    |
+| Charlie        | 25%    |
+| Dennis         | 10%    |
+| **Threshold:** | 51%    |
 
 ![Flexible Multi-Signature](Flexible-Multi-Signature.png){.align-center
 width="400px"}
@@ -103,15 +91,11 @@ Controller, Tax Manager, Accounting, etc. The company also has a CEO
 that wants to have spending privileges. Hence we construct an authority
 for the funds according to:
 
-  ---------------------------
-  Account            Weight
-  ------------------ --------
-  CEO.COMPANY        51%
-
-  CFO.COMPANY        51%
-
-  **Threshold:**     51%
-  ---------------------------
+| Account        | Weight |
+|----------------|--------|
+| CEO.COMPANY    | 51%    |
+| CFO.COMPANY    | 51%    |
+| **Threshold:** | 51%    |
 
 ![FMulti-Hierarchical Flexible-Multi-Signature](Multi-Hierarchical_Flexible-Multi-Signature.png){.align-center
 width="400px"}
@@ -119,36 +103,27 @@ width="400px"}
 whereas CEO.COMPANY and CFO.COMPANY have their own authorities. For
 instance, the CFO.COMPANY account could look like:
 
-  ----------------------------------
-  CFO.COMPANY               Weight
-  ------------------------- --------
-  Chief.COMPANY             51%
-
-  Treasurer.COMPANY         33%
-
-  Controller.COMPANY        33%
-
-  Tax Manager.COMPANY       10%
-
-  Accounting.COMPANY        10%
-
-  **Threshold:**            51%
-  ----------------------------------
+| CFO.COMPANY         | Weight |
+|---------------------|--------|
+| Chief.COMPANY       | 51%    |
+| Treasurer.COMPANY   | 33%    |
+| Controller.COMPANY  | 33%    |
+| Tax Manager.COMPANY | 10%    |
+| Accounting.COMPANY  | 10%    |
+| **Threshold:**      | 51%    |
 
 ![CFO Multi-Hierarchical Flexible-Multi-Signature](cfo-Multi-Hierarchical_Flexible-Multi-Signature.png){.align-center
 width="870px"}
 
 This scheme allows:
 
--   the CEO to spend funds
--   the Chief of Finance Officer to spend funds
--   Treasurer together with Controller to spend funds
--   Controller or Treasurer together with wither the Tax Manager or
-    Accounting to spend funds.
+- the CEO to spend funds
+- the Chief of Finance Officer to spend funds
+- Treasurer together with Controller to spend funds
+- Controller or Treasurer together with wither the Tax Manager or
+  Accounting to spend funds.
 
 Hence, a try of arbitrary depth can be spanned in order to construct a
 flexible authority to reflect mostly any business use-case.
 
 ------------------------------------------------------------------------
-
-| 

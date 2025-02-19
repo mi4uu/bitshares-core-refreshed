@@ -1,13 +1,8 @@
 # Investor Guide
 
-:::: note
-::: title
-Note
-:::
-
-This guide is still under construction. Please excuse if what you are
-searching for is not yet available.
-::::
+> [!NOTE]
+> This guide is still under construction. Please excuse if what you are
+> searching for is not yet available.
 
 The investor guide serves as an entry point for existing and potential
 investors in the BitShares ecosystem. We here merely discuss the BTS
@@ -21,8 +16,8 @@ investment advice.
 You are considered as a AngelShare holder if you have donated BTC or BTS
 to one of these addresses:
 
--   **BTC**: `1ANGELwQwWxMmbdaSWhWLqBEtPTkWb8uDc`
--   **PTS**: `PaNGELmZgzRQCKeEKM6ifgTqNkC4ceiAWw`
+- **BTC**: `1ANGELwQwWxMmbdaSWhWLqBEtPTkWb8uDc`
+- **PTS**: `PaNGELmZgzRQCKeEKM6ifgTqNkC4ceiAWw`
 
 There is also an [AngelShare Explorer](http://www1.agsexplorer.com/)
 specifically for these donations
@@ -40,9 +35,3 @@ your BTS ([FAQ](http://www1.agsexplorer.com/ags101) ).
 If you have located the private keys (in wallet import format - WIF),
 you can safely import them into your BitShares account using the *Import
 Keys* tools in the Wallet Management Console of your BitShares wallet.
-
-| 
-
-| 
-
-| 

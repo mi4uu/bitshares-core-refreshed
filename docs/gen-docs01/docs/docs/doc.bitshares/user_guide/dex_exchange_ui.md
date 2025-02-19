@@ -1,12 +1,10 @@
 # Exchange and Explore
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
 ------------------------------------------------------------------------
-
-| 
 
 ## Exchange
 
@@ -20,8 +18,6 @@ Table of Contents
 
 ![bitshares](../images/dex-exchange-h2.png){.align-center width="600px"}
 
-| 
-
 ## How to trade in the DEX
 
 The decentralized exchange (DEX) of BitShares has a similar look&feel as
@@ -33,8 +29,8 @@ here describe the user interface of the official wallet.
 
 Orders can be placed in the same way as everywhere else, by providing
 
--   the amount to buy/sell
--   the price at which to buy/sell
+- the amount to buy/sell
+- the price at which to buy/sell
 
 ![bitshares](../images/dex-trading1.png){.align-center width="600px"}
 
@@ -53,8 +49,6 @@ If you cancel an order that has not been fully or partially filled, 90%
 of the fee will be payed back to your account. However, this chargeback
 will be in [BTS]{.title-ref} and not in the asset you have originally
 paid the fee in.
-
-| 
 
 ## Explore
 
@@ -79,7 +73,3 @@ width="600px"}
 
 ![bitshares](../images/Holders/ex-fees5.png){.align-center
 width="600px"}
-
-| 
-
-| 

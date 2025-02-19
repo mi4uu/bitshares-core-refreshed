@@ -17,9 +17,3 @@ the blockchain, you can code that feature and fund it with an FBA.
 
 Feed Backed Assets have been proposed in
 [BSIP-0007](https://github.com/bitshares/bsips/blob/master/bsip-0007.md).
-
-| 
-
-| 
-
-| 

@@ -11,13 +11,13 @@ are beneficial to the network, thus acknowledging different skill sets
 and interested community members to have incentives to contribute in the
 most appropriate way.
 
--   Witnesses are paid for maintaining the back-bone of the network.
--   Committee members are unpaid volunteers that organize the community
-    and propose changes to the network.
--   Marketers are paid in referral fees.
--   Workers are paid for whatever they propose and do.
--   BTS Holders are people holding BTS. They can cast a vote and
-    influence the DAC\'s businesses
+- Witnesses are paid for maintaining the back-bone of the network.
+- Committee members are unpaid volunteers that organize the community
+  and propose changes to the network.
+- Marketers are paid in referral fees.
+- Workers are paid for whatever they propose and do.
+- BTS Holders are people holding BTS. They can cast a vote and influence
+  the DAC\'s businesses
 
 Each of the above (except Marketers) requires users to vote for the
 people, proposals, and/or changes. Those with sufficient approval will
@@ -61,17 +61,17 @@ The BitShares ecosystem has a set of parameters available that are
 subject of BTS Holder approval. Initially, BitShares has the following
 blockchain parameters:
 
--   **fee structure**: *fess that have to be paid by customers for
-    individual transactions*
--   **block interval**: *i.e. block interval, max size of
-    block/transaction*
--   **expiration parameters**: *i.e. maximum expiration interval*
--   **witness parameters**: *i.e. maximum amount of witnesses (block
-    producers)*
--   **committee parameters**: *i.e. maximum amount of committee members*
--   **witness pay**: *payment for each witnesses per signed block*
--   **worker budget**: *available budget available for budget items
-    (e.g. development)*
+- **fee structure**: *fess that have to be paid by customers for
+  individual transactions*
+- **block interval**: *i.e. block interval, max size of
+  block/transaction*
+- **expiration parameters**: *i.e. maximum expiration interval*
+- **witness parameters**: *i.e. maximum amount of witnesses (block
+  producers)*
+- **committee parameters**: *i.e. maximum amount of committee members*
+- **witness pay**: *payment for each witnesses per signed block*
+- **worker budget**: *available budget available for budget items (e.g.
+  development)*
 
 Please note that the given set of parameters serves as an example and
 that the network\'s parameters are subject to change over time.
@@ -93,7 +93,7 @@ For each successfully constructed block, a witness is payed in shares
 that are taken from the limited reserves pool at a rate that is defined
 by the BTS Holders by means of approval voting.
 
-## Workers / Budget Items
+## Workers / Budget Items {#workers-budget-items}
 
 Thanks to the funds stored in the reserve pool, BitShares can offer to
 not only pay for its own development and protocol improvement but also
@@ -107,13 +107,13 @@ time to all workers combined.
 
 The daily budget is distributed as follows:
 
--   The available budget is taken out of reserves pool.
--   The budget items are sorted according to their approval rate
-    (`Pro - Con`) in a descending order.
--   Starting at the worker with the highest approval rate, the requested
-    daily pay is payed until the daily budget is depleted.
--   The worker with the least approval rate that was paid may receive
-    less than the requested pay
+- The available budget is taken out of reserves pool.
+- The budget items are sorted according to their approval rate
+  (`Pro - Con`) in a descending order.
+- Starting at the worker with the highest approval rate, the requested
+  daily pay is payed until the daily budget is depleted.
+- The worker with the least approval rate that was paid may receive less
+  than the requested pay
 
 Hence, in order to be successfully funded by the BitShares ecosystem,
 the BTS Holders approval for your budget item needs to be highly ranked.
@@ -126,21 +126,21 @@ of time defined by BTS Holders.
 
 In order to be get paid by BitShares, a proposal containing
 
--   the date of work begin,
--   the date of work end,
--   a daily pay (denoted in BTS),
--   the worker\'s name, and
--   an internet address.
+- the date of work begin,
+- the date of work end,
+- a daily pay (denoted in BTS),
+- the worker\'s name, and
+- an internet address.
 
 has to be publish on the blockchain and approved by BTS Holders.
 
 A worker can also choose on of the following properties:
 
--   **vesting**: *pay to the worker\'s account*
--   **refund**: *return the pay back to the reserve pool to be used for
-    future projects*
--   **burn**: *destroys the pay thus reducing share supply, equivalent
-    to share buy-back of a company stock.*
+- **vesting**: *pay to the worker\'s account*
+- **refund**: *return the pay back to the reserve pool to be used for
+  future projects*
+- **burn**: *destroys the pay thus reducing share supply, equivalent to
+  share buy-back of a company stock.*
 
 ### Pseudo Workers
 
@@ -168,9 +168,3 @@ the proposal gets paid its salary, and the rest is return.
 
 This type of worker is similar to the *Refund Worker* above but
 **burns** his pay.
-
-| 
-
-| 
-
-| 

@@ -34,9 +34,3 @@ transfer the corresponding asset back to its rightful owner.
 Since EBAs are implemented as UIA, you can read more about the
 underlying technology on the
 `corresponding page - UIA <uia>`{.interpreted-text role="ref"}.
-
-| 
-
-| 
-
-| 

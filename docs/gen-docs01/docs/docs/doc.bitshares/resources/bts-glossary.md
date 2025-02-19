@@ -4,12 +4,12 @@
 
 ### A
 
-::: glossary
+::: {.glossary}
 :::
 
 ### B
 
-::: glossary
+::: {.glossary}
 
 BitShares Blockchain
 
@@ -33,12 +33,12 @@ BTS Holder
 
 ### C
 
-::: glossary
+::: {.glossary}
 :::
 
 ### D
 
-::: glossary
+::: {.glossary}
 
 Delegated Proof of Stake
 
@@ -47,17 +47,17 @@ Delegated Proof of Stake
 
 ### E
 
-::: glossary
+::: {.glossary}
 :::
 
 ### F
 
-::: glossary
+::: {.glossary}
 :::
 
 ### G
 
-::: glossary
+::: {.glossary}
 
 Governance
 
@@ -66,32 +66,32 @@ Governance
 
 ### H
 
-::: glossary
+::: {.glossary}
 :::
 
 ### I
 
-::: glossary
+::: {.glossary}
 :::
 
 ### J
 
-::: glossary
+::: {.glossary}
 :::
 
 ### K
 
-::: glossary
+::: {.glossary}
 :::
 
 ### L
 
-::: glossary
+::: {.glossary}
 :::
 
 ### M
 
-::: glossary
+::: {.glossary}
 
 MPA
 
@@ -100,7 +100,7 @@ MPA
 
 ### N
 
-::: glossary
+::: {.glossary}
 
 Native Core Token BTS
 
@@ -109,12 +109,12 @@ Native Core Token BTS
 
 ### O
 
-::: glossary
+::: {.glossary}
 :::
 
 ### P
 
-::: glossary
+::: {.glossary}
 
 Proof-of-Work
 
@@ -123,17 +123,17 @@ Proof-of-Work
 
 ### Q
 
-::: glossary
+::: {.glossary}
 :::
 
 ### R
 
-::: glossary
+::: {.glossary}
 :::
 
 ### S
 
-::: glossary
+::: {.glossary}
 
 Seed Node
 
@@ -151,7 +151,7 @@ SmartCoins
 
 ### T
 
-::: glossary
+::: {.glossary}
 
 Token
 
@@ -160,7 +160,7 @@ Token
 
 ### U
 
-::: glossary
+::: {.glossary}
 
 Units
 
@@ -174,12 +174,12 @@ Unit test
 
 ### V
 
-::: glossary
+::: {.glossary}
 :::
 
 ### W
 
-::: glossary
+::: {.glossary}
 
 Working Budget
 
@@ -188,15 +188,15 @@ Working Budget
 
 ### X
 
-::: glossary
+::: {.glossary}
 :::
 
 ### Y
 
-::: glossary
+::: {.glossary}
 :::
 
 ### Z
 
-::: glossary
+::: {.glossary}
 :::

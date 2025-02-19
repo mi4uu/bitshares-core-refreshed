@@ -1,12 +1,10 @@
 # Backups and Restore your Wallet
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
 ------------------------------------------------------------------------
-
-| 
 
 \> If you use a Cloud Wallet, you do not need to create a backup. **You
 do not have the option also.**
@@ -27,21 +25,13 @@ Local wallet account.
 
 There are three types of backups.
 
-  -----------------------------------------------------------------------
-  type                    
-  ----------------------- -----------------------------------------------
-  Create local wallet     create a Binary File (.bin)
-  backup                  
+| type                       |                                                       |
+|----------------------------|-------------------------------------------------------|
+| Create local wallet backup | create a Binary File (.bin)                           |
+| Create brainkey backup     | give you long random phrases. You need to write down. |
+| Create favorites backup    |                                                       |
 
-  Create brainkey backup  give you long random phrases. You need to write
-                          down.
-
-  Create favorites backup 
-  -----------------------------------------------------------------------
-
-| 
-
-### How to Create a backup (.bin) file
+### How to Create a backup (.bin) file {#how-to-create-a-backup-.bin-file}
 
 1.  Open a Side menu and select \[**Settings**\]
 2.  In \[**Settings**\], select \[**Backup**\].
@@ -56,8 +46,6 @@ you**
 ![bitshares](../images/backup-1.png){.align-center width="550px"}
 
 ![bitshares](../images/backup-2.png){.align-center width="550px"}
-
-| 
 
 ### About the Brain Key
 
@@ -85,40 +73,22 @@ width="650px"}
 
 ------------------------------------------------------------------------
 
-| 
-
-## Restore / Import
+## Restore / Import {#restore-import}
 
 > We assume you have created a backup file (.bin) and use a Local
 > wallet.
 
-### Restore / Import Options
+### Restore / Import Options {#restore-import-options}
 
-  -----------------------------------------------------------------------
-  option                        
-  ----------------------------- -----------------------------------------
-  Restore from a backup file    restore from a backup file and a password
-  (.bin)                        
+| option                                      |                                                                                                                                                                 |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Restore from a backup file (.bin)           | restore from a backup file and a password                                                                                                                       |
+| Import a private key                        | import Private keys to a Local wallet. The imported keys will be saved in the bin file. If this happens, you cannot rely on the brainkey for backup after that. |
+| Import a BTS 0.9.3c key export file (.json) |                                                                                                                                                                 |
+| Restore using a local wallet brainkey       | use a password and a Brain key                                                                                                                                  |
+| Restore favorites using a json file         |                                                                                                                                                                 |
 
-  Import a private key          import Private keys to a Local wallet.
-                                The imported keys will be saved in the
-                                bin file. If this happens, you cannot
-                                rely on the brainkey for backup after
-                                that.
-
-  Import a BTS 0.9.3c key       
-  export file (.json)           
-
-  Restore using a local wallet  use a password and a Brain key
-  brainkey                      
-
-  Restore favorites using a     
-  json file                     
-  -----------------------------------------------------------------------
-
-| 
-
-### How to Restore from a backup (.bin) file
+### How to Restore from a backup (.bin) file {#how-to-restore-from-a-backup-.bin-file}
 
 1.  Open a Side menu and select \[**Settings**\]
 2.  In \[**Settings**\], select \[**Restore/Import**\].
@@ -146,15 +116,11 @@ width="650px"}
 
 ![bitshares](../images/restore6.png){.align-center width="650px"}
 
-| 
-
 ### How to Check Active Local Wallet backup file name
 
--   \[**Settings**\] - \[**Local Wallet**\] - Active Local Wallet
+- \[**Settings**\] - \[**Local Wallet**\] - Active Local Wallet
 
 ![bitshares](../images/restore7.png){.align-center width="650px"}
-
-| 
 
 ### How to Recover Account with Brain key
 
@@ -183,7 +149,3 @@ width="650px"}
     \[Local Wallet\])
 
 ![bitshares](../images/brainkey5.png){.align-center width="650px"}
-
-| 
-
-| 

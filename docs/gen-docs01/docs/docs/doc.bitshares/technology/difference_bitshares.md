@@ -53,8 +53,8 @@ and don\'t need other means of communications to add your approval to a
 certain transactions. You can find more details about these account
 types in
 
--   `account-membership`{.interpreted-text role="ref"}
--   `securing-funds`{.interpreted-text role="ref"}
+- `account-membership`{.interpreted-text role="ref"}
+- `securing-funds`{.interpreted-text role="ref"}
 
 ## Full Nodes and Clients
 
@@ -73,19 +73,10 @@ ids*.
 
 For instance:
 
-  ---------------------------------------------
-  Object ID \|     
-  translates to    
-  ------------- -- ----------------------------
-  `1.3.1`          asset USD
-
-  `1.3.0`          asset BTS
-
-  `1.2.<id>`       user with id `<id>`
-
-  `1.6.<id>`       block signer `<id>`
-
-  `1.11.<id>`      operation with id `<id>`
-  ---------------------------------------------
-
-| 
+| Object ID \| translates to |     |                          |
+|----------------------------|-----|--------------------------|
+| `1.3.1`                    |     | asset USD                |
+| `1.3.0`                    |     | asset BTS                |
+| `1.2.<id>`                 |     | user with id `<id>`      |
+| `1.6.<id>`                 |     | block signer `<id>`      |
+| `1.11.<id>`                |     | operation with id `<id>` |

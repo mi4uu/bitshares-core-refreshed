@@ -1,6 +1,6 @@
 # Voting {#bts-voting}
 
-::: contents
+::: {.contents}
 Table of Contents
 :::
 
@@ -42,8 +42,6 @@ their behalf.
 Voting itself is **very simple** with the User interface and requires
 only a few clicks.
 
-| 
-
 ------------------------------------------------------------------------
 
 ## Voting by using BitShares UI
@@ -65,8 +63,6 @@ only a few clicks.
 
 ![cloud wallet pwd](voting7.png){.align-center width="650px"}
 
-| 
-
 ### Voting for Witness, Committee Member or Worker
 
 > If you have not set a proxy, you can cast your own vote for witnesses,
@@ -77,5 +73,3 @@ only a few clicks.
 > 3.  Click \[SAVE\]
 > 4.  Login to a wallet if you have not logged in
 > 5.  (vote for each entity)
-
-| 

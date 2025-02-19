@@ -42,19 +42,17 @@ the first place.
 
 ## Use Cases
 
--   Reward Points
--   Fan Credits
--   Flight Miles
--   Event Tickets
--   Digital Property
--   Crowd-Funding
--   Company Shares
+- Reward Points
+- Fan Credits
+- Flight Miles
+- Event Tickets
+- Digital Property
+- Crowd-Funding
+- Company Shares
 
 ------------------------------------------------------------------------
 
 ## How to create a new UIA by using GUI
 
--   `How can I create a new UIA by using GUI? <creating-new-uia-gui>`{.interpreted-text
-    role="ref"}
-
-| 
+- `How can I create a new UIA by using GUI? <creating-new-uia-gui>`{.interpreted-text
+  role="ref"}

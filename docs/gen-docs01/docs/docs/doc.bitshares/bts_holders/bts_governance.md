@@ -16,12 +16,12 @@ blockchain parameters.
 If business ideas requires certain blockchain parameters or a particular
 set of fees to be profitable, there are several options:
 
--   Argue with shareholders to approve committee members that vote in
-    their favor
--   Get elected as committee member by showing that the business is
-    worth being available in that particular chain
--   Deploy the innovative business idea as a smart contract on the
-    blockchain and have the shareholders approve the upgrade in
-    combination with *Fee Backed Asset* that pays future fees of the
-    smart contract to holders of that asset (`fba`{.interpreted-text
-    role="ref"})
+- Argue with shareholders to approve committee members that vote in
+  their favor
+- Get elected as committee member by showing that the business is worth
+  being available in that particular chain
+- Deploy the innovative business idea as a smart contract on the
+  blockchain and have the shareholders approve the upgrade in
+  combination with *Fee Backed Asset* that pays future fees of the smart
+  contract to holders of that asset (`fba`{.interpreted-text
+  role="ref"})

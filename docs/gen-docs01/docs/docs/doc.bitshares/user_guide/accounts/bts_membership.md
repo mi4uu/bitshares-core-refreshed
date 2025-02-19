@@ -29,24 +29,12 @@ To find out your Membership stats on the BitShares UI wallet, go to your
 account menu and select **Membership stats**. You can find your current
 membership status and the *upgrade fee* to become a LTM.
 
-:::: note
-::: title
-Note
-:::
+> [!NOTE]
+> In Q1/2016, the *annual membership* has been removed from the code
+> base and no longer exists. References to this kind of memberships can
+> be safely ignored.
 
-In Q1/2016, the *annual membership* has been removed from the code base
-and no longer exists. References to this kind of memberships can be
-safely ignored.
-::::
-
-:::: note
-::: title
-Note
-:::
-
-Due to some discrepancies, the annual membership has been disabled in
-most web wallets and will be re-enabled after a proper update
-eventually.
-::::
-
-| 
+> [!NOTE]
+> Due to some discrepancies, the annual membership has been disabled in
+> most web wallets and will be re-enabled after a proper update
+> eventually.

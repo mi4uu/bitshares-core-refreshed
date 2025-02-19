@@ -1,6 +1,6 @@
-# Technology - BitShares.org
+# Technology - BitShares.org {#technology---bitshares.org}
 
--   <https://bitshares.org/>
+- <https://bitshares.org/>
 
 The BitShares platform itself is run and maintained by the BitShares
 community an open consortium of individuals and organizations committed
@@ -18,8 +18,8 @@ Table of Contents
 
 ## Price-Stable Cryptocurrencies
 
-> -   SmartCoins provide the freedom of cryptocurrency with the
->     stability of the dollar
+> - SmartCoins provide the freedom of cryptocurrency with the stability
+>   of the dollar
 >
 > A SmartCoin is a cryptocurrency whose value is pegged to that of
 > another asset, such as the US Dollar or gold. SmartCoins always have
@@ -35,8 +35,8 @@ Table of Contents
 
 ## Decentralized Asset Exchange
 
-> -   BitShares provides a built in high-performance decentralized
->     exchange - \"DEX\"
+> - BitShares provides a built in high-performance decentralized
+>   exchange - \"DEX\"
 
 BitShares provides a high-performance decentralized exchange, with all
 the features you would expect in a trading platform. It can handle the
@@ -47,8 +47,8 @@ more..](https://bitshares.org/technology/decentralized-asset-exchange) )
 
 ## Industrial Performance and Scalability
 
-> -   BitShares is capable of 100,000 TPS with proper industrial-grade
->     setup
+> - BitShares is capable of 100,000 TPS with proper industrial-grade
+>   setup
 
 High performance blockchain technology is necessary for cryptocurrencies
 and smart contract platforms to provide a viable alternative to existing
@@ -62,8 +62,8 @@ more..](https://bitshares.org/technology/industrial-performance-and-scalability)
 
 ## Dynamic Account Permissions
 
-> -   On-the-fly management, risk prevention, authority assignments and
->     much more for corporate environments
+> - On-the-fly management, risk prevention, authority assignments and
+>   much more for corporate environments
 
 BitShares designs permissions around people, rather than around
 cryptography, making it easy to use. Every account can be controlled by
@@ -75,9 +75,9 @@ security, and, when used properly, it can virtually eliminate the risk
 of theft due to hacking. ([Read
 more..](https://bitshares.org/technology/dynamic-account-permissions) )
 
-## Recurring & Scheduled Payments
+## Recurring & Scheduled Payments {#recurring-scheduled-payments}
 
-> -   Flexible withdrawal permissions, subscriptions and bills
+> - Flexible withdrawal permissions, subscriptions and bills
 
 BitShares is the first smart contract platform with built-in support for
 recurring payments and subscription payments. This feature allows users
@@ -88,7 +88,7 @@ more..](https://bitshares.org/technology/recurring-scheduled-payments) )
 
 ## Referral Rewards Program
 
-> -   Network growth through adoption rewards and single-level referrals
+> - Network growth through adoption rewards and single-level referrals
 
 BitShares has an advanced referral program built directly into its
 software. Financial networks derive their value primarily from their
@@ -100,7 +100,7 @@ more..](https://bitshares.org/technology/referral-rewards-program) )
 
 ## User-Issued Assets
 
-> -   Regulation-compatible crypto-assets from the Token Factory.
+> - Regulation-compatible crypto-assets from the Token Factory.
 
 The BitShares platform provides a feature known as \"user-issued
 assets\" to help facilitate profitable business models for certain types
@@ -114,7 +114,7 @@ more..](https://bitshares.org/technology/user-issued-assets) )
 
 ## Stakeholder-Approved Project Funding
 
-> -   Built in dApps powered by a core utility token
+> - Built in dApps powered by a core utility token
 
 BitShares is designed to be self funding and self-sustaining by giving
 the stakeholders the power to direct where blockchain reserves are
@@ -128,7 +128,7 @@ more..](https://bitshares.org/technology/stakeholder-approved-funding) )
 
 ## Transferable Named Accounts
 
-> -   Human-readable account names registered in the blockchain
+> - Human-readable account names registered in the blockchain
 
 Named accounts enable users to easily remember and communicate their
 account information. We don\'t use IP addresses to browse the internet
@@ -138,7 +138,7 @@ more..](https://bitshares.org/technology/named-accounts) )
 
 ## Delegated Proof-of-Stake Consensus
 
-> -   A robust and flexible consensus protocol
+> - A robust and flexible consensus protocol
 
 Delegated Proof of Stake (DPOS) is the fastest, most efficient, most
 decentralized, and most flexible consensus model available. DPOS
@@ -151,5 +151,3 @@ most importantly, the consensus protocol is designed to protect all
 participants against unwanted regulatory interference. ([Read
 more..](https://bitshares.org/technology/delegated-proof-of-stake-consensus)
 )
-
-| 
