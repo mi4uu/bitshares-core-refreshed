@@ -3,6 +3,7 @@ nav:
   - Readme: readme.md
   - Programs: programs.md
   - Libs: libs.md
+  - DOC_BITSHARES: doc.bitshares/
   - Building: docs/build
   - Architecture: 
     - SPV: docs/architecture/spv/
