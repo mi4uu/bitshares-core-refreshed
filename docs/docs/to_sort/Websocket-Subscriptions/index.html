@@ -445,28 +445,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2426,9 +2404,9 @@
   <h1>Websocket Subscriptions</h1>
 
 <p>Before we can subscribe to any changes, we first need to ask for access to the <code>database</code>-api with</p>
-<pre><code>&gt; {"id":2,"method":"call","params":[0,"database",[]]}
-&lt; {"id":2,"result":1}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>&gt; {&quot;id&quot;:2,&quot;method&quot;:&quot;call&quot;,&quot;params&quot;:[0,&quot;database&quot;,[]]}
+&lt; {&quot;id&quot;:2,&quot;result&quot;:1}
+</code></pre></div>
 <p>The <code>result</code> will be our <code>DATABASE_API_ID</code>!</p>
 <p>In Graphene, we have the following subscriptions available:</p>
 <ul>
@@ -2442,37 +2420,42 @@
 </ul>
 <p>Let's first get a global scubscription callback to disctinguish our
 notifications from regular RPC calls:</p>
-<pre><code>&gt; {"id":4,"method":"call","params":[DATABASE_API_ID,"set_subscribe_callback",[SUBSCRIPTION_ID]]}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>&gt; {&quot;id&quot;:4,&quot;method&quot;:&quot;call&quot;,&quot;params&quot;:[DATABASE_API_ID,&quot;set_subscribe_callback&quot;,[SUBSCRIPTION_ID]]}
+</code></pre></div>
 <p>This call above will register <code>SUBSCRIPTION_ID</code> as id for notifications.</p>
 <p>Now, whenever you get an object from the witness (e.g. via <code>get_objects</code>) you
 will automatically subscribe to any future changes of that object.</p>
 <p>After calling <code>set_subscribe_callback</code> the witness will start to send notices
 every time the object changes:</p>
-<pre><code>&lt; {
-    "method": "notice"
-    "params": [
+<div class="language-text highlight"><pre><span></span><code>&lt; {
+    &quot;method&quot;: &quot;notice&quot;
+    &quot;params&quot;: [
         SUBSCRIPTION_ID, 
-        [[
-            { "id": "2.1.0", ...  },
-            { "id": ...  },
-            { "id": ...  },
-            { "id": ...  }
-        ]]
+        [
+            { &quot;id&quot;: &quot;2.1.0&quot;, ...  },
+            { &quot;id&quot;: ...  },
+            { &quot;id&quot;: ...  },
+            { &quot;id&quot;: ...  }
+        ](../../-----------------id-210--------------------id--------------------id--------------------id--------------- &quot;
+            { &quot;id&quot;: &quot;2.1.0&quot;, ...  },
+            { &quot;id&quot;: ...  },
+            { &quot;id&quot;: ...  },
+            { &quot;id&quot;: ...  }
+        &quot;)
     ], 
 }
-</code></pre>
+</code></pre></div>
 <p>Here is an example of a full session:</p>
-<pre><code>&gt; {"id":1,"method":"call","params":[0,"login",["",""]]}
-&lt; {"id":1,"result":true}
-&gt; {"id":2,"method":"call","params":[0,"database",[]]}
-&lt; {"id":2,"result":1}
-&gt; {"id":3,"method":"call","params":[1,"set_subscribe_callback",[200]]}
-&lt; {"id":3,"result":true}
-&lt; {"method":"notice","params":[200,[[{"id":"2.1.0","random":"2033120557c36e278db2eaad818494f791ff4d7b0418858a7ab9b5a8","head_block_number":5,"head_block_id":"00000005171f82f1b6bd948e7d58d95e572001fd","time":"2015-05-01T13:05:50","current_witness":"1.7.5","next_maintenance_time":"2015-05-02T00:00:00"}]]]}
-&lt; {"method":"notice","params":[200,[[{"id":"2.1.0","random":"9d5ff7e453db4815005eb42ddd040e3afb459950f75f4440deb3dec0","head_block_number":6,"head_block_id":"000000060e3369d6feaf330ea9114cd855c93aab","time":"2015-05-01T13:05:55","current_witness":"1.7.3","next_maintenance_time":"2015-05-02T00:00:00"}]]]}
-&lt; {"method":"notice","params":[200,[[{"id":"2.1.0","random":"cb8686582c40634a0c0834d0f2c4ad19f8ca80598cc3eee2b93c124d","head_block_number":7,"head_block_id":"000000071d0bc8db55d7da75d1d880818d1930fd","time":"2015-05-01T13:06:00","current_witness":"1.7.0","next_maintenance_time":"2015-05-02T00:00:00"}]]]}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>&gt; {&quot;id&quot;:1,&quot;method&quot;:&quot;call&quot;,&quot;params&quot;:[0,&quot;login&quot;,[&quot;&quot;,&quot;&quot;]]}
+&lt; {&quot;id&quot;:1,&quot;result&quot;:true}
+&gt; {&quot;id&quot;:2,&quot;method&quot;:&quot;call&quot;,&quot;params&quot;:[0,&quot;database&quot;,[]]}
+&lt; {&quot;id&quot;:2,&quot;result&quot;:1}
+&gt; {&quot;id&quot;:3,&quot;method&quot;:&quot;call&quot;,&quot;params&quot;:[1,&quot;set_subscribe_callback&quot;,[200]]}
+&lt; {&quot;id&quot;:3,&quot;result&quot;:true}
+&lt; {&quot;method&quot;:&quot;notice&quot;,&quot;params&quot;:[200,[{&quot;id&quot;:&quot;2.1.0&quot;,&quot;random&quot;:&quot;2033120557c36e278db2eaad818494f791ff4d7b0418858a7ab9b5a8&quot;,&quot;head_block_number&quot;:5,&quot;head_block_id&quot;:&quot;00000005171f82f1b6bd948e7d58d95e572001fd&quot;,&quot;time&quot;:&quot;2015-05-01T13:05:50&quot;,&quot;current_witness&quot;:&quot;1.7.5&quot;,&quot;next_maintenance_time&quot;:&quot;2015-05-02T00:00:00&quot;}](../../id210random2033120557c36e278db2eaad818494f791ff4d7b0418858a7ab9b5a8head_block_number5head_block_id00000005171f82f1b6bd948e7d58d95e572001fdtime2015-05-01t130550current_witness175next_maintenance_time2015-05-02t000000 &quot;{&quot;id&quot;:&quot;2.1.0&quot;,&quot;random&quot;:&quot;2033120557c36e278db2eaad818494f791ff4d7b0418858a7ab9b5a8&quot;,&quot;head_block_number&quot;:5,&quot;head_block_id&quot;:&quot;00000005171f82f1b6bd948e7d58d95e572001fd&quot;,&quot;time&quot;:&quot;2015-05-01T13:05:50&quot;,&quot;current_witness&quot;:&quot;1.7.5&quot;,&quot;next_maintenance_time&quot;:&quot;2015-05-02T00:00:00&quot;}&quot;)]}
+&lt; {&quot;method&quot;:&quot;notice&quot;,&quot;params&quot;:[200,[{&quot;id&quot;:&quot;2.1.0&quot;,&quot;random&quot;:&quot;9d5ff7e453db4815005eb42ddd040e3afb459950f75f4440deb3dec0&quot;,&quot;head_block_number&quot;:6,&quot;head_block_id&quot;:&quot;000000060e3369d6feaf330ea9114cd855c93aab&quot;,&quot;time&quot;:&quot;2015-05-01T13:05:55&quot;,&quot;current_witness&quot;:&quot;1.7.3&quot;,&quot;next_maintenance_time&quot;:&quot;2015-05-02T00:00:00&quot;}](../../id210random9d5ff7e453db4815005eb42ddd040e3afb459950f75f4440deb3dec0head_block_number6head_block_id000000060e3369d6feaf330ea9114cd855c93aabtime2015-05-01t130555current_witness173next_maintenance_time2015-05-02t000000 &quot;{&quot;id&quot;:&quot;2.1.0&quot;,&quot;random&quot;:&quot;9d5ff7e453db4815005eb42ddd040e3afb459950f75f4440deb3dec0&quot;,&quot;head_block_number&quot;:6,&quot;head_block_id&quot;:&quot;000000060e3369d6feaf330ea9114cd855c93aab&quot;,&quot;time&quot;:&quot;2015-05-01T13:05:55&quot;,&quot;current_witness&quot;:&quot;1.7.3&quot;,&quot;next_maintenance_time&quot;:&quot;2015-05-02T00:00:00&quot;}&quot;)]}
+&lt; {&quot;method&quot;:&quot;notice&quot;,&quot;params&quot;:[200,[{&quot;id&quot;:&quot;2.1.0&quot;,&quot;random&quot;:&quot;cb8686582c40634a0c0834d0f2c4ad19f8ca80598cc3eee2b93c124d&quot;,&quot;head_block_number&quot;:7,&quot;head_block_id&quot;:&quot;000000071d0bc8db55d7da75d1d880818d1930fd&quot;,&quot;time&quot;:&quot;2015-05-01T13:06:00&quot;,&quot;current_witness&quot;:&quot;1.7.0&quot;,&quot;next_maintenance_time&quot;:&quot;2015-05-02T00:00:00&quot;}](../../id210randomcb8686582c40634a0c0834d0f2c4ad19f8ca80598cc3eee2b93c124dhead_block_number7head_block_id000000071d0bc8db55d7da75d1d880818d1930fdtime2015-05-01t130600current_witness170next_maintenance_time2015-05-02t000000 &quot;{&quot;id&quot;:&quot;2.1.0&quot;,&quot;random&quot;:&quot;cb8686582c40634a0c0834d0f2c4ad19f8ca80598cc3eee2b93c124d&quot;,&quot;head_block_number&quot;:7,&quot;head_block_id&quot;:&quot;000000071d0bc8db55d7da75d1d880818d1930fd&quot;,&quot;time&quot;:&quot;2015-05-01T13:06:00&quot;,&quot;current_witness&quot;:&quot;1.7.0&quot;,&quot;next_maintenance_time&quot;:&quot;2015-05-02T00:00:00&quot;}&quot;)]}
+</code></pre></div>
 
 
 
@@ -2519,7 +2502,7 @@ every time the object changes:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

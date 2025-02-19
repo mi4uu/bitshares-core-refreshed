@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2650,15 +2628,15 @@
 <h1 id="elasticsearch-plugins-suite">ElasticSearch Plugins Suite</h1>
 <p>Store full account and object data into indexed elastisearch database.</p>
 <ul>
-<li><a href="#motivation">Motivation</a></li>
-<li><a href="#the-database-selection">Database Selection</a></li>
-<li><a href="#technical">Technical</a></li>
-<li><a href="#hardware-needed">Hardware needed</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#running">Running</a></li>
-<li><a href="#checking-if-is-working">Checking if is working</a></li>
-<li><a href="#arguments">Arguments</a></li>
-<li><a href="#kibana">Kibana</a></li>
+<li><a href="./#motivation">Motivation</a></li>
+<li><a href="./#the-database-selection">Database Selection</a></li>
+<li><a href="./#technical">Technical</a></li>
+<li><a href="./#hardware-needed">Hardware needed</a></li>
+<li><a href="./#installation">Installation</a></li>
+<li><a href="./#running">Running</a></li>
+<li><a href="./#checking-if-is-working">Checking if is working</a></li>
+<li><a href="./#arguments">Arguments</a></li>
+<li><a href="./#kibana">Kibana</a></li>
 </ul>
 <h2 id="motivation">Motivation</h2>
 <p>There are 3 main problems this plug-in tries to solve:</p>
@@ -2687,81 +2665,81 @@
 <p>You need 1T of space to be safe for a while, 32G or more of RAM is recommended.</p>
 <p>After elasticsearch is installed increase heap size depending in your RAM: </p>
 <p><code>$ vi config/jvm.options</code>        </p>
-<pre><code>..
-# Xms represents the initial size of total heap space
-# Xmx represents the maximum size of total heap space
-
--Xms12g
--Xmx12g
-...
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>..
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a># Xms represents the initial size of total heap space
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a># Xmx represents the maximum size of total heap space
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>-Xms12g
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>-Xmx12g
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>...
+</span></code></pre></div>
 <h2 id="installation">Installation</h2>
 <p>You need to have bitshares-core and its dependencies installed(https://github.com/bitshares/bitshares-core#getting-started).</p>
 <p>In ubuntu 18.04 all the dependencies for elasticsearch database are installed by default. Just get the last version(or desired version) at:</p>
 <p>https://www.elastic.co/downloads/elasticsearch</p>
-<pre><code>$ tar xvzf elasticsearch-7.4.0-linux-x86_64.tar.gz
-$ cd elasticsearch-7.4.0/
-$./bin/elasticsearch
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ tar xvzf elasticsearch-7.4.0-linux-x86_64.tar.gz
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$ cd elasticsearch-7.4.0/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$./bin/elasticsearch
+</span></code></pre></div>
 <p>ES will listen in <code>127.0.0.1:9200</code>. Try http://127.0.0.1:9200/ in your browser and you should see some info about the database if the service started correctly.</p>
 <p>You can put the binary as a service, program haves a <code>--daemonize</code> option, can run inside <code>screen</code> or any other option that suits you in order to keep the database running. </p>
 <p>Please note ES does not run as root, make a normal user account by and proceed after:</p>
 <p><code>adduser elastic</code></p>
 <h2 id="running">Running</h2>
 <p>Clone the bitshares repo and install bitshares:</p>
-<pre><code>git clone https://github.com/bitshares/bitshares-core
-cd bitshares-core
-git checkout -t origin/develop
-git submodule update --init --recursive
-cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
-make
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git clone https://github.com/bitshares/bitshares-core
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cd bitshares-core
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git checkout -t origin/develop
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>git submodule update --init --recursive
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>make
+</span></code></pre></div>
 <p>Start node with elasticsearch plugins enabled with default options. Make sure ES is running in localhost:9200</p>
 <p><code>./programs/witness_node/witness_node --plugins "elasticsearch es_objects"</code></p>
 <h3 id="checking-if-is-working">Checking if is working</h3>
 <p>By default you should see the following messages in the witness console while the node is loading:</p>
-<pre><code>...
-572387ms th_a       elasticsearch_plugin.cpp:516  plugin_startup       ] elasticsearch ACCOUNT HISTORY: plugin_startup() begin
-572387ms th_a       application.cpp:1235          startup_plugins      ] Plugin elasticsearch started
-572395ms th_a       es_objects.cpp:405            plugin_startup       ] elasticsearch OBJECTS: plugin_startup() begin
-572395ms th_a       application.cpp:1235          startup_plugins      ] Plugin es_objects started
-...
-575659ms th_a       es_objects.cpp:82             genesis              ] elasticsearch OBJECTS: inserting data from genesis
-595710ms th_a       application.cpp:603           handle_block         ] Got block: #10000 00002710c3894322c3a33dabdcb4020c2918db6e time: 2015-10-13T23:15:42 transaction(s): 0 latency: 126190453710 ms from: cyrano  irreversible: 9789 (-211)
-602395ms th_a       application.cpp:603           handle_block         ] Got block: #20000 00004e2032e9ec266a4eb088a5e0aa05bb24ff0c time: 2015-10-14T07:37:33 transaction(s): 0 latency: 126160349395 ms from: bitcube  irreversible: 19785 (-215)
-...
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>...
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>572387ms th_a       elasticsearch_plugin.cpp:516  plugin_startup       ] elasticsearch ACCOUNT HISTORY: plugin_startup() begin
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>572387ms th_a       application.cpp:1235          startup_plugins      ] Plugin elasticsearch started
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>572395ms th_a       es_objects.cpp:405            plugin_startup       ] elasticsearch OBJECTS: plugin_startup() begin
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>572395ms th_a       application.cpp:1235          startup_plugins      ] Plugin es_objects started
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>...
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>575659ms th_a       es_objects.cpp:82             genesis              ] elasticsearch OBJECTS: inserting data from genesis
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>595710ms th_a       application.cpp:603           handle_block         ] Got block: #10000 00002710c3894322c3a33dabdcb4020c2918db6e time: 2015-10-13T23:15:42 transaction(s): 0 latency: 126190453710 ms from: cyrano  irreversible: 9789 (-211)
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>602395ms th_a       application.cpp:603           handle_block         ] Got block: #20000 00004e2032e9ec266a4eb088a5e0aa05bb24ff0c time: 2015-10-14T07:37:33 transaction(s): 0 latency: 126160349395 ms from: bitcube  irreversible: 19785 (-215)
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>...
+</span></code></pre></div>
 <p>In a new window can check the total rows in the bitshares index you have, the count number should be increasing as we sync:</p>
-<pre><code>$ curl -X GET 'http://localhost:9200/bitshares-*/data/_count?pretty=true' -H 'Content-Type: application/json' -d '
-{
-    &quot;query&quot; : {
-        &quot;bool&quot; : { &quot;must&quot; : [{&quot;match_all&quot;: {}}] }
-    }
-}
-'
-{
-  &quot;count&quot; : 35000,
-  &quot;_shards&quot; : {
-    &quot;total&quot; : 1,
-    &quot;successful&quot; : 1,
-    &quot;skipped&quot; : 0,
-    &quot;failed&quot; : 0
-  }
-}
-$ 
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ curl -X GET &#39;http://localhost:9200/bitshares-*/data/_count?pretty=true&#39; -H &#39;Content-Type: application/json&#39; -d &#39;
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>{
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    &quot;query&quot; : {
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        &quot;bool&quot; : { &quot;must&quot; : [{&quot;match_all&quot;: {}}] }
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    }
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>}
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>&#39;
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>{
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  &quot;count&quot; : 35000,
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  &quot;_shards&quot; : {
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    &quot;total&quot; : 1,
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    &quot;successful&quot; : 1,
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    &quot;skipped&quot; : 0,
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    &quot;failed&quot; : 0
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  }
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>}
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>$ 
+</span></code></pre></div>
 <p>Replace <code>bitshares-*</code> to <code>objects-*</code> to make sure you have items also in the objects indexes.</p>
 <p>Note: If you see that you just have to wait to sync, you can execute this queries often to check progress, as long as the numbers are moving to the up side you are generally going fine.</p>
 <p>You can also check your indexes with:</p>
-<pre><code>$ curl -X GET 'http://localhost:9200/_cat/indices'
-yellow open objects-bitasset  CyYgodyOS3OzPCC9ED6K_Q 1 1    33   0  73.4kb  73.4kb
-yellow open objects-balance   TCWc24MDSPG2PwxTGSLbNQ 1 1  1760   0 256.1kb 256.1kb
-yellow open objects-asset     4TkUeOdwRnSeDUtqOs3B2g 1 1   457   0 171.5kb 171.5kb
-yellow open objects-account   Tv-7TI_rTLSMqrDEj3FGYw 1 1 95405 652  75.5mb  75.5mb
-yellow open objects-proposal  J5ok-YqNQyqW5psAxVARqQ 1 1     6   6  38.1kb  38.1kb
-yellow open bitshares-2015-10 IBDfO9wqR5qtmY5_g4f81Q 1 1 35000   0  18.5mb  18.5mb
-$ 
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ curl -X GET &#39;http://localhost:9200/_cat/indices&#39;
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>yellow open objects-bitasset  CyYgodyOS3OzPCC9ED6K_Q 1 1    33   0  73.4kb  73.4kb
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>yellow open objects-balance   TCWc24MDSPG2PwxTGSLbNQ 1 1  1760   0 256.1kb 256.1kb
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>yellow open objects-asset     4TkUeOdwRnSeDUtqOs3B2g 1 1   457   0 171.5kb 171.5kb
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>yellow open objects-account   Tv-7TI_rTLSMqrDEj3FGYw 1 1 95405 652  75.5mb  75.5mb
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>yellow open objects-proposal  J5ok-YqNQyqW5psAxVARqQ 1 1     6   6  38.1kb  38.1kb
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>yellow open bitshares-2015-10 IBDfO9wqR5qtmY5_g4f81Q 1 1 35000   0  18.5mb  18.5mb
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>$ 
+</span></code></pre></div>
 <h3 id="arguments">Arguments</h3>
 <p>The ES plugin have the following parameters passed by command line or config file:</p>
 <ul>
@@ -2844,7 +2822,7 @@ $
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

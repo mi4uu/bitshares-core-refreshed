@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2534,7 +2512,7 @@ bitshares-core.</p>
 <p>The haproxy config <code>/etc/haproxy/haproxy.cfg</code> comes with a global
 section and defaults. The following appear to be sound defaults with
 respect to security standards of 2018:</p>
-<pre><code> global
+<div class="language-text highlight"><pre><span></span><code> global
     log /dev/log local0
     log /dev/log local1 notice
     chroot /var/lib/haproxy
@@ -2548,7 +2526,7 @@ respect to security standards of 2018:</p>
     ca-base /etc/ssl/certs
     crt-base /etc/ssl/private
 
-    # Generated via "openssl dhparam -out dhparam.pem 1024"
+    # Generated via &quot;openssl dhparam -out dhparam.pem 1024&quot;
     ssl-dh-param-file /etc/haproxy/dhparams.pem
 
     # Recent Cipher suites
@@ -2563,42 +2541,42 @@ respect to security standards of 2018:</p>
  defaults
      log     global
      mode    http
-</code></pre>
+</code></pre></div>
 <h2 id="frontends">Frontends</h2>
 <p>A frontend is used as entrypoint. Here, we open a frontend for HTTPS (443)
 and HTTP (80):</p>
-<pre><code> frontend https
+<div class="language-text highlight"><pre><span></span><code> frontend https
 
     # file must contain certificate, chain and key
     bind *:443 ssl strict-sni crt /etc/ssl/keys/domain.pem
     mode http
 
-    # this sets the 'is_node' ACL in case the domain name matches
+    # this sets the &#39;is_node&#39; ACL in case the domain name matches
     acl is_node              hdr(Host)    -i node.bitshares.org
 
     # SSL
     http-response set-header Strict-Transport-Security max-age=15768000
 
-    # Let's redirect everything for node to the node backend
+    # Let&#39;s redirect everything for node to the node backend
     use_backend node if is_node
 
-    # in case some other domain points to us, let's still redirect
+    # in case some other domain points to us, let&#39;s still redirect
     # to node backend
     default_backend node
 
  frontend http
     bind *:80
     mode http
-    # No like HTTP .. Let's do HTTPS
+    # No like HTTP .. Let&#39;s do HTTPS
     redirect scheme https code 301 if !{ ssl_fc }
-</code></pre>
+</code></pre></div>
 <h2 id="backend">Backend</h2>
 <p>The backend is quite simple and merely points to a set of backend nodes
 each running a bitshares-core API on port <code>8090</code>.</p>
 <p>In our case, we also run a <a href="https://github.com/blockchainbv/graphene-healthchecker">healthchecker</a>
 that tests the API and causes HAproxy to remove the backend
 automatically, if unhealthy. The healthchecker listens on port <code>8095</code>.</p>
-<pre><code> backend node
+<div class="language-text highlight"><pre><span></span><code> backend node
     option httpchk
     balance roundrobin
     server node-01 192.168.0.10:8090 check port 8095
@@ -2607,7 +2585,7 @@ automatically, if unhealthy. The healthchecker listens on port <code>8095</code>
     server node-01 192.168.0.13:8090 check port 8095
     server node-01 192.168.0.14:8090 check port 8095
     server node-01 192.168.0.15:8090 check port 8095
-</code></pre>
+</code></pre></div>
 
 
 
@@ -2654,7 +2632,7 @@ automatically, if unhealthy. The healthchecker listens on port <code>8095</code>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

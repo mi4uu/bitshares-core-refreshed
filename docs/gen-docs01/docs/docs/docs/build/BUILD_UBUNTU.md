@@ -4,8 +4,12 @@ Note: this documents is a copy of the "Build" section of [README.md](https://git
 As of writing, we support building on Ubuntu 16.04, 18.04 and 20.04 LTS releases.
 The following dependencies are recommended for a clean install on Ubuntu (64-bit):
 
+
+```bash
     sudo apt-get update
     sudo apt-get install autoconf cmake make automake libtool git libboost-all-dev libssl-dev g++ libcurl4-openssl-dev doxygen
+```
+
 
 ## Build BitShares Core
 

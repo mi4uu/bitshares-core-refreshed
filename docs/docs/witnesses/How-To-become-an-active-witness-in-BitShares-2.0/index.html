@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2716,9 +2694,9 @@ create, configure and run a witness node.</p>
 <p>To create a new account, you will need to start with an existing account with
 some of the BTS asset that will pay the transaction fee registering your new
 witness. Get your <code>&lt;wif&gt;</code> key from BitShares 0.9 via</p>
-<pre><code>BitShares0.9: &gt;&gt;&gt; wallet_dump_account_private_key &lt;accountname&gt; "owner_key"
-"5....."  # the &lt;owner wif key&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>BitShares0.9: &gt;&gt;&gt; wallet_dump_account_private_key &lt;accountname&gt; &quot;owner_key&quot;
+&quot;5.....&quot;  # the &lt;owner wif key&gt;
+</code></pre></div>
 <h3 id="extracting-balances-from-bitshares-09">Extracting balances from BitShares 0.9</h3>
 <p>The key we have extracted previously only gives access to the registered name.
 Hence, none of the accounts in the genesis block have balances in them. In the
@@ -2731,31 +2709,31 @@ BTS into the BitShares 2.0 client later.</p>
 <h4 id="manually-extracting-private-keys-most-secure-way">Manually extracting private keys (most secure way)</h4>
 <p>We can extract the required private keys that hold funds this way. First we get
 all balance ids from an account via:</p>
-<pre><code>BitShares0.9: &gt;&gt;&gt; wallet_account_balance_ids &lt;accountname&gt;
+<div class="language-text highlight"><pre><span></span><code>BitShares0.9: &gt;&gt;&gt; wallet_account_balance_ids &lt;accountname&gt;
 [[
-"xeroc",[
-  "BTSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-  "BTSBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+&quot;xeroc&quot;,[
+  &quot;BTSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&quot;,
+  &quot;BTSBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&quot;,
       ...
 ]
   ]
 ]
-</code></pre>
+</code></pre></div>
 <p>Each of these balances can be investigated via:</p>
-<pre><code>BitShares0.9: &gt;&gt;&gt; blockchain_get_balance BTSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+<div class="language-text highlight"><pre><span></span><code>BitShares0.9: &gt;&gt;&gt; blockchain_get_balance BTSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ....
-"asset_id": 0,                                     &lt;- asset_id (0: BTS)
-"data": {
-  "owner": "BTSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWNER", &lt;- address
+&quot;asset_id&quot;: 0,                                     &lt;- asset_id (0: BTS)
+&quot;data&quot;: {
+  &quot;owner&quot;: &quot;BTSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWNER&quot;, &lt;- address
       ...
-  "balance": 0,                                        &lt;- balance
+  &quot;balance&quot;: 0,                                        &lt;- balance
   ...
-</code></pre>
+</code></pre></div>
 <p>The required part (the owner of the balance) is denoted as <code>owner</code>.
 Pick one or more address for BTS balances and dump the corresponding private key(s) with:</p>
-<pre><code>BitShares0.9: &gt;&gt;&gt; wallet_dump_private_key BTSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWNER
-"5......." # the &lt;balance wif key&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>BitShares0.9: &gt;&gt;&gt; wallet_dump_private_key BTSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWNER
+&quot;5.......&quot; # the &lt;balance wif key&gt;
+</code></pre></div>
 <p>Note: Make sure to secure these private keys, as they are unencrypted and give
 access to the funds in the BitShares 0.9 network. You may loose your money if
 you are not an secure computer!</p>
@@ -2768,21 +2746,21 @@ description above, you can safely skip the subsequent paragraph.</p>
 may help you to retrieve private keys for your balances.
 You need to modify the first few lines of the script in order to get a
 connection to your BitShares daemon.</p>
-<pre><code>$ edit getbalancekeys.py
+<div class="language-text highlight"><pre><span></span><code>$ edit getbalancekeys.py
     [...]
-config.url    = "http://10.0.0.16:19988/rpc"
-config.user   = 'rpc-user'
-config.passwd = 'rpc-password'
-config.wallet = "default"
+config.url    = &quot;http://10.0.0.16:19988/rpc&quot;
+config.user   = &#39;rpc-user&#39;
+config.passwd = &#39;rpc-password&#39;
+config.wallet = &quot;default&quot;
     [...]
-</code></pre>
+</code></pre></div>
 <p>If you don't know what to do with these, you certainly shouldn't run a witness
 just now. Instead, read about <a href="http://wiki.bitshares.org/index.php/BitShares/API">RPC and the
 API</a> of BitShares.
 If you set up everything correctly, you may just run the python script and get
 the private keys associated to a given account name and the correspoinding
 balance:</p>
-<pre><code>$ python getbalancekeys.py
+<div class="language-text highlight"><pre><span></span><code>$ python getbalancekeys.py
 accountA   5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;owner wif key&gt;           2750.00000 BTS        
 accountB   5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;owner wif key&gt;          11246.00000 BTS
 accountB   5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;owner wif key&gt;          30000.00000 BROWNIE.PTS
@@ -2790,10 +2768,10 @@ accountB   5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;owner wif key&gt;            300.00000
 accountB   5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;owner wif key&gt;          65744.00000 NOTE
 accountC   5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;owner wif key&gt;              3.00000 GOLD
 [...]
-accountA's owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;balance wif key&gt;  # 
-accountB's owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;balance wif key&gt;  # 
-accountC's owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;balance wif key&gt;  #
-</code></pre>
+accountA&#39;s owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;balance wif key&gt;  # 
+accountB&#39;s owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;balance wif key&gt;  # 
+accountC&#39;s owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx&lt;balance wif key&gt;  #
+</code></pre></div>
 <p>You will only need BTS balances and the one of your account owner keys in order
 to become a witness.</p>
 <h2 id="bitshares-20-network-or-graphene-testnet">BitShares 2.0 network (or Graphene testnet)</h2>
@@ -2819,48 +2797,48 @@ for the real network later. The genesis block can be downloaded (here)[https://d
 <h3 id="run-the-witness-as-a-node-in-the-network">Run the witness as a node in the network</h3>
 <p>We first run the witness node without block production and connect it to the P2P
 network with the following command:</p>
-<pre><code>$ programs/witness_node/witness_node -s 104.200.28.117:61705 --rpc-endpoint 127.0.0.1:8090 --genesis-json aug-14-test-genesis.json
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>$ programs/witness_node/witness_node -s 104.200.28.117:61705 --rpc-endpoint 127.0.0.1:8090 --genesis-json aug-14-test-genesis.json
+</code></pre></div>
 <p>The address <code>104.200.28.117</code> is one of the public seed nodes.</p>
 <h3 id="creating-a-wallet">Creating a wallet</h3>
 <p>We now open up the cli_wallet and connect to our plain and stupid witness node:</p>
-<pre><code>$ programs/cli_wallet/cli_wallet -s ws://127.0.0.1:8090
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>$ programs/cli_wallet/cli_wallet -s ws://127.0.0.1:8090
+</code></pre></div>
 <p>First thing to do is setting up a password for the newly created wallet prior to
 importing any private keys:</p>
-<pre><code>new &gt;&gt;&gt; set_password &lt;password&gt;
+<div class="language-text highlight"><pre><span></span><code>new &gt;&gt;&gt; set_password &lt;password&gt;
 null
 locked &gt;&gt;&gt; unlock &lt;password&gt;
 null
 unlocked &gt;&gt;&gt;
-</code></pre>
+</code></pre></div>
 <p>Wallet creation is now done.</p>
 <h3 id="basic-account-management">Basic Account Management</h3>
 <p>We can import the account name (owner key) and the balance containing keys into
 BitShares 2.0:</p>
-<pre><code>unlocked &gt;&gt;&gt; import_key &lt;accountname&gt; &lt;owner wif key&gt;
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; import_key &lt;accountname&gt; &lt;owner wif key&gt;
 true
 unlocked &gt;&gt;&gt; import_balance &lt;accountname&gt; [&lt;balance wif key&gt;] true
 [a transaction in json format]
 unlocked &gt;&gt;&gt; list_my_accounts
 [{
-"id": "1.2.15",
+&quot;id&quot;: &quot;1.2.15&quot;,
 ...
-"name": &lt;accountname&gt;,
+&quot;name&quot;: &lt;accountname&gt;,
 ...
 ]
 unlocked &gt;&gt;&gt; list_account_balances &lt;accountname&gt;
 XXXXXXX BTS
-</code></pre>
+</code></pre></div>
 <p>Note: Make sure to put the []-brackets around the private key, since the import
 method takes an array of keys.  </p>
 <p>In case your account's owner key is different from its active key, make sure you import it into BitShares 2.0 as well.</p>
 <p>Since only lifetime members can become witnesses, you must first upgrade to a
 lifetime member. This step costs the lifetime-upgrade fee which will eventually
 cost about $100</p>
-<pre><code>unlocked &gt;&gt;&gt; upgrade_account &lt;accountname&gt; true
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; upgrade_account &lt;accountname&gt; true
 [a transaction in json format]
-</code></pre>
+</code></pre></div>
 <h3 id="becoming-a-witness">Becoming a Witness</h3>
 <p>To become a witness and be able to produce blocks, you first need to create a
 witness object that can be voted in.</p>
@@ -2872,68 +2850,68 @@ votes are only tallied once per day at the maintenance interval.
 voted in.  </p>
 <p>Before we get started, we can see the current list of witnesses voted in, which
 will simply be the ten default witnesses:</p>
-<pre><code>unlocked &gt;&gt;&gt; get_global_properties
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; get_global_properties
 ...
-  "active_witnesses": [
-"1.6.0",
-"1.6.1",
-"1.6.2",
-"1.6.3",
-"1.6.4",
-"1.6.5",
-"1.6.6",
-"1.6.7",
-"1.6.8",
-"1.6.9"
+  &quot;active_witnesses&quot;: [
+&quot;1.6.0&quot;,
+&quot;1.6.1&quot;,
+&quot;1.6.2&quot;,
+&quot;1.6.3&quot;,
+&quot;1.6.4&quot;,
+&quot;1.6.5&quot;,
+&quot;1.6.6&quot;,
+&quot;1.6.7&quot;,
+&quot;1.6.8&quot;,
+&quot;1.6.9&quot;
   ],
 ...
 
-unlocked &gt;&gt;&gt; create_witness &lt;accountname&gt; "url-to-proposal" true
+unlocked &gt;&gt;&gt; create_witness &lt;accountname&gt; &quot;url-to-proposal&quot; true
 {
-  "ref_block_num": 139,
-  "ref_block_prefix": 3692461913,
-  "relative_expiration": 3,
-  "operations": [[
+  &quot;ref_block_num&quot;: 139,
+  &quot;ref_block_prefix&quot;: 3692461913,
+  &quot;relative_expiration&quot;: 3,
+  &quot;operations&quot;: [[
   21,{
-    "fee": {
-      "amount": 0,
-      "asset_id": "1.3.0"
+    &quot;fee&quot;: {
+      &quot;amount&quot;: 0,
+      &quot;asset_id&quot;: &quot;1.3.0&quot;
     },
-    "witness_account": "1.2.16",
-    "url": "url-to-proposal",
-    "block_signing_key": "PUBLIC KEY",
-    "initial_secret": "00000000000000000000000000000000000000000000000000000000"
+    &quot;witness_account&quot;: &quot;1.2.16&quot;,
+    &quot;url&quot;: &quot;url-to-proposal&quot;,
+    &quot;block_signing_key&quot;: &quot;PUBLIC KEY&quot;,
+    &quot;initial_secret&quot;: &quot;00000000000000000000000000000000000000000000000000000000&quot;
   }
 ]
   ],
-  "signatures": [
-  "1f2ad5597af2ac4bf7a50f1eef2db49c9c0f7616718776624c2c09a2dd72a0c53a26e8c2bc928f783624c4632924330fc03f08345c8f40b9790efa2e4157184a37"
+  &quot;signatures&quot;: [
+  &quot;1f2ad5597af2ac4bf7a50f1eef2db49c9c0f7616718776624c2c09a2dd72a0c53a26e8c2bc928f783624c4632924330fc03f08345c8f40b9790efa2e4157184a37&quot;
   ]
 }
-</code></pre>
+</code></pre></div>
 <p>Our witness is registered, but it can't produce blocks because nobody has voted
 it in.  You can see the current list of active witnesses with
 <code>get_global_properties</code>:</p>
-<pre><code>unlocked &gt;&gt;&gt; get_global_properties
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; get_global_properties
 {
-  "active_witnesses": [
-"1.6.0",
-"1.6.1",
-"1.6.2",
-"1.6.3",
-"1.6.4",
-"1.6.5",
-"1.6.7",
-"1.6.8",
-"1.6.9"
+  &quot;active_witnesses&quot;: [
+&quot;1.6.0&quot;,
+&quot;1.6.1&quot;,
+&quot;1.6.2&quot;,
+&quot;1.6.3&quot;,
+&quot;1.6.4&quot;,
+&quot;1.6.5&quot;,
+&quot;1.6.7&quot;,
+&quot;1.6.8&quot;,
+&quot;1.6.9&quot;
   ],
   ...
-</code></pre>
+</code></pre></div>
 <p>Now, we should vote our witness in.  Vote all of the shares in both
 <code>&lt;accountname&gt;</code> and <code>nathan</code> in favor of your new witness.</p>
-<pre><code>unlocked &gt;&gt;&gt; vote_for_witness &lt;accountname&gt; &lt;accountname&gt; true true
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; vote_for_witness &lt;accountname&gt; &lt;accountname&gt; true true
 [a transaction in json format]
-</code></pre>
+</code></pre></div>
 <p>Now we wait until the next maintenance interval.</p>
 <p>Get the witness object using <code>get_witness</code> and take note of two things. The
 <code>id</code> is displayed in <code>get_global_properties</code> when the witness is voted in, and
@@ -2944,40 +2922,40 @@ key.</p>
 private-key pairs to find the private key.</p>
 <p>Warning: <code>dump_private_keys</code> will display your keys unencrypted on the
 terminal, don't do this with someone looking over your shoulder.</p>
-<pre><code>unlocked &gt;&gt;&gt; get_witness &lt;accountname&gt;
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; get_witness &lt;accountname&gt;
 {
   [...]
-  "id": "1.6.10",
-  "signing_key": "GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8",
+  &quot;id&quot;: &quot;1.6.10&quot;,
+  &quot;signing_key&quot;: &quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8&quot;,
   [...]
 }
-</code></pre>
+</code></pre></div>
 <p>The <code>id</code> and the <code>signing_key</code> are the two important parameters, here. Let's get
 the private key for that signing key with:</p>
-<pre><code>unlocked &gt;&gt;&gt; dump_private_keys
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; dump_private_keys
 [[
   ...
   ],[
-"GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8",
-"5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ"
+&quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8&quot;,
+&quot;5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ&quot;
   ]
 ]
-</code></pre>
+</code></pre></div>
 <p>Now we need to start the witness, so shut down the wallet (ctrl-d),  and shut
 down the witness (ctrl-c).  Re-launch the witness, now mentioning the new
 witness 1.6.10 and its keypair:</p>
-<pre><code>./witness_node --rpc-endpoint=127.0.0.1:8090 --witness-id '"1.6.10"' --private-key '["GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8", "5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ"]' --genesis-json aug-14-test-genesis.json -s 104.200.28.117:61705
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>./witness_node --rpc-endpoint=127.0.0.1:8090 --witness-id &#39;&quot;1.6.10&quot;&#39; --private-key &#39;[&quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8&quot;, &quot;5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ&quot;]&#39; --genesis-json aug-14-test-genesis.json -s 104.200.28.117:61705
+</code></pre></div>
 <p>Alternatively, you can also add this line into yout config.ini:</p>
-<pre><code>witness-id = "1.6.10"
-private-key = ["GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8","5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ"]
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>witness-id = &quot;1.6.10&quot;
+private-key = [&quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8&quot;,&quot;5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ&quot;]
+</code></pre></div>
 <p>Note: Make sure to use YOUR public/private keys instead of the once given above!</p>
 <p>If you monitor the output of the <code>witness_node</code>, you should see it generate 
 blocks signed by your witness:</p>
-<pre><code>Witness 1.6.10 production slot has arrived; generating a block now...
+<div class="language-text highlight"><pre><span></span><code>Witness 1.6.10 production slot has arrived; generating a block now...
 Generated block #367 with timestamp 2015-07-05T20:46:30 at time 2015-07-05T20:46:30
-</code></pre>
+</code></pre></div>
 
 
 
@@ -3024,7 +3002,7 @@ Generated block #367 with timestamp 2015-07-05T20:46:30 at time 2015-07-05T20:46
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

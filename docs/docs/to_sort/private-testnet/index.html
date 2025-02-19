@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2695,18 +2673,18 @@ quickly create a new chain against any genesis file, by replacing the
 witnesses' block production keys.</p>
 <h2 id="embedding-genesis-optional">Embedding genesis (optional)</h2>
 <p>Once you have <code>genesis.json</code>, you may set a <code>cmake</code> variable like so:</p>
-<pre><code>cmake -DGRAPHENE_EGENESIS_JSON="$(pwd)/genesis/my-genesis.json"
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>cmake -DGRAPHENE_EGENESIS_JSON=&quot;$(pwd)/genesis/my-genesis.json&quot;
+</code></pre></div>
 <p>and then rebuild.  Note, sometimes I've had to clean the build and
 CMake cache variables in order for <code>GRAPHENE_EGENESIS_JSON</code> to take
 effect:</p>
-<pre><code>make clean
-find . -name "CMakeCache.txt" | xargs rm -f
-find . -name "CMakeFiles" | xargs rm -Rf
-cmake -DGRAPHENE_EGENESIS_JSON="$(pwd)/genesis/my-genesis.json" .
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>make clean
+find . -name &quot;CMakeCache.txt&quot; | xargs rm -f
+find . -name &quot;CMakeFiles&quot; | xargs rm -Rf
+cmake -DGRAPHENE_EGENESIS_JSON=&quot;$(pwd)/genesis/my-genesis.json&quot; .
+</code></pre></div>
 <p>Deleting caches will reset all <code>cmake</code> variables, so if you have used
-instructions like <a href="build-ubuntu.md">build-ubuntu</a> which tells you to
+instructions like <a href="../../build-ubuntu.md">build-ubuntu</a> which tells you to
 set other <code>cmake</code> variables, you will have to add those variables
 to the <code>cmake</code> line above.</p>
 <p>Embedding the genesis copies the entire content of <code>genesis.json</code>
@@ -2728,14 +2706,14 @@ consumers of pre-compiled binaries, in exchange for slight, optional
 complication of the process for producing binaries.</p>
 <h2 id="creating-data-directory">Creating data directory</h2>
 <p>We will a new data directory for our witness as follows:</p>
-<pre><code>programs/witness_node/witness_node --data-dir data/my-blockprod --genesis-json genesis/my-genesis.json --seed-nodes "[]"
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>programs/witness_node/witness_node --data-dir data/my-blockprod --genesis-json genesis/my-genesis.json --seed-nodes &quot;[]&quot;
+</code></pre></div>
 <p>The <code>data/my-blockprod</code> directory does not exist, it will be created
 by the witness node.</p>
 <p>Several messages will go to the console.  When you see messages like these:</p>
-<pre><code>3501235ms th_a       main.cpp:165                  main                 ] Started witness node on a chain with 0 blocks.
+<div class="language-text highlight"><pre><span></span><code>3501235ms th_a       main.cpp:165                  main                 ] Started witness node on a chain with 0 blocks.
 3501235ms th_a       main.cpp:166                  main                 ] Chain ID is cf307110d029cb882d126bf0488dc4864772f68d9888d86b458d16e6c36aa74b
-</code></pre>
+</code></pre></div>
 <p>the initialization is complete, and you can press Ctrl+C to quit the witness node.
 (Note:  Initialization will complete nearly instantaneously with the tiny
 example genesis, unless you added a ton of balances.)</p>
@@ -2744,35 +2722,35 @@ and it initializes the <code>data/my-blockprod</code> directory.</p>
 <h2 id="starting-block-production">Starting block production</h2>
 <p>Open <code>data/my-blockprod/config.ini</code> in your favorite text editor,
 and set the following settings, uncommenting them if necessary:</p>
-<pre><code>p2p-endpoint = 127.0.0.1:11010
+<div class="language-text highlight"><pre><span></span><code>p2p-endpoint = 127.0.0.1:11010
 rpc-endpoint = 127.0.0.1:11011
 
 genesis-json = genesis/my-genesis.json
 
-private-key = ["GPH6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"]
+private-key = [&quot;GPH6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV&quot;,&quot;5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3&quot;]
 
 required-participation = 0
 
-witness-id = "1.6.1"
-witness-id = "1.6.2"
-witness-id = "1.6.3"
-witness-id = "1.6.4"
-witness-id = "1.6.5"
-witness-id = "1.6.6"
-witness-id = "1.6.7"
-witness-id = "1.6.8"
-witness-id = "1.6.9"
-witness-id = "1.6.10"
-witness-id = "1.6.11"
-</code></pre>
+witness-id = &quot;1.6.1&quot;
+witness-id = &quot;1.6.2&quot;
+witness-id = &quot;1.6.3&quot;
+witness-id = &quot;1.6.4&quot;
+witness-id = &quot;1.6.5&quot;
+witness-id = &quot;1.6.6&quot;
+witness-id = &quot;1.6.7&quot;
+witness-id = &quot;1.6.8&quot;
+witness-id = &quot;1.6.9&quot;
+witness-id = &quot;1.6.10&quot;
+witness-id = &quot;1.6.11&quot;
+</code></pre></div>
 <p>This authorizes the <code>witness_node</code> to produce blocks on behalf of the
 listed <code>witness-id</code>'s, and specifies the private key needed to sign
 those blocks.  Normally each witness would be on a different node, but
 for the purposes of this testnet, we will start out with all witnesses
 signing blocks on a single node.</p>
 <p>Now run <code>witness_node</code> again:</p>
-<pre><code>programs/witness_node/witness_node --data-dir data/my-blockprod --enable-stale-production --seed-nodes "[]"
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>programs/witness_node/witness_node --data-dir data/my-blockprod --enable-stale-production --seed-nodes &quot;[]&quot;
+</code></pre></div>
 <p>Note that we need not specify <code>genesis.json</code> on the command line, since
 we now specify it in the config file.  The <code>--enable-stale-production</code>
 flag tells the <code>witness_node</code> to produce on a chain with zero blocks or
@@ -2790,15 +2768,15 @@ using a testnet wallet on the real chain.</p>
 <p>The chain ID is printed at witness node startup.  It can also be
 obtained by using the API to query a running witness node with the
 <code>get_chain_properties</code> API call:</p>
-<pre><code>curl --data '{"jsonrpc": "2.0", "method": "get_chain_properties", "params": [], "id": 1}' http://127.0.0.1:11011/rpc &amp;&amp; echo
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>curl --data &#39;{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;get_chain_properties&quot;, &quot;params&quot;: [], &quot;id&quot;: 1}&#39; http://127.0.0.1:11011/rpc &amp;&amp; echo
+</code></pre></div>
 <p>This <code>curl</code> command will return a short JSON object including the <code>chain_id</code>.</p>
 <h2 id="creating-a-wallet">Creating a wallet</h2>
 <p>In order to create a wallet, you must specify a chain ID and server.
 With the witness node's default access control settings, a blank
 username and password will suffice:</p>
-<pre><code>programs/cli_wallet/cli_wallet --wallet-file my-wallet.json --chain-id cf307110d029cb882d126bf0488dc4864772f68d9888d86b458d16e6c36aa74b --server-rpc-endpoint ws://127.0.0.1:11011 -u '' -p ''
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>programs/cli_wallet/cli_wallet --wallet-file my-wallet.json --chain-id cf307110d029cb882d126bf0488dc4864772f68d9888d86b458d16e6c36aa74b --server-rpc-endpoint ws://127.0.0.1:11011 -u &#39;&#39; -p &#39;&#39;
+</code></pre></div>
 <p>Note, since the genesis timestamp will likely be different, your chain
 ID will be different!  Instead of <code>cf3071110...</code> you should use the
 chain ID reported by your <code>witness_node</code>.  (See TODO:link for
@@ -2806,51 +2784,51 @@ instructions.)</p>
 <p>Before continuing, we should set a password.  This password is used
 to encrypt the private keys in the wallet.  We will use the word
 <code>supersecret</code> in this example.</p>
-<pre><code>set_password supersecret
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>set_password supersecret
+</code></pre></div>
 <h2 id="gaining-access-to-stake">Gaining access to stake</h2>
 <p>In Graphene, balances are contained in accounts.  To claim an account
 that exists in the Graphene genesis, use the <code>import_key</code> command:</p>
-<pre><code>unlock supersecret
-import_key nathan "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>unlock supersecret
+import_key nathan &quot;5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3&quot;
+</code></pre></div>
 <p>Funds are stored in genesis balance objects.  These funds can be
 claimed, with no fee, using the <code>import_balance</code> command.</p>
-<pre><code>import_balance nathan ["5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"] true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>import_balance nathan [&quot;5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3&quot;] true
+</code></pre></div>
 <h2 id="creating-accounts">Creating accounts</h2>
 <p>Creating an account requires lifetime member (LTM) status.  To upgrade
 to LTM, use the <code>upgrade_account</code> command:</p>
-<pre><code>upgrade_account nathan true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>upgrade_account nathan true
+</code></pre></div>
 <p>We can now register an account.  The <code>register_account</code> command
 allows you to register an account using only a public key:</p>
-<pre><code>register_account alpha BTS4zSJHx7D84T1j6HQ7keXWdtabBBWJxvfJw72XmEyqmgdoo1njF BTS4zSJHx7D84T1j6HQ7keXWdtabBBWJxvfJw72XmEyqmgdoo1njF nathan nathan 0 true
-transfer nathan alpha 100000 BTS "here is the cash" true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>register_account alpha BTS4zSJHx7D84T1j6HQ7keXWdtabBBWJxvfJw72XmEyqmgdoo1njF BTS4zSJHx7D84T1j6HQ7keXWdtabBBWJxvfJw72XmEyqmgdoo1njF nathan nathan 0 true
+transfer nathan alpha 100000 BTS &quot;here is the cash&quot; true
+</code></pre></div>
 <p>We can now open a new wallet for <code>alpha</code> user:</p>
-<pre><code>import_key alpha 5HuCDiMeESd86xrRvTbexLjkVg2BEoKrb7BAA5RLgXizkgV3shs
+<div class="language-text highlight"><pre><span></span><code>import_key alpha 5HuCDiMeESd86xrRvTbexLjkVg2BEoKrb7BAA5RLgXizkgV3shs
 upgrade_account alpha true
-create_witness alpha "http://www.alpha" true
-</code></pre>
+create_witness alpha &quot;http://www.alpha&quot; true
+</code></pre></div>
 <p>The <code>get_private_key</code> command allows us to obtain the public key corresponding to the block signing key:</p>
-<pre><code>get_private_key GPH6viEhYCQr8xKP3Vj8wfHh6WfZeJK7H9uhLPDYWLGCRSj5kHQZM
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>get_private_key GPH6viEhYCQr8xKP3Vj8wfHh6WfZeJK7H9uhLPDYWLGCRSj5kHQZM
+</code></pre></div>
 <h2 id="creating-committee-members">Creating committee members</h2>
-<pre><code>create_account_with_brain_key com0 com0 nathan nathan true
+<div class="language-text highlight"><pre><span></span><code>create_account_with_brain_key com0 com0 nathan nathan true
 create_account_with_brain_key com1 com1 nathan nathan true
 create_account_with_brain_key com2 com2 nathan nathan true
 create_account_with_brain_key com3 com3 nathan nathan true
 create_account_with_brain_key com4 com4 nathan nathan true
 create_account_with_brain_key com5 com5 nathan nathan true
 create_account_with_brain_key com6 com6 nathan nathan true
-transfer nathan com0 100000 CORE "some cash" true
-transfer nathan com1 100000 CORE "some cash" true
-transfer nathan com2 100000 CORE "some cash" true
-transfer nathan com3 100000 CORE "some cash" true
-transfer nathan com4 100000 CORE "some cash" true
-transfer nathan com5 100000 CORE "some cash" true
-transfer nathan com6 100000 CORE "some cash" true
+transfer nathan com0 100000 CORE &quot;some cash&quot; true
+transfer nathan com1 100000 CORE &quot;some cash&quot; true
+transfer nathan com2 100000 CORE &quot;some cash&quot; true
+transfer nathan com3 100000 CORE &quot;some cash&quot; true
+transfer nathan com4 100000 CORE &quot;some cash&quot; true
+transfer nathan com5 100000 CORE &quot;some cash&quot; true
+transfer nathan com6 100000 CORE &quot;some cash&quot; true
 upgrade_account com0 true
 upgrade_account com1 true
 upgrade_account com2 true
@@ -2858,13 +2836,13 @@ upgrade_account com3 true
 upgrade_account com4 true
 upgrade_account com5 true
 upgrade_account com6 true
-create_committee_member com0 "http://www.com0" true
-create_committee_member com1 "http://www.com1" true
-create_committee_member com2 "http://www.com2" true
-create_committee_member com3 "http://www.com3" true
-create_committee_member com4 "http://www.com4" true
-create_committee_member com5 "http://www.com5" true
-create_committee_member com6 "http://www.com6" true
+create_committee_member com0 &quot;http://www.com0&quot; true
+create_committee_member com1 &quot;http://www.com1&quot; true
+create_committee_member com2 &quot;http://www.com2&quot; true
+create_committee_member com3 &quot;http://www.com3&quot; true
+create_committee_member com4 &quot;http://www.com4&quot; true
+create_committee_member com5 &quot;http://www.com5&quot; true
+create_committee_member com6 &quot;http://www.com6&quot; true
 vote_for_committee_member nathan com0 true true
 vote_for_committee_member nathan com1 true true
 vote_for_committee_member nathan com2 true true
@@ -2873,8 +2851,8 @@ vote_for_committee_member nathan com4 true true
 vote_for_committee_member nathan com5 true true
 vote_for_committee_member nathan com6 true true
 
-propose_parameter_change com0 {"block_interval" : 6} true
-</code></pre>
+propose_parameter_change com0 {&quot;block_interval&quot; : 6} true
+</code></pre></div>
 
 
 
@@ -2921,7 +2899,7 @@ propose_parameter_change com0 {"block_interval" : 6} true
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

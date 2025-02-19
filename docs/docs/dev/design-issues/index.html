@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2731,14 +2709,14 @@
 <h2 id="tx-size-optimizations-for-tapos-validation">Tx size optimizations for TaPoS validation</h2>
 <p>EDIT:  I (@theoreticalbts) have taken a crack at this, it compiles but is not yet tested.</p>
 <p>We have this:</p>
-<pre><code class="language-cpp">    struct transaction 
-    {
-        fc::time_point_sec expiration;
-        uint32_t           ref_block_num    = 0;
-        uint32_t           ref_block_prefix = 0;
-        vector&lt;operation&gt;  operations;
-     };
-</code></pre>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">transaction</span><span class="w"> </span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="n">fc</span><span class="o">::</span><span class="n">time_point_sec</span><span class="w"> </span><span class="n">expiration</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="kt">uint32_t</span><span class="w">           </span><span class="n">ref_block_num</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="kt">uint32_t</span><span class="w">           </span><span class="n">ref_block_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">operation</span><span class="o">&gt;</span><span class="w">  </span><span class="n">operations</span><span class="p">;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">     </span><span class="p">};</span>
+</span></code></pre></div>
 <p>First, we should simply include the full block hash at height <code>ref_block_num</code> in the computation of <code>digest()</code>, thus the tx will fail to validate unless the block ID at the given height is a match.  Allowing to completely eliminate <code>ref_block_prefix</code> and also avoiding the potential security holes from using only 32 bits in <code>ref_block_prefix</code> field.</p>
 <p>Second, the <code>ref_block_num</code> itself can be reduced to 16 bits as follows:  Simply specify the low 16 bits of the reference block height, and only validate against the most recent block whose low 16 bits match.  A more recent block whose block height has the same low 16 bits as the reference block height cannot appear until 64K blocks after the reference block, in which case the transaction is over a day old and will fail due to being expired (unless we decrease block time below 2 seconds).</p>
 <h2 id="processed_transaction-has-no-purpose">processed_transaction has no purpose</h2>
@@ -2763,14 +2741,14 @@
 <p>So you can compare orders on the same side of the book by comparing cross products, and check whether orders on opposite sides of the book overlap by comparing the "want product" to the "have product."</p>
 <h2 id="undoing-indexes">Undoing indexes</h2>
 <p>This looks like a can of worms:</p>
-<pre><code class="language-cpp">    struct undo_state
-    {
-        object_id_type                         old_next_object_id;
-        map&lt;object_id_type, packed_object&gt;     old_values;
-        map&lt;string,object_id_type &gt;            old_account_index;
-        map&lt;string,object_id_type &gt;            old_symbol_index;
-    };
-</code></pre>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">undo_state</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="n">object_id_type</span><span class="w">                         </span><span class="n">old_next_object_id</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="n">map</span><span class="o">&lt;</span><span class="n">object_id_type</span><span class="p">,</span><span class="w"> </span><span class="n">packed_object</span><span class="o">&gt;</span><span class="w">     </span><span class="n">old_values</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="n">object_id_type</span><span class="w"> </span><span class="o">&gt;</span><span class="w">            </span><span class="n">old_account_index</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="n">object_id_type</span><span class="w"> </span><span class="o">&gt;</span><span class="w">            </span><span class="n">old_symbol_index</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">};</span>
+</span></code></pre></div>
 <p>The issue here is that you have to CoW the index entries of any indexed object.  This is done by <code>database::index_account</code> and <code>database::index_symbol</code> right now.  Which seems like a lot of boilerplate for adding an additional index.  Is there some way we can reduce the number of places we have to modify the code when adding a new index?</p>
 <h2 id="edges-have-no-purpose">Edges have no purpose</h2>
 <p>I don't see what functionality we gain by having an edge class.  Anything the edge can do, can be done by data object.</p>
@@ -2830,7 +2808,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

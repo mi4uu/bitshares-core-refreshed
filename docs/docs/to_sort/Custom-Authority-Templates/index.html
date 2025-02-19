@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2437,183 +2415,183 @@
 <h1 id="preface">Preface</h1>
 <p>This document is intended to assist with the use of custom authorities (CA) per <a href="https://github.com/bitshares/bsips/blob/master/bsip-0040.md">BSIP 40 Specifications</a> in the <a href="https://github.com/bitshares/bitshares-core/milestone/17?closed=1">4.0.0 Consensus Release</a>.</p>
 <ul>
-<li><a href="#custom-authority-json-templates">Templates for Creating a Custom Authority</a><ul>
-<li><a href="#template-authorized-restricted-transfers">Authorized Restricted Transfers</a></li>
-<li><a href="#template-authorized-unrestricted-trading">Authorized Unrestricted Trading</a></li>
-<li><a href="#template-authorized-restricted-trading">Authorized Restricted Trading</a></li>
-<li><a href="#template-authorized-feed-publishing-by-an-account">Authorized Feed Publishing by an Account</a></li>
-<li><a href="#template-authorized-feed-publishing-by-a-key">Authorized Feed Publishing by a Key</a></li>
-<li><a href="#template-authorized-account-registration">Authorized Account Registration</a></li>
-<li><a href="#template-authorized-voting-by-a-key">Authorized Voting by a Key</a></li>
-<li><a href="#template-authorized-changing-of-a-witness-signing-key-by-a-key">Authorized Changing of a Witness Signing Key</a></li>
+<li><a href="./#custom-authority-json-templates">Templates for Creating a Custom Authority</a><ul>
+<li><a href="./#template-authorized-restricted-transfers">Authorized Restricted Transfers</a></li>
+<li><a href="./#template-authorized-unrestricted-trading">Authorized Unrestricted Trading</a></li>
+<li><a href="./#template-authorized-restricted-trading">Authorized Restricted Trading</a></li>
+<li><a href="./#template-authorized-feed-publishing-by-an-account">Authorized Feed Publishing by an Account</a></li>
+<li><a href="./#template-authorized-feed-publishing-by-a-key">Authorized Feed Publishing by a Key</a></li>
+<li><a href="./#template-authorized-account-registration">Authorized Account Registration</a></li>
+<li><a href="./#template-authorized-voting-by-a-key">Authorized Voting by a Key</a></li>
+<li><a href="./#template-authorized-changing-of-a-witness-signing-key-by-a-key">Authorized Changing of a Witness Signing Key</a></li>
 </ul>
 </li>
-<li><a href="#updating-a-custom-authority">Updating a Custom Authority</a><ul>
-<li><a href="#updating-the-authorization-period">Updating the Authorization Period</a></li>
-<li><a href="#disabling-a-custom-authority">Disabling a Custom Authority</a></li>
-<li><a href="#enabling-a-custom-authority">Enabling a Custom Authority</a></li>
-<li><a href="#deleting-a-custom-authority">Deleting a Custom Authority</a></li>
-<li><a href="#changing-the-authorized-account">Changing the Authorized Account</a></li>
-<li><a href="#adding-restrictions-to-a-custom-authority">Adding Restrictions to a Custom Authority</a></li>
-<li><a href="#removing-a-restriction-from-a-custom-authority">Removing a Restriction from a Custom Authority</a></li>
+<li><a href="./#updating-a-custom-authority">Updating a Custom Authority</a><ul>
+<li><a href="./#updating-the-authorization-period">Updating the Authorization Period</a></li>
+<li><a href="./#disabling-a-custom-authority">Disabling a Custom Authority</a></li>
+<li><a href="./#enabling-a-custom-authority">Enabling a Custom Authority</a></li>
+<li><a href="./#deleting-a-custom-authority">Deleting a Custom Authority</a></li>
+<li><a href="./#changing-the-authorized-account">Changing the Authorized Account</a></li>
+<li><a href="./#adding-restrictions-to-a-custom-authority">Adding Restrictions to a Custom Authority</a></li>
+<li><a href="./#removing-a-restriction-from-a-custom-authority">Removing a Restriction from a Custom Authority</a></li>
 </ul>
 </li>
 </ul>
 <h1 id="custom-authority-json-templates">Custom Authority JSON Templates</h1>
 <p><em>One</em> way for an account to <em>create</em> a custom authority is with the CLI Wallet's <code>add_operation_to_builder_transaction</code> command.  This command is used as one step of the of "builder transaction" sequence.</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction &lt;builder_handle&gt; [54, &lt;JSON_template&gt;]
-set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
-preview_builder_transaction &lt;builder_handle&gt;
-sign_builder_transaction &lt;builder_handle&gt; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>begin_builder_transaction
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>add_operation_to_builder_transaction &lt;builder_handle&gt; [54, &lt;JSON_template&gt;]
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>preview_builder_transaction &lt;builder_handle&gt;
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sign_builder_transaction &lt;builder_handle&gt; true
+</span></code></pre></div>
 <p>where the <code>&lt;builder_handle&gt;</code> is the integer "handle" output (e.g. 0, 1, 2, etc.) from the first command in the sequence <code>begin_builder_transaction</code>.  <JSON_template> is the JSON encoding of the <code>custom_authority_create_operation</code> (Operation 54) that can be broadcast to the network.</p>
 <p>Different authorizations require different templates.  This section contains the JSON-encoded templates for various authorizations.  Each of the templates have validity period from <code>valid_from</code> through <code>valid_to</code> that should be tailored for your use case <strong>and</strong> which must be compatible with the <em>existing</em> limitations on custom authorites (<code>custom_authority_options</code>) that may be queried by invoking the <code>get_global_properties</code> command in the CLI Wallet or on an RPC-API node.</p>
 <p>Every custom authority has a unique identifier.  <strong>This identifier can most easily be tracked immediately after the authorization is created by inspecting the authorizing account's history.</strong></p>
-<pre><code>get_account_history &lt;account_name&gt; 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>get_account_history &lt;account_name&gt; 1
+</span></code></pre></div>
 <p>The custom authority ID will have an identifier such as 1.17.x.  The custom authority can be reviewed with</p>
-<pre><code>get_object 1.17.x
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>get_object 1.17.x
+</span></code></pre></div>
 <p>For example, </p>
-<pre><code class="language-json">[{
-    &quot;id&quot;: &quot;1.17.0&quot;,
-    &quot;account&quot;: &quot;1.2.19&quot;,
-    &quot;enabled&quot;: true,
-    &quot;valid_from&quot;: &quot;1970-01-01T00:00:00&quot;,
-    &quot;valid_to&quot;: &quot;2020-01-31T00:00:00&quot;,
-    &quot;operation_type&quot;: 0,
-    &quot;auth&quot;: {
-      &quot;weight_threshold&quot;: 1,
-      &quot;account_auths&quot;: [[
-          &quot;1.2.20&quot;,
-          1
-        ]
-      ],
-      &quot;key_auths&quot;: [],
-      &quot;address_auths&quot;: []
-    },
-    &quot;restrictions&quot;: [[
-        0,{
-          &quot;member_index&quot;: 2,
-          &quot;restriction_type&quot;: 0,
-          &quot;argument&quot;: [
-            7,
-            &quot;1.2.21&quot;
-          ],
-          &quot;extensions&quot;: []
-        }
-      ]
-    ],
-    &quot;restriction_counter&quot;: 1
-  }
-]
-</code></pre>
-<p>The properties of these custom authority <a href="#updating-a-custom-authority">can be updated after creation</a>.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">[{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.17.0&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.19&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-01-31T00:00:00&quot;</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">&quot;auth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="nt">&quot;account_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">          </span><span class="s2">&quot;1.2.20&quot;</span><span class="p">,</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">          </span><span class="mi">1</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="p">]</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">      </span><span class="p">],</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="nt">&quot;key_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="nt">&quot;address_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="nt">&quot;restrictions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="mi">0</span><span class="p">,{</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">          </span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">          </span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">          </span><span class="nt">&quot;argument&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">            </span><span class="mi">7</span><span class="p">,</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">            </span><span class="s2">&quot;1.2.21&quot;</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">          </span><span class="p">],</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">          </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">    </span><span class="nt">&quot;restriction_counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="p">]</span>
+</span></code></pre></div>
+<p>The properties of these custom authority <a href="./#updating-a-custom-authority">can be updated after creation</a>.</p>
 <h2 id="template-authorized-restricted-transfers">Template: Authorized Restricted Transfers</h2>
 <p>Alice (1.2.19) authorizes Bob (1.2.20) to transfer any amount of any asset from her account to Charlie's account (1.2.21).  <code>transfer_operation</code> is Operation 0.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.19&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2020-01-31T00:00:00&quot;,&quot;operation_type&quot;:0,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[[&quot;1.2.20&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:0,&quot;argument&quot;:[7,&quot;1.2.21&quot;]}]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.19&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2020-01-31T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;1.2.20&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">7</span><span class="p">,</span><span class="s2">&quot;1.2.21&quot;</span><span class="p">]}]}</span>
+</span></code></pre></div>
 <h2 id="template-authorized-unrestricted-trading">Template: Authorized Unrestricted Trading</h2>
 <p>Alice (1.2.17) authorizes Bob (1.2.18) to <em>create</em> limit orders for her account without any restrictions.  <code>limit_order_create_operation</code> is Operation 1.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.17&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-01T00:17:25&quot;,&quot;operation_type&quot;:1,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[[&quot;1.2.18&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.17&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-01T00:17:25&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;1.2.18&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[]}</span>
+</span></code></pre></div>
 <p>Alice (1.2.17) authorizes Bob (1.2.18) to <em>cancel</em> limit orders for her account without any restrictions.  <code>limit_order_cancel_operation</code> is Operation 2.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.17&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-01T00:17:25&quot;,&quot;operation_type&quot;:2,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[[&quot;1.2.18&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.17&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-01T00:17:25&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;1.2.18&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[]}</span>
+</span></code></pre></div>
 <h2 id="template-authorized-restricted-trading">Template: Authorized Restricted Trading</h2>
 <p>Alice (1.2.17) authorizes a public key (BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8) to <em>create</em> limit orders for her account but is restricted to trading ACOIN1 (1.3.2) against BCOIN1 (1.3.4), BCOIN2 (1.3.5), or BCOIN3 (1.3.6).</p>
 <p>These operations are combined into a single custom authority by using a "logical or" branch.  The first branch authorizes the selling of ACOIN1 for ACOIN1 for BCOIN1, BCOIN2, or BCOIN3.  The second branch authorizes selling of BCOIN1, BCOIN2, or BCOIN3 for ACOIN1.  <code>limit_order_create_operation</code> is Operation 1.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.17&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-01T00:17:25&quot;,&quot;operation_type&quot;:1,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[],&quot;key_auths&quot;:[[&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;,1]],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[{&quot;member_index&quot;:999,&quot;restriction_type&quot;:11,&quot;argument&quot;:[40,[[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:6,&quot;argument&quot;:[27,[&quot;1.3.2&quot;]]}]]},{&quot;member_index&quot;:3,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:6,&quot;argument&quot;:[27,[&quot;1.3.3&quot;,&quot;1.3.4&quot;,&quot;1.3.5&quot;]]}]]}],[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:6,&quot;argument&quot;:[27,[&quot;1.3.3&quot;,&quot;1.3.4&quot;,&quot;1.3.5&quot;]]}]]},{&quot;member_index&quot;:3,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:6,&quot;argument&quot;:[27,[&quot;1.3.2&quot;]]}]]}]]]}]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.17&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-01T00:17:25&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">999</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">40</span><span class="p">,[[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">39</span><span class="p">,[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">27</span><span class="p">,[</span><span class="s2">&quot;1.3.2&quot;</span><span class="p">]]}]]},{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">39</span><span class="p">,[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">27</span><span class="p">,[</span><span class="s2">&quot;1.3.3&quot;</span><span class="p">,</span><span class="s2">&quot;1.3.4&quot;</span><span class="p">,</span><span class="s2">&quot;1.3.5&quot;</span><span class="p">]]}]]}],[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">39</span><span class="p">,[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">27</span><span class="p">,[</span><span class="s2">&quot;1.3.3&quot;</span><span class="p">,</span><span class="s2">&quot;1.3.4&quot;</span><span class="p">,</span><span class="s2">&quot;1.3.5&quot;</span><span class="p">]]}]]},{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">39</span><span class="p">,[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">27</span><span class="p">,[</span><span class="s2">&quot;1.3.2&quot;</span><span class="p">]]}]]}]]]}]}</span>
+</span></code></pre></div>
 <p>_It is not possible to restrict the cancellation of orders as a function of the the assets that are involved.  Therefore the authorization to cancel limit orders will be unrestricted.  <code>limit_order_cancel_operation</code> is Operation 2.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.17&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-01T00:17:25&quot;,&quot;operation_type&quot;:2,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[],&quot;key_auths&quot;:[[&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;,1]],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.17&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-01T00:17:25&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[]}</span>
+</span></code></pre></div>
 <h2 id="template-authorized-feed-publishing-by-an-account">Template: Authorized Feed Publishing by an Account</h2>
 <p>A feed publisher (1.2.16) authorizes/delegates Bob (1.2.17) to publish feeds for an asset.  <code>asset_publish_feed_operation</code> is Operation 19.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.16&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-01T00:17:30&quot;,&quot;operation_type&quot;:19,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[[&quot;1.2.17&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.16&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-01T00:17:30&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;1.2.17&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[]}</span>
+</span></code></pre></div>
 <h2 id="template-authorized-feed-publishing-by-a-key">Template: Authorized Feed Publishing by a Key</h2>
 <p>A feed publisher (1.2.16) authorizes/delegates a public key (BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8) to publish feeds for an asset.  <code>asset_publish_feed_operation</code> is Operation 19.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.16&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-01T00:17:25&quot;,&quot;operation_type&quot;:19,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[],&quot;key_auths&quot;:[[&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;,1]],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.16&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-01T00:17:25&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">19</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[]}</span>
+</span></code></pre></div>
 <h2 id="template-authorized-account-registration">Template: Authorized Account Registration</h2>
 <p>A faucet account (1.2.16) authorizes a public key (BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8) to register accounts on its behalf.  <code>account_create_operation</code> is Operation 5.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.16&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-01T00:17:20&quot;,&quot;operation_type&quot;:5,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[],&quot;key_auths&quot;:[[&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;,1]],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.16&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-01T00:17:20&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[]}</span>
+</span></code></pre></div>
 <h2 id="template-authorized-voting-by-a-key">Template: Authorized Voting by a Key</h2>
 <p>Alice (1.2.19) authorizes a public key (BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8) to update her voting slate.  This requires authorizing the <code>account_update_operation</code> with several restrictions that prohibits updating the owner key, the active key, the special owner authority, and the special active authority, and requires the memo key to be specified as Alice's <em>current</em> memo key (BTS7zsqi7QUAjTAdyynd6DVe8uv4K8gCTRHnAoMN9w9CA1xLCTDVv).  <code>account_update_operation</code> is Operation 6.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.16&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-02T00:00:40&quot;,&quot;operation_type&quot;:6,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[],&quot;key_auths&quot;:[[&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;,1]],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:0,&quot;argument&quot;:[0,{}]},{&quot;member_index&quot;:3,&quot;restriction_type&quot;:0,&quot;argument&quot;:[0,{}]},{&quot;member_index&quot;:5,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:0,&quot;argument&quot;:[0,{}]}]]},{&quot;member_index&quot;:5,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:0,&quot;argument&quot;:[0,{}]}]]},{&quot;member_index&quot;:4,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:0,&quot;restriction_type&quot;:0,&quot;argument&quot;:[5,&quot;BTS7zsqi7QUAjTAdyynd6DVe8uv4K8gCTRHnAoMN9w9CA1xLCTDVv&quot;]}]]}]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.16&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-02T00:00:40&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,{}]},{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,{}]},{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">39</span><span class="p">,[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,{}]}]]},{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">39</span><span class="p">,[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,{}]}]]},{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">39</span><span class="p">,[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;BTS7zsqi7QUAjTAdyynd6DVe8uv4K8gCTRHnAoMN9w9CA1xLCTDVv&quot;</span><span class="p">]}]]}]}</span>
+</span></code></pre></div>
 <h2 id="template-authorized-changing-of-a-witness-signing-key-by-a-key">Template: Authorized Changing of a Witness Signing Key by a Key</h2>
 <p>A witness account (1.2.16) authorizes a public key (BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8) to update its signing key.  This requires authorizing the <code>witness_update_operation</code> with one restriction that prohibits updating the witness URL.  <code>witness_update_operation</code> is Operation 21.</p>
-<pre><code class="language-json">{&quot;account&quot;:&quot;1.2.16&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2030-01-02T00:00:50&quot;,&quot;operation_type&quot;:21,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[],&quot;key_auths&quot;:[[&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;,1]],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[{&quot;member_index&quot;:3,&quot;restriction_type&quot;:0,&quot;argument&quot;:[0,{}]}]}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="s2">&quot;1.2.16&quot;</span><span class="p">,</span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="s2">&quot;2030-01-02T00:00:50&quot;</span><span class="p">,</span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="mi">21</span><span class="p">,</span><span class="nt">&quot;auth&quot;</span><span class="p">:{</span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;account_auths&quot;</span><span class="p">:[],</span><span class="nt">&quot;key_auths&quot;</span><span class="p">:[[</span><span class="s2">&quot;BTS74YKubbAGUpihj1BP9cCNfdtUbiAhathRs92Ai5EvEQegbpTm8&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span><span class="nt">&quot;address_auths&quot;</span><span class="p">:[]},</span><span class="nt">&quot;restrictions&quot;</span><span class="p">:[{</span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;argument&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,{}]}]}</span>
+</span></code></pre></div>
 <h1 id="updating-a-custom-authority">Updating a Custom Authority</h1>
 <h2 id="updating-the-authorization-period">Updating the Authorization Period</h2>
 <p>Grants of custom authorities are limited in duration by the authorizing account.  When a custom authority expires it is removed from an existence an can no longer be updated.  The time period of authorization can be updated while the authorization is still active.</p>
 <p>The <code>custom_authority_update_operation</code> has an identifier of 55.  In this example, the <em>original authorizing account</em> (1.2.17) will build a transaction to update to change the time period (<code>valid_from</code> and <code>valid_to</code>) of the original custom authority (1.17.5) to be valid from July 1, 2020 through July 30, 2020.  Naturally this attempted change must be compatible with the <em>existing</em> limitations on custom authorites (<code>custom_authority_options</code>) that may be queried by invoking the <code>get_global_properties</code> command in the CLI Wallet or on an RPC-API node.</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;valid_from&quot;:&quot;2020-07-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2020-07-30T00:00:00&quot;}]
-set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
-preview_builder_transaction &lt;builder_handle&gt;
-sign_builder_transaction &lt;builder_handle&gt; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>begin_builder_transaction
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;valid_from&quot;:&quot;2020-07-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2020-07-30T00:00:00&quot;}]
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>preview_builder_transaction &lt;builder_handle&gt;
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>sign_builder_transaction &lt;builder_handle&gt; true
+</span></code></pre></div>
 <h2 id="disabling-a-custom-authority">Disabling a Custom Authority</h2>
 <p>Grants of custom authorities may be disabled while the custom authority has not yet expired.</p>
 <p>The <code>custom_authority_update_operation</code> has an identifier of 55.  In this example, the <em>original authorizing account</em> (1.2.17) will build a transaction to disable the original custom authority (1.17.5).</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;new_enabled&quot;:&quot;false&quot;}]
-set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
-preview_builder_transaction &lt;builder_handle&gt;
-sign_builder_transaction &lt;builder_handle&gt; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>begin_builder_transaction
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;new_enabled&quot;:&quot;false&quot;}]
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>preview_builder_transaction &lt;builder_handle&gt;
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>sign_builder_transaction &lt;builder_handle&gt; true
+</span></code></pre></div>
 <h2 id="enabling-a-custom-authority">Enabling a Custom Authority</h2>
 <p>Grants of custom authorities may be enabled while the custom authority has not yet expired.</p>
 <p>The <code>custom_authority_update_operation</code> has an identifier of 55.  In this example, the <em>original authorizing account</em> (1.2.17) will build a transaction to enable the original custom authority (1.17.5).</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;new_enabled&quot;:&quot;true&quot;}]
-set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
-preview_builder_transaction &lt;builder_handle&gt;
-sign_builder_transaction &lt;builder_handle&gt; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>begin_builder_transaction
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;new_enabled&quot;:&quot;true&quot;}]
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>preview_builder_transaction &lt;builder_handle&gt;
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>sign_builder_transaction &lt;builder_handle&gt; true
+</span></code></pre></div>
 <h2 id="deleting-a-custom-authority">Deleting a Custom Authority</h2>
 <p>Grants of custom authorities may be permanently deleted while the custom authority has not yet expired.</p>
 <p><em>The <code>custom_authority_delete_operation</code> has an identifier of 56</em>.  In this example, the <em>original authorizing account</em> (1.2.17) will build a transaction to delete the original custom authority (1.17.5).</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction &lt;builder_handle&gt; [56, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_delete&quot;:&quot;1.17.5&quot;}]
-set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
-preview_builder_transaction &lt;builder_handle&gt;
-sign_builder_transaction &lt;builder_handle&gt; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>begin_builder_transaction
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>add_operation_to_builder_transaction &lt;builder_handle&gt; [56, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_delete&quot;:&quot;1.17.5&quot;}]
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>preview_builder_transaction &lt;builder_handle&gt;
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>sign_builder_transaction &lt;builder_handle&gt; true
+</span></code></pre></div>
 <h2 id="changing-the-authorized-account">Changing the Authorized Account</h2>
 <p>Grants of custom authorities may be changed while the custom authority has not yet expired.</p>
 <p>The <code>custom_authority_update_operation</code> has an identifier of 55.  In this example, the <em>original authorizing account</em> (1.2.17) will build a transaction to change the authorization (1.17.5) to another account (1.2.22).</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;new_auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[[&quot;1.2.22&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]}}]
-set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
-preview_builder_transaction &lt;builder_handle&gt;
-sign_builder_transaction &lt;builder_handle&gt; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>begin_builder_transaction
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;new_auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[[&quot;1.2.22&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]}}]
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>preview_builder_transaction &lt;builder_handle&gt;
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>sign_builder_transaction &lt;builder_handle&gt; true
+</span></code></pre></div>
 <h2 id="adding-restrictions-to-a-custom-authority">Adding Restrictions to a Custom Authority</h2>
 <p>Restrictions to an existing custom authority may be added while the custom authority has not yet expired.  The additional restriction is directly dependent on the custom authority's operation type.</p>
-<p>In this example, Alice (1.2.17) had <em>previously</em> authorized Bob to <a href="#template-authorized-unrestricted-trading"><em>create</em> limit orders for her account without any restrictions</a>.  Alice has decided to restrict the trading to only permit selling the core asset (1.3.0) to buy another asset (1.3.2).</p>
+<p>In this example, Alice (1.2.17) had <em>previously</em> authorized Bob to <a href="./#template-authorized-unrestricted-trading"><em>create</em> limit orders for her account without any restrictions</a>.  Alice has decided to restrict the trading to only permit selling the core asset (1.3.0) to buy another asset (1.3.2).</p>
 <p>The <code>custom_authority_update_operation</code>, which has an identifier of 55, will be used to update the original custom authority (1.17.5).</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;restrictions_to_add&quot;:[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:0,&quot;argument&quot;:[8,&quot;1.3.0&quot;]}]]},{&quot;member_index&quot;:3,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:0,&quot;argument&quot;:[8,&quot;1.3.2&quot;]}]]}]} ]
-set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
-preview_builder_transaction &lt;builder_handle&gt;
-sign_builder_transaction &lt;builder_handle&gt; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>begin_builder_transaction
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;restrictions_to_add&quot;:[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:0,&quot;argument&quot;:[8,&quot;1.3.0&quot;]}]]},{&quot;member_index&quot;:3,&quot;restriction_type&quot;:10,&quot;argument&quot;:[39,[{&quot;member_index&quot;:1,&quot;restriction_type&quot;:0,&quot;argument&quot;:[8,&quot;1.3.2&quot;]}]]}]} ]
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>preview_builder_transaction &lt;builder_handle&gt;
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>sign_builder_transaction &lt;builder_handle&gt; true
+</span></code></pre></div>
 <h2 id="removing-a-restriction-from-a-custom-authority">Removing a Restriction from a Custom Authority</h2>
 <p>Restrictions to an existing custom authority may be removed while the custom authority has not yet expired.  The restriction is identified by its 0-indexed position among the existing restrictions.</p>
 <p>The <code>custom_authority_update_operation</code> has an identifier of 55.  In this example, the <em>original authorizing account</em> (1.2.17) will build a transaction to change the authorization (1.17.5) by removing the first restriction (0).</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;restrictions_to_remove&quot;:[0]} ]
-set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
-preview_builder_transaction &lt;builder_handle&gt;
-sign_builder_transaction &lt;builder_handle&gt; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>begin_builder_transaction
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>add_operation_to_builder_transaction &lt;builder_handle&gt; [55, {&quot;account&quot;:&quot;1.2.17&quot;,&quot;authority_to_update&quot;:&quot;1.17.5&quot;,&quot;restrictions_to_remove&quot;:[0]} ]
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>set_fees_on_builder_transaction &lt;builder_handle&gt; 1.3.0
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>preview_builder_transaction &lt;builder_handle&gt;
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>sign_builder_transaction &lt;builder_handle&gt; true
+</span></code></pre></div>
 
 
 
@@ -2660,7 +2638,7 @@ sign_builder_transaction &lt;builder_handle&gt; true
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

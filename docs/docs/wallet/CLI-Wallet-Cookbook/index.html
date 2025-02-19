@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2604,31 +2582,31 @@
 <p>Right now, there is no public testnet, so the only way to test is to run your
 own private network.  To do this, launch a witness node to generate blocks.  In
 the directory where you built your graphene distribution:</p>
-<pre><code>cd programs/witness_node
-# if you have previously run a witness node, you may need to remove the old blockchain.
-# at this early stage, new commits often make it impossible to reuse an old database
-#   rm -r witness_node_data_dir
-./witness_node --rpc-endpoint &quot;127.0.0.1:8090&quot; --enable-stale-production -w \&quot;&quot;1.6.0&quot;\&quot; \&quot;&quot;1.6.1&quot;\&quot; \&quot;&quot;1.6.2&quot;\&quot; \&quot;&quot;1.6.3&quot;\&quot; \&quot;&quot;1.6.4&quot;\&quot;
-</code></pre>
-<p>The initial genesis state has ten pre-configured delegates (1.6.0-9) that all
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cd programs/witness_node
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a># if you have previously run a witness node, you may need to remove the old blockchain.
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a># at this early stage, new commits often make it impossible to reuse an old database
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>#   rm -r witness_node_data_dir
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>./witness_node --rpc-endpoint &quot;127.0.0.1:8090&quot; --enable-stale-production -w \&quot;&quot;1.6.0&quot;\&quot; \&quot;&quot;1.6.1&quot;\&quot; \&quot;&quot;1.6.2&quot;\&quot; \&quot;&quot;1.6.3&quot;\&quot; \&quot;&quot;1.6.4&quot;\&quot;
+</span></code></pre></div>
+The initial genesis state has ten pre-configured delegates (1.6.0-9) that all
 use the same private key to sign their blocks, and the witness node has the
 private keys for these initial delgates built in..  Launching <code>witness_node</code> 
 this way allows you to act as all ten delegates.</p>
 <p>Now, in a second window, launch a <code>cli_wallet</code> process to interact with the
-network.</p>
-<pre><code>cd programs/cli_wallet
-# similarly, if you have previously run a wallet, you may need to wipe out your 
-# old wallet
-#    rm wallet.json
-./cli_wallet
-</code></pre>
-<p>Before doing anything with the new wallet, set a password and unlock the
+network.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd programs/cli_wallet
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a># similarly, if you have previously run a wallet, you may need to wipe out your 
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a># old wallet
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>#    rm wallet.json
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>./cli_wallet
+</span></code></pre></div>
+Before doing anything with the new wallet, set a password and unlock the
 wallet.  </p>
-<p><em>Warning</em>: your passwords will be displayed on the screen.</p>
-<pre><code>new &gt;&gt;&gt; set_password my_password
-locked &gt;&gt;&gt; unlock my_password
-unlocked &gt;&gt;&gt;
-</code></pre>
+<p><em>Warning</em>: your passwords will be displayed on the screen.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>new &gt;&gt;&gt; set_password my_password
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>locked &gt;&gt;&gt; unlock my_password
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>unlocked &gt;&gt;&gt;
+</span></code></pre></div></p>
 <h3 id="account-management">Account Management</h3>
 <p>To create a new account, you will need to start with an existing account with
 some of the CORE asset that will pay the transaction fee registering your new
@@ -2636,19 +2614,19 @@ account.  The account paying this fee will be the <em>Registrar</em>.</p>
 <p>In the initial genesis state, there are about a dozen pre-existing accounts.
 We use the 'nathan' account as a general purpose test account, and its private
 key is printed at witness startup to allow us to import it here:</p>
-<pre><code># first, import the private key to take ownership of the 'nathan' account
-unlocked &gt;&gt;&gt; import_key &quot;nathan&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-unlocked &gt;&gt;&gt; list_my_accounts
-[{
-    &quot;id&quot;: &quot;1.2.15&quot;,
-    ...
-    &quot;name&quot;: &quot;nathan&quot;,
-    ...
-]
-unlocked &gt;&gt;&gt; list_account_balances nathan
-unlocked &gt;&gt;&gt;
-</code></pre>
-<p>We control the account now, but there is no money in the account yet.  In the genesis 
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># first, import the private key to take ownership of the &#39;nathan&#39; account
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>unlocked &gt;&gt;&gt; import_key &quot;nathan&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>unlocked &gt;&gt;&gt; list_my_accounts
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>[{
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    &quot;id&quot;: &quot;1.2.15&quot;,
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    ...
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    &quot;name&quot;: &quot;nathan&quot;,
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    ...
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>]
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>unlocked &gt;&gt;&gt; list_account_balances nathan
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>unlocked &gt;&gt;&gt;
+</span></code></pre></div>
+We control the account now, but there is no money in the account yet.  In the genesis 
 state, none of the accounts have balances in them.  In the first BitShares network, 
 accounts were less tightly coupled to balances.  Balances were associated with 
 public keys, and an account could have hundreds of public keys with balances (or,
@@ -2657,21 +2635,21 @@ with them).  When the real network launches, each of the public keys with a bala
 will be converted into a <em>balance object</em> in Graphene, and they will not be associated
 with any account until their owner publishes a transaction claiming the balance.</p>
 <p>In the test genesis state, there is only one balance object and it owns 100% of the 
-funds in the system.  Let's import that here:</p>
-<pre><code>unlocked &gt;&gt;&gt; import_balance nathan [5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3] true
-unlocked &gt;&gt;&gt; list_account_balances nathan
-10000000000 CORE
-</code></pre>
-<p>So we now have an account to act as registrar and it has plenty of funds to pay
+funds in the system.  Let's import that here:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>unlocked &gt;&gt;&gt; import_balance nathan [5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3] true
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>unlocked &gt;&gt;&gt; list_account_balances nathan
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>10000000000 CORE
+</span></code></pre></div>
+So we now have an account to act as registrar and it has plenty of funds to pay
 the registration key for new accounts.  Only lifetime (prime?) members are allowed
 to register accounts, so we must upgrade <code>nathan</code> first.  Then, go ahead and create
-our test account named <em>my-account</em>:</p>
-<pre><code># before nathan can create other accounts, we need to upgrade it to a prime member.
-unlocked &gt;&gt;&gt; upgrade_account nathan true
-# register our account.  we list nathan as both the referrer and registrar.
-unlocked &gt;&gt;&gt; create_account_with_brain_key &quot;this is the brain key for my account&quot; my-account nathan nathan true
-</code></pre>
-<p>Like most methods in the wallet, <code>create_account_with_brain_key</code>'s last
+our test account named <em>my-account</em>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># before nathan can create other accounts, we need to upgrade it to a prime member.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>unlocked &gt;&gt;&gt; upgrade_account nathan true
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a># register our account.  we list nathan as both the referrer and registrar.
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>unlocked &gt;&gt;&gt; create_account_with_brain_key &quot;this is the brain key for my account&quot; my-account nathan nathan true
+</span></code></pre></div>
+Like most methods in the wallet, <code>create_account_with_brain_key</code>'s last
 parameter is the boolean <code>broadcast</code>.  This parameter tells the wallet whether
 you want to publish the transaction on the network immediately, which is
 usually what you want to do.  If you pass false, it will just create the
@@ -2686,9 +2664,9 @@ control both <code>nathan</code> and <code>my-account</code>.</p>
 <h3 id="transferring-currency">Transferring Currency</h3>
 <p>Your newly-created account doesn't have any funds in it yet, the <code>nathan</code>
 account still has all the money.  To send some CORE from <code>nathan</code> to your
-account, use the <code>transfer</code> command:</p>
-<pre><code>unlocked &gt;&gt;&gt; transfer nathan my-account 10000 CORE &quot;have some CORE&quot; true
-</code></pre>
+account, use the <code>transfer</code> command:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>unlocked &gt;&gt;&gt; transfer nathan my-account 10000 CORE &quot;have some CORE&quot; true
+</span></code></pre></div></p>
 <h3 id="becoming-a-witness">Becoming a Witness</h3>
 <p>To become a witness and be able to produce blocks, you first need to create a
 witness object that can be voted in.</p>
@@ -2697,73 +2675,73 @@ votes are only tallied once per day at the maintenance interval.  For testing,
 it's helpful to change the <code>GRAPHENE_DEFAULT_MAINTENANCE_INTERVAL</code> in
 <code>libraries/chain/include/graphene/chain/config.hpp</code> to, say, 10 minutes.</p>
 <p>Before we get started, we can see the current list of witnesses voted in, which
-will simply be the ten default witnesses:</p>
-<pre><code>unlocked &gt;&gt;&gt; get_global_properties
-...
-  &quot;active_witnesses&quot;: [
-    &quot;1.6.0&quot;,
-    &quot;1.6.1&quot;,
-    &quot;1.6.2&quot;,
-    &quot;1.6.3&quot;,
-    &quot;1.6.4&quot;,
-    &quot;1.6.5&quot;,
-    &quot;1.6.6&quot;,
-    &quot;1.6.7&quot;,
-    &quot;1.6.8&quot;,
-    &quot;1.6.9&quot;
-  ],
-...
-</code></pre>
-<p>Only lifetime members can become witnesses, so you must first upgrade to a
-lifetime member.  Upgrade and create our witness object.</p>
-<pre><code>unlocked &gt;&gt;&gt; upgrade_account my-account true
-unlocked &gt;&gt;&gt; create_witness my-account &quot;http://witness.bar.com/&quot; true
-{
-  &quot;ref_block_num&quot;: 139,
-  &quot;ref_block_prefix&quot;: 3692461913,
-  &quot;relative_expiration&quot;: 3,
-  &quot;operations&quot;: [[
-      21,{
-        &quot;fee&quot;: {
-          &quot;amount&quot;: 0,
-          &quot;asset_id&quot;: &quot;1.3.0&quot;
-        },
-        &quot;witness_account&quot;: &quot;1.2.16&quot;,
-        &quot;url&quot;: &quot;http://witness.bar.com/&quot;,
-        &quot;block_signing_key&quot;: &quot;PUBLIC KEY&quot;,
-        &quot;initial_secret&quot;: &quot;00000000000000000000000000000000000000000000000000000000&quot;
-      }
-    ]
-  ],
-  &quot;signatures&quot;: [
-      &quot;1f2ad5597af2ac4bf7a50f1eef2db49c9c0f7616718776624c2c09a2dd72a0c53a26e8c2bc928f783624c4632924330fc03f08345c8f40b9790efa2e4157184a37&quot;
-  ]
-}
-</code></pre>
-<p>Our witness is registered, but it can't produce blocks because nobody has voted
+will simply be the ten default witnesses:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>unlocked &gt;&gt;&gt; get_global_properties
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>...
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  &quot;active_witnesses&quot;: [
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    &quot;1.6.0&quot;,
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    &quot;1.6.1&quot;,
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    &quot;1.6.2&quot;,
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    &quot;1.6.3&quot;,
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    &quot;1.6.4&quot;,
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    &quot;1.6.5&quot;,
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    &quot;1.6.6&quot;,
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    &quot;1.6.7&quot;,
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    &quot;1.6.8&quot;,
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    &quot;1.6.9&quot;
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  ],
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>...
+</span></code></pre></div>
+Only lifetime members can become witnesses, so you must first upgrade to a
+lifetime member.  Upgrade and create our witness object.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>unlocked &gt;&gt;&gt; upgrade_account my-account true
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>unlocked &gt;&gt;&gt; create_witness my-account &quot;http://witness.bar.com/&quot; true
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>{
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  &quot;ref_block_num&quot;: 139,
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  &quot;ref_block_prefix&quot;: 3692461913,
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  &quot;relative_expiration&quot;: 3,
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  &quot;operations&quot;: [[
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>      21,{
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        &quot;fee&quot;: {
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>          &quot;amount&quot;: 0,
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>          &quot;asset_id&quot;: &quot;1.3.0&quot;
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        },
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        &quot;witness_account&quot;: &quot;1.2.16&quot;,
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        &quot;url&quot;: &quot;http://witness.bar.com/&quot;,
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        &quot;block_signing_key&quot;: &quot;PUBLIC KEY&quot;,
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>        &quot;initial_secret&quot;: &quot;00000000000000000000000000000000000000000000000000000000&quot;
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>      }
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    ]
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>  ],
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>  &quot;signatures&quot;: [
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>      &quot;1f2ad5597af2ac4bf7a50f1eef2db49c9c0f7616718776624c2c09a2dd72a0c53a26e8c2bc928f783624c4632924330fc03f08345c8f40b9790efa2e4157184a37&quot;
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>  ]
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>}
+</span></code></pre></div>
+Our witness is registered, but it can't produce blocks because nobody has voted
 it in.  You can see the current list of active witnesses with
-<code>get_global_properties</code>:</p>
-<pre><code>unlocked &gt;&gt;&gt; get_global_properties
-{
-  &quot;active_witnesses&quot;: [
-    &quot;1.6.0&quot;,
-    &quot;1.6.1&quot;,
-    &quot;1.6.2&quot;,
-    &quot;1.6.3&quot;,
-    &quot;1.6.4&quot;,
-    &quot;1.6.5&quot;,
-    &quot;1.6.7&quot;,
-    &quot;1.6.8&quot;,
-    &quot;1.6.9&quot;
-  ],
-  ...
-</code></pre>
-<p>Now, we should vote our witness in.  Vote all of the shares in both
-<code>my-account</code> and <code>nathan</code> in favor of your new witness.</p>
-<pre><code>unlocked &gt;&gt;&gt; vote_for_witness my-account my-account true true
-unlocked &gt;&gt;&gt; vote_for_witness nathan my-account true true
-</code></pre>
-<p>Now we wait until the next maintenance interval.
+<code>get_global_properties</code>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>unlocked &gt;&gt;&gt; get_global_properties
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>{
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  &quot;active_witnesses&quot;: [
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    &quot;1.6.0&quot;,
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    &quot;1.6.1&quot;,
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    &quot;1.6.2&quot;,
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    &quot;1.6.3&quot;,
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    &quot;1.6.4&quot;,
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    &quot;1.6.5&quot;,
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    &quot;1.6.7&quot;,
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    &quot;1.6.8&quot;,
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    &quot;1.6.9&quot;
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>  ],
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  ...
+</span></code></pre></div>
+Now, we should vote our witness in.  Vote all of the shares in both
+<code>my-account</code> and <code>nathan</code> in favor of your new witness.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>unlocked &gt;&gt;&gt; vote_for_witness my-account my-account true true
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>unlocked &gt;&gt;&gt; vote_for_witness nathan my-account true true
+</span></code></pre></div>
+Now we wait until the next maintenance interval.
 <code>get_dynamic_global_properties</code> tells us when that will be in
 <code>next_maintenance_time</code>.  Once the next maintenance interval passes, run
 <code>get_global_properties</code> again and you should see that your new witness has been
@@ -2778,74 +2756,74 @@ public <code>signing_key</code> so we can look up the correspoinding private key
 <p>Once we have that, run <code>dump_private_keys</code> which lists the public-key 
 private-key pairs to find the private key.</p>
 <p>Warning: <code>dump_private_keys</code> will display your keys unencrypted on the
-terminal, don't do this with someone looking over your shoulder.</p>
-<pre><code>unlocked &gt;&gt;&gt; get_witness my-account
-{
-  &quot;id&quot;: &quot;1.6.10&quot;,
-  &quot;witness_account&quot;: &quot;1.2.16&quot;,
-  &quot;signing_key&quot;: &quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8&quot;,
-}
-unlocked &gt;&gt;&gt; dump_private_keys
-[[
-  ...
-  ],[
-    &quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8&quot;,
-    &quot;5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ&quot;
-  ]
-]
-</code></pre>
-<p>Now we need to re-start the witness, so shut down the wallet (ctrl-d),  and
+terminal, don't do this with someone looking over your shoulder.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>unlocked &gt;&gt;&gt; get_witness my-account
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>{
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  &quot;id&quot;: &quot;1.6.10&quot;,
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  &quot;witness_account&quot;: &quot;1.2.16&quot;,
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  &quot;signing_key&quot;: &quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8&quot;,
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>}
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>unlocked &gt;&gt;&gt; dump_private_keys
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>[[
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  ...
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  ],[
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    &quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8&quot;,
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    &quot;5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ&quot;
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>  ]
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>]
+</span></code></pre></div>
+Now we need to re-start the witness, so shut down the wallet (ctrl-d),  and
 shut down the witness (ctrl-c).  Re-launch the witness, now mentioning the new
-witness 1.6.10 and its keypair:</p>
-<pre><code>./witness_node --rpc-endpoint=0.0.0.0:8090 --enable-stale-production --witness-id \&quot;&quot;1.6.0&quot;\&quot; \&quot;&quot;1.6.1&quot;\&quot; \&quot;&quot;1.6.2&quot;\&quot; \&quot;&quot;1.6.3&quot;\&quot; \&quot;&quot;1.6.4&quot;\&quot;  \&quot;&quot;1.6.5&quot;\&quot; \&quot;&quot;1.6.6&quot;\&quot; \&quot;&quot;1.6.7&quot;\&quot; \&quot;&quot;1.6.8&quot;\&quot; \&quot;&quot;1.6.9&quot;\&quot;  \&quot;&quot;1.6.10&quot;\&quot; --private-key &quot;[\&quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8\&quot;, \&quot;5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ\&quot;]&quot;
-</code></pre>
-<p>If you monitor the output of the <code>witness_node</code>, you should see it generate 
-blocks signed by your witness:</p>
-<pre><code>Witness 1.6.10 production slot has arrived; generating a block now...
-Generated block #367 with timestamp 2015-07-05T20:46:30 at time 2015-07-05T20:46:30
-</code></pre>
+witness 1.6.10 and its keypair:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>./witness_node --rpc-endpoint=0.0.0.0:8090 --enable-stale-production --witness-id \&quot;&quot;1.6.0&quot;\&quot; \&quot;&quot;1.6.1&quot;\&quot; \&quot;&quot;1.6.2&quot;\&quot; \&quot;&quot;1.6.3&quot;\&quot; \&quot;&quot;1.6.4&quot;\&quot;  \&quot;&quot;1.6.5&quot;\&quot; \&quot;&quot;1.6.6&quot;\&quot; \&quot;&quot;1.6.7&quot;\&quot; \&quot;&quot;1.6.8&quot;\&quot; \&quot;&quot;1.6.9&quot;\&quot;  \&quot;&quot;1.6.10&quot;\&quot; --private-key &quot;[\&quot;GPH7vQ7GmRSJfDHxKdBmWMeDMFENpmHWKn99J457BNApiX1T5TNM8\&quot;, \&quot;5JGi7DM7J8fSTizZ4D9roNgd8dUc5pirUe9taxYCUUsnvQ4zCaQ\&quot;]&quot;
+</span></code></pre></div>
+If you monitor the output of the <code>witness_node</code>, you should see it generate 
+blocks signed by your witness:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Witness 1.6.10 production slot has arrived; generating a block now...
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Generated block #367 with timestamp 2015-07-05T20:46:30 at time 2015-07-05T20:46:30
+</span></code></pre></div></p>
 <h3 id="becoming-a-delegate">Becoming a Delegate</h3>
 <p>Becoming a delegate is almost the same as becoming a witness, but it is 
 simpler because delegates don't have a separate private key for signing blocks.</p>
 <p>As for witnesses, only lifetime members can become delegates, so you must first
 upgrade to a lifetime member if you haven't already.  Upgrade and create our
-delegate object.</p>
-<pre><code>unlocked &gt;&gt;&gt; upgrade_account my-account true
-unlocked &gt;&gt;&gt; create_delegate my-account &quot;http://delegate.baz.com/&quot; true
-</code></pre>
-<p>Now that we're registered as a delegate, we should vote e should vote our delegate 
-in.  Vote all of the shares in both <code>my-account</code> and <code>nathan</code> in favor of your new delegate.</p>
-<pre><code>unlocked &gt;&gt;&gt; vote_for_delegate my-account my-account true true
-unlocked &gt;&gt;&gt; vote_for_delegate nathan my-account true true
-</code></pre>
-<p>Like with witnesses, you will have to wait for the next maintenance interval before
-the delegate becomes active.  Get the id of the delegate with:</p>
-<pre><code>unlocked &gt;&gt;&gt; get_delegate my-account
-{
-  &quot;id&quot;: &quot;1.5.10&quot;,
-  ...
-</code></pre>
-<p>and then run <code>get_global_properties</code> after the maintenance period and you should
+delegate object.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>unlocked &gt;&gt;&gt; upgrade_account my-account true
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>unlocked &gt;&gt;&gt; create_delegate my-account &quot;http://delegate.baz.com/&quot; true
+</span></code></pre></div>
+Now that we're registered as a delegate, we should vote e should vote our delegate 
+in.  Vote all of the shares in both <code>my-account</code> and <code>nathan</code> in favor of your new delegate.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>unlocked &gt;&gt;&gt; vote_for_delegate my-account my-account true true
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>unlocked &gt;&gt;&gt; vote_for_delegate nathan my-account true true
+</span></code></pre></div>
+Like with witnesses, you will have to wait for the next maintenance interval before
+the delegate becomes active.  Get the id of the delegate with:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>unlocked &gt;&gt;&gt; get_delegate my-account
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>{
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>  &quot;id&quot;: &quot;1.5.10&quot;,
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>  ...
+</span></code></pre></div>
+and then run <code>get_global_properties</code> after the maintenance period and you should
 see the new delegate <code>1.5.10</code> listed in the <code>active_delegates</code> list.</p>
 <h3 id="creating-new-keys">Creating New Keys</h3>
 <p>Registering a new account requires the provision of at least two public keys to the registrar: one for the owner key and another for the active key.  Some registrars require a third public key for the memo.</p>
 <p>Pseudo-random keys for an account can be created by using the CLI Wallet command <code>suggest_brain_key</code>.</p>
-<pre><code>locked &gt;&gt;&gt; suggest_brain_key 
-{
-  &quot;brain_priv_key&quot;: &quot;XXXXXX ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......&quot;,
-  &quot;wif_priv_key&quot;: &quot;5......&quot;,
-  &quot;pub_key&quot;: &quot;TEST......&quot;
-}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>locked &gt;&gt;&gt; suggest_brain_key 
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>{
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>  &quot;brain_priv_key&quot;: &quot;XXXXXX ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......&quot;,
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  &quot;wif_priv_key&quot;: &quot;5......&quot;,
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>  &quot;pub_key&quot;: &quot;TEST......&quot;
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>}
+</span></code></pre></div>
 <p>The public key is provided to a registrar during account registration.  The WIF private key should be securely archived.</p>
 <p>After account registration, a key can be imported into a CLI wallet with the command <code>import_key</code>.</p>
-<pre><code>locked &gt;&gt;&gt; gethelp import_key
-
-usage: import_key ACCOUNT_NAME_OR_ID  WIF_PRIVATE_KEY
-
-example: import_key &quot;1.3.11&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-example: import_key &quot;usera&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>locked &gt;&gt;&gt; gethelp import_key
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>usage: import_key ACCOUNT_NAME_OR_ID  WIF_PRIVATE_KEY
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>example: import_key &quot;1.3.11&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>example: import_key &quot;usera&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+</span></code></pre></div>
 <h3 id="claiming-accumulated-fees">Claiming Accumulated Fees</h3>
 <p>The accumulated fees for the asset owner can be claimed with the following steps.</p>
 <p>Two identifiers will be needed to claim the vesting balance.</p>
@@ -2855,22 +2833,22 @@ example: import_key &quot;usera&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXt
 <li>The amount to be claimed in satoshis (N)</li>
 </ul>
 <p>The identifier of the account can be found by inspecting the <code>id</code> ("1.3.x") in the output of <code>get_account</code></p>
-<pre><code>get_account &lt;ACCOUNT_NAME&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>get_account &lt;ACCOUNT_NAME&gt;
+</span></code></pre></div>
 <p>The identifier of the asset can be found by inspecting the <code>id</code> in the output of <code>get_asset</code> ("1.2.y").</p>
-<pre><code>get_asset &lt;ACCOUNT_NAME&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>get_asset &lt;ACCOUNT_NAME&gt;
+</span></code></pre></div>
 <p>Withdraw the vesting balance with the asset_claim_fees_operation which has an operation identifier of 43.  This will require building a transaction in the CLI Wallet.</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction 0 [43, {&quot;issuer&quot;:&quot;1.2.x&quot;, &quot;amount_to_claim&quot;:{&quot;amount&quot;:N, &quot;asset_id&quot;:&quot;1.3.y&quot;}}]
-set_fees_on_builder_transaction 0 1.3.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>begin_builder_transaction
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>add_operation_to_builder_transaction 0 [43, {&quot;issuer&quot;:&quot;1.2.x&quot;, &quot;amount_to_claim&quot;:{&quot;amount&quot;:N, &quot;asset_id&quot;:&quot;1.3.y&quot;}}]
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>set_fees_on_builder_transaction 0 1.3.0
+</span></code></pre></div>
 <p>Optionally preview the transaction before signing.</p>
-<pre><code>preview_builder_transaction 0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>preview_builder_transaction 0
+</span></code></pre></div>
 <p>Sign and broadcast the transaction.</p>
-<pre><code>sign_builder_transaction 0 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sign_builder_transaction 0 true
+</span></code></pre></div>
 
 
 
@@ -2917,7 +2895,7 @@ set_fees_on_builder_transaction 0 1.3.0
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

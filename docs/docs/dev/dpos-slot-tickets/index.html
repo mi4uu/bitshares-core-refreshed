@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2560,7 +2538,7 @@
 <p>Tickets of priority <code>2**(N+64)</code> or more, where <code>N</code> is the number of bits in the hash function, may be published between height <code>h</code> and <code>h+a</code>.  The worst priority of publishable tickets then falls exponentially until <code>h+b</code>, until all tickets are allowed to be published between <code>h+b-a</code> and <code>h+b</code> (where <code>a</code> and <code>b</code> are more config parameters, e.g. <code>a = 128</code>, <code>b = 256</code>).  No tickets are allowed to be published between <code>h+b</code> and <code>h+c</code>.</p>
 <p>Then for each future slot height, the slot is assigned to the ticket with the winning eligible priority.  A delegate assigned to the block at height <code>z</code> will become ineligible until <code>z+g</code> blocks have passed, where <code>g &gt;= d-c</code> is another config parameter.  (The restriction <code>g &gt;= d-c</code> implies that no ticket can be re-used.)
 Here is a diagram:</p>
-<pre><code>produce                better                  ticket was eligible         ticket was eligible         ticket becomes            ticket stops being      earliest time when             latest time when
+<div class="language-text highlight"><pre><span></span><code>produce                better                  ticket was eligible         ticket was eligible         ticket becomes            ticket stops being      earliest time when             latest time when
 ticket                 tickets                 to publish for at least     to publish during some      eligible to produce       eligible to produce     delegate would become          delegate would become
 |                      start                   one block regardless        block window of length      a block                   a block                 eligible to produce            eligible to produce
 |                      to become               of its value                a regardless of prio             |                          |                 another block                  another block
@@ -2569,7 +2547,7 @@ ticket                 tickets                 to publish for at least     to pu
 |   ---&gt;---&gt;---&gt;---&gt;---&gt;   |   ---&gt;---&gt;---&gt;---&gt;---&gt;   |                          |    waiting period        |                          |    waiting period        |   ---&gt;---&gt;---&gt;---&gt;---&gt;   |
 |       worse tickets      |       worse tickets      |                          |    makes it harder       |                          |    dictates at what      |      tickets later       |
 |     gradually become     |     gradually become     |                          |    to game RNG           |                          |    point support         |   in the window          |
-|        publishable       |        publishable       |                          |                          |                          |    "saturates" and       |   gradually become       |
+|        publishable       |        publishable       |                          |                          |                          |    &quot;saturates&quot; and       |   gradually become       |
 |                          |                          |                          |                          |                          |    additional votes      |   eligible to produce    |
 |                          |   ---&gt;---&gt;---&gt;---&gt;---&gt;   |   ---&gt;---&gt;---&gt;---&gt;---&gt;   |                          |                          |    no longer increase    |   again                  |
 |                          |      better tickets      |      better tickets      |                          |                          |    block production      |                          |
@@ -2581,7 +2559,7 @@ ticket                 tickets                 to publish for at least     to pu
 |                          |                          |                          |                          |                          |                          |                          |
 |                          |                          |                          |                          |                          |                          |                          |
 h                         h+a                       h+b-a                       h+b                        h+c                        h+d                       h+c+g                      h+d+g
-</code></pre>
+</code></pre></div>
 <p>If <code>d-c</code> better tickets have been published, the delegate should throw away his ticket to save the publication fee, since he'll be unable to win.</p>
 <p>As well as a publication fee, a ticket may include a bond requirement, some amount of stake (e.g. 9x the block reward) which is only refunded if the block is produced (or the ticket expires at height <code>h+d</code> without being used to produce a block).  A 9x bond would make it unprofitable to run a delegate that has less than 90% uptime.</p>
 <p>Delegates should include their secret hash with their ticket.</p>
@@ -2590,20 +2568,20 @@ h                         h+a                       h+b-a                       
 <h2 id="the-advantage-function">The advantage function</h2>
 <p>The role of <code>f()</code> determines how much support affects the probability of being voted in.  It is clear that <code>f()</code> should be monotonically increasing (greater support always increases probability of a winning ticket).</p>
 <p>Suppose we two delegates <code>D</code> and <code>D'</code> with support <code>v</code> and <code>v'</code> where <code>v &gt;= v'</code>.  Let us compute the probability that <code>priority(D) &gt;= priority(D')</code>.  A delegate <code>D</code> ticket is uniformly chosen from <code>[0, f(v))</code> and a delegate <code>D'</code> ticket is uniformly chosen from <code>[0, f(v'))</code>.  Delegate <code>D</code> wins if its ticket contains a number greater than <code>f(v')</code>, which happens with probability <code>q = (f(v) - f(v')) / f(v)</code>.  In the remaining <code>1 - q</code> cases, <code>D</code> is uniformly in <code>[0, f(v'))</code> which means it has a <code>50%</code> chance of winning.  Thus the overall probability of winning, <code>p</code>, is:</p>
-<pre><code>p = q + (1 - q) / 2
+<div class="language-text highlight"><pre><span></span><code>p = q + (1 - q) / 2
   = q + 1/2 - q/2
   = (q+1) / 2
-  = ((f(v) - f(v')) / f(v) + 1) / 2
-  = (2*f(v) - f(v')) / (2 * f(v))
-  = 1 - f(v') / (2*f(v))
-</code></pre>
+  = ((f(v) - f(v&#39;)) / f(v) + 1) / 2
+  = (2*f(v) - f(v&#39;)) / (2 * f(v))
+  = 1 - f(v&#39;) / (2*f(v))
+</code></pre></div>
 <p>Now suppose we want the probability of being chosen to be "linear".  This means that we want <code>p / (1-p) = v / v'</code>.</p>
-<pre><code>p / (1-p) = (1 - f(v') / (2*f(v))) / (f(v') / (2*f(v)))
-          = 2*f(v) / f(v') - 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>p / (1-p) = (1 - f(v&#39;) / (2*f(v))) / (f(v&#39;) / (2*f(v)))
+          = 2*f(v) / f(v&#39;) - 1
+</code></pre></div>
 <p>Some numerical experimentation shows that the following choice of <code>f</code>, which I will denote <code>F</code>, results in "linear" probability:</p>
-<pre><code>f(v) = F(v) = (v-1) / 2 + 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>f(v) = F(v) = (v-1) / 2 + 1
+</code></pre></div>
 
 
 
@@ -2650,7 +2628,7 @@ h                         h+a                       h+b-a                       
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

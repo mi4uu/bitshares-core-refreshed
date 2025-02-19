@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2513,7 +2491,7 @@ It is defined per each other using the already existing BitShares mechanism.</em
 <thead>
 <tr>
 <th>Distribution Recipient</th>
-<th>Distribution Calculation per <a href="#distribution-formula">Formula</a></th>
+<th>Distribution Calculation per <a href="./#distribution-formula">Formula</a></th>
 <th>Distribution Amount</th>
 </tr>
 </thead>
@@ -2541,9 +2519,9 @@ It is defined per each other using the already existing BitShares mechanism.</em
 </tbody>
 </table>
 <h1 id="test-scenario-shared-market-fees-for-a-uia">Test Scenario: Shared Market Fees for a UIA</h1>
-<p>This test scenario will demonstrate the sharing of market fees of a user-issued asset (UIA) by using the same settings that are described in <a href="#example-1">Example 1</a>.</p>
+<p>This test scenario will demonstrate the sharing of market fees of a user-issued asset (UIA) by using the same settings that are described in <a href="./#example-1">Example 1</a>.</p>
 <h2 id="initialize-accounts"><div id="initialize_accounts" /> Initialize Accounts</h2>
-<p>The following test scenario portrays the interaction of six actors: a faucet account ("faucet"), an account registrar ("registrar"), a referrer ("referrer"), an asset owner ("asset-owner"), and two trading accounts ("trader-80" and "trader-30").  Each will require their own wallet with their own keys (see <a href="#tips-for-creating-keys">Tips for Creating New Keys</a>).  Certain steps must be performed by specific actors from their respective wallet.  Each step of the instructions describe which actor is performing that step (e.g. "Registrar: ..." indicates that the action should be performed from the wallet of the registrar account).  The reader should use the respective actor's wallet.</p>
+<p>The following test scenario portrays the interaction of six actors: a faucet account ("faucet"), an account registrar ("registrar"), a referrer ("referrer"), an asset owner ("asset-owner"), and two trading accounts ("trader-80" and "trader-30").  Each will require their own wallet with their own keys (see <a href="./#tips-for-creating-keys">Tips for Creating New Keys</a>).  Certain steps must be performed by specific actors from their respective wallet.  Each step of the instructions describe which actor is performing that step (e.g. "Registrar: ..." indicates that the action should be performed from the wallet of the registrar account).  The reader should use the respective actor's wallet.</p>
 <table>
 <thead>
 <tr>
@@ -2558,95 +2536,94 @@ It is defined per each other using the already existing BitShares mechanism.</em
 </table>
 <h3 id="faucet-register-the-registrar-and-referrers">Faucet: Register the registrar and referrers</h3>
 <p>Create the accounts of the registrar, and the referrers from the <strong>faucet</strong> account (or any other LTM account)</p>
-<pre><code>register_account registrar TEST... TEST... faucet faucet 0 true
-transfer faucet registrar 20000 TEST &quot;&quot; true
-
-register_account referrer TEST... TEST... faucet faucet 0 true
-transfer faucet referrer 1000 TEST &quot;&quot; true
-
-register_account asset-owner TEST... TEST... faucet faucet 0 true
-transfer faucet asset-owner 50000 TEST &quot;&quot; true
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>register_account registrar TEST... TEST... faucet faucet 0 true
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>transfer faucet registrar 20000 TEST &quot;&quot; true
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>register_account referrer TEST... TEST... faucet faucet 0 true
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>transfer faucet referrer 1000 TEST &quot;&quot; true
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>register_account asset-owner TEST... TEST... faucet faucet 0 true
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>transfer faucet asset-owner 50000 TEST &quot;&quot; true
+</span></code></pre></div>
 <h3 id="referrer-upgrade-to-lifetime-membership">Referrer: Upgrade to Lifetime Membership</h3>
-<pre><code>upgrade_account referrer true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>upgrade_account referrer true
+</span></code></pre></div>
 <h3 id="registrar-upgrade-to-lifetime-membership">Registrar: Upgrade to Lifetime Membership</h3>
-<pre><code>upgrade_account registrar true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>upgrade_account registrar true
+</span></code></pre></div>
 <h3 id="asset-owner-upgrade-to-lifetime-membership">Asset Owner: Upgrade to Lifetime Membership</h3>
-<pre><code>upgrade_account asset-owner true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>upgrade_account asset-owner true
+</span></code></pre></div>
 <h3 id="registrar-create-the-trader-accounts">Registrar: Create the trader accounts</h3>
-<p>Trader 80 will be created to be consistent with <a href="#example-1">Example 1</a> such that 80% of all registrar-destined fees are distributed to the referrer.</p>
-<pre><code>register_account trader-80 TEST... TEST... registrar referrer 80 true
-</code></pre>
+<p>Trader 80 will be created to be consistent with <a href="./#example-1">Example 1</a> such that 80% of all registrar-destined fees are distributed to the referrer.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>register_account trader-80 TEST... TEST... registrar referrer 80 true
+</span></code></pre></div>
 <p>Trader 30 will be created as another trader such that 30% of all registrar-destined fees are distributed to the referrer.</p>
-<pre><code>register_account trader-30 TEST... TEST... registrar referrer 30 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>register_account trader-30 TEST... TEST... registrar referrer 30 true
+</span></code></pre></div>
 <h3 id="faucet-fund-the-trader-accounts">Faucet: Fund the trader accounts</h3>
-<pre><code>transfer faucet trader-80 5000 TEST &quot;&quot; true
-transfer faucet trader-30 5000 TEST &quot;&quot; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>transfer faucet trader-80 5000 TEST &quot;&quot; true
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>transfer faucet trader-30 5000 TEST &quot;&quot; true
+</span></code></pre></div>
 <h2 id="create-and-issue-the-uia">Create and Issue the UIA</h2>
 <h3 id="asset-owner-create-the-asset-type">Asset Owner: Create the Asset Type</h3>
-<p>The asset, called ASSET, will be created to be consistent with <a href="#example-1">Example 1</a> with a 20% market fee (expressed as 2000 in terms of hundredths of a percent) and a 40% reward fee (expressed as 4000 in terms of the hundredths of a percent) that is shared with the registrar of the trading account that receives the asset.</p>
-<pre><code>create_asset asset-owner ASSET 2 {&quot;max_supply&quot;:&quot;1000000000000000&quot;,&quot;market_fee_percent&quot;:2000,&quot;max_market_fee&quot;:&quot;1000000000000000&quot;,&quot;issuer_permissions&quot;:1,&quot;flags&quot;:1,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.0&quot;},&quot;quote&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.1&quot;}},&quot;whitelist_authorities&quot;:[],&quot;blacklist_authorities&quot;:[],&quot;whitelist_markets&quot;:[],&quot;blacklist_markets&quot;:[],&quot;description&quot;:&quot;&quot;,&quot;extensions&quot;:{&quot;reward_percent&quot;:4000}} null 
-</code></pre>
+<p>The asset, called ASSET, will be created to be consistent with <a href="./#example-1">Example 1</a> with a 20% market fee (expressed as 2000 in terms of hundredths of a percent) and a 40% reward fee (expressed as 4000 in terms of the hundredths of a percent) that is shared with the registrar of the trading account that receives the asset.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>create_asset asset-owner ASSET 2 {&quot;max_supply&quot;:&quot;1000000000000000&quot;,&quot;market_fee_percent&quot;:2000,&quot;max_market_fee&quot;:&quot;1000000000000000&quot;,&quot;issuer_permissions&quot;:1,&quot;flags&quot;:1,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.0&quot;},&quot;quote&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.1&quot;}},&quot;whitelist_authorities&quot;:[],&quot;blacklist_authorities&quot;:[],&quot;whitelist_markets&quot;:[],&quot;blacklist_markets&quot;:[],&quot;description&quot;:&quot;&quot;,&quot;extensions&quot;:{&quot;reward_percent&quot;:4000}} null 
+</span></code></pre></div>
 <h3 id="asset-owner-issue-the-asset">Asset Owner: Issue the Asset</h3>
 <p>The asset will be issued to one of the trading accounts, "trader-30".</p>
-<pre><code>issue_asset trader-30 5000 ASSET &quot;&quot; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>issue_asset trader-30 5000 ASSET &quot;&quot; true
+</span></code></pre></div>
 <h2 id="place-orders">Place Orders</h2>
-<p>Two orders will be constructed such that Trader 80 should receive 100 ASSET minus the market fee that is dictated by <a href="#example-1">Example 1</a>.</p>
+<p>Two orders will be constructed such that Trader 80 should receive 100 ASSET minus the market fee that is dictated by <a href="./#example-1">Example 1</a>.</p>
 <p>Trader 30 will offer to sell 100 ASSET in exchange for 50 TEST.</p>
 <p>Trader 80 will offer to sell 50 TEST in exchange for 100 ASSET.</p>
 <p>Those orders will be matched and filled and the market fee of 2% will be deducted such that Trader 80 will finally receive 98 ASSET.</p>
 <h3 id="trader-30-sell-100-asset">Trader 30: Sell 100 ASSET</h3>
 <p>Place an order to sell 100 ASSET for at least 50 TEST.</p>
-<pre><code>sell_asset trader-30 100 ASSET 50 TEST 600 false true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sell_asset trader-30 100 ASSET 50 TEST 600 false true
+</span></code></pre></div>
 <p>Check the order book to find the newly placed order.</p>
-<pre><code>get_order_book ASSET TEST 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>get_order_book ASSET TEST 1
+</span></code></pre></div>
 <p>The order will be waiting on the books for a match.</p>
 <h3 id="trader-80-sell-50-test">Trader 80: Sell 50 TEST</h3>
 <p>Place an order to sell 50 TEST for at least 100 ASSET.</p>
-<pre><code>sell_asset trader-80 50 TEST 100 ASSET 600 false true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sell_asset trader-80 50 TEST 100 ASSET 600 false true
+</span></code></pre></div>
 <p>Check the order book and find the order</p>
-<pre><code>get_order_book ASSET TEST 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>get_order_book ASSET TEST 1
+</span></code></pre></div>
 <p>The original order by trader-30 will no longer be in the book because it was matched and filled against the order from trader-80.</p>
 <p>Check the account history for more details</p>
-<pre><code>get_account_history trader-80 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>get_account_history trader-80 2
+</span></code></pre></div>
 <p>The fee for the filled transaction should be 2% of the filled order of 100 ASSET = 2 ASSET.</p>
 <p>Check the balance of Trader 80 to confirm reception of 98 ASSET.</p>
-<pre><code>list_account_balances trader-80
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>list_account_balances trader-80
+</span></code></pre></div>
 <h2 id="check-the-distribution-of-the-market-fee">Check the Distribution of the Market Fee</h2>
-<p>The market fee of 2 ASSET should now be distributed between the asset owner, the registrar, and the referrer per the description from <a href="#example-1">Example 1</a>.</p>
+<p>The market fee of 2 ASSET should now be distributed between the asset owner, the registrar, and the referrer per the description from <a href="./#example-1">Example 1</a>.</p>
 <h3 id="any-wallet-check-the-fees-distributed-to-the-asset-owner"><div id="check-vesting-balances-of-asset-owner" /> Any Wallet: Check the fees distributed to the Asset Owner</h3>
 <p>First find the <code>dynamic_asset_data_id</code> of the asset</p>
-<pre><code>get_asset ASSET
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>get_asset ASSET
+</span></code></pre></div>
 <p>Use the value for <code>dynamic_asset_data_id</code> field in an invocation of <code>get_object</code></p>
-<pre><code>get_object 2.3.x
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>get_object 2.3.x
+</span></code></pre></div>
 <p>Inspect the value found in the output for <code>accumulated_fees</code> which will be listed in satoshis.  This asset has a precision of 2 which means that the actual fees collected should be divided by 10<sup>2</sup>.  <em>The result should be 1.20 ASSET.</em></p>
 <h3 id="any-wallet-check-the-fees-distributed-to-the-registrar">Any Wallet: Check the fees distributed to the Registrar</h3>
-<pre><code>get_vesting_balances registrar
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>get_vesting_balances registrar
+</span></code></pre></div>
 <p>There might be many vesting balances listed.  Find the vesting balance of type <code>market_fee_sharing</code> with <code>asset_id</code> that matches the <code>id</code> of ASSET (Call <code>get_asset ASSET</code> to identify its <code>id</code> which will be of the form "1.3.x").</p>
 <p>Inspect the value for the <code>balance</code> field for the ASSET.  This asset has a precision of 2 which means that the actual fees collected should be divided by 10<sup>2</sup>.  <em>The result should be 0.16 ASSET.</em></p>
 <h3 id="any-wallet-check-the-fees-distributed-to-the-referrer">Any Wallet: Check the fees distributed to the Referrer</h3>
-<pre><code>get_vesting_balances referrer
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>get_vesting_balances referrer
+</span></code></pre></div>
 <p>There might be many vesting balances listed.  Find the vesting balance of type <code>market_fee_sharing</code> with <code>asset_id</code> that matches the <code>id</code> of ASSET (Call <code>get_asset ASSET</code> to identify its <code>id</code> which will be of the form "1.3.x").</p>
 <p>Inspect the value for the <code>balance</code> field for the ASSET.  This asset has a precision of 2 which means that the actual fees collected should be divided by 10^2.  <em>The result should be 0.64 ASSET.</em></p>
 <h2 id="optional-withdraw-the-distributed-fees">(Optional) Withdraw the Distributed Fees</h2>
-<p>Withdrawal of fees may optionally be tested by following <a href="#tips-for-withdrawing-distributed-fees">these instructions</a>.</p>
+<p>Withdrawal of fees may optionally be tested by following <a href="./#tips-for-withdrawing-distributed-fees">these instructions</a>.</p>
 <h1 id="reference-unit-tests">Reference: Unit Tests</h1>
 <p>For reference, the following unit tests that have been prepared to test the new functionality (<a href="https://github.com/bitshares/bitshares-core/pull/1419">1419</a>) for the issue (<a href="https://github.com/bitshares/bsips/blob/master/bsip-0043.md">BSIP-43</a>, <a href="https://github.com/bitshares/bitshares-core/issues/1270">1268</a>).</p>
 <ul>
@@ -2692,22 +2669,22 @@ transfer faucet trader-30 5000 TEST &quot;&quot; true
 <h1 id="reference-creating-new-keys"><div id="tips-for-creating-keys" /> Reference: Creating New Keys</h1>
 <p>Registering a new account in BitShares requires the provision of at least two public keys to the registrar: one for the owner key and another for the active key.  Some registrars require a third public key for the memo.</p>
 <p>Random keys for a BitShares account can be created by using the CLI Wallet command <code>suggest_brain_key</code>.</p>
-<pre><code>locked &gt;&gt;&gt; suggest_brain_key 
-{
-  &quot;brain_priv_key&quot;: &quot;XXXXXX ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......&quot;,
-  &quot;wif_priv_key&quot;: &quot;5......&quot;,
-  &quot;pub_key&quot;: &quot;TEST......&quot;
-}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>locked &gt;&gt;&gt; suggest_brain_key 
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>{
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  &quot;brain_priv_key&quot;: &quot;XXXXXX ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......&quot;,
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  &quot;wif_priv_key&quot;: &quot;5......&quot;,
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>  &quot;pub_key&quot;: &quot;TEST......&quot;
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>}
+</span></code></pre></div>
 <p>The public key is provided to a registrar during account registration.  The WIF private key should be securely archived.</p>
 <p>After account registration, a key can be imported into a CLI wallet with the command <code>import_key</code>.</p>
-<pre><code>locked &gt;&gt;&gt; gethelp import_key
-
-usage: import_key ACCOUNT_NAME_OR_ID  WIF_PRIVATE_KEY
-
-example: import_key &quot;1.3.11&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-example: import_key &quot;usera&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>locked &gt;&gt;&gt; gethelp import_key
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>usage: import_key ACCOUNT_NAME_OR_ID  WIF_PRIVATE_KEY
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>example: import_key &quot;1.3.11&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>example: import_key &quot;usera&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+</span></code></pre></div>
 <h1 id="reference-withdraw-the-distributed-fees"><div id="tips-for-withdrawing-distributed-fees" /> Reference: Withdraw the Distributed Fees</h1>
 <h2 id="registrar-and-referrer-withdraw-from-vesting-balances">Registrar and Referrer: Withdraw from Vesting Balances</h2>
 <p>The vesting balances for either the registrar or the referrer can be withdrawn with the following steps.</p>
@@ -2718,26 +2695,26 @@ example: import_key &quot;usera&quot; 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXt
 <li>The identifier of the vesting balance</li>
 </ul>
 <p>The identifier of the account can be found by inspecting the <code>id</code> ("1.3.x") in the output of <code>get_account</code></p>
-<pre><code>get_account &lt;ACCOUNT_NAME&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>get_account &lt;ACCOUNT_NAME&gt;
+</span></code></pre></div>
 <p>The identifier of the asset can be found by inspecting the <code>id</code> in the output of <code>get_asset</code> ("1.2.y").</p>
-<pre><code>get_asset &lt;ACCOUNT_NAME&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>get_asset &lt;ACCOUNT_NAME&gt;
+</span></code></pre></div>
 <p>The identifier of the vesting balance can be found by inspecting the <code>id</code> in the output of <code>get_vesting_balances</code> ("1.13.z").</p>
-<pre><code>get_vesting_balances &lt;ACCOUNT_NAME&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>get_vesting_balances &lt;ACCOUNT_NAME&gt;
+</span></code></pre></div>
 <p>There might be many vesting balances listed.  Find the vesting balance of type <code>market_fee_sharing</code> with <code>asset_id</code> that matches the <code>id</code> of ASSET.   Note the <code>id</code> of the vesting balance (e.g. "1.13.z") to use in the next step.</p>
 <p>Withdraw the vesting balance with the <code>vesting_balance_withdraw_operation</code> which has an <a href="https://github.com/bitshares/bitshares-core/blob/8c1a78b7f3f0083abee695c1b8a9b944f2c4a1be/libraries/chain/include/graphene/chain/protocol/operations.hpp#L84">operation identifier of 33</a>.  This will require building a transaction in the CLI Wallet.</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction 0 [33, {&quot;vesting_balance&quot;:&quot;1.13.z&quot;, &quot;owner&quot;:&quot;1.2.x&quot;, &quot;amount&quot;:{&quot;amount&quot;:16, &quot;asset_id&quot;:&quot;1.3.y&quot;}}]
-set_fees_on_builder_transaction 0 1.3.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>begin_builder_transaction
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>add_operation_to_builder_transaction 0 [33, {&quot;vesting_balance&quot;:&quot;1.13.z&quot;, &quot;owner&quot;:&quot;1.2.x&quot;, &quot;amount&quot;:{&quot;amount&quot;:16, &quot;asset_id&quot;:&quot;1.3.y&quot;}}]
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>set_fees_on_builder_transaction 0 1.3.0
+</span></code></pre></div>
 <p>Optionally preview the transaction before signing.</p>
-<pre><code>preview_builder_transaction 0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>preview_builder_transaction 0
+</span></code></pre></div>
 <p>Sign and broadcast the transaction.</p>
-<pre><code>sign_builder_transaction 0 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sign_builder_transaction 0 true
+</span></code></pre></div>
 <h2 id="asset-owner-withdraw-from-accumulated-fees">Asset Owner: Withdraw from Accumulated Fees</h2>
 <p>The vesting balances for either the registrar or the referrer can be withdrawn with the following steps.</p>
 <p>Three identifiers will be needed to withdraw the vesting balance.</p>
@@ -2746,22 +2723,22 @@ set_fees_on_builder_transaction 0 1.3.0
 <li>The identifier of the asset</li>
 </ul>
 <p>The identifier of the account can be found by inspecting the <code>id</code> ("1.3.x") in the output of <code>get_account</code></p>
-<pre><code>get_account &lt;ACCOUNT_NAME&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>get_account &lt;ACCOUNT_NAME&gt;
+</span></code></pre></div>
 <p>The identifier of the asset can be found by inspecting the <code>id</code> in the output of <code>get_asset</code> ("1.2.y").</p>
-<pre><code>get_asset &lt;ACCOUNT_NAME&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>get_asset &lt;ACCOUNT_NAME&gt;
+</span></code></pre></div>
 <p>Withdraw the vesting balance with the <code>asset_claim_fees_operation</code> which has an <a href="https://github.com/bitshares/bitshares-core/blob/8c1a78b7f3f0083abee695c1b8a9b944f2c4a1be/libraries/chain/include/graphene/chain/protocol/operations.hpp#L94">operation identifier of 43</a>.  This will require building a transaction in the CLI Wallet.</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction 0 [43, {&quot;issuer&quot;:&quot;1.2.x&quot;, &quot;amount_to_claim&quot;:{&quot;amount&quot;:N, &quot;asset_id&quot;:&quot;1.3.y&quot;}}]
-set_fees_on_builder_transaction 0 1.3.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>begin_builder_transaction
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>add_operation_to_builder_transaction 0 [43, {&quot;issuer&quot;:&quot;1.2.x&quot;, &quot;amount_to_claim&quot;:{&quot;amount&quot;:N, &quot;asset_id&quot;:&quot;1.3.y&quot;}}]
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>set_fees_on_builder_transaction 0 1.3.0
+</span></code></pre></div>
 <p>Optionally preview the transaction before signing.</p>
-<pre><code>preview_builder_transaction 0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>preview_builder_transaction 0
+</span></code></pre></div>
 <p>Sign and broadcast the transaction.</p>
-<pre><code>sign_builder_transaction 0 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sign_builder_transaction 0 true
+</span></code></pre></div>
 
 
 
@@ -2808,7 +2785,7 @@ set_fees_on_builder_transaction 0 1.3.0
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -3038,7 +3016,7 @@
 
 
 <h1 id="distributed-access-to-the-bitshares-decentralised-exchange">Distributed Access to the BitShares Decentralised Exchange</h1>
-<p><strong><a href="/@ihashfury">ihashfury (56)</a></strong>in <a href="/trending/bitshares">#bitshares</a> • 9 years ago (edited)</p>
+<p><strong><a href="../../%40ihashfury">ihashfury (56)</a></strong>in <a href="../../trending/bitshares">#bitshares</a> • 9 years ago (edited)</p>
 <p>I hope to encourage and promote more access points and backup WebSocket (wss) gateways for BitShares. This is the logical progression from <a href="https://steemit.com/bitshares/@ihashfury/run-your-own-decentralised-exchange" title="This link will take you away from hive.blog">Run your own decentralised exchange</a> post.  </p>
 <p><img alt="BitShares" src="7596ada.jpg" /></p>
 <h3 id="distributed-access-to-the-bitshares-network">Distributed Access to the BitShares Network</h3>
@@ -3100,221 +3078,199 @@
 <blockquote>
 <p>You can use any name - I have used bitshares in this example</p>
 </blockquote>
-<pre><code>sudo adduser bitshares
-sudo gpasswd -a bitshares sudo
-sudo gpasswd -a bitshares users
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo adduser bitshares
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo gpasswd -a bitshares sudo
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo gpasswd -a bitshares users
+</span></code></pre></div>
 <h2 id="install-nginx">Install Nginx</h2>
 <p>Install Nginx web server</p>
-<pre><code># ssh into your new user bitshares
-ssh bitshares@altcap.io
-sudo apt-get install nginx
-# check version
-nginx -v
-# add user to web server group
-sudo gpasswd -a bitshares www-data
-# start nginx
-sudo service nginx start
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># ssh into your new user bitshares
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ssh bitshares@altcap.io
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo apt-get install nginx
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a># check version
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>nginx -v
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a># add user to web server group
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>sudo gpasswd -a bitshares www-data
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a># start nginx
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>sudo service nginx start
+</span></code></pre></div>
 <p>This will start Nginx default web server. Check it by typing the ip address of your server in a web browser or your alias <a href="http://altcap.io" title="This link will take you away from hive.blog">altcap.io</a></p>
 <h3 id="configure-nginx">Configure Nginx</h3>
 <p>To configure the web server, edit the default site and save as new DNS alias name using http port 80 only until you setup <a href="https://letsencrypt.org/" title="This link will take you away from hive.blog">letsencrypt.org</a> SSL Certificate.</p>
 <h3 id="create-your-web-folder">Create your web folder</h3>
-<pre><code>sudo mkdir -p /var/www/altcap.io/public_html
-sudo chown -R bitshares:bitshares var/www/altcap.io/public_html
-sudo chmod 755 /var/www
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo mkdir -p /var/www/altcap.io/public_html
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo chown -R bitshares:bitshares var/www/altcap.io/public_html
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo chmod 755 /var/www
+</span></code></pre></div>
 <h3 id="configure-nginx_1">Configure Nginx</h3>
-<pre><code># edit default setup and save as altcap.io
-sudo nano /etc/nginx/sites-available/default
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># edit default setup and save as altcap.io
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo nano /etc/nginx/sites-available/default
+</span></code></pre></div>
 <p>Point to your new virtual host</p>
-<pre><code>###### altcap.io ######
-server {
-    listen 80;
-    server_name altcap.io;
-    #rewrite ^ https://$server_name$request_uri? permanent;
-    #rewrite ^ https://altcap.io$uri permanent;
-    #
-    root /var/www/altcap.io/public_html;
-    # Add index.php to the list if you are using PHP
-    index index.html index.htm;
-    #
-    location / {
-        # First attempt to serve request as file, then
-        # as directory, then fall back to displaying a 404.
-        try_files $uri $uri/ =404;
-    }
-}
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>###### altcap.io ######
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>server {
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    listen 80;
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    server_name altcap.io;
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    #rewrite ^ https://$server_name$request_uri? permanent;
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    #rewrite ^ https://altcap.io$uri permanent;
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    #
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    root /var/www/altcap.io/public_html;
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    # Add index.php to the list if you are using PHP
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    index index.html index.htm;
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    #
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    location / {
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        # First attempt to serve request as file, then
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        # as directory, then fall back to displaying a 404.
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        try_files $uri $uri/ =404;
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    }
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>}
+</span></code></pre></div>
 <blockquote>
 <p>CTRL+O to save as altcap.io (^O Write Out)</p>
 </blockquote>
 <h3 id="update-virtual-host-file">Update Virtual Host File</h3>
-<pre><code>sudo cp altcap.io /etc/nginx/sites-available/altcap.io
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo cp altcap.io /etc/nginx/sites-available/altcap.io
+</span></code></pre></div>
 <h3 id="activate-sim-link-and-disable-default-web-server">Activate sim link and disable default web server</h3>
-<pre><code>sudo ln -s /etc/nginx/sites-available/altcap.io /etc/nginx/sites-enabled/altcap.io
-sudo rm /etc/nginx/sites-enabled/default
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo ln -s /etc/nginx/sites-available/altcap.io /etc/nginx/sites-enabled/altcap.io
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo rm /etc/nginx/sites-enabled/default
+</span></code></pre></div>
 <h3 id="link-local-folder-to-www-root-and-add-a-simple-indexhtml">Link local folder to www root and add a simple index.html</h3>
-<pre><code>ln -s /var/www/altcap.io/public_html ~/public_html
-nano ~/public_html/index.html
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ln -s /var/www/altcap.io/public_html ~/public_html
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>nano ~/public_html/index.html
+</span></code></pre></div>
 <p>Add some text to index.html</p>
-<pre><code>altcap.io
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>altcap.io
+</span></code></pre></div>
 <blockquote>
 <p>CTRL+X to save as index.html (^X Exit)</p>
 </blockquote>
 <h3 id="restart-nginx">Restart Nginx</h3>
-<pre><code>sudo service nginx restart
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo service nginx restart
+</span></code></pre></div>
 <p>Now you have setup a simple web server.  </p>
 <p>DigitalOcean has a great <a href="https://www.digitalocean.com/community/articles/how-to-set-up-nginx-virtual-hosts-server-blocks-on-ubuntu-12-04-lts--3" title="This link will take you away from hive.blog">article</a> for more information on Virtual Host setup.</p>
 <h2 id="install-letsencrypt">Install letsencrypt</h2>
-<pre><code>sudo apt-get install letsencrypt
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo apt-get install letsencrypt
+</span></code></pre></div>
 <h3 id="obtain-your-ssl-certificate">Obtain your SSL certificate</h3>
-<pre><code>sudo letsencrypt certonly --webroot -w /var/www/altcap.io/public_html -d altcap.io
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo letsencrypt certonly --webroot -w /var/www/altcap.io/public_html -d altcap.io
+</span></code></pre></div>
 <p>Follow the instructions and add an email address</p>
 <h3 id="check-your-certificate">Check your certificate</h3>
-<pre><code>sudo ls -l /etc/letsencrypt/live/altcap.io
-# and check it will update
-sudo letsencrypt renew --dry-run --agree-tos
-sudo letsencrypt renew
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo ls -l /etc/letsencrypt/live/altcap.io
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a># and check it will update
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>sudo letsencrypt renew --dry-run --agree-tos
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>sudo letsencrypt renew
+</span></code></pre></div>
 <h3 id="setup-a-renew-cronjob-for-your-new-ssl-certificate">Setup a renew cronjob for your new SSL certificate</h3>
-<pre><code>sudo crontab -e
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo crontab -e
+</span></code></pre></div>
 <p>Add this line to run the job every 6 hours on the 16th minute</p>
-<pre><code>16 */6 * * *  /usr/bin/letsencrypt renew &gt;&gt; /var/log/letsencrypt-renew.log
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>16 */6 * * *  /usr/bin/letsencrypt renew &gt;&gt; /var/log/letsencrypt-renew.log
+</span></code></pre></div>
 <blockquote>
 <p>CTRL+X to save (^X Exit)</p>
 </blockquote>
-<pre><code># check your crontab
-sudo crontab -l
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a># check your crontab
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>sudo crontab -l
+</span></code></pre></div>
 <h3 id="generate-strong-diffie-hellman-group-cert">Generate Strong Diffie-Hellman Group cert</h3>
-<pre><code>sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+</span></code></pre></div>
 <h2 id="add-ssl-to-nginx-settings">Add SSL to Nginx settings</h2>
 <p>Make a copy of altcap.io just in case.</p>
-<pre><code>cp altcap.io alcap.io.no.ssl
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cp altcap.io alcap.io.no.ssl
+</span></code></pre></div>
 <h3 id="edit-altcapio">Edit altcap.io</h3>
-<pre><code>nano altcap.io
-
-</code></pre>
-<pre><code>###### altcap.io ######
-server {
-    listen 80;
-    server_name altcap.io;
-    #rewrite ^ https://$server_name$request_uri? permanent;
-    rewrite ^ https://altcap.io$uri permanent;
-    #
-    root /var/www/altcap.io/public_html;
-    # Add index.php to the list if you are using PHP
-    index index.html index.htm;
-    #
-    location / {
-        # First attempt to serve request as file, then
-        # as directory, then fall back to displaying a 404.
-        try_files $uri $uri/ =404;
-    }
-}
-
-###### altcap.io websockets
-
-upstream websockets {
-    server localhost:8090;
-}
-
-###### altcap.io ssl
-server {
-    listen 443 ssl;
-    #
-    server_name altcap.io;
-    #
-    root /var/www/altcap.io/public_html;
-    # Add index.php to the list if you are using PHP
-    index index.html index.htm;
-    #
-    ssl_certificate /etc/letsencrypt/live/altcap.io/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/altcap.io/privkey.pem;
-    #
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-    ssl_prefer_server_ciphers on;
-    ssl_dhparam /etc/ssl/certs/dhparam.pem;
-    ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
-    ssl_session_timeout 1d;
-    ssl_session_cache shared:SSL:50m;
-    ssl_stapling on;
-    ssl_stapling_verify on;
-    add_header Strict-Transport-Security max-age=15768000;
-    #
-    # Note: You should disable gzip for SSL traffic.
-    # See: https://bugs.debian.org/773332
-    #
-    # Read up on ssl_ciphers to ensure a secure configuration.
-    # See: https://bugs.debian.org/765782
-    #
-    # Self signed certs generated by the ssl-cert package
-    # Don't use them in a production server!
-    #
-    # include snippets/snakeoil.conf;
-    #
-    location / {
-        # First attempt to serve request as file, then
-        # as directory, then fall back to displaying a 404.
-        try_files $uri $uri/ =404;
-    }
-    location ~ /ws/? {
-        access_log off;
-        proxy_pass http://websockets;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection &quot;upgrade&quot;;
-    }
-}
-###### altcap.io ######
-
-</code></pre>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>nano altcap.io
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>###### altcap.io ######
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>server {
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    listen 80;
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    server_name altcap.io;
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    #rewrite ^ https://$server_name$request_uri? permanent;
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    rewrite ^ https://altcap.io$uri permanent;
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    #
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    root /var/www/altcap.io/public_html;
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    # Add index.php to the list if you are using PHP
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    index index.html index.htm;
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    #
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>    location / {
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>        # First attempt to serve request as file, then
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>        # as directory, then fall back to displaying a 404.
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>        try_files $uri $uri/ =404;
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>    }
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>}
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>###### altcap.io websockets
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>upstream websockets {
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>    server localhost:8090;
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>}
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>###### altcap.io ssl
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>server {
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>    listen 443 ssl;
+</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>    #
+</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>    server_name altcap.io;
+</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>    #
+</span><span id="__span-19-31"><a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>    root /var/www/altcap.io/public_html;
+</span><span id="__span-19-32"><a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>    # Add index.php to the list if you are using PHP
+</span><span id="__span-19-33"><a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>    index index.html index.htm;
+</span><span id="__span-19-34"><a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>    #
+</span><span id="__span-19-35"><a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>    ssl_certificate /etc/letsencrypt/live/altcap.io/fullchain.pem;
+</span><span id="__span-19-36"><a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>    ssl_certificate_key /etc/letsencrypt/live/altcap.io/privkey.pem;
+</span><span id="__span-19-37"><a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>    #
+</span><span id="__span-19-38"><a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a>    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+</span><span id="__span-19-39"><a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>    ssl_prefer_server_ciphers on;
+</span><span id="__span-19-40"><a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>    ssl_dhparam /etc/ssl/certs/dhparam.pem;
+</span><span id="__span-19-41"><a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a>    ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;;
+</span><span id="__span-19-42"><a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a>    ssl_session_timeout 1d;
+</span><span id="__span-19-43"><a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a>    ssl_session_cache shared:SSL:50m;
+</span><span id="__span-19-44"><a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a>    ssl_stapling on;
+</span><span id="__span-19-45"><a id="__codelineno-19-45" name="__codelineno-19-45" href="#__codelineno-19-45"></a>    ssl_stapling_verify on;
+</span><span id="__span-19-46"><a id="__codelineno-19-46" name="__codelineno-19-46" href="#__codelineno-19-46"></a>    add_header Strict-Transport-Security max-age=15768000;
+</span><span id="__span-19-47"><a id="__codelineno-19-47" name="__codelineno-19-47" href="#__codelineno-19-47"></a>    #
+</span><span id="__span-19-48"><a id="__codelineno-19-48" name="__codelineno-19-48" href="#__codelineno-19-48"></a>    # Note: You should disable gzip for SSL traffic.
+</span><span id="__span-19-49"><a id="__codelineno-19-49" name="__codelineno-19-49" href="#__codelineno-19-49"></a>    # See: https://bugs.debian.org/773332
+</span><span id="__span-19-50"><a id="__codelineno-19-50" name="__codelineno-19-50" href="#__codelineno-19-50"></a>    #
+</span><span id="__span-19-51"><a id="__codelineno-19-51" name="__codelineno-19-51" href="#__codelineno-19-51"></a>    # Read up on ssl_ciphers to ensure a secure configuration.
+</span><span id="__span-19-52"><a id="__codelineno-19-52" name="__codelineno-19-52" href="#__codelineno-19-52"></a>    # See: https://bugs.debian.org/765782
+</span><span id="__span-19-53"><a id="__codelineno-19-53" name="__codelineno-19-53" href="#__codelineno-19-53"></a>    #
+</span><span id="__span-19-54"><a id="__codelineno-19-54" name="__codelineno-19-54" href="#__codelineno-19-54"></a>    # Self signed certs generated by the ssl-cert package
+</span><span id="__span-19-55"><a id="__codelineno-19-55" name="__codelineno-19-55" href="#__codelineno-19-55"></a>    # Don&#39;t use them in a production server!
+</span><span id="__span-19-56"><a id="__codelineno-19-56" name="__codelineno-19-56" href="#__codelineno-19-56"></a>    #
+</span><span id="__span-19-57"><a id="__codelineno-19-57" name="__codelineno-19-57" href="#__codelineno-19-57"></a>    # include snippets/snakeoil.conf;
+</span><span id="__span-19-58"><a id="__codelineno-19-58" name="__codelineno-19-58" href="#__codelineno-19-58"></a>    #
+</span><span id="__span-19-59"><a id="__codelineno-19-59" name="__codelineno-19-59" href="#__codelineno-19-59"></a>    location / {
+</span><span id="__span-19-60"><a id="__codelineno-19-60" name="__codelineno-19-60" href="#__codelineno-19-60"></a>        # First attempt to serve request as file, then
+</span><span id="__span-19-61"><a id="__codelineno-19-61" name="__codelineno-19-61" href="#__codelineno-19-61"></a>        # as directory, then fall back to displaying a 404.
+</span><span id="__span-19-62"><a id="__codelineno-19-62" name="__codelineno-19-62" href="#__codelineno-19-62"></a>        try_files $uri $uri/ =404;
+</span><span id="__span-19-63"><a id="__codelineno-19-63" name="__codelineno-19-63" href="#__codelineno-19-63"></a>    }
+</span><span id="__span-19-64"><a id="__codelineno-19-64" name="__codelineno-19-64" href="#__codelineno-19-64"></a>    location ~ /ws/? {
+</span><span id="__span-19-65"><a id="__codelineno-19-65" name="__codelineno-19-65" href="#__codelineno-19-65"></a>        access_log off;
+</span><span id="__span-19-66"><a id="__codelineno-19-66" name="__codelineno-19-66" href="#__codelineno-19-66"></a>        proxy_pass http://websockets;
+</span><span id="__span-19-67"><a id="__codelineno-19-67" name="__codelineno-19-67" href="#__codelineno-19-67"></a>        proxy_set_header X-Real-IP $remote_addr;
+</span><span id="__span-19-68"><a id="__codelineno-19-68" name="__codelineno-19-68" href="#__codelineno-19-68"></a>        proxy_set_header Host $host;
+</span><span id="__span-19-69"><a id="__codelineno-19-69" name="__codelineno-19-69" href="#__codelineno-19-69"></a>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span><span id="__span-19-70"><a id="__codelineno-19-70" name="__codelineno-19-70" href="#__codelineno-19-70"></a>        proxy_http_version 1.1;
+</span><span id="__span-19-71"><a id="__codelineno-19-71" name="__codelineno-19-71" href="#__codelineno-19-71"></a>        proxy_set_header Upgrade $http_upgrade;
+</span><span id="__span-19-72"><a id="__codelineno-19-72" name="__codelineno-19-72" href="#__codelineno-19-72"></a>        proxy_set_header Connection &quot;upgrade&quot;;
+</span><span id="__span-19-73"><a id="__codelineno-19-73" name="__codelineno-19-73" href="#__codelineno-19-73"></a>    }
+</span><span id="__span-19-74"><a id="__codelineno-19-74" name="__codelineno-19-74" href="#__codelineno-19-74"></a>}
+</span><span id="__span-19-75"><a id="__codelineno-19-75" name="__codelineno-19-75" href="#__codelineno-19-75"></a>###### altcap.io ######
+</span></code></pre></div></p>
 <blockquote>
 <p>CTRL+X to save (^X Exit)</p>
 </blockquote>
 <p>You have now setup an SSL secured web server with a WebSocket connected to your local BitShares witness_node (listening on port 8090 - see <a href="https://steemit.com/bitshares/@ihashfury/run-your-own-decentralised-exchange" title="This link will take you away from hive.blog">this post</a> for more information)</p>
 <h3 id="update-altcapio-www-virtual-host">Update altcap.io www virtual host</h3>
-<pre><code>sudo cp altcap.io /etc/nginx/sites-available/altcap.io
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo cp altcap.io /etc/nginx/sites-available/altcap.io
+</span></code></pre></div>
 <h3 id="restart-nginx_1">Restart Nginx</h3>
-<pre><code>sudo service nginx restart
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo service nginx restart
+</span></code></pre></div>
 <p>Now you have setup an SSL web server.  </p>
 <p>More information on SSL setup can be found here.  </p>
 <p><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04" title="This link will take you away from hive.blog">DigitalOcean letsencrypt SSL</a>  </p>
@@ -3322,69 +3278,58 @@ server {
 <p><a href="https://certbot.eff.org/" title="This link will take you away from hive.blog">CertBot</a></p>
 <h2 id="install-bitshares-web-gui">Install BitShares web gui</h2>
 <h3 id="install-nvm-node-version-manager">Install NVM (Node Version Manager)</h3>
-<pre><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+</span></code></pre></div>
 <p>exit bash (terminal) and reconnect</p>
-<pre><code>ssh [[email protected]](/cdn-cgi/l/email-protection)
-nvm install v5
-nvm use v5
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>ssh [[email protected]](/cdn-cgi/l/email-protection)
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>nvm install v5
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>nvm use v5
+</span></code></pre></div>
 <h3 id="download-bitshares-gui">Download BitShares gui</h3>
-<pre><code>git clone https://github.com/bitshares/bitshares-2-ui.git
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git clone https://github.com/bitshares/bitshares-2-ui.git
+</span></code></pre></div>
 <h3 id="setup-light-wallet">Setup light wallet</h3>
-<pre><code>cd /bitshares-2-ui/
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>cd /bitshares-2-ui/
+</span></code></pre></div>
 <p>Before building the light wallet, you need to edit <strong>SettingsStore.js</strong> line 19 and 99 wss WebSocket.</p>
-<pre><code>nano /bitshares-2-ui/dl/src/stores/SettingsStore.js
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>nano /bitshares-2-ui/dl/src/stores/SettingsStore.js
+</span></code></pre></div>
 <p>Change line 19</p>
-<pre><code>            connection: &quot;wss://altcap.io/ws&quot;,
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>            connection: &quot;wss://altcap.io/ws&quot;,
+</span></code></pre></div>
 <p>Add your new wss WebSocket to line 99</p>
-<pre><code>            connection: [
-                &quot;wss://altcap.io/ws&quot;,
-                &quot;wss://bitshares.openledger.info/ws&quot;,
-                &quot;wss://bitshares.dacplay.org:8089/ws&quot;,
-                &quot;wss://dele-puppy.com/ws&quot;,
-                &quot;wss://valen-tin.fr:8090/ws&quot;
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>            connection: [
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>                &quot;wss://altcap.io/ws&quot;,
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>                &quot;wss://bitshares.openledger.info/ws&quot;,
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>                &quot;wss://bitshares.dacplay.org:8089/ws&quot;,
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>                &quot;wss://dele-puppy.com/ws&quot;,
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>                &quot;wss://valen-tin.fr:8090/ws&quot;
+</span></code></pre></div>
 <blockquote>
 <p>CTRL+X to save (^X Exit)</p>
 </blockquote>
-<pre><code>### Setup install
-cd dl; npm install
-cd ../web; npm install
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>### Setup install
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>cd dl; npm install
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>cd ../web; npm install
+</span></code></pre></div>
 <h3 id="link-web-root-to-gui-build-folder">Link web root to gui build folder</h3>
-<pre><code>ln -s ~/public_html/ dist
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>ln -s ~/public_html/ dist
+</span></code></pre></div>
 <h3 id="build-light-wallet">Build light wallet</h3>
-<pre><code>npm run build
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>npm run build
+</span></code></pre></div>
 <p>You have now created another Access point to the BitShares Decentralised Exchange.  </p>
 <p><strong>The more the merrier.</strong>  </p>
 <p>Please remember to check your firewall and SSH is up-to-date and configured correctly. DigitalOcean has <a href="https://www.digitalocean.com/community/tags/firewall?type=tutorials" title="This link will take you away from hive.blog">firewall</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2" title="This link will take you away from hive.blog">Secure SSH</a> tutorials for more help.</p>
 <h2 id="ssl-test">SSL test</h2>
 <p>You can also check how secure your new web server is compared to your bank. Add this link to a web browser and wait for the results.</p>
-<pre><code>https://www.ssllabs.com/ssltest/analyze.html?d=altcap.io
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>https://www.ssllabs.com/ssltest/analyze.html?d=altcap.io
+</span></code></pre></div>
 <p>Now change altcap.io to your local bank's domain name in the link and post the results below.</p>
 <blockquote>
 <p><strong>Thank you <a href="https://steemit.com/@svk" title="This link will take you away from hive.blog">svk</a> for your advice and guidance.</strong></p>
 </blockquote>
-<p><a href="/trending/rewrite">#rewrite</a> 9 years ago in <a href="/trending/bitshares">#bitshares</a> by <strong><a href="/@ihashfury">ihashfury (56)</a></strong><a href="#">$32.97</a></p>
+<p><a href="../../trending/rewrite">#rewrite</a> 9 years ago in <a href="../../trending/bitshares">#bitshares</a> by <strong><a href="../../%40ihashfury">ihashfury (56)</a></strong><a href="#">$32.97</a></p>
 <ul>
 <li>Past Payouts $32.97</li>
 <li>
@@ -3399,35 +3344,35 @@ cd ../web; npm install
 </ul>
 </li>
 <li>
-<p><a href="/@enki">enki: $8.05</a></p>
+<p><a href="../../%40enki">enki: $8.05</a></p>
 </li>
-<li><a href="/@roadscape">roadscape: $7.33</a></li>
-<li><a href="/@complexring">complexring: $5.31</a></li>
-<li><a href="/@lafona-miner">lafona-miner: $4.81</a></li>
-<li><a href="/@newyo">newyo: $1.80</a></li>
-<li><a href="/@ihashfury">ihashfury: $1.68</a></li>
-<li><a href="/@xeroc">xeroc: $1.50</a></li>
-<li><a href="/@berkah">berkah: $0.68</a></li>
-<li><a href="/@lafona">lafona: $0.37</a></li>
-<li><a href="/@sandra">sandra: $0.21</a></li>
-<li><a href="/@pheonike">pheonike: $0.20</a></li>
-<li><a href="/@clains">clains: $0.20</a></li>
-<li><a href="/@pfunk">pfunk: $0.17</a></li>
-<li><a href="/@psylains">psylains: $0.11</a></li>
-<li><a href="/@jason">jason: $0.11</a></li>
-<li><a href="/@idealist">idealist: $0.09</a></li>
-<li><a href="/@rnglab">rnglab: $0.09</a></li>
-<li><a href="/@noisy">noisy: $0.06</a></li>
-<li><a href="/@rimantas">rimantas: $0.04</a></li>
-<li><a href="/@proctologic">proctologic: $0.04</a></li>
+<li><a href="../../%40roadscape">roadscape: $7.33</a></li>
+<li><a href="../../%40complexring">complexring: $5.31</a></li>
+<li><a href="../../%40lafona-miner">lafona-miner: $4.81</a></li>
+<li><a href="../../%40newyo">newyo: $1.80</a></li>
+<li><a href="../../%40ihashfury">ihashfury: $1.68</a></li>
+<li><a href="../../%40xeroc">xeroc: $1.50</a></li>
+<li><a href="../../%40berkah">berkah: $0.68</a></li>
+<li><a href="../../%40lafona">lafona: $0.37</a></li>
+<li><a href="../../%40sandra">sandra: $0.21</a></li>
+<li><a href="../../%40pheonike">pheonike: $0.20</a></li>
+<li><a href="../../%40clains">clains: $0.20</a></li>
+<li><a href="../../%40pfunk">pfunk: $0.17</a></li>
+<li><a href="../../%40psylains">psylains: $0.11</a></li>
+<li><a href="../../%40jason">jason: $0.11</a></li>
+<li><a href="../../%40idealist">idealist: $0.09</a></li>
+<li><a href="../../%40rnglab">rnglab: $0.09</a></li>
+<li><a href="../../%40noisy">noisy: $0.06</a></li>
+<li><a href="../../%40rimantas">rimantas: $0.04</a></li>
+<li><a href="../../%40proctologic">proctologic: $0.04</a></li>
 <li>and 18 more
-Reply    <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange" title="27 Responses">27</a></li>
+Reply    <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange" title="27 Responses">27</a></li>
 </ul>
 <p>Sort:- <a href="#">Trending</a>
-  * <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange?sort=trending#comments">Trending</a>
-  * <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange?sort=votes#comments">Votes</a>
-  * <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange?sort=new#comments">Age</a>
-[-]<strong><a href="/@shing3e">shing3e (44)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@shing3e/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160801t095737079z">9 years ago</a>  </p>
+  * <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange%3Fsort%3Dtrending#comments">Trending</a>
+  * <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange%3Fsort%3Dvotes#comments">Votes</a>
+  * <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange%3Fsort%3Dnew#comments">Age</a>
+[-]<strong><a href="../../%40shing3e">shing3e (44)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@shing3e/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160801t095737079z">9 years ago</a>  </p>
 <p>Thanks for the security check tip!</p>
 <p><a href="#">$0.70</a></p>
 <ul>
@@ -3444,10 +3389,10 @@ Reply    <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-dece
 </ul>
 </li>
 <li>
-<p><a href="/@ihashfury">ihashfury: $0.68</a></p>
+<p><a href="../../%40ihashfury">ihashfury: $0.68</a></p>
 </li>
-<li><a href="/@jason">jason: $0.02</a>
-Reply   [-]<strong><a href="/@sandra">sandra (62)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@sandra/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160630t101955925z">9 years ago</a>  </li>
+<li><a href="../../%40jason">jason: $0.02</a>
+Reply   [-]<strong><a href="../../%40sandra">sandra (62)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@sandra/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160630t101955925z">9 years ago</a>  </li>
 </ul>
 <p>SSL Certificate Overall Rating results:  </p>
 <p>altcap.io - A+  </p>
@@ -3471,11 +3416,11 @@ Reply   [-]<strong><a href="/@sandra">sandra (62)</a></strong> <a href="/bitsha
 </ul>
 </li>
 <li>
-<p><a href="/@ihashfury">ihashfury: $0.52</a></p>
+<p><a href="../../%40ihashfury">ihashfury: $0.52</a></p>
 </li>
-<li><a href="/@jason">jason: $0.03</a></li>
-<li><a href="/@sandra">sandra: $0.01</a>
-Reply   [-]<strong><a href="/@xeroc">xeroc (70)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@xeroc/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160629t132103889z">9 years ago</a>  </li>
+<li><a href="../../%40jason">jason: $0.03</a></li>
+<li><a href="../../%40sandra">sandra: $0.01</a>
+Reply   [-]<strong><a href="../../%40xeroc">xeroc (70)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@xeroc/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160629t132103889z">9 years ago</a>  </li>
 </ul>
 <p>For proper markdown, you need to have a blank space after <code>##</code> for headlines. If you could please correct that ..</p>
 <p><a href="#">$0.41</a></p>
@@ -3493,10 +3438,10 @@ Reply   [-]<strong><a href="/@xeroc">xeroc (70)</a></strong> <a href="/bitshare
 </ul>
 </li>
 <li>
-<p><a href="/@ihashfury">ihashfury: $0.40</a></p>
+<p><a href="../../%40ihashfury">ihashfury: $0.40</a></p>
 </li>
-<li><a href="/@judyhopps">judyhopps: $0.00</a>
-Reply   [-]<strong><a href="/@roseebit">roseebit (63)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@roseebit/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160630t000440751z">9 years ago</a>  </li>
+<li><a href="../../%40judyhopps">judyhopps: $0.00</a>
+Reply   [-]<strong><a href="../../%40roseebit">roseebit (63)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@roseebit/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160630t000440751z">9 years ago</a>  </li>
 </ul>
 <p>Good</p>
 <p><a href="#">$0.07</a></p>
@@ -3514,37 +3459,37 @@ Reply   [-]<strong><a href="/@roseebit">roseebit (63)</a></strong> <a href="/bi
 </ul>
 </li>
 <li>
-<p><a href="/@ihashfury">ihashfury: $0.07</a></p>
+<p><a href="../../%40ihashfury">ihashfury: $0.07</a></p>
 </li>
-<li><a href="/@sandra">sandra: $0.00</a></li>
-<li><a href="/@aleks123rus">aleks123rus: $0.00</a>
-Reply   [-]<strong><a href="/@tatchcapital">tatchcapital (47)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@tatchcapital/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20171229t114541623z">7 years ago</a>  </li>
+<li><a href="../../%40sandra">sandra: $0.00</a></li>
+<li><a href="../../%40aleks123rus">aleks123rus: $0.00</a>
+Reply   [-]<strong><a href="../../%40tatchcapital">tatchcapital (47)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@tatchcapital/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20171229t114541623z">7 years ago</a>  </li>
 </ul>
-<p>Hello <a href="/@ihashfury">@ihashfury</a> !</p>
+<p>Hello <a href="../../%40ihashfury">@ihashfury</a> !</p>
 <p>I'm trying to distribute a customized UI. It seems I don't 'need' to run a full node to do so and everything is running ok.</p>
 <p>BUT I can't change the Dashboard as it doesn't display what I request. Can't find what am I missing ?</p>
 <p>Any help would be very much appreciated !</p>
-<p><img alt="Capture d’écran 2017-12-25 à 17.08.23.png" src="distributed-access-to-the-bitshares-decentralised-exchange/Capture%20d%E2%80%99%C3%A9cran%202017-12-25%20%C3%A0%2017.08.23.png" /></p>
-<p><img alt="Capture d’écran 2017-12-25 à 17.09.37.png" src="distributed-access-to-the-bitshares-decentralised-exchange/Capture%20d%E2%80%99%C3%A9cran%202017-12-25%20%C3%A0%2017.09.37.png" /></p>
+<p><img alt="Capture d’écran 2017-12-25 à 17.08.23.png" src="Capture%2520d%25E2%2580%2599%25C3%25A9cran%25202017-12-25%2520%25C3%25A0%252017.08.23.png" /></p>
+<p><img alt="Capture d’écran 2017-12-25 à 17.09.37.png" src="Capture%2520d%25E2%2580%2599%25C3%25A9cran%25202017-12-25%2520%25C3%25A0%252017.09.37.png" /></p>
 <p>I have allowed pairs in Store settings too so I am really puzzled here</p>
 <p>$0.00</p>
 <p><a href="#">1 vote</a></p>
 <ul>
-<li><a href="/@tatchcapital">tatchcapital</a>
-Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@teamsteem/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160823t003055401z">8 years ago</a>  </li>
+<li><a href="../../%40tatchcapital">tatchcapital</a>
+Reply   [-]<strong><a href="../../%40teamsteem">teamsteem (74)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@teamsteem/re-ihashfury-distributed-access-to-the-bitshares-decentralised-exchange-20160823t003055401z">8 years ago</a>  </li>
 </ul>
-<p>Thank you <a href="/@ihashfury">@ihashfury</a> for your recognition! Looking at that post you seem very knowledgeable in regard to Bitshares! It would be a real pleasure to talk to you in private. I just saw that your witness is doing really good. You can check me up on the Steemit official chat if you have time.</p>
+<p>Thank you <a href="../../%40ihashfury">@ihashfury</a> for your recognition! Looking at that post you seem very knowledgeable in regard to Bitshares! It would be a real pleasure to talk to you in private. I just saw that your witness is doing really good. You can check me up on the Steemit official chat if you have time.</p>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170630t034402000z">8 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170630t034402000z">8 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honnor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
 <p>If you no longer want to receive notifications, reply to this comment with the word <code>STOP</code></p>
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170704t140508000z">8 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170704t140508000z">8 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3553,8 +3498,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170706t215529000z">8 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170706t215529000z">8 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3563,8 +3508,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170712t223611000z">8 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170712t223611000z">8 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3573,8 +3518,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170723t160208000z">8 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170723t160208000z">8 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3583,8 +3528,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170728t172323000z">8 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170728t172323000z">8 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3593,8 +3538,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170810t220908000z">8 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170810t220908000z">8 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3603,8 +3548,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170814t153341000z">8 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170814t153341000z">8 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3613,8 +3558,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170822t132744000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170822t132744000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3623,8 +3568,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170824t180814000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170824t180814000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3633,8 +3578,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170827t005402000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170827t005402000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3643,8 +3588,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170901t010820000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170901t010820000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3653,8 +3598,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170903t111947000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170903t111947000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3663,8 +3608,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170905t205708000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170905t205708000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3673,8 +3618,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170910t132129000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170910t132129000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3683,8 +3628,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170919t061414000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170919t061414000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3693,8 +3638,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170921t162347000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20170921t162347000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3703,8 +3648,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20171127t184133000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20171127t184133000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3713,8 +3658,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20171224t014556000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20171224t014556000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3723,8 +3668,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20180109t212642000z">7 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20180109t212642000z">7 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You have completed some achievement on Steemit and have been rewarded with new badge(s) :</p>
 <p><a href="http://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog"><img alt="" src="votes.png" /></a> Award for the number of upvotes</p>
 <p>Click on any badge to view your own Board of Honor on SteemitBoard.  </p>
 <p>For more information about SteemitBoard, click <a href="https://steemit.com/@steemitboard" title="This link will take you away from hive.blog">here</a></p>
@@ -3733,8 +3678,8 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 <p>By upvoting this notification, you can help all Steemit users. Learn how <a href="https://steemit.com/steemitboard/@steemitboard/http-i-cubeupload-com-7ciqeo-png" title="This link will take you away from hive.blog">here</a>!</p>
 </blockquote>
 <p>$0.00</p>
-<p>Reply   [-]<strong><a href="/@steemitboard">steemitboard (66)</a></strong> <a href="/bitshares/@ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20190404t171832000z">6 years ago</a>  </p>
-<p>Congratulations <a href="/@ihashfury">@ihashfury</a>! You received a personal award!</p>
+<p>Reply   [-]<strong><a href="../../%40steemitboard">steemitboard (66)</a></strong> <a href="../../bitshares/%40ihashfury/distributed-access-to-the-bitshares-decentralised-exchange#@steemitboard/steemitboard-notify-ihashfury-20190404t171832000z">6 years ago</a>  </p>
+<p>Congratulations <a href="../../%40ihashfury">@ihashfury</a>! You received a personal award!</p>
 <table>
 <thead>
 <tr>
@@ -3750,7 +3695,7 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
 </tbody>
 </table>
 <p><em>You can view <a href="https://steemitboard.com/@ihashfury" title="This link will take you away from hive.blog">your badges on your Steem Board</a> and compare to others on the <a href="http://steemitboard.com/ranking/index.php?name=ihashfury" title="This link will take you away from hive.blog">Steem Ranking</a></em></p>
-<p><strong>Do not miss the last post from <a href="/@steemitboard">@steemitboard</a>:</strong></p>
+<p><strong>Do not miss the last post from <a href="../../%40steemitboard">@steemitboard</a>:</strong></p>
 <table>
 <thead>
 <tr>
@@ -3814,7 +3759,7 @@ Reply   [-]<strong><a href="/@teamsteem">teamsteem (74)</a></strong> <a href="/
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

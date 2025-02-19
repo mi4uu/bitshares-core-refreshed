@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2437,9 +2415,9 @@
 <h1 id="preface">Preface</h1>
 <p>This document is intended to assist with the testing of custom authorities (CA) per <a href="https://github.com/bitshares/bsips/blob/master/bsip-0040.md">BSIP 40 Specifications</a> that is available starting in the <a href="https://github.com/bitshares/bitshares-core/milestone/17?closed=1">4.0.0 Consensus Release</a>.</p>
 <ul>
-<li><a href="#testing-overview">Testing</a><ul>
-<li><a href="#initialize-blockchain-for-custom-authorities">Blockchain Initialization</a></li>
-<li><a href="#scenario-authorized-transfers">Authorized Transfers</a></li>
+<li><a href="./#testing-overview">Testing</a><ul>
+<li><a href="./#initialize-blockchain-for-custom-authorities">Blockchain Initialization</a></li>
+<li><a href="./#scenario-authorized-transfers">Authorized Transfers</a></li>
 </ul>
 </li>
 </ul>
@@ -2455,17 +2433,17 @@
 <p>The instructions in this section are for configuring a blockchain that has not yet been initialized for custom authorites.  These instructions will likely need to be tailored for your particular blockchain.  You may alternatively test these instructions on the BitShares public testnet.</p>
 <h3 id="1-nathan-fund-the-committee-account">1. Nathan: Fund the committee-account</h3>
 <p>Fund the committee-account so that it can pay for any proposal that is approved by committee members</p>
-<pre><code>transfer nathan committee-account 2000 TEST &quot;&quot; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>transfer nathan committee-account 2000 TEST &quot;&quot; true
+</span></code></pre></div>
 <h3 id="2-nathan-fund-the-committee-account">2. Nathan: Fund the committee-account</h3>
 <p>Create a dominating committee member (nathan)</p>
-<pre><code>create_committee_member nathan &quot;&quot; true
-vote_for_committee_member nathan nathan true true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>create_committee_member nathan &quot;&quot; true
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>vote_for_committee_member nathan nathan true true
+</span></code></pre></div>
 <h3 id="3-nathan-propose-the-ca-settings">3. Nathan: Propose the CA settings</h3>
 <p>Propose the following <em>example</em> settings for CA</p>
-<pre><code>propose_parameter_change &quot;nathan&quot; &quot;2020-01-14T00:00:00&quot; {&quot;extensions&quot;: {&quot;custom_authority_options&quot;: {&quot;max_custom_authority_lifetime_seconds&quot;: 3000000, &quot;max_custom_authorities_per_account&quot;: 9, &quot;max_custom_authorities_per_account_op&quot;: 4, &quot;max_custom_authority_restrictions&quot;: 8}} } true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>propose_parameter_change &quot;nathan&quot; &quot;2020-01-14T00:00:00&quot; {&quot;extensions&quot;: {&quot;custom_authority_options&quot;: {&quot;max_custom_authority_lifetime_seconds&quot;: 3000000, &quot;max_custom_authorities_per_account&quot;: 9, &quot;max_custom_authorities_per_account_op&quot;: 4, &quot;max_custom_authority_restrictions&quot;: 8}} } true
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2479,14 +2457,14 @@ vote_for_committee_member nathan nathan true true
 </tbody>
 </table>
 <p>Identify the proposal ID by reviewing the last transaction in the proposing account's history</p>
-<pre><code>get_account_history nathan 5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>get_account_history nathan 5
+</span></code></pre></div>
 <p>The proposal ID will have an identifier such as 1.10.x.  The proposal can be reviewed with</p>
-<pre><code>get_object 1.10.x
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>get_object 1.10.x
+</span></code></pre></div>
 <p>The proposal can be approved with</p>
-<pre><code>approve_proposal &quot;nathan&quot; 1.10.x {&quot;active_approvals_to_add&quot;:[&quot;nathan&quot;]} true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>approve_proposal &quot;nathan&quot; 1.10.x {&quot;active_approvals_to_add&quot;:[&quot;nathan&quot;]} true
+</span></code></pre></div>
 <p>The settings will take effect when the proposal expires and will be reflected in the output of <code>get_global_properties</code>.</p>
 <h1 id="scenario-authorized-transfers"><div id="scenario-authorized-transfers"/> Scenario: Authorized Transfers</h1>
 <p>This scenario involves one account (alice) authorizing another account (bob) to another funds from her account to any other account.</p>
@@ -2507,76 +2485,76 @@ vote_for_committee_member nathan nathan true true
 </table>
 <h3 id="alice">Alice</h3>
 <h4 id="alice-create-keys">Alice: Create keys</h4>
-<pre><code>unlocked &gt;&gt;&gt; suggest_brain_key 
-{
-  &quot;brain_priv_key&quot;: &quot;...&quot;,
-  &quot;wif_priv_key&quot;: &quot;5Ki...&quot;,
-  &quot;pub_key&quot;: &quot;TEST8fur3fMGPat5ffGgTuMRstPEtE33FJZVJY6ciRr1Jr1EyowdyG&quot;
-}
-
-unlocked &gt;&gt;&gt; suggest_brain_key 
-{
-  &quot;brain_priv_key&quot;: &quot;...&quot;,
-  &quot;wif_priv_key&quot;: &quot;5Ja...&quot;,
-  &quot;pub_key&quot;: &quot;TEST6VEKPCcz6E27qcrTP2zAGk4EXJsK5y7RoukBmAJc3pwxLzB4hv&quot;
-}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>unlocked &gt;&gt;&gt; suggest_brain_key 
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>{
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  &quot;brain_priv_key&quot;: &quot;...&quot;,
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  &quot;wif_priv_key&quot;: &quot;5Ki...&quot;,
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  &quot;pub_key&quot;: &quot;TEST8fur3fMGPat5ffGgTuMRstPEtE33FJZVJY6ciRr1Jr1EyowdyG&quot;
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>}
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>unlocked &gt;&gt;&gt; suggest_brain_key 
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>{
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  &quot;brain_priv_key&quot;: &quot;...&quot;,
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  &quot;wif_priv_key&quot;: &quot;5Ja...&quot;,
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  &quot;pub_key&quot;: &quot;TEST6VEKPCcz6E27qcrTP2zAGk4EXJsK5y7RoukBmAJc3pwxLzB4hv&quot;
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>}
+</span></code></pre></div>
 <h4 id="faucet-register-alice">Faucet: Register Alice</h4>
 <p>Register the account of alice</p>
-<pre><code>register_account alice TEST8fur3fMGPat5ffGgTuMRstPEtE33FJZVJY6ciRr1Jr1EyowdyG TEST6VEKPCcz6E27qcrTP2zAGk4EXJsK5y7RoukBmAJc3pwxLzB4hv faucet faucet 60 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>register_account alice TEST8fur3fMGPat5ffGgTuMRstPEtE33FJZVJY6ciRr1Jr1EyowdyG TEST6VEKPCcz6E27qcrTP2zAGk4EXJsK5y7RoukBmAJc3pwxLzB4hv faucet faucet 60 true
+</span></code></pre></div>
 <p>Transfer core tokens to alice</p>
-<pre><code>transfer faucet alice 500 TEST &quot;&quot; true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>transfer faucet alice 500 TEST &quot;&quot; true
+</span></code></pre></div>
 <h4 id="alice-import-active-key-into-alices-wallet">Alice: Import active key into Alice's wallet</h4>
-<pre><code>import_key alice 5Ja...
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>import_key alice 5Ja...
+</span></code></pre></div>
 <h3 id="bob">Bob</h3>
 <h4 id="bob-create-keys">Bob: Create keys</h4>
-<pre><code>unlocked &gt;&gt;&gt; suggest_brain_key 
-{
-  &quot;brain_priv_key&quot;: &quot;...&quot;,
-  &quot;wif_priv_key&quot;: &quot;5JC...&quot;,
-  &quot;pub_key&quot;: &quot;TEST8cNcBs8ra3AWeRFQ6RfYSVsmby5cpRVuXAfg4Hj8XoXVXdD1io&quot;
-}
-
-unlocked &gt;&gt;&gt; suggest_brain_key 
-{
-  &quot;brain_priv_key&quot;: &quot;...&quot;,
-  &quot;wif_priv_key&quot;: &quot;5J6...&quot;,
-  &quot;pub_key&quot;: &quot;TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjyE3pM3wE3H&quot;
-}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>unlocked &gt;&gt;&gt; suggest_brain_key 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>{
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  &quot;brain_priv_key&quot;: &quot;...&quot;,
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  &quot;wif_priv_key&quot;: &quot;5JC...&quot;,
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  &quot;pub_key&quot;: &quot;TEST8cNcBs8ra3AWeRFQ6RfYSVsmby5cpRVuXAfg4Hj8XoXVXdD1io&quot;
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>}
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>unlocked &gt;&gt;&gt; suggest_brain_key 
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>{
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  &quot;brain_priv_key&quot;: &quot;...&quot;,
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  &quot;wif_priv_key&quot;: &quot;5J6...&quot;,
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  &quot;pub_key&quot;: &quot;TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjyE3pM3wE3H&quot;
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>}
+</span></code></pre></div>
 <h4 id="faucet-register-bob">Faucet: Register Bob</h4>
 <p>Register the account of bob</p>
-<pre><code>register_account bob TEST8cNcBs8ra3AWeRFQ6RfYSVsmby5cpRVuXAfg4Hj8XoXVXdD1io TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjyE3pM3wE3H faucet faucet 60 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>register_account bob TEST8cNcBs8ra3AWeRFQ6RfYSVsmby5cpRVuXAfg4Hj8XoXVXdD1io TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjyE3pM3wE3H faucet faucet 60 true
+</span></code></pre></div>
 <h4 id="bob-import-active-key-into-bobs-wallet">Bob: Import active key into Bob's wallet</h4>
-<pre><code>import_key alice 5J6...
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>import_key alice 5J6...
+</span></code></pre></div>
 <h3 id="charlie">Charlie</h3>
 <h4 id="charlie-create-keys">Charlie: Create keys</h4>
-<pre><code>unlocked &gt;&gt;&gt; suggest_brain_key 
-{
-  &quot;brain_priv_key&quot;: &quot;...&quot;,
-  &quot;wif_priv_key&quot;: &quot;5JY...&quot;,
-  &quot;pub_key&quot;: &quot;TEST6WacA9VfxetmDTYDuzuBNyEQYf4pqWMjCpxtZ47swKH3iPUcPY&quot;
-}
-
-unlocked &gt;&gt;&gt; suggest_brain_key 
-{
-  &quot;brain_priv_key&quot;: &quot;...&quot;,
-  &quot;wif_priv_key&quot;: &quot;5KV...&quot;,
-  &quot;pub_key&quot;: &quot;TEST8S3K1dwwUk8N886AHxcewrQEsT1qyHRH5cCsbmpxpYMqfrBNPh&quot;
-}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>unlocked &gt;&gt;&gt; suggest_brain_key 
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>{
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  &quot;brain_priv_key&quot;: &quot;...&quot;,
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  &quot;wif_priv_key&quot;: &quot;5JY...&quot;,
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  &quot;pub_key&quot;: &quot;TEST6WacA9VfxetmDTYDuzuBNyEQYf4pqWMjCpxtZ47swKH3iPUcPY&quot;
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>}
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>unlocked &gt;&gt;&gt; suggest_brain_key 
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>{
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>  &quot;brain_priv_key&quot;: &quot;...&quot;,
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>  &quot;wif_priv_key&quot;: &quot;5KV...&quot;,
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>  &quot;pub_key&quot;: &quot;TEST8S3K1dwwUk8N886AHxcewrQEsT1qyHRH5cCsbmpxpYMqfrBNPh&quot;
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>}
+</span></code></pre></div>
 <h4 id="faucet-register-charlie">Faucet: Register Charlie</h4>
 <p>Register the account of charlie</p>
-<pre><code>register_account charlie TEST6WacA9VfxetmDTYDuzuBNyEQYf4pqWMjCpxtZ47swKH3iPUcPY TEST8S3K1dwwUk8N886AHxcewrQEsT1qyHRH5cCsbmpxpYMqfrBNPh charlie charlie 60 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>register_account charlie TEST6WacA9VfxetmDTYDuzuBNyEQYf4pqWMjCpxtZ47swKH3iPUcPY TEST8S3K1dwwUk8N886AHxcewrQEsT1qyHRH5cCsbmpxpYMqfrBNPh charlie charlie 60 true
+</span></code></pre></div>
 <h4 id="charlie-import-active-keys-into-wallet">Charlie: Import active keys into wallet</h4>
-<pre><code>import_key alice 5KV...
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>import_key alice 5KV...
+</span></code></pre></div>
 <h2 id="2-alice-authorizes-bob-to-transfer-funds-from-her-account">2. Alice authorizes Bob to transfer funds from her account</h2>
 <p>Alice authorizes Bob to transfer funds from her account to Charlie's account.  Authorizing this transaction will require building a transaction in the CLI Wallet.</p>
 <p>The <code>custom_authority_create_operation</code> has an identifier of 54.  In this example, Alice has an account identifier of 1.2.19, Bob has an account identifier of 1.2.20, and Charlie has an account identifier of 1.2.21.</p>
@@ -2592,107 +2570,107 @@ unlocked &gt;&gt;&gt; suggest_brain_key
 </tr>
 </tbody>
 </table>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction 0 [54, {&quot;account&quot;:&quot;1.2.19&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2020-01-31T00:00:00&quot;,&quot;operation_type&quot;:0,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[[&quot;1.2.20&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:0,&quot;argument&quot;:[7,&quot;1.2.21&quot;]}]}]
-set_fees_on_builder_transaction 0 1.3.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>begin_builder_transaction
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>add_operation_to_builder_transaction 0 [54, {&quot;account&quot;:&quot;1.2.19&quot;,&quot;enabled&quot;:true,&quot;valid_from&quot;:&quot;1970-01-01T00:00:00&quot;,&quot;valid_to&quot;:&quot;2020-01-31T00:00:00&quot;,&quot;operation_type&quot;:0,&quot;auth&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[[&quot;1.2.20&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;restrictions&quot;:[{&quot;member_index&quot;:2,&quot;restriction_type&quot;:0,&quot;argument&quot;:[7,&quot;1.2.21&quot;]}]}]
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>set_fees_on_builder_transaction 0 1.3.0
+</span></code></pre></div>
 <p>Optionally preview the transaction before signing.</p>
-<pre><code>preview_builder_transaction 0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>preview_builder_transaction 0
+</span></code></pre></div>
 <p>which will produce an output similar to</p>
-<pre><code class="language-json">{
-  &quot;ref_block_num&quot;: 0,
-  &quot;ref_block_prefix&quot;: 0,
-  &quot;expiration&quot;: &quot;1970-01-01T00:00:00&quot;,
-  &quot;operations&quot;: [[
-      54,{
-        &quot;fee&quot;: {
-          &quot;amount&quot;: 260000,
-          &quot;asset_id&quot;: &quot;1.3.0&quot;
-        },
-        &quot;account&quot;: &quot;1.2.19&quot;,
-        &quot;enabled&quot;: true,
-        &quot;valid_from&quot;: &quot;1970-01-01T00:00:00&quot;,
-        &quot;valid_to&quot;: &quot;2030-01-01T00:17:20&quot;,
-        &quot;operation_type&quot;: 0,
-        &quot;auth&quot;: {
-          &quot;weight_threshold&quot;: 1,
-          &quot;account_auths&quot;: [[
-              &quot;1.2.20&quot;,
-              1
-            ]
-          ],
-          &quot;key_auths&quot;: [],
-          &quot;address_auths&quot;: []
-        },
-        &quot;restrictions&quot;: [{
-            &quot;member_index&quot;: 2,
-            &quot;restriction_type&quot;: 0,
-            &quot;argument&quot;: [
-              7,
-              &quot;1.2.21&quot;
-            ],
-            &quot;extensions&quot;: []
-          }
-        ],
-        &quot;extensions&quot;: []
-      }
-    ]
-  ],
-  &quot;extensions&quot;: []
-}
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;ref_block_num&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">&quot;ref_block_prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nt">&quot;expiration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="nt">&quot;operations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">      </span><span class="mi">54</span><span class="p">,{</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">        </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">          </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">260000</span><span class="p">,</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">          </span><span class="nt">&quot;asset_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.3.0&quot;</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">        </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.19&quot;</span><span class="p">,</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">        </span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">        </span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2030-01-01T00:17:20&quot;</span><span class="p">,</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">        </span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">        </span><span class="nt">&quot;auth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">          </span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">          </span><span class="nt">&quot;account_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">              </span><span class="s2">&quot;1.2.20&quot;</span><span class="p">,</span>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">              </span><span class="mi">1</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">          </span><span class="p">],</span>
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">          </span><span class="nt">&quot;key_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">          </span><span class="nt">&quot;address_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="w">        </span><span class="nt">&quot;restrictions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a><span class="w">            </span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a><span class="w">            </span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a><span class="w">            </span><span class="nt">&quot;argument&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a><span class="w">              </span><span class="mi">7</span><span class="p">,</span>
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a><span class="w">              </span><span class="s2">&quot;1.2.21&quot;</span>
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a><span class="w">            </span><span class="p">],</span>
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a><span class="w">            </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a><span class="w">          </span><span class="p">}</span>
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a><span class="w">        </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a><span class="w">  </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Sign and broadcast the transaction.</p>
-<pre><code>sign_builder_transaction 0 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sign_builder_transaction 0 true
+</span></code></pre></div>
 <p>Identify the custom authority ID by reviewing the last transaction in the authorizing account's history</p>
-<pre><code>get_account_history alice 5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>get_account_history alice 5
+</span></code></pre></div>
 <p>The custom authority ID will have an identifier such as 1.17.x.  The custom authority can be reviewed with</p>
-<pre><code>get_object 1.17.x
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>get_object 1.17.x
+</span></code></pre></div>
 <p>For example, </p>
-<pre><code class="language-json">[{
-    &quot;id&quot;: &quot;1.17.0&quot;,
-    &quot;account&quot;: &quot;1.2.19&quot;,
-    &quot;enabled&quot;: true,
-    &quot;valid_from&quot;: &quot;1970-01-01T00:00:00&quot;,
-    &quot;valid_to&quot;: &quot;2020-01-31T00:00:00&quot;,
-    &quot;operation_type&quot;: 0,
-    &quot;auth&quot;: {
-      &quot;weight_threshold&quot;: 1,
-      &quot;account_auths&quot;: [[
-          &quot;1.2.20&quot;,
-          1
-        ]
-      ],
-      &quot;key_auths&quot;: [],
-      &quot;address_auths&quot;: []
-    },
-    &quot;restrictions&quot;: [[
-        0,{
-          &quot;member_index&quot;: 2,
-          &quot;restriction_type&quot;: 0,
-          &quot;argument&quot;: [
-            7,
-            &quot;1.2.21&quot;
-          ],
-          &quot;extensions&quot;: []
-        }
-      ]
-    ],
-    &quot;restriction_counter&quot;: 1
-  }
-]
-</code></pre>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">[{</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.17.0&quot;</span><span class="p">,</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="nt">&quot;account&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.19&quot;</span><span class="p">,</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="nt">&quot;valid_from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1970-01-01T00:00:00&quot;</span><span class="p">,</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="nt">&quot;valid_to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-01-31T00:00:00&quot;</span><span class="p">,</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">    </span><span class="nt">&quot;operation_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="nt">&quot;auth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">      </span><span class="nt">&quot;weight_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">      </span><span class="nt">&quot;account_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">          </span><span class="s2">&quot;1.2.20&quot;</span><span class="p">,</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">          </span><span class="mi">1</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">        </span><span class="p">]</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">      </span><span class="p">],</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">      </span><span class="nt">&quot;key_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">      </span><span class="nt">&quot;address_auths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="w">    </span><span class="nt">&quot;restrictions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span>
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="w">        </span><span class="mi">0</span><span class="p">,{</span>
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="w">          </span><span class="nt">&quot;member_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">          </span><span class="nt">&quot;restriction_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">          </span><span class="nt">&quot;argument&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="w">            </span><span class="mi">7</span><span class="p">,</span>
+</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="w">            </span><span class="s2">&quot;1.2.21&quot;</span>
+</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="w">          </span><span class="p">],</span>
+</span><span id="__span-22-26"><a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">          </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-22-27"><a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-22-28"><a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-22-29"><a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-22-30"><a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="w">    </span><span class="nt">&quot;restriction_counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-22-31"><a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-22-32"><a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="p">]</span>
+</span></code></pre></div>
 <h2 id="3-bob-transfers-funds-from-alice-to-charlie">3. Bob: Transfers funds from Alice to Charlie</h2>
 <p>Bob uses the CLI Wallet's transacation builder to transfer funds from Alice to Charlie</p>
 <p>Bob's active key, as determined by <code>get_account</code>, is TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjyE3pM3wE3H</p>
-<pre><code>begin_builder_transaction
-add_operation_to_builder_transaction 0 [0, {&quot;from&quot;:&quot;1.2.19&quot;,&quot;to&quot;:&quot;1.2.21&quot;,&quot;amount&quot;: {&quot;amount&quot;:&quot;10&quot;,&quot;asset_id&quot;:&quot;1.3.0&quot;} } ]
-set_fees_on_builder_transaction 0 1.3.0
-sign_builder_transaction2 0 [&quot;TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjyE3pM3wE3H&quot;] true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>begin_builder_transaction
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>add_operation_to_builder_transaction 0 [0, {&quot;from&quot;:&quot;1.2.19&quot;,&quot;to&quot;:&quot;1.2.21&quot;,&quot;amount&quot;: {&quot;amount&quot;:&quot;10&quot;,&quot;asset_id&quot;:&quot;1.3.0&quot;} } ]
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>set_fees_on_builder_transaction 0 1.3.0
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>sign_builder_transaction2 0 [&quot;TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjyE3pM3wE3H&quot;] true
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2706,11 +2684,11 @@ sign_builder_transaction2 0 [&quot;TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjy
 </tbody>
 </table>
 <p>The successful transfer can be confirmed by checking Charlie's account history</p>
-<pre><code>get_account charlie 5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>get_account charlie 5
+</span></code></pre></div>
 <p>and by inspecting Charlie's balances</p>
-<pre><code>list_account_balances charlie
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>list_account_balances charlie
+</span></code></pre></div>
 
 
 
@@ -2757,7 +2735,7 @@ sign_builder_transaction2 0 [&quot;TEST59nKbp4fb1aYxdxMkuALPkjMV4b4iDuWenivjwTjy
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

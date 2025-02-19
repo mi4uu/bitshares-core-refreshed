@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2944,7 +2922,7 @@ Message types outside this range are assumed to contain blockchain objects. Curr
 <p>After setting up encryption, both peers send a <a href="https://github.com/bitshares/bitshares-core/blob/3.2.1/libraries/net/include/graphene/net/core_messages.hpp#L189-L201">hello_message</a> to each other. Both sides perform some sanity checking on the hello_messages they receive, and reply with either <a href="https://github.com/bitshares/bitshares-core/blob/3.2.1/libraries/net/include/graphene/net/core_messages.hpp#L225-L230">connection_accepted_message</a> or <a href="https://github.com/bitshares/bitshares-core/blob/3.2.1/libraries/net/include/graphene/net/core_messages.hpp#L241-L249">connection_rejected_message</a>. In the latter case, they also initiate disconnecting the peer.</p>
 <p>After receiving a connection_accepted_message, a node will request its peer's peers by sending an address_request_message. Also, if it doesn't know its own firewall status, or considers its knowledge stale, it will send a check_firewall_message.</p>
 <p>After receiving a connection_rejected_message, a node will also send an address_request_message, although it may be unlikely(?) to receive a response before the connection is closed.</p>
-<p>During the handshake, the node keeps the connection in its "handshaking" list. After a successful handshake (i. e. after receiving an address_message in reply to the initial address_request_message, or, for inbound connections, after receiving a fetch_blockchain_item_ids_message), the node moves the connection into its "active" list and sends a current_time_request_message to the peer. Finally, it starts the <a href="#fetch_blockchain_item_ids_message">synchronization process</a> with the new peer.</p>
+<p>During the handshake, the node keeps the connection in its "handshaking" list. After a successful handshake (i. e. after receiving an address_message in reply to the initial address_request_message, or, for inbound connections, after receiving a fetch_blockchain_item_ids_message), the node moves the connection into its "active" list and sends a current_time_request_message to the peer. Finally, it starts the <a href="./#fetch_blockchain_item_ids_message">synchronization process</a> with the new peer.</p>
 <p>The handshake can also time out, which leads to the connection being closed.</p>
 <h3 id="disconnecting">Disconnecting</h3>
 <p>A node that wants to disconnect and has already received a <a href="https://github.com/bitshares/bitshares-core/blob/3.2.1/libraries/net/include/graphene/net/core_messages.hpp#L305-L311">closing_connection_message</a> simply closes the connection. If it hasn't, it sends a closing_connection_message and waits for the peer either sending a closing_connection_message or closing it.</p>
@@ -2964,7 +2942,7 @@ Message types outside this range are assumed to contain blockchain objects. Curr
 <p>Upon receiving it, the node compiles a list of all its active peers into an address_message (see below) and sends it back to the requesting peer.</p>
 <h3 id="address_message">address_message</h3>
 <p>Endpoints contained in incoming <a href="https://github.com/bitshares/bitshares-core/blob/test-3.2.1/libraries/net/include/graphene/net/core_messages.hpp#L298-L302">address_message</a>s are merged into the node's list of potential peers, updating all entries that are already present.</p>
-<p>If the local node is still in handshaking mode, the incoming address_message signals the end of the handshaking process. Success or failure are determined by a previously received connection_accepted_message or connection_rejected_message (see <a href="#Handshake">above</a>). In case of success, the connection is moved into the "active" list.</p>
+<p>If the local node is still in handshaking mode, the incoming address_message signals the end of the handshaking process. Success or failure are determined by a previously received connection_accepted_message or connection_rejected_message (see <a href="./#Handshake">above</a>). In case of success, the connection is moved into the "active" list.</p>
 <h3 id="check_firewall_message">check_firewall_message</h3>
 <p>A <a href="https://github.com/bitshares/bitshares-core/blob/test-3.2.1/libraries/net/include/graphene/net/core_messages.hpp#L351-L355">check_firewall_message</a> can mean two things:</p>
 <ol>
@@ -3064,7 +3042,7 @@ In addition, in cases 2 (reachable fork) and 5 (receiver behind sender), the rec
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

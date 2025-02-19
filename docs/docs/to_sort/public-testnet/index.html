@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2600,16 +2578,16 @@
 start up a new public testnet.</p>
 <h2 id="updating-previous-testnet-genesis">Updating previous testnet genesis</h2>
 <p>Starting genesis file:</p>
-<pre><code>8ff86468d7da87ae73a0a1fdc8adbf6353c427aacba7e27d33772afddabb5b07  genesis/aug-17-test-genesis-c.json
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>8ff86468d7da87ae73a0a1fdc8adbf6353c427aacba7e27d33772afddabb5b07  genesis/aug-17-test-genesis-c.json
+</code></pre></div>
 <p>Run following commands:</p>
-<pre><code>cp genesis/aug-17-test-genesis-c.json genesis/gnew1.json
-sed -i -e 's/"block_interval": 1/"block_interval": 5/' genesis/gnew1.json
-sed -i -e 's/"\(block_signing_key\|owner\|owner_key\|active_key\)": "BTS/"\1": "GPH/' genesis/gnew1.json
+<div class="language-text highlight"><pre><span></span><code>cp genesis/aug-17-test-genesis-c.json genesis/gnew1.json
+sed -i -e &#39;s/&quot;block_interval&quot;: 1/&quot;block_interval&quot;: 5/&#39; genesis/gnew1.json
+sed -i -e &#39;s/&quot;\(block_signing_key\|owner\|owner_key\|active_key\)&quot;: &quot;BTS/&quot;\1&quot;: &quot;GPH/&#39; genesis/gnew1.json
 
 PREFIX=aaaa
-programs/genesis_util/genesis_update -g genesis/gnew1.json -o genesis/gnew2.json --dev-account-count=1000 --dev-balance-count=200 --dev-key-prefix "$PREFIX"
-</code></pre>
+programs/genesis_util/genesis_update -g genesis/gnew1.json -o genesis/gnew2.json --dev-account-count=1000 --dev-balance-count=200 --dev-key-prefix &quot;$PREFIX&quot;
+</code></pre></div>
 <h2 id="starting-the-network">Starting the network</h2>
 <p>Create data dir:
     programs/witness_node/witness_node --genesis-timestamp 10 --genesis-json genesis/gnew2.json --enable-stale-production --data-dir data/gnew</p>
@@ -2620,15 +2598,15 @@ programs/genesis_util/genesis_update -g genesis/gnew1.json -o genesis/gnew2.json
 <p>NB you have to go into config.ini and move them around to the main section, it does not play nicely with appending because of sections.</p>
 <h2 id="witness-node-startup">Witness node startup</h2>
 <p>We need to blow away the previous blockchain so we can rewrite the genesis timestamp:</p>
-<pre><code>rm -Rf data/gnew/blockchain
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>rm -Rf data/gnew/blockchain
+</code></pre></div>
 <p>Open up a new file in a text editor to take some notes.
 Run the witness node like this:</p>
-<pre><code>programs/witness_node/witness_node --genesis-timestamp 10 --genesis-json genesis/gnew2.json --enable-stale-production --data-dir data/gnew
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>programs/witness_node/witness_node --genesis-timestamp 10 --genesis-json genesis/gnew2.json --enable-stale-production --data-dir data/gnew
+</code></pre></div>
 <p>You should copy-paste a line like this into your notes:</p>
-<pre><code>Used genesis timestamp:  2015-08-31T18:36:45 (PLEASE RECORD THIS)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>Used genesis timestamp:  2015-08-31T18:36:45 (PLEASE RECORD THIS)
+</code></pre></div>
 <p>You should also copy-paste the printed chain ID since you will
 need it in the next step.</p>
 <h2 id="writing-final-genesis">Writing final genesis</h2>
@@ -2638,15 +2616,15 @@ genesis will have a different chain ID and be unable to connect.
 (Essentially the <code>--genesis-timestamp</code> option in the previous step tells the node
 to overwrite the time in the file with a timestamp after startup.)</p>
 <h2 id="running-the-wallet">Running the wallet</h2>
-<pre><code>programs/cli_wallet/cli_wallet --wallet-file wallet/mywallet.json --server-rpc-endpoint ws://127.0.0.1:8091 -u abc -p xyz --chain-id 58903336bc82c0baa7ad0a0a0e12f4ecaff6a0e3826c4e9fb3b79a5034d69c17
+<div class="language-text highlight"><pre><span></span><code>programs/cli_wallet/cli_wallet --wallet-file wallet/mywallet.json --server-rpc-endpoint ws://127.0.0.1:8091 -u abc -p xyz --chain-id 58903336bc82c0baa7ad0a0a0e12f4ecaff6a0e3826c4e9fb3b79a5034d69c17
 
-programs/genesis_util/get_dev_key "$PREFIX" active-0
+programs/genesis_util/get_dev_key &quot;$PREFIX&quot; active-0
 import_key devacct0 5KAceDNGYcBJrwLMeL5gQ3xjrEB2fy5ajFoEUBmt8nPyF8ruoSi
-programs/genesis_util/get_dev_key "$SECRET" wit-active-0
+programs/genesis_util/get_dev_key &quot;$SECRET&quot; wit-active-0
 import_key init0 5K5dAU3Xjjm3y6k6qt8V3pbJVc54w1yhh1GrLZD5wUYLgDaabnm
-programs/genesis_util/get_dev_key "$PREFIX" balance-0
-import_balance devacct0 ["5KaUCUiwMCBmCvnj9n8z2vwcmaoAaLdgaRmnZ1bB2ZTLzJqRJmr"]
-</code></pre>
+programs/genesis_util/get_dev_key &quot;$PREFIX&quot; balance-0
+import_balance devacct0 [&quot;5KaUCUiwMCBmCvnj9n8z2vwcmaoAaLdgaRmnZ1bB2ZTLzJqRJmr&quot;]
+</code></pre></div>
 <h2 id="embedding-genesis-optional">Embedding genesis (optional)</h2>
 <p>See https://github.com/cryptonomex/graphene/wiki/egenesis for instructions
 embedding the new genesis file in binaries.</p>
@@ -2696,7 +2674,7 @@ embedding the new genesis file in binaries.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

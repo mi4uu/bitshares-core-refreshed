@@ -591,28 +591,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2691,25 +2669,25 @@
 <p>Advice: To make life easier, you may wish to make a folder called "Development", where your compilation work can be kept. Within "Development", make a folder called "cpp" where you do everything c++ related. From there, you can type:</p>
 <p><code>git clone https://github.com/openssl/openssl</code></p>
 <p>This will pull the latest source code for OpenSSL to your machine. Since I do not care to put experimental versions of libraries into BitShares, I then get a more stable version and compile by typing the following commands:</p>
-<pre><code>cd openssl
-git checkout tags/OpenSSL_1_1_1b
-perl ./Configure VC-WIN64A no-shared
-</code></pre>
-<p>This may give an error about not having nmake.exe or dmake.exe in your PATH. If so, do not worry. If you can run nmake from this directory, you will be fine. Now type the following commands</p>
-<pre><code>nmake
-nmake install
-</code></pre>
-<p>By default, this will put OpenSSL in your C:\Program Files\OpenSSL directory.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cd openssl
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git checkout tags/OpenSSL_1_1_1b
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>perl ./Configure VC-WIN64A no-shared
+</span></code></pre></div>
+<p>This may give an error about not having nmake.exe or dmake.exe in your PATH. If so, do not worry. If you can run nmake from this directory, you will be fine. Now type the following commands
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nmake
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>nmake install
+</span></code></pre></div>
+By default, this will put OpenSSL in your C:\Program Files\OpenSSL directory.</p>
 <h2 id="boost">Boost</h2>
-<p>Return to your C:\Development\cpp directory ("cd .." should get you there), then clone and compile the boost library by typing the following commands:</p>
-<pre><code>git clone https://github.com/boostorg/boost
-cd boost
-git checkout tags/boost-1.69.0
-git submodule update --init --recursive
-bootstrap.bat
-b2 --prefix=c:\Development\cpp\boost169 --toolset=msvc variant=release threading=multi address-model=64 install
-</code></pre>
-<p>Note that if you have more than one msvc compiler installed, you will need to modify the <code>toolset</code> parameter.</p>
+<p>Return to your C:\Development\cpp directory ("cd .." should get you there), then clone and compile the boost library by typing the following commands:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git clone https://github.com/boostorg/boost
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cd boost
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git checkout tags/boost-1.69.0
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>git submodule update --init --recursive
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>bootstrap.bat
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>b2 --prefix=c:\Development\cpp\boost169 --toolset=msvc variant=release threading=multi address-model=64 install
+</span></code></pre></div>
+Note that if you have more than one msvc compiler installed, you will need to modify the <code>toolset</code> parameter.</p>
 <table>
 <thead>
 <tr>
@@ -2733,25 +2711,25 @@ b2 --prefix=c:\Development\cpp\boost169 --toolset=msvc variant=release threading
 </tbody>
 </table>
 <h2 id="libcurl">libcurl</h2>
-<p>Return to your C:\Development\cpp directory and type:</p>
-<pre><code>git clone https://github.com/curl/curl
-cd curl
-git checkout tags/curl-7_64_1
-biuldconf.bat
-mkdir curl-build
-cd curl-build
-cmake -G &quot;Visual Studio 16 2019&quot; -A x64 -DCMAKE_USE_OPENSSL=ON -DCURL_DISABLE_FTP=ON -DCURL_DISABLE_LDAP=ON -DCURL_DISABLE_TELNET=ON -DCURL_DISABLE_DICT=ON -DCURL_DISABLE_FILE=ON -DCURL_DISABLE_TFTP=ON -DCURL_DISABLE_LDAPS=ON -DCURL_DISABLE_RTSP=ON -DCURL_DISABLE_POP3=ON -DCURL_DISABLE_IMAP=ON -DCURL_DISABLE_SMTP=ON -DCURL_DISABLE_GOPHER=ON -DCURL_STATICLIB=ON ..\
-cmake --build . --target install --config Release
-</code></pre>
+<p>Return to your C:\Development\cpp directory and type:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git clone https://github.com/curl/curl
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>cd curl
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git checkout tags/curl-7_64_1
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>biuldconf.bat
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>mkdir curl-build
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>cd curl-build
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>cmake -G &quot;Visual Studio 16 2019&quot; -A x64 -DCMAKE_USE_OPENSSL=ON -DCURL_DISABLE_FTP=ON -DCURL_DISABLE_LDAP=ON -DCURL_DISABLE_TELNET=ON -DCURL_DISABLE_DICT=ON -DCURL_DISABLE_FILE=ON -DCURL_DISABLE_TFTP=ON -DCURL_DISABLE_LDAPS=ON -DCURL_DISABLE_RTSP=ON -DCURL_DISABLE_POP3=ON -DCURL_DISABLE_IMAP=ON -DCURL_DISABLE_SMTP=ON -DCURL_DISABLE_GOPHER=ON -DCURL_STATICLIB=ON ..\
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>cmake --build . --target install --config Release
+</span></code></pre></div></p>
 <h3 id="bitshares-core">Bitshares Core</h3>
-<p>Return once again to your C:\Development\cpp directory and type:</p>
-<pre><code>git clone https://github.com/bitshares/bitshares-core
-cd bitshares-core
-git submodule update --init --recursive
-cmake -G &quot;Visual Studio 16 2019&quot; -A x64 -DBOOST_ROOT=c:\Development\cpp\boost169 -DCURL_STATICLIB=ON -DCURL_LIBRARY=&quot;C:\Program Files\CURL\lib\libcurl_imp.lib&quot; -DCURL_INCLUDE_DIR=&quot;C:\Program Files\CURL\include&quot; -DOPENSSL_CONF_SOURCE=&quot;C:\Program Files\Common Files\SSL\openssl.cnf&quot;
-cmake --build . --target install --config Release
-</code></pre>
-<p>Upon success, you will have the applications compiled. You can find the application "witness_node" at <code>c:\Development\cpp\bitshares-core\programs\witness_node\witness_node.exe</code>. The application "cli_wallet" can be found at <code>c:\Development\cpp\bitshares-core\programs\cli_wallet\cli_wallet.exe</code>.</p>
+<p>Return once again to your C:\Development\cpp directory and type:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git clone https://github.com/bitshares/bitshares-core
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cd bitshares-core
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git submodule update --init --recursive
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>cmake -G &quot;Visual Studio 16 2019&quot; -A x64 -DBOOST_ROOT=c:\Development\cpp\boost169 -DCURL_STATICLIB=ON -DCURL_LIBRARY=&quot;C:\Program Files\CURL\lib\libcurl_imp.lib&quot; -DCURL_INCLUDE_DIR=&quot;C:\Program Files\CURL\include&quot; -DOPENSSL_CONF_SOURCE=&quot;C:\Program Files\Common Files\SSL\openssl.cnf&quot;
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>cmake --build . --target install --config Release
+</span></code></pre></div>
+Upon success, you will have the applications compiled. You can find the application "witness_node" at <code>c:\Development\cpp\bitshares-core\programs\witness_node\witness_node.exe</code>. The application "cli_wallet" can be found at <code>c:\Development\cpp\bitshares-core\programs\cli_wallet\cli_wallet.exe</code>.</p>
 
 
 
@@ -2798,7 +2776,7 @@ cmake --build . --target install --config Release
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

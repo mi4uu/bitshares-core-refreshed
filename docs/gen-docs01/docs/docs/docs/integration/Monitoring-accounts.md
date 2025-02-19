@@ -11,7 +11,7 @@ the current state of an account and *automatically* subscribe to future account
 updates including balance update.
 
 A notification after a transaction would take the form:
-
+```json
     [[
         {
           "owner": "1.2.3184", 
@@ -29,5 +29,5 @@ A notification after a transaction would take the form:
           "lifetime_fees_paid": 50156232
         }
     ]]
-
+```
 Please distinguish transactions from operations: Since a single transaction may contain several (independent) operations, monitoring an account may only require to investigate *operations* that change the account.

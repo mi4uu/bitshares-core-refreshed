@@ -604,28 +604,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../docs/build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2705,12 +2683,12 @@
 <p>Information for developers can be found in the <a href="https://github.com/mi4uu/bitshares-core-refreshed/wiki">Wiki</a> and the <a href="https://dev.bitshares.works/">BitShares Developer Portal</a>. Users interested in how BitShares works can go to the <a href="https://how.bitshares.works/">BitShares Documentation</a> site.</p>
 <p>Visit <a href="https://github.com/bitshares/awesome-bitshares">Awesome BitShares</a> to find more resources and links E.G. chat groups, client libraries and extended APIs.</p>
 <ul>
-<li><a href="#getting-started">Getting Started</a></li>
-<li><a href="#support">Support</a></li>
-<li><a href="#using-built-in-apis">Using Built-In APIs</a></li>
-<li><a href="#accessing-restrictable-node-api-sets">Accessing restrictable node API sets</a></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="#license">License</a></li>
+<li><a href="./#getting-started">Getting Started</a></li>
+<li><a href="./#support">Support</a></li>
+<li><a href="./#using-built-in-apis">Using Built-In APIs</a></li>
+<li><a href="./#accessing-restrictable-node-api-sets">Accessing restrictable node API sets</a></li>
+<li><a href="./#faq">FAQ</a></li>
+<li><a href="./#license">License</a></li>
 </ul>
 <table>
 <thead>
@@ -2749,8 +2727,8 @@
 <h3 id="running-and-stopping-node-software">Running and Stopping Node Software</h3>
 <p><strong>Run Node Software:</strong></p>
 <p>Stay on <code>bitshares-core/build</code> directory before you run the below <code>witness_node</code> command</p>
-<pre><code>./programs/witness_node/witness_node
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>./programs/witness_node/witness_node
+</code></pre></div>
 <p>Under <code>build</code> directory the node run will automatically create the directory <code>witness_node_data_dir</code> along with config files underneath then start synchronizing the blockchain.
 It may take usually several hours to fully synchronize the blockchain data.
 The blockchain data will be stored under the directory <code>witness_node_data_dir</code>.</p>
@@ -2779,25 +2757,25 @@ In order to run a full node with all the account histories which usually unneces
 </table>
 <p>* For this setup, allocate at least 500GB of SSD as swap.</p>
 <p>To use the command-line wallet or other wallets / clients with the node, the node need to be started with RPC connection enabled, which can be done by starting the node with the <code>--rpc-endpoint</code> parameter, E.G.</p>
-<pre><code>./programs/witness_node/witness_node --rpc-endpoint=127.0.0.1:8090
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>./programs/witness_node/witness_node --rpc-endpoint=127.0.0.1:8090
+</code></pre></div>
 <p>or configure it in the config file by editing <code>witness_node_data_dir/config.ini</code> as follows:</p>
-<pre><code>rpc-endpoint = 127.0.0.1:8090
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>rpc-endpoint = 127.0.0.1:8090
+</code></pre></div>
 <p>You can run the program with <code>--help</code> parameter to see more info:</p>
-<pre><code>./programs/witness_node/witness_node --help
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>./programs/witness_node/witness_node --help
+</code></pre></div>
 <h3 id="using-command-line-wallet">Using Command-Line Wallet</h3>
 <p>Stay on <code>bitshares-core/build</code> directory before you run the below <code>cli_wallet</code> command</p>
-<pre><code>./programs/cli_wallet/cli_wallet
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>./programs/cli_wallet/cli_wallet
+</code></pre></div>
 <p><strong>IMPORTANT:</strong> The <code>cli_wallet</code> or API interfaces to the node wouldn't be fully functional unless the node is fully synchronized with the blockchain. The <code>cli_wallet</code> command <code>info</code> will show result <code>head_block_age</code> which will tell you how far you are from the live current block of the blockchain.</p>
 <p>To check your current block:</p>
-<pre><code>new &gt;&gt;&gt; info
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>new &gt;&gt;&gt; info
+</code></pre></div>
 <p>To query the blockchain, E.G. get info about an account:</p>
-<pre><code>new &gt;&gt;&gt; get_account &lt;account_name_or_id&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>new &gt;&gt;&gt; get_account &lt;account_name_or_id&gt;
+</code></pre></div>
 <p>If you need to transact with your account but not only query, firstly set your initial password and unlock the wallet:</p>
 <ul>
 <li>
@@ -2816,30 +2794,30 @@ In order to run a full node with all the account histories which usually unneces
 </li>
 </ul>
 <p>To be able to transact with your account, import the corresponding private keys:</p>
-<pre><code>unlocked &gt;&gt;&gt; import_key &lt;ACCOUNT_NAME&gt; &lt;WIF_KEY&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; import_key &lt;ACCOUNT_NAME&gt; &lt;WIF_KEY&gt;
+</code></pre></div>
 <p>The private keys will be encrypted and stored in the wallet file, the file name is <code>wallet.json</code> by default.
 The private keys are accessible when the wallet is unlocked.</p>
-<pre><code>unlocked &gt;&gt;&gt; dump_private_keys
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; dump_private_keys
+</code></pre></div>
 <p>Use <code>lock</code> command to make the private keys inaccessible. There is no auto-lock feature so far.</p>
-<pre><code>unlocked &gt;&gt;&gt; lock
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; lock
+</code></pre></div>
 <p>To import your initial (genesis) balances, import the private keys corresponding to the balances:</p>
-<pre><code>unlocked &gt;&gt;&gt; import_balance &lt;ACCOUNT_NAME&gt; [&lt;WIF_KEY&gt; ...] true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; import_balance &lt;ACCOUNT_NAME&gt; [&lt;WIF_KEY&gt; ...] true
+</code></pre></div>
 <p>Use <code>help</code> to see all available wallet commands.</p>
-<pre><code>&gt;&gt;&gt; help
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; help
+</code></pre></div>
 <p>Use <code>gethelp &lt;COMMAND&gt;</code> to see more info about individual commands. E.G.</p>
-<pre><code>&gt;&gt;&gt; gethelp get_order_book
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; gethelp get_order_book
+</code></pre></div>
 <p>The definition of all commands is available in the
 <a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp">wallet.hpp</a> source code file.
 Corresponding documentation can be found in the <a href="https://bitshares.github.io/doxygen/classgraphene_1_1wallet_1_1wallet__api.html">Doxygen documentation</a>.</p>
 <p>You can run the program with <code>--help</code> parameter to see more info:</p>
-<pre><code>./programs/cli_wallet/cli_wallet --help
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>./programs/cli_wallet/cli_wallet --help
+</code></pre></div>
 <p>There is also some info in the <a href="https://github.com/mi4uu/bitshares-core-refreshed/wiki/CLI-Wallet-Cookbook">Wiki</a>.</p>
 <h2 id="support">Support</h2>
 <p>Technical support is available in the <a href="https://bitsharestalk.org/index.php?board=45.0">BitSharesTalk technical support subforum</a>.</p>
@@ -2855,18 +2833,18 @@ When running <code>witness_node</code> with RPC connection enabled, initially tw
 * API set with ID <code>0</code> has name <em>"database"</em>, it provides read-only access to the database,
 * API set with ID <code>1</code> has name <em>"login"</em>, it is used to login and gain access to additional, restrictable API sets.</p>
 <p>Here is an example using <code>wscat</code> package from <code>npm</code> for websockets:</p>
-<pre><code>$ npm install -g wscat
+<div class="language-text highlight"><pre><span></span><code>$ npm install -g wscat
 $ wscat -c ws://127.0.0.1:8090
-&gt; {"id":1, "method":"call", "params":[0,"get_accounts",[["1.2.0"]]]}
-&lt; {"id":1,"result":[{"id":"1.2.0","annotations":[],"membership_expiration_date":"1969-12-31T23:59:59","registrar":"1.2.0","referrer":"1.2.0","lifetime_referrer":"1.2.0","network_fee_percentage":2000,"lifetime_referrer_fee_percentage":8000,"referrer_rewards_percentage":0,"name":"committee-account","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[],"address_auths":[]},"active":{"weight_threshold":6,"account_auths":[["1.2.5",1],["1.2.6",1],["1.2.7",1],["1.2.8",1],["1.2.9",1],["1.2.10",1],["1.2.11",1],["1.2.12",1],["1.2.13",1],["1.2.14",1]],"key_auths":[],"address_auths":[]},"options":{"memo_key":"GPH1111111111111111111111111111111114T1Anm","voting_account":"1.2.0","num_witness":0,"num_committee":0,"votes":[],"extensions":[]},"statistics":"2.7.0","whitelisting_accounts":[],"blacklisting_accounts":[]}]}
-</code></pre>
+&gt; {&quot;id&quot;:1, &quot;method&quot;:&quot;call&quot;, &quot;params&quot;:[0,&quot;get_accounts&quot;,[&quot;1.2.0&quot;](120 &quot;&quot;1.2.0&quot;&quot;)]}
+&lt; {&quot;id&quot;:1,&quot;result&quot;:[{&quot;id&quot;:&quot;1.2.0&quot;,&quot;annotations&quot;:[],&quot;membership_expiration_date&quot;:&quot;1969-12-31T23:59:59&quot;,&quot;registrar&quot;:&quot;1.2.0&quot;,&quot;referrer&quot;:&quot;1.2.0&quot;,&quot;lifetime_referrer&quot;:&quot;1.2.0&quot;,&quot;network_fee_percentage&quot;:2000,&quot;lifetime_referrer_fee_percentage&quot;:8000,&quot;referrer_rewards_percentage&quot;:0,&quot;name&quot;:&quot;committee-account&quot;,&quot;owner&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;active&quot;:{&quot;weight_threshold&quot;:6,&quot;account_auths&quot;:[[&quot;1.2.5&quot;,1],[&quot;1.2.6&quot;,1],[&quot;1.2.7&quot;,1],[&quot;1.2.8&quot;,1],[&quot;1.2.9&quot;,1],[&quot;1.2.10&quot;,1],[&quot;1.2.11&quot;,1],[&quot;1.2.12&quot;,1],[&quot;1.2.13&quot;,1],[&quot;1.2.14&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;options&quot;:{&quot;memo_key&quot;:&quot;GPH1111111111111111111111111111111114T1Anm&quot;,&quot;voting_account&quot;:&quot;1.2.0&quot;,&quot;num_witness&quot;:0,&quot;num_committee&quot;:0,&quot;votes&quot;:[],&quot;extensions&quot;:[]},&quot;statistics&quot;:&quot;2.7.0&quot;,&quot;whitelisting_accounts&quot;:[],&quot;blacklisting_accounts&quot;:[]}]}
+</code></pre></div>
 <p>We can do the same thing using an HTTP client such as <code>curl</code> for APIs which do not require login or other session state:</p>
-<pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "call", "params": [0, "get_accounts", [["1.2.0"]]], "id": 1}' http://127.0.0.1:8090/
-{"id":1,"result":[{"id":"1.2.0","annotations":[],"membership_expiration_date":"1969-12-31T23:59:59","registrar":"1.2.0","referrer":"1.2.0","lifetime_referrer":"1.2.0","network_fee_percentage":2000,"lifetime_referrer_fee_percentage":8000,"referrer_rewards_percentage":0,"name":"committee-account","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[],"address_auths":[]},"active":{"weight_threshold":6,"account_auths":[["1.2.5",1],["1.2.6",1],["1.2.7",1],["1.2.8",1],["1.2.9",1],["1.2.10",1],["1.2.11",1],["1.2.12",1],["1.2.13",1],["1.2.14",1]],"key_auths":[],"address_auths":[]},"options":{"memo_key":"GPH1111111111111111111111111111111114T1Anm","voting_account":"1.2.0","num_witness":0,"num_committee":0,"votes":[],"extensions":[]},"statistics":"2.7.0","whitelisting_accounts":[],"blacklisting_accounts":[]}]}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>$ curl --data &#39;{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;call&quot;, &quot;params&quot;: [0, &quot;get_accounts&quot;, [&quot;1.2.0&quot;](120 &quot;&quot;1.2.0&quot;&quot;)], &quot;id&quot;: 1}&#39; http://127.0.0.1:8090/
+{&quot;id&quot;:1,&quot;result&quot;:[{&quot;id&quot;:&quot;1.2.0&quot;,&quot;annotations&quot;:[],&quot;membership_expiration_date&quot;:&quot;1969-12-31T23:59:59&quot;,&quot;registrar&quot;:&quot;1.2.0&quot;,&quot;referrer&quot;:&quot;1.2.0&quot;,&quot;lifetime_referrer&quot;:&quot;1.2.0&quot;,&quot;network_fee_percentage&quot;:2000,&quot;lifetime_referrer_fee_percentage&quot;:8000,&quot;referrer_rewards_percentage&quot;:0,&quot;name&quot;:&quot;committee-account&quot;,&quot;owner&quot;:{&quot;weight_threshold&quot;:1,&quot;account_auths&quot;:[],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;active&quot;:{&quot;weight_threshold&quot;:6,&quot;account_auths&quot;:[[&quot;1.2.5&quot;,1],[&quot;1.2.6&quot;,1],[&quot;1.2.7&quot;,1],[&quot;1.2.8&quot;,1],[&quot;1.2.9&quot;,1],[&quot;1.2.10&quot;,1],[&quot;1.2.11&quot;,1],[&quot;1.2.12&quot;,1],[&quot;1.2.13&quot;,1],[&quot;1.2.14&quot;,1]],&quot;key_auths&quot;:[],&quot;address_auths&quot;:[]},&quot;options&quot;:{&quot;memo_key&quot;:&quot;GPH1111111111111111111111111111111114T1Anm&quot;,&quot;voting_account&quot;:&quot;1.2.0&quot;,&quot;num_witness&quot;:0,&quot;num_committee&quot;:0,&quot;votes&quot;:[],&quot;extensions&quot;:[]},&quot;statistics&quot;:&quot;2.7.0&quot;,&quot;whitelisting_accounts&quot;:[],&quot;blacklisting_accounts&quot;:[]}]}
+</code></pre></div>
 <p>When using an HTTP client, the API set ID can be replaced by the API set name, E.G.</p>
-<pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "call", "params": ["database", "get_accounts", [["1.2.0"]]], "id": 1}' http://127.0.0.1:8090/
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>$ curl --data &#39;{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;call&quot;, &quot;params&quot;: [&quot;database&quot;, &quot;get_accounts&quot;, [&quot;1.2.0&quot;](120 &quot;&quot;1.2.0&quot;&quot;)], &quot;id&quot;: 1}&#39; http://127.0.0.1:8090/
+</code></pre></div>
 <p>The definition of all node APIs is available in the source code files including
 <a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/libraries/app/include/graphene/app/database_api.hpp">database_api.hpp</a>
 and <a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/libraries/app/include/graphene/app/api.hpp">api.hpp</a>.
@@ -2876,12 +2854,12 @@ Corresponding documentation can be found in Doxygen:
 <h3 id="wallet-api">Wallet API</h3>
 <p>The <code>cli_wallet</code> program can also be configured to serve <strong>all of its commands</strong> as APIs, known as <em>wallet API</em>.</p>
 <p>Start <code>cli_wallet</code> with RPC connection enabled:</p>
-<pre><code>$ ./programs/cli_wallet/cli_wallet --rpc-http-endpoint=127.0.0.1:8093
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>$ ./programs/cli_wallet/cli_wallet --rpc-http-endpoint=127.0.0.1:8093
+</code></pre></div>
 <p>Access the wallet API using an HTTP client:</p>
-<pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "info", "params": [], "id": 1}' http://127.0.0.1:8093/
-$ curl --data '{"jsonrpc": "2.0", "method": "get_account", "params": ["1.2.0"], "id": 1}' http://127.0.0.1:8093/
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>$ curl --data &#39;{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;info&quot;, &quot;params&quot;: [], &quot;id&quot;: 1}&#39; http://127.0.0.1:8093/
+$ curl --data &#39;{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;get_account&quot;, &quot;params&quot;: [&quot;1.2.0&quot;], &quot;id&quot;: 1}&#39; http://127.0.0.1:8093/
+</code></pre></div>
 <p>Note: The syntax to access wallet API is a bit different than accessing node API.</p>
 <p><strong>Important:</strong>
 * When RPC connection is enabled for <code>cli_wallet</code>, sensitive data E.G. private keys which is accessible via commands will be accessible via RPC too. It is recommended that only open network connection to localhost or trusted addresses E.G. configure a firewall.
@@ -2891,42 +2869,42 @@ $ curl --data '{"jsonrpc": "2.0", "method": "get_account", "params": ["1.2.0"], 
 or by using the <code>--api-access /full/path/to/api-access.json</code> command-line option on node startup. Here is an example <code>api-access</code> file which allows
 user <code>bytemaster</code> with password <code>supersecret</code> to access four different API sets, while allowing any other user to access the three public API sets
 necessary to use the node:</p>
-<pre><code>{
-   "permission_map" :
+<div class="language-text highlight"><pre><span></span><code>{
+   &quot;permission_map&quot; :
    [
       [
-         "bytemaster",
+         &quot;bytemaster&quot;,
          {
-            "password_hash_b64" : "9e9GF7ooXVb9k4BoSfNIPTelXeGOZ5DrgOYMj94elaY=",
-            "password_salt_b64" : "INDdM6iCi/8=",
-            "allowed_apis" : ["database_api", "network_broadcast_api", "history_api", "network_node_api"]
+            &quot;password_hash_b64&quot; : &quot;9e9GF7ooXVb9k4BoSfNIPTelXeGOZ5DrgOYMj94elaY=&quot;,
+            &quot;password_salt_b64&quot; : &quot;INDdM6iCi/8=&quot;,
+            &quot;allowed_apis&quot; : [&quot;database_api&quot;, &quot;network_broadcast_api&quot;, &quot;history_api&quot;, &quot;network_node_api&quot;]
          }
       ],
       [
-         "*",
+         &quot;*&quot;,
          {
-            "password_hash_b64" : "*",
-            "password_salt_b64" : "*",
-            "allowed_apis" : ["database_api", "network_broadcast_api", "history_api"]
+            &quot;password_hash_b64&quot; : &quot;*&quot;,
+            &quot;password_salt_b64&quot; : &quot;*&quot;,
+            &quot;allowed_apis&quot; : [&quot;database_api&quot;, &quot;network_broadcast_api&quot;, &quot;history_api&quot;]
          }
       ]
    ]
 }
-</code></pre>
+</code></pre></div>
 <p>Note: the <code>login</code> API set is always accessible.</p>
 <p>Passwords are stored in <code>base64</code> as salted <code>sha256</code> hashes.  A simple Python script,
 <a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/programs/witness_node/saltpass.py"><code>saltpass.py</code></a>
 is available to obtain hash and salt values from a password.
 A single asterisk <code>"*"</code> may be specified as username or password hash to accept any value.</p>
 <p>With the above configuration, here is an example of how to call the <code>add_node</code> API from the <code>network_node</code> API set:</p>
-<pre><code>{"id":1, "method":"call", "params":[1,"login",["bytemaster", "supersecret"]]}
-{"id":2, "method":"call", "params":[1,"network_node",[]]}
-{"id":3, "method":"call", "params":[2,"add_node",["127.0.0.1:9090"]]}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>{&quot;id&quot;:1, &quot;method&quot;:&quot;call&quot;, &quot;params&quot;:[1,&quot;login&quot;,[&quot;bytemaster&quot;, &quot;supersecret&quot;]]}
+{&quot;id&quot;:2, &quot;method&quot;:&quot;call&quot;, &quot;params&quot;:[1,&quot;network_node&quot;,[]]}
+{&quot;id&quot;:3, &quot;method&quot;:&quot;call&quot;, &quot;params&quot;:[2,&quot;add_node&quot;,[&quot;127.0.0.1:9090&quot;]]}
+</code></pre></div>
 <p>Note, the call to <code>network_node</code> is necessary to obtain the correct API set ID for the <code>network_node</code> API set.  It is not guaranteed that the API set ID for the <code>network_node</code> API set will always be <code>2</code>.</p>
 <p>The restricted API sets are accessible via HTTP too using <em>basic access authentication</em>. E.G.</p>
-<pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "call", "params": ["network_node", "add_node", ["127.0.0.1:9090"]], "id": 1}' http://bytemaster:supersecret@127.0.0.1:8090/
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>$ curl --data &#39;{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;call&quot;, &quot;params&quot;: [&quot;network_node&quot;, &quot;add_node&quot;, [&quot;127.0.0.1:9090&quot;]], &quot;id&quot;: 1}&#39; http://bytemaster:supersecret@127.0.0.1:8090/
+</code></pre></div>
 <p>Our <code>doxygen</code> documentation contains the most up-to-date information
 about APIs for the <a href="https://bitshares.github.io/doxygen/namespacegraphene_1_1app.html">node</a> and the
 <a href="https://bitshares.github.io/doxygen/classgraphene_1_1wallet_1_1wallet__api.html">wallet</a>.</p>
@@ -2947,11 +2925,11 @@ output should look like this:
 <p>Is there a way to allow external program to drive <code>cli_wallet</code> via websocket, JSONRPC, or HTTP?</p>
 <p>Yes. External programs may connect to the command-line wallet and make its calls over a websockets API. To do this, run the wallet in
 server mode, i.e. <code>cli_wallet -H "127.0.0.1:9999"</code> and then have the external program connect to it over the specified port
-(in this example, port 9999). Please check the <a href="#using-built-in-apis">"Using Built-In APIs"</a> section for more info.</p>
+(in this example, port 9999). Please check the <a href="./#using-built-in-apis">"Using Built-In APIs"</a> section for more info.</p>
 </li>
 <li>
 <p>Is there a way to access methods which require login over HTTP?</p>
-<p>Yes. Most of the methods can be accessed by specifying the API name instead of an API ID. If an API is protected by a username and a password, it can be accessed by using <em>basic access authentication</em>. Please check the <a href="#accessing-restrictable-node-api-sets">"Accessing restrictable node API sets"</a> section for more info.</p>
+<p>Yes. Most of the methods can be accessed by specifying the API name instead of an API ID. If an API is protected by a username and a password, it can be accessed by using <em>basic access authentication</em>. Please check the <a href="./#accessing-restrictable-node-api-sets">"Accessing restrictable node API sets"</a> section for more info.</p>
 <p>However, HTTP is not really designed for "server push" notifications, and we would have to figure out a way to queue notifications for a polling client. Websockets solves this problem. If you need to access the stateful methods, use Websockets.</p>
 </li>
 <li>
@@ -2980,7 +2958,7 @@ your asset's ID will be <code>1.3.29</code>.  Asset <code>0</code> is special (i
 </li>
 <li>
 <p>How do I get the <code>network_add_nodes</code> command to work?  Why is it so complicated?</p>
-<p>You need to follow the instructions in the <a href="#accessing-restrictable-node-api-sets">"Accessing restrictable node API sets"</a> section to
+<p>You need to follow the instructions in the <a href="./#accessing-restrictable-node-api-sets">"Accessing restrictable node API sets"</a> section to
 allow a username/password access to the <code>network_node</code> API set.  Then you need
 to pass the username/password to the <code>cli_wallet</code> on the command line.</p>
 <p>It's set up this way so that the default configuration is secure even if the RPC port is
@@ -3040,7 +3018,7 @@ for more information.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>

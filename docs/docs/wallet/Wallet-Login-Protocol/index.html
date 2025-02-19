@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2546,25 +2524,25 @@
 <p>For the purpose of this document, we will assume https://merchant.org is the service that will be logged into and that https://wallet.org is the wallet provider that will be assisting the user with their login.</p>
 <h2 id="step-1-merchant-login-button">Step 1 - Merchant Login Button</h2>
 <p>The merchant must provide the user with a login button that links to https://wallet.org/login#${args} where ${args} is a JSON object serialized with the <a href="Wallet Argument Format">Wallet Argument Format</a> and containing following information: </p>
-<pre><code>{
-   &quot;onetimekey&quot; : &quot;${SERVER_PUBLIC_KEY}&quot;,
-   &quot;account&quot;  : &quot;${OPT_ACCOUNT_NAME}&quot;,
-   &quot;callback&quot; : &quot;https://merchant.org/login_callback&quot;
-}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   &quot;onetimekey&quot; : &quot;${SERVER_PUBLIC_KEY}&quot;,
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   &quot;account&quot;  : &quot;${OPT_ACCOUNT_NAME}&quot;,
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   &quot;callback&quot; : &quot;https://merchant.org/login_callback&quot;
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>}
+</span></code></pre></div>
 <p>The merchant server will need to save the <code>${SERVER_PRIVATE_KEY}</code> associated with the <code>${SERVER_PUBLIC_KEY}</code> in the user's web session in order to verify the login.  </p>
 <h2 id="step-2-wallet-confirmation">Step 2 - Wallet Confirmation</h2>
 <p>When the user loads <code>https://wallet.org/login#${args}</code> they will be prompted to confirm the login request by selecting an account that they wish to login with.  If "account" was specified in the <code>${args}</code> then it will default to that account.</p>
 <p>After the account is identified enough keys to authorize a account must participate in the login process in the following way.</p>
 <p>The wallet generates a <code>WALLET_ONETIMEKEY</code> and derives a <code>shared secret</code> with the <code>SERVER_PUBLIC_KEY</code> provided by the https://merchant.org via <code>${args}</code>.   This shared secret is a provably "random" 512 bits of data that is only known to the wallet at this point in time.   The wallet then gathers signatures on the shared secret from enough keys to authorize the account.  In the simple case this will be a single signature, but in more complex cases multi-factor authentication may be required.  </p>
 <p>After gathering all of the signatures the wallet redirects the user to <code>https://merchant.org/login_callback?a=${result}</code> where <code>result</code> is an encoded JSON object containing the following information:</p>
-<pre><code>{
-   &quot;account&quot;: &quot;Graphene Account Name&quot;,
-   &quot;server_key&quot;: &quot;${SERVER_PUBLIC_KEY}&quot;,
-   &quot;account_key&quot;: &quot;${WALLET_ONETIMEKEY}&quot;,
-   &quot;signatures&quot; : [ &quot;SIG1&quot;, &quot;SIG2&quot;, .. ]
-}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   &quot;account&quot;: &quot;Graphene Account Name&quot;,
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   &quot;server_key&quot;: &quot;${SERVER_PUBLIC_KEY}&quot;,
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>   &quot;account_key&quot;: &quot;${WALLET_ONETIMEKEY}&quot;,
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>   &quot;signatures&quot; : [ &quot;SIG1&quot;, &quot;SIG2&quot;, .. ]
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>}
+</span></code></pre></div>
 <h2 id="step-3-server-verifies-authority">Step 3 - Server Verifies Authority</h2>
 <p>Upon receiving the <code>result</code> from the wallet, https://merchant.org will lookup ${SERVER_PRIVATE_KEY} in the user's session data and then combine it with <code>${WALLET_ONETIMEKEY}</code> to generate the <code>shared secret</code> that was used by the wallet.   Once this shared secret has been recovered, it can be used to recover the public keys that correspond to the provided signatures. </p>
 <p>The last step is to verify that the public keys provided by the signatures are sufficient to authorize the account given the current state of the graphene blockchain.   This can be achieved using the witness API call <code>verify_account_authority( account_name_or_id, [public_keys...] )</code>.   The <code>verify_account_authority</code> call will return <code>true</code> if the provided keys have sufficient authority to authorize the account, otherwise it will return <code>false</code></p>
@@ -2614,7 +2592,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

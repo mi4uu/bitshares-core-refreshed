@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2526,27 +2504,27 @@
 <p>To maintain a user experience similar to any other website, it is critical that users can log into the website and gain access to their private keys from any computer.  It is equally important that the server does not have access to the user's private keys.</p>
 <p>The goal of this specification is to define a protocol between the web browser and the server for storing and retrieving private data of the user.  Because all data is encrypted, the server will need to use some techniques to prevent abuse.  We will assume that prior to storing data on the server the user must request a code that will be sent to them by email.</p>
 <p>The syntax below is shorthand for JSON-RPC requests sent to/from the server:</p>
-<pre><code>server.requestCode( email )
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>server.requestCode( email )
+</code></pre></div>
 <p>Then the user can store data on the server like so:</p>
-<pre><code>server.createWallet( code, encrypted_data, signature )
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>server.createWallet( code, encrypted_data, signature )
+</code></pre></div>
 <p>The wallet will be saved on the server using the <em>public_key</em> derived from <em>encrypted_data</em> and <em>signature</em>.  The code contains a irreversible hash of the email.  This is used in a unique constraint effectively limiting users to one wallet per email.  The original email address is not stored in the database.</p>
 <p>Then the user can fetch data from the server like so:</p>
-<pre><code>server.fetchWallet( publickey, local_hash )
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>server.fetchWallet( publickey, local_hash )
+</code></pre></div>
 <p>This method will only fetch the wallet if it is different than what is already cached locally.  In addition to returning the encrypted wallet, this method will also return statistics about when it was last updated, and which IPs have requested the wallet and when.  This can be used by the user to detect potential attempts at fraud.</p>
 <p>The user can update their data with this call:</p>
-<pre><code>server.saveWallet( original_local_hash, encrypted_data, signature )
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>server.saveWallet( original_local_hash, encrypted_data, signature )
+</code></pre></div>
 <p>The signature can be used to derive the public key under which encrypted_data should be stored.  The server will have to verify that derived public key exists in the database or this method will fail.  If the original_local_hash does not match the wallet being overwritten this method needs to fail.</p>
 <p>The user can change their "key" with the following call:</p>
-<pre><code>server.changePassword( original_local_hash, original_signature, new_encrypted_data, new_signature )
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>server.changePassword( original_local_hash, original_signature, new_encrypted_data, new_signature )
+</code></pre></div>
 <p>After this call the public key used to lookup this wallet will be the one derived from <em>new_signature</em> and <em>new_encrypted_data</em>.  A wallet must exist at the <em>old_public_key</em> derived from the <em>original_local_hash</em> and <em>original_signature</em>.</p>
 <p>The user may delete their wallet with the following call:</p>
-<pre><code>server.deleteWallet( local_hash, signature )
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>server.deleteWallet( local_hash, signature )
+</code></pre></div>
 <p>For security reasons, this delete is permanent.  The user may repeat the process to create a new wallet using the same email.</p>
 <h2 id="generating-public-keys">Generating Public Keys</h2>
 <p>Users generate a private key from their password.  Generally speaking, passwords are too weak and could be strengthened by being combined with other information that is both unique to the user and unlikely for the user to forget.  At a minimum email address and/or username can be combined with the password to recover the private key for the wallet.  Additional information such as social security numbers, passport IDs, phone numbers, or answers to other security questions may be useful for some applications.  Keep in mind that the user must remember both their password AND the exact set of security Questions <strong>and</strong> Answers in order to recover their account.</p>
@@ -2600,7 +2578,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

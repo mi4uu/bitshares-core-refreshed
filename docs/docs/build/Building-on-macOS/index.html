@@ -12,7 +12,7 @@
         <link rel="prev" href="../BUILD_WinDevEnv/">
       
       
-        <link rel="next" href="../Building-on-OS-X/">
+        <link rel="next" href="../../architecture/spv/SPV/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -459,28 +459,6 @@
 
       </a>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -2445,12 +2423,14 @@
 </li>
 <li>
 <p>Initialize Homebrew:
-   <code>brew doctor
-   brew update</code></p>
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>brew doctor
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>brew update
+</span></code></pre></div></p>
 </li>
 <li>
 <p>Install dependencies:
-   <code>brew install cmake git autoconf automake libtool</code></p>
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>brew install cmake git autoconf automake libtool
+</span></code></pre></div></p>
 </li>
 </ol>
 <p>Note:
@@ -2459,44 +2439,55 @@
 <li>
 <p>Boost:
      It's likely that the default boost version in brew has issues or not yet supported by us. If you just want to build BitShares-Core, use an older version of boost from our own HomeBrew Tap:
-     <code>brew install bitshares/boost/boost@1.69</code>
+     <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew install bitshares/boost/boost@1.69
+</span></code></pre></div>
      If necessary, link it as the default boost library:
-     <code>brew link --force --overwrite boost@1.69</code></p>
+     <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brew link --force --overwrite boost@1.69
+</span></code></pre></div></p>
 <p>Nevertheless, if you would like to experiment or test newer boost libraries, you can try:
- <code>brew install boost</code></p>
+ <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>brew install boost
+</span></code></pre></div></p>
 </li>
 <li>
 <p>OpenSSL:
      As of writing, the latest OpenSSL in brew is OpenSSL v3, unfortunately it is not supported by us. You may install an older version of OpenSSL with brew:
-     <code>brew install openssl@1.1</code>
+     <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>brew install openssl@1.1
+</span></code></pre></div>
      If necessary, link it as the default openssl library:
-     <code>brew link --force --overwrite openssl@1.1</code></p>
+     <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>brew link --force --overwrite openssl@1.1
+</span></code></pre></div></p>
 </li>
 <li>
 <p><em>Optional.</em> To support importing Bitcoin wallet files:
-   <code>brew install berkeley-db</code></p>
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>brew install berkeley-db
+</span></code></pre></div></p>
 </li>
 <li>
 <p><em>Optional.</em> To use TCMalloc in LevelDB:
-   <code>brew install google-perftools</code></p>
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>brew install google-perftools
+</span></code></pre></div></p>
 </li>
 <li>
 <p>Clone the BitShares-Core repository:
-   <code>git clone https://github.com/bitshares/bitshares-core.git
-   cd bitshares-core</code></p>
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git clone https://github.com/bitshares/bitshares-core.git
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cd bitshares-core
+</span></code></pre></div></p>
 </li>
 <li>
 <p>Build BitShares-Core:
-   <code>git submodule update --init --recursive
-   cmake .
-   make</code></p>
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git submodule update --init --recursive
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cmake .
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>make
+</span></code></pre></div></p>
 </li>
 </ul>
 <p>Note:
    To compile with non-default versions of Boost and/or OpenSSL, we need to tell cmake where these libraries are. Instead of the "cmake ." mentioned above, we use (for example):
-   <code>cmake -DBOOST_ROOT=/usr/local/opt/boost@1.69 -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl@1.1 .</code>
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cmake -DBOOST_ROOT=/usr/local/opt/boost@1.69 -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl@1.1 .
+</span></code></pre></div>
    and then proceed with the normal
-   <code>make</code></p>
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>make
+</span></code></pre></div></p>
 
 
 
@@ -2543,7 +2534,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

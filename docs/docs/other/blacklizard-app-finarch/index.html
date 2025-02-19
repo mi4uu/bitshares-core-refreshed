@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2718,7 +2696,7 @@
 <p>This solves Hard Problem 1 (app's platform assets are controlled by a majority of app delegates), Hard Problem 2 (app delegates are responsible for importing all off-chain app state), Hard Problem 3 (app delegates don't ratify transactions that imply off-chain broadcasts unless a majority have seen and stored the data), Hard Problem 4 (dead app delegates can be replaced by equity asset holders' votes), and Hard Problem 5 (app's platform assets can be transferred to equity asset holders to "pay a dividend").</p>
 <h2 id="oracle-invocation">Oracle invocation</h2>
 <p>App delegates can have three actions:  Ratify, veto, or fail to reach consensus.  The general behavior for a transaction is to specify an operation for each of these paths.  I.e. a transaction needs to be able to say:</p>
-<pre><code>switch( state )
+<div class="language-text highlight"><pre><span></span><code>switch( state )
 {
 case ratified:
     op_pay_app_fee_to_implement_transaction;
@@ -2734,11 +2712,11 @@ case fail_to_reach_consensus:
     /* do nothing */
     break;
 }
-</code></pre>
+</code></pre></div>
 <p>It is clear then that such a transaction should be published, but its execution deferred until the app delegates have reached consensus (or a specified expiration time has been reached without consensus), in which case one of several paths are taken.</p>
 <p>Since Black Lizard ops maintain all chain invariants, I think we should allow <code>switch</code> in the <em>middle</em> of a transaction, as well as the beginning.  This will enable a decentralized altcoin bridge algorithm:</p>
-<pre><code>op_lock_asset &lt;alice&gt; &lt;m&gt; &lt;bitbtc&gt;
-state = op_invoke_oracle &lt;bridge_app_id&gt; &lt;return 0 if &lt;btc_txid&gt; exists and sends &lt;n&gt; BTC from &lt;btc_bob_addr&gt; to &lt;btc_alice_addr&gt;, return 1 if &lt;btc_txid&gt; exists but doesn't do that, or any other transaction spends &lt;btc_bob_addr&gt; &gt;
+<div class="language-text highlight"><pre><span></span><code>op_lock_asset &lt;alice&gt; &lt;m&gt; &lt;bitbtc&gt;
+state = op_invoke_oracle &lt;bridge_app_id&gt; &lt;return 0 if &lt;btc_txid&gt; exists and sends &lt;n&gt; BTC from &lt;btc_bob_addr&gt; to &lt;btc_alice_addr&gt;, return 1 if &lt;btc_txid&gt; exists but doesn&#39;t do that, or any other transaction spends &lt;btc_bob_addr&gt; &gt;
 switch( state )
 {
 case 0:
@@ -2753,12 +2731,12 @@ case 1:
     op_send_locked_asset &lt;alice&gt; &lt;m&gt; &lt;bitbtc&gt;
     break;
 }
-</code></pre>
+</code></pre></div>
 <p>This is basically an escrow system.  We can add an expiration time and a <code>fail_to_reach_consensus</code> case, however this doesn't quite work -- Alice can end up with both BTC and BitBTC if the Bitcoin network is too slow confirming Bob's transaction!  Instead, before Alice publishes the above Black Lizard transaction, she should require Bob to send her a <em>cancellation transaction</em> locked in the future (while Bitcoin doesn't have the ability to expire transactions, it <em>does</em> have a field called <code>nLockTime</code> which makes a transaction invalid until some point in the future).  The cancellation transaction simply sends coins from <code>btc_bob_addr</code> to some other address <code>btc_bob_addr2</code> presumably controlled by Bob.  If Alice doesn't receive the BTC in time, she is able to broadcast the cancellation transaction, which triggers case 1 and unlocks Alice's BitBTC while returning the BTC to Bob.  (If the cancellation transaction travels over a broadcast medium, the transaction should be encrypted to Alice's public key.  This way, Alice has the option to give Bob an extension of time; she can simply wait to publish the cancellation transaction.  If the cancellation transaction was broadcast to e.g. the whole Black Lizard network unencrypted, arbitrary third parties can take away Alice's option by publishing the cancellation transaction to the Bitcoin network themselves.)</p>
 <p>N.b. the <code>op_invoke_oracle</code> is instructions to the <em>bridge app</em>, the platform does not need to know how to interpret it.  All the platform "knows" is that the oracle now has the ability to create a transaction saying either "the result of the <code>op_invoke_asset</code> in block <height>, transaction <tx_index>, operation <op_index> is 0" or "the result is 1", which causes the platform to run the respective case.  The locked balance goes into a special account-like object belonging to this transaction, which is destroyed when the transaction finishes.  We should validate that if control reaches the end of the transaction, no locked assets remain (i.e. every control path results in spending all locked assets).  This is actually possible since operations establishing or disposing of locked balances always use literal amounts (i.e. you can't send an amount determined by a computation).</p>
 <h2 id="bond-markets-with-oracles">Bond markets with oracles</h2>
 <p>Alice lending Bob platform assets:</p>
-<pre><code>op_lock_asset &lt;bob&gt; &lt;collateral&gt;
+<div class="language-text highlight"><pre><span></span><code>op_lock_asset &lt;bob&gt; &lt;collateral&gt;
 op_transfer &lt;alice&gt; &lt;bob&gt; &lt;debt&gt;
 state = op_invoke_oracle &lt;bond_app_id&gt; &lt;return 0 if &lt;bob&gt; sends &lt;debt_plus_fee&gt; to &lt;alice&gt;&gt;
 switch( state )
@@ -2772,7 +2750,7 @@ case fail_to_reach_consensus:
     /* loan expired */
     op_send_locked_asset &lt;alice&gt; &lt;collateral&gt;
 }
-</code></pre>
+</code></pre></div>
 <h2 id="oracle-notes">Oracle notes</h2>
 <p>Before the first <code>op_invoke_oracle</code> operation, the transaction can do any operations.  After <code>op_invoke_oracle</code>, it can only do ops that are guaranteed to be valid at any time in the future, i.e. only totally prefunded operations like distributing locked assets are allowed.</p>
 <p>Since <code>op_oracle_result</code> can cause </p>
@@ -2781,13 +2759,13 @@ case fail_to_reach_consensus:
 <p>The <code>app_record</code> specifies an <em>equity asset</em> representing ownership in the DAC.  The equity asset is a normal UIA, it can be a decentralized asset with unrestricted transfer capabilities, or it can be centralized (the issuer can whitelist holders, it can have (relinquishable) owner permissions for freezing, revocation, issuing new shares, raising issuance cap, etc.)</p>
 <p>The <code>app_record</code> also specifies 1-101 <em>app delegates</em>.  The app delegates are effectively a multisig authority over the asset balance.  If the <code>app_equity_can_vote_for_delegates</code> flag is set in the app record, app equity shares can vote for app delegates.  If <code>app_equity_round_reward</code> is set to a number greater than zero, app delegates receive that much equity the first time they sign an app state in a platform-level round.</p>
 <p>A platform-level transaction is said to <em>invoke</em> an app if it contains an <code>invoke_app</code> operation.  The <code>invoke_app</code> operation has three fields:</p>
-<pre><code>struct op_invoke_app
+<div class="language-text highlight"><pre><span></span><code>struct op_invoke_app
 {
     app_id app;
     pair&lt;asset_id, amount&gt; app_fee_immediate;
     pair&lt;asset_id, amount&gt; app_fee_on_accept;
 };
-</code></pre>
+</code></pre></div>
 <p>The </p>
 <p>An operational account has one or more <em>app delegates</em> which approve an <em>app state</em> using DPOS.</p>
 <h2 id="financial-architecture-of-distributed-applications_1">Financial architecture of distributed applications</h2>
@@ -2867,7 +2845,7 @@ case fail_to_reach_consensus:
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

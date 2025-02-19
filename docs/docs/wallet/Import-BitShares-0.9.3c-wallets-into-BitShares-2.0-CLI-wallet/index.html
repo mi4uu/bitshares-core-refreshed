@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2489,20 +2467,20 @@
 
 <h2 id="how-to-import-large-wallets-from-bitshares-093">How to Import Large Wallets from BitShares 0.9.3</h2>
 <p>In bitshares 0.9.3c, run: </p>
-<pre><code>wallet_export_keys /tmp/final_bitshares_keys.json
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>wallet_export_keys /tmp/final_bitshares_keys.json
+</code></pre></div>
 <p>in bitshares 2.0 CLI wallet, run:
     &gt;&gt;&gt; import_accounts /tmp/final_bitshares_keys.json my_password</p>
 <p>then, for each account in your wallet (run list_my_accounts to see them):</p>
-<pre><code> &gt;&gt;&gt; import_account_keys /tmp/final_bitshares_keys.json my_password my_account_name my_account_name
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code> &gt;&gt;&gt; import_account_keys /tmp/final_bitshares_keys.json my_password my_account_name my_account_name
+</code></pre></div>
 <p>note: in the release tag, this will create a full backup of the wallet after every key it imports.
 If you have thousands of keys, this is quite slow and also takes up a lot of disk space.
 Monitor your free disk space during the import and, if necessary, periodically erase the
 backups to avoid filling your disk.  The latest code only saves your wallet after all keys have been imported.  </p>
-<pre><code> &gt;&gt;&gt; import_balance my_account_name ["*"] true
+<div class="language-text highlight"><pre><span></span><code> &gt;&gt;&gt; import_balance my_account_name [&quot;*&quot;] true
  &gt;&gt;&gt; list_account_balances my_account_name
-</code></pre>
+</code></pre></div>
 <p>Verify the Results</p>
 
 
@@ -2550,7 +2528,7 @@ backups to avoid filling your disk.  The latest code only saves your wallet afte
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>

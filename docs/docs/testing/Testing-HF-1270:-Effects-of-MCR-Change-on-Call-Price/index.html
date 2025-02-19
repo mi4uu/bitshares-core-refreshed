@@ -452,28 +452,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Building on OS X
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2498,7 +2476,7 @@
 <li>The core token may be different than "BTS" (e.g. "TEST").  Modify the commands to use your core token symbol.</li>
 <li>The account names that are created might already exist in your test environment.  Check for their existence by running <code>get_account ACCOUNT_NAME</code>.  Modify the commands to use alternate account names).</li>
 <li>the asset names that are created might already exist in your test environment.  Check for the existence by running <code>get_asset ACCOUNT_NAME</code>.  Modify the commands to use alternate account names).</li>
-<li><strong>The output shown in the results below are from a testnet from before HF-1270. The sample output often contains the undesired behavior that is being fixed.</strong> Testing in a "fixed" environment should display the results that reflect the changed MCR as suggested at the end of Step 3 of <a href="#scenario1-step3">Scenario 1</a> and <a href="#scenario2-step3">Scenario 2</a>.</li>
+<li><strong>The output shown in the results below are from a testnet from before HF-1270. The sample output often contains the undesired behavior that is being fixed.</strong> Testing in a "fixed" environment should display the results that reflect the changed MCR as suggested at the end of Step 3 of <a href="./#scenario1-step3">Scenario 1</a> and <a href="./#scenario2-step3">Scenario 2</a>.</li>
 </ul>
 <h2 id="unit-tests">Unit Tests</h2>
 <p>For reference, the following unit tests that have been prepared to test the fixes (<a href="https://github.com/bitshares/bitshares-core/pull/1324">1324</a>,<a href="https://github.com/bitshares/bitshares-core/pull/1469">1469</a>,<a href="https://github.com/bitshares/bitshares-core/pull/1493">1493</a>) for  the issue (<a href="https://github.com/bitshares/bitshares-core/issues/1270">1270</a>,<a href="https://github.com/bitshares/bitshares-core/issues/1423">1423</a>).</p>
@@ -2536,59 +2514,59 @@
 </tbody>
 </table>
 <p>Create the account of a publisher called "publisher-a"</p>
-<pre><code>unlocked &gt;&gt;&gt; suggest_brain_key
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; suggest_brain_key
 suggest_brain_key 
 {
-"brain_priv_key": "...",
-  "wif_priv_key": "...,
-  "pub_key": "BTS5RP4bVx2utcnoq1J9eSDFFZu3izmMqvZtGors4ctL1ar9Hy8q9"
+&quot;brain_priv_key&quot;: &quot;...&quot;,
+  &quot;wif_priv_key&quot;: &quot;...,
+  &quot;pub_key&quot;: &quot;BTS5RP4bVx2utcnoq1J9eSDFFZu3izmMqvZtGors4ctL1ar9Hy8q9&quot;
 }
 unlocked &gt;&gt;&gt; suggest_brain_key 
 suggest_brain_key 
 {
-  "brain_priv_key": "...",
-  "wif_priv_key": "...",
-  "pub_key": "BTS7HbpzSg89bKkuWhyCpd3V57QBTtRRWupLgVgDGwisikd9W4XD2"
+  &quot;brain_priv_key&quot;: &quot;...&quot;,
+  &quot;wif_priv_key&quot;: &quot;...&quot;,
+  &quot;pub_key&quot;: &quot;BTS7HbpzSg89bKkuWhyCpd3V57QBTtRRWupLgVgDGwisikd9W4XD2&quot;
 }
 
 register_account(string name, public_key_type owner, public_key_type active, string registrar_account, string referrer_account, uint32_t referrer_percent, bool broadcast)
 
 register_account publisher-a BTS5RP4bVx2utcnoq1J9eSDFFZu3izmMqvZtGors4ctL1ar9Hy8q9 BTS7HbpzSg89bKkuWhyCpd3V57QBTtRRWupLgVgDGwisikd9W4XD2 nathan nathan 0 true
-</code></pre>
+</code></pre></div>
 <p>Give the single feed publisher some core tokens</p>
-<pre><code>transfer nathan publisher-a 1000 BTS "" true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>transfer nathan publisher-a 1000 BTS &quot;&quot; true
+</code></pre></div>
 <h2 id="2-issuer-create-the-asset">2. Issuer: Create the asset</h2>
-<p>Create a bitasset as described in the <a href="docs.bitshares.org/bitshares/tutorials/mpa-create-manual.html">reference instructions</a></p>
-<pre><code>create_asset &quot;nathan&quot; &quot;TESTUSDA&quot; 4 {&quot;max_supply&quot;:&quot;1000000000000000&quot;,&quot;market_fee_percent&quot;:0,&quot;max_market_fee&quot;:&quot;1000000000000000&quot;,&quot;issuer_permissions&quot;:161,&quot;flags&quot;:0,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.0&quot;},&quot;quote&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.1&quot;}},&quot;whitelist_authorities&quot;:[],&quot;blacklist_authorities&quot;:[],&quot;whitelist_markets&quot;:[],&quot;blacklist_markets&quot;:[],&quot;description&quot;:&quot;&quot;,&quot;extensions&quot;:[]} {} false
-</code></pre>
+<p>Create a bitasset as described in the <a href="../../docs.bitshares.org/bitshares/tutorials/mpa-create-manual.html">reference instructions</a></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>create_asset &quot;nathan&quot; &quot;TESTUSDA&quot; 4 {&quot;max_supply&quot;:&quot;1000000000000000&quot;,&quot;market_fee_percent&quot;:0,&quot;max_market_fee&quot;:&quot;1000000000000000&quot;,&quot;issuer_permissions&quot;:161,&quot;flags&quot;:0,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.0&quot;},&quot;quote&quot;:{&quot;amount&quot;:1,&quot;asset_id&quot;:&quot;1.3.1&quot;}},&quot;whitelist_authorities&quot;:[],&quot;blacklist_authorities&quot;:[],&quot;whitelist_markets&quot;:[],&quot;blacklist_markets&quot;:[],&quot;description&quot;:&quot;&quot;,&quot;extensions&quot;:[]} {} false
+</span></code></pre></div>
 <p>Specify who can publish feeds</p>
-<pre><code>update_asset_feed_producers TESTUSDA ["publisher-a"] false
+<div class="language-text highlight"><pre><span></span><code>update_asset_feed_producers TESTUSDA [&quot;publisher-a&quot;] false
 
-unlocked &gt;&gt;&gt; update_asset_feed_producers TESTUSDA ["publisher-a"] true
-update_asset_feed_producers TESTUSDA ["publisher-a"] true
+unlocked &gt;&gt;&gt; update_asset_feed_producers TESTUSDA [&quot;publisher-a&quot;] true
+update_asset_feed_producers TESTUSDA [&quot;publisher-a&quot;] true
 {
-  "ref_block_num": 23131,
-  "ref_block_prefix": 1301299163,
-  "expiration": "2019-03-12T21:18:55",
-  "operations": [[
+  &quot;ref_block_num&quot;: 23131,
+  &quot;ref_block_prefix&quot;: 1301299163,
+  &quot;expiration&quot;: &quot;2019-03-12T21:18:55&quot;,
+  &quot;operations&quot;: [[
       13,{
-        "fee": {
-          "amount": 50000000,
-          "asset_id": "1.3.0"
+        &quot;fee&quot;: {
+          &quot;amount&quot;: 50000000,
+          &quot;asset_id&quot;: &quot;1.3.0&quot;
         },
-        "issuer": "1.2.17",
-        "asset_to_update": "1.3.1",
-        "new_feed_producers": [
-          "1.2.22"
+        &quot;issuer&quot;: &quot;1.2.17&quot;,
+        &quot;asset_to_update&quot;: &quot;1.3.1&quot;,
+        &quot;new_feed_producers&quot;: [
+          &quot;1.2.22&quot;
         ],
-        "extensions": []
+        &quot;extensions&quot;: []
       }
     ]
   ],
-  "extensions": [],
-  "signatures": [
-        "201cd18934e5bfece04ca2f88f66e7832998db8f9214810eefdb6662d2519b17b73a469a5d404c90f3df1eacdcdb219882039756ea2e1ffdcc2ab52f9dccbde052"
+  &quot;extensions&quot;: [],
+  &quot;signatures&quot;: [
+        &quot;201cd18934e5bfece04ca2f88f66e7832998db8f9214810eefdb6662d2519b17b73a469a5d404c90f3df1eacdcdb219882039756ea2e1ffdcc2ab52f9dccbde052&quot;
   ]
 }
 
@@ -2596,401 +2574,401 @@ update_asset_feed_producers TESTUSDA ["publisher-a"] true
 unlocked &gt;&gt;&gt; get_bitasset_data TESTUSDA
 get_bitasset_data TESTUSDA
 {
-  "id": "2.4.0",
-  "feeds": [[
-      "1.2.22",[
-        "1970-01-01T00:00:00",{
-          "settlement_price": {
-            "base": {
-              "amount": 0,
-              "asset_id": "1.3.0"
+  &quot;id&quot;: &quot;2.4.0&quot;,
+  &quot;feeds&quot;: [[
+      &quot;1.2.22&quot;,[
+        &quot;1970-01-01T00:00:00&quot;,{
+          &quot;settlement_price&quot;: {
+            &quot;base&quot;: {
+              &quot;amount&quot;: 0,
+              &quot;asset_id&quot;: &quot;1.3.0&quot;
             },
-            "quote": {
-              "amount": 0,
-              "asset_id": "1.3.0"
+            &quot;quote&quot;: {
+              &quot;amount&quot;: 0,
+              &quot;asset_id&quot;: &quot;1.3.0&quot;
             }
           },
-          "maintenance_collateral_ratio": 1750,
-          "maximum_short_squeeze_ratio": 1500,
-          "core_exchange_rate": {
-            "base": {
-              "amount": 0,
-              "asset_id": "1.3.0"
+          &quot;maintenance_collateral_ratio&quot;: 1750,
+          &quot;maximum_short_squeeze_ratio&quot;: 1500,
+          &quot;core_exchange_rate&quot;: {
+            &quot;base&quot;: {
+              &quot;amount&quot;: 0,
+              &quot;asset_id&quot;: &quot;1.3.0&quot;
             },
-            "quote": {
-              "amount": 0,
-              "asset_id": "1.3.0"
+            &quot;quote&quot;: {
+              &quot;amount&quot;: 0,
+              &quot;asset_id&quot;: &quot;1.3.0&quot;
             }
           }
         }
       ]
     ]
   ],
-  "current_feed": {
-    "settlement_price": {
-      "base": {
-        "amount": 0,
-        "asset_id": "1.3.0"
+  &quot;current_feed&quot;: {
+    &quot;settlement_price&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 0,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       },
-      "quote": {
-        "amount": 0,
-        "asset_id": "1.3.0"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 0,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       }
     },
-    "maintenance_collateral_ratio": 1750,
-    "maximum_short_squeeze_ratio": 1500,
-    "core_exchange_rate": {
-      "base": {
-        "amount": 0,
-        "asset_id": "1.3.0"
+    &quot;maintenance_collateral_ratio&quot;: 1750,
+    &quot;maximum_short_squeeze_ratio&quot;: 1500,
+    &quot;core_exchange_rate&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 0,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       },
-      "quote": {
-        "amount": 0,
-        "asset_id": "1.3.0"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 0,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       }
     }
   },
-  "current_feed_publication_time": "2019-03-12T21:18:25",
-  "options": {
-    "feed_lifetime_sec": 86400,
-    "minimum_feeds": 1,
-    "force_settlement_delay_sec": 86400,
-    "force_settlement_offset_percent": 0,
-    "maximum_force_settlement_volume": 2000,
-    "short_backing_asset": "1.3.0",
-    "extensions": []
+  &quot;current_feed_publication_time&quot;: &quot;2019-03-12T21:18:25&quot;,
+  &quot;options&quot;: {
+    &quot;feed_lifetime_sec&quot;: 86400,
+    &quot;minimum_feeds&quot;: 1,
+    &quot;force_settlement_delay_sec&quot;: 86400,
+    &quot;force_settlement_offset_percent&quot;: 0,
+    &quot;maximum_force_settlement_volume&quot;: 2000,
+    &quot;short_backing_asset&quot;: &quot;1.3.0&quot;,
+    &quot;extensions&quot;: []
   },
-  "force_settled_volume": 0,
-  "is_prediction_market": false,
-  "settlement_price": {
-    "base": {
-      "amount": 0,
-      "asset_id": "1.3.0"
+  &quot;force_settled_volume&quot;: 0,
+  &quot;is_prediction_market&quot;: false,
+  &quot;settlement_price&quot;: {
+    &quot;base&quot;: {
+      &quot;amount&quot;: 0,
+      &quot;asset_id&quot;: &quot;1.3.0&quot;
     },
-    "quote": {
-      "amount": 0,
-      "asset_id": "1.3.0"
+    &quot;quote&quot;: {
+      &quot;amount&quot;: 0,
+      &quot;asset_id&quot;: &quot;1.3.0&quot;
     }
   },
-  "settlement_fund": 0
+  &quot;settlement_fund&quot;: 0
 }
 
 
 unlocked &gt;&gt;&gt; get_object 2.4.0
 get_object 2.4.0
 [{
-    "id": "2.4.0",
-    "asset_id": "1.3.1",
-    "feeds": [[
-        "1.2.22",[
-          "1970-01-01T00:00:00",{
-            "settlement_price": {
-              "base": {
-                "amount": 0,
-                "asset_id": "1.3.0"
+    &quot;id&quot;: &quot;2.4.0&quot;,
+    &quot;asset_id&quot;: &quot;1.3.1&quot;,
+    &quot;feeds&quot;: [[
+        &quot;1.2.22&quot;,[
+          &quot;1970-01-01T00:00:00&quot;,{
+            &quot;settlement_price&quot;: {
+              &quot;base&quot;: {
+                &quot;amount&quot;: 0,
+                &quot;asset_id&quot;: &quot;1.3.0&quot;
               },
-              "quote": {
-                "amount": 0,
-                "asset_id": "1.3.0"
+              &quot;quote&quot;: {
+                &quot;amount&quot;: 0,
+                &quot;asset_id&quot;: &quot;1.3.0&quot;
               }
             },
-            "maintenance_collateral_ratio": 1750,
-            "maximum_short_squeeze_ratio": 1500,
-            "core_exchange_rate": {
-              "base": {
-                "amount": 0,
-                "asset_id": "1.3.0"
+            &quot;maintenance_collateral_ratio&quot;: 1750,
+            &quot;maximum_short_squeeze_ratio&quot;: 1500,
+            &quot;core_exchange_rate&quot;: {
+              &quot;base&quot;: {
+                &quot;amount&quot;: 0,
+                &quot;asset_id&quot;: &quot;1.3.0&quot;
               },
-              "quote": {
-                "amount": 0,
-                "asset_id": "1.3.0"
+              &quot;quote&quot;: {
+                &quot;amount&quot;: 0,
+                &quot;asset_id&quot;: &quot;1.3.0&quot;
               }
             }
           }
         ]
       ]
     ],
-    "current_feed": {
-      "settlement_price": {
-        "base": {
-          "amount": 0,
-          "asset_id": "1.3.0"
+    &quot;current_feed&quot;: {
+      &quot;settlement_price&quot;: {
+        &quot;base&quot;: {
+          &quot;amount&quot;: 0,
+          &quot;asset_id&quot;: &quot;1.3.0&quot;
         },
-        "quote": {
-          "amount": 0,
-          "asset_id": "1.3.0"
+        &quot;quote&quot;: {
+          &quot;amount&quot;: 0,
+          &quot;asset_id&quot;: &quot;1.3.0&quot;
         }
       },
-      "maintenance_collateral_ratio": 1750,
-      "maximum_short_squeeze_ratio": 1500,
-      "core_exchange_rate": {
-        "base": {
-          "amount": 0,
-          "asset_id": "1.3.0"
+      &quot;maintenance_collateral_ratio&quot;: 1750,
+      &quot;maximum_short_squeeze_ratio&quot;: 1500,
+      &quot;core_exchange_rate&quot;: {
+        &quot;base&quot;: {
+          &quot;amount&quot;: 0,
+          &quot;asset_id&quot;: &quot;1.3.0&quot;
         },
-        "quote": {
-          "amount": 0,
-          "asset_id": "1.3.0"
+        &quot;quote&quot;: {
+          &quot;amount&quot;: 0,
+          &quot;asset_id&quot;: &quot;1.3.0&quot;
         }
       }
     },
-    "current_feed_publication_time": "2019-03-12T21:18:25",
-    "options": {
-      "feed_lifetime_sec": 86400,
-      "minimum_feeds": 1,
-      "force_settlement_delay_sec": 86400,
-      "force_settlement_offset_percent": 0,
-      "maximum_force_settlement_volume": 2000,
-      "short_backing_asset": "1.3.0",
-      "extensions": []
+    &quot;current_feed_publication_time&quot;: &quot;2019-03-12T21:18:25&quot;,
+    &quot;options&quot;: {
+      &quot;feed_lifetime_sec&quot;: 86400,
+      &quot;minimum_feeds&quot;: 1,
+      &quot;force_settlement_delay_sec&quot;: 86400,
+      &quot;force_settlement_offset_percent&quot;: 0,
+      &quot;maximum_force_settlement_volume&quot;: 2000,
+      &quot;short_backing_asset&quot;: &quot;1.3.0&quot;,
+      &quot;extensions&quot;: []
     },
-    "force_settled_volume": 0,
-    "is_prediction_market": false,
-    "settlement_price": {
-      "base": {
-        "amount": 0,
-        "asset_id": "1.3.0"
+    &quot;force_settled_volume&quot;: 0,
+    &quot;is_prediction_market&quot;: false,
+    &quot;settlement_price&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 0,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       },
-      "quote": {
-        "amount": 0,
-        "asset_id": "1.3.0"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 0,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       }
     },
-    "settlement_fund": 0,
-    "asset_cer_updated": false,
-    "feed_cer_updated": false
+    &quot;settlement_fund&quot;: 0,
+    &quot;asset_cer_updated&quot;: false,
+    &quot;feed_cer_updated&quot;: false
   }
 ]
 
 unlocked &gt;&gt;&gt; get_object 2.3.1
 get_object 2.3.1
 [{
-    "id": "2.3.1",
-    "current_supply": 0,
-    "confidential_supply": 0,
-    "accumulated_fees": 0,
-    "fee_pool": 250000000
+    &quot;id&quot;: &quot;2.3.1&quot;,
+    &quot;current_supply&quot;: 0,
+    &quot;confidential_supply&quot;: 0,
+    &quot;accumulated_fees&quot;: 0,
+    &quot;fee_pool&quot;: 250000000
   }
 ]
-</code></pre>
+</code></pre></div>
 <h2 id="3-feed-publisher-publish-initial-feed">3. Feed Publisher: Publish initial feed</h2>
 <p>20 BTS per 1 USD, MCR 1.75, MSSR of 1.10 (mimicing mcr_bug_increase_before1270)</p>
 <p>= 20*10^5 satoshis of BTS per 1 * 10^4 satoshis of USD
 = 2000000 BTS-satoshis per 10000 USD-satoshis</p>
 <p>asset.cpp price_feed::is_for() insists that the prices have the asset as the base asset</p>
-<pre><code>publish_asset_feed publisher-a TESTUSDA {"settlement_price":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":2000000,"asset_id":"1.3.0"}},"maintenance_collateral_ratio":1750,"maximum_short_squeeze_ratio":1100,"core_exchange_rate":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":1900000,"asset_id":"1.3.0"}}} true
+<div class="language-text highlight"><pre><span></span><code>publish_asset_feed publisher-a TESTUSDA {&quot;settlement_price&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:2000000,&quot;asset_id&quot;:&quot;1.3.0&quot;}},&quot;maintenance_collateral_ratio&quot;:1750,&quot;maximum_short_squeeze_ratio&quot;:1100,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:1900000,&quot;asset_id&quot;:&quot;1.3.0&quot;}}} true
 {
-"ref_block_num": 23950,
-"ref_block_prefix": 437340707,
-"expiration": "2019-03-12T22:34:10",
-"operations": [[
+&quot;ref_block_num&quot;: 23950,
+&quot;ref_block_prefix&quot;: 437340707,
+&quot;expiration&quot;: &quot;2019-03-12T22:34:10&quot;,
+&quot;operations&quot;: [[
       19,{
-        "fee": {
-          "amount": 100000,
-          "asset_id": "1.3.0"
+        &quot;fee&quot;: {
+          &quot;amount&quot;: 100000,
+          &quot;asset_id&quot;: &quot;1.3.0&quot;
         },
-        "publisher": "1.2.22",
-        "asset_id": "1.3.1",
-        "feed": {
-          "settlement_price": {
-            "base": {
-              "amount": 10000,
-              "asset_id": "1.3.1"
+        &quot;publisher&quot;: &quot;1.2.22&quot;,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;,
+        &quot;feed&quot;: {
+          &quot;settlement_price&quot;: {
+            &quot;base&quot;: {
+              &quot;amount&quot;: 10000,
+              &quot;asset_id&quot;: &quot;1.3.1&quot;
             },
-            "quote": {
-              "amount": 2000000,
-              "asset_id": "1.3.0"
+            &quot;quote&quot;: {
+              &quot;amount&quot;: 2000000,
+              &quot;asset_id&quot;: &quot;1.3.0&quot;
             }
           },
-          "maintenance_collateral_ratio": 1750,
-          "maximum_short_squeeze_ratio": 1100,
-          "core_exchange_rate": {
-            "base": {
-              "amount": 10000,
-              "asset_id": "1.3.1"
+          &quot;maintenance_collateral_ratio&quot;: 1750,
+          &quot;maximum_short_squeeze_ratio&quot;: 1100,
+          &quot;core_exchange_rate&quot;: {
+            &quot;base&quot;: {
+              &quot;amount&quot;: 10000,
+              &quot;asset_id&quot;: &quot;1.3.1&quot;
             },
-            "quote": {
-              "amount": 1900000,
-              "asset_id": "1.3.0"
+            &quot;quote&quot;: {
+              &quot;amount&quot;: 1900000,
+              &quot;asset_id&quot;: &quot;1.3.0&quot;
             }
           }
         },
-        "extensions": []
+        &quot;extensions&quot;: []
       }
     ]
   ],
-  "extensions": [],
-  "signatures": [
-        "1f7190ea8b60a9c3c22d43917c426abbd4134a5b7a95e65353eaa2b46d57c452916e9f1db9ffe4f7b81506e5eb0b01b6f163061c49ba8b477027c201d1b10443a6"
+  &quot;extensions&quot;: [],
+  &quot;signatures&quot;: [
+        &quot;1f7190ea8b60a9c3c22d43917c426abbd4134a5b7a95e65353eaa2b46d57c452916e9f1db9ffe4f7b81506e5eb0b01b6f163061c49ba8b477027c201d1b10443a6&quot;
   ]
 }
 
 unlocked &gt;&gt;&gt; get_bitasset_data TESTUSDA
 get_bitasset_data TESTUSDA
 {
-"id": "2.4.0",
-"feeds": [[
-      "1.2.22",[
-        "2019-03-12T22:33:40",{
-          "settlement_price": {
-            "base": {
-              "amount": 10000,
-              "asset_id": "1.3.1"
+&quot;id&quot;: &quot;2.4.0&quot;,
+&quot;feeds&quot;: [[
+      &quot;1.2.22&quot;,[
+        &quot;2019-03-12T22:33:40&quot;,{
+          &quot;settlement_price&quot;: {
+            &quot;base&quot;: {
+              &quot;amount&quot;: 10000,
+              &quot;asset_id&quot;: &quot;1.3.1&quot;
             },
-            "quote": {
-              "amount": 2000000,
-              "asset_id": "1.3.0"
+            &quot;quote&quot;: {
+              &quot;amount&quot;: 2000000,
+              &quot;asset_id&quot;: &quot;1.3.0&quot;
             }
           },
-          "maintenance_collateral_ratio": 1750,
-          "maximum_short_squeeze_ratio": 1100,
-          "core_exchange_rate": {
-            "base": {
-              "amount": 10000,
-              "asset_id": "1.3.1"
+          &quot;maintenance_collateral_ratio&quot;: 1750,
+          &quot;maximum_short_squeeze_ratio&quot;: 1100,
+          &quot;core_exchange_rate&quot;: {
+            &quot;base&quot;: {
+              &quot;amount&quot;: 10000,
+              &quot;asset_id&quot;: &quot;1.3.1&quot;
             },
-            "quote": {
-              "amount": 1900000,
-              "asset_id": "1.3.0"
+            &quot;quote&quot;: {
+              &quot;amount&quot;: 1900000,
+              &quot;asset_id&quot;: &quot;1.3.0&quot;
             }
           }
         }
       ]
     ]
 ],
-  "current_feed": {
-    "settlement_price": {
-      "base": {
-        "amount": 10000,
-        "asset_id": "1.3.1"
+  &quot;current_feed&quot;: {
+    &quot;settlement_price&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 10000,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;
       },
-      "quote": {
-        "amount": 2000000,
-        "asset_id": "1.3.0"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 2000000,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       }
     },
-    "maintenance_collateral_ratio": 1750,
-    "maximum_short_squeeze_ratio": 1100,
-    "core_exchange_rate": {
-      "base": {
-        "amount": 10000,
-        "asset_id": "1.3.1"
+    &quot;maintenance_collateral_ratio&quot;: 1750,
+    &quot;maximum_short_squeeze_ratio&quot;: 1100,
+    &quot;core_exchange_rate&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 10000,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;
       },
-      "quote": {
-        "amount": 1900000,
-        "asset_id": "1.3.0"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 1900000,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       }
     }
   },
-  "current_feed_publication_time": "2019-03-12T22:33:40",
-  "options": {
-    "feed_lifetime_sec": 86400,
-    "minimum_feeds": 1,
-    "force_settlement_delay_sec": 86400,
-    "force_settlement_offset_percent": 0,
-    "maximum_force_settlement_volume": 2000,
-    "short_backing_asset": "1.3.0",
-    "extensions": []
+  &quot;current_feed_publication_time&quot;: &quot;2019-03-12T22:33:40&quot;,
+  &quot;options&quot;: {
+    &quot;feed_lifetime_sec&quot;: 86400,
+    &quot;minimum_feeds&quot;: 1,
+    &quot;force_settlement_delay_sec&quot;: 86400,
+    &quot;force_settlement_offset_percent&quot;: 0,
+    &quot;maximum_force_settlement_volume&quot;: 2000,
+    &quot;short_backing_asset&quot;: &quot;1.3.0&quot;,
+    &quot;extensions&quot;: []
   },
-  "force_settled_volume": 0,
-  "is_prediction_market": false,
-  "settlement_price": {
-    "base": {
-      "amount": 0,
-      "asset_id": "1.3.0"
+  &quot;force_settled_volume&quot;: 0,
+  &quot;is_prediction_market&quot;: false,
+  &quot;settlement_price&quot;: {
+    &quot;base&quot;: {
+      &quot;amount&quot;: 0,
+      &quot;asset_id&quot;: &quot;1.3.0&quot;
     },
-    "quote": {
-      "amount": 0,
-      "asset_id": "1.3.0"
+    &quot;quote&quot;: {
+      &quot;amount&quot;: 0,
+      &quot;asset_id&quot;: &quot;1.3.0&quot;
     }
   },
-  "settlement_fund": 0
+  &quot;settlement_fund&quot;: 0
 }
-</code></pre>
+</code></pre></div>
 <h2 id="4-create-borrowerstraders">4. Create Borrowers/Traders</h2>
 <p>Give some accounts enough collateral asset to borrow the asset into existence, and to place orders for the asset</p>
 <h3 id="trader-a">Trader A</h3>
 <h4 id="trader-a-create-keys">Trader A: Create keys</h4>
-<pre><code>unlocked &gt;&gt;&gt; suggest_brain_key 
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; suggest_brain_key 
 suggest_brain_key 
 {
-  "brain_priv_key": "...",
-  "wif_priv_key": "...",
-  "pub_key": "BTS7B52d2ToTbG7hLqtCXznCrHfB1uHj1tfi3RnPX39MXDVcQvaxY"
+  &quot;brain_priv_key&quot;: &quot;...&quot;,
+  &quot;wif_priv_key&quot;: &quot;...&quot;,
+  &quot;pub_key&quot;: &quot;BTS7B52d2ToTbG7hLqtCXznCrHfB1uHj1tfi3RnPX39MXDVcQvaxY&quot;
 }
 unlocked &gt;&gt;&gt; suggest_brain_key 
 suggest_brain_key 
 {
-  "brain_priv_key": "...",
-  "wif_priv_key": "...",
-  "pub_key": "BTS7ubVaqr9sCcEn7RRE714UriqMXWxouu5AteEcYzgBg2XDJrWL1"
+  &quot;brain_priv_key&quot;: &quot;...&quot;,
+  &quot;wif_priv_key&quot;: &quot;...&quot;,
+  &quot;pub_key&quot;: &quot;BTS7ubVaqr9sCcEn7RRE714UriqMXWxouu5AteEcYzgBg2XDJrWL1&quot;
 }
-</code></pre>
+</code></pre></div>
 <h4 id="registrar-register-trader-a">Registrar: Register Trader A</h4>
 <p>Register the account of trader-a</p>
-<pre><code>register_account trader-a BTS7B52d2ToTbG7hLqtCXznCrHfB1uHj1tfi3RnPX39MXDVcQvaxY BTS7ubVaqr9sCcEn7RRE714UriqMXWxouu5AteEcYzgBg2XDJrWL1 nathan nathan 0 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>register_account trader-a BTS7B52d2ToTbG7hLqtCXznCrHfB1uHj1tfi3RnPX39MXDVcQvaxY BTS7ubVaqr9sCcEn7RRE714UriqMXWxouu5AteEcYzgBg2XDJrWL1 nathan nathan 0 true
+</code></pre></div>
 <p>Transfer core tokens to trader-a</p>
-<pre><code>transfer nathan trader-a 10000 BTS "" true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>transfer nathan trader-a 10000 BTS &quot;&quot; true
+</code></pre></div>
 <h3 id="create-trader-b">Create Trader B</h3>
 <h4 id="trader-b-create-keys">Trader B: Create keys</h4>
-<pre><code>unlocked &gt;&gt;&gt; suggest_brain_key 
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; suggest_brain_key 
 suggest_brain_key 
 {
-  "brain_priv_key": "...",
-  "wif_priv_key": "...",
-  "pub_key": "BTS6fBqA4pGBXoorHQMcikspLwuZDRMdoXuZeUgsuRx6Ui6Rd3oVw"
+  &quot;brain_priv_key&quot;: &quot;...&quot;,
+  &quot;wif_priv_key&quot;: &quot;...&quot;,
+  &quot;pub_key&quot;: &quot;BTS6fBqA4pGBXoorHQMcikspLwuZDRMdoXuZeUgsuRx6Ui6Rd3oVw&quot;
 }
 
 unlocked &gt;&gt;&gt; suggest_brain_key 
 suggest_brain_key 
 {
-  "brain_priv_key": "...",
-  "wif_priv_key": "...",
-  "pub_key": "BTS5ez6PFW7gSnZmX2x18cX5swKL4S2TH3zPH51HUKXhVbNVD9UCk"
+  &quot;brain_priv_key&quot;: &quot;...&quot;,
+  &quot;wif_priv_key&quot;: &quot;...&quot;,
+  &quot;pub_key&quot;: &quot;BTS5ez6PFW7gSnZmX2x18cX5swKL4S2TH3zPH51HUKXhVbNVD9UCk&quot;
 }
-</code></pre>
+</code></pre></div>
 <h4 id="registrar-register-trader-b">Registrar: Register Trader B</h4>
 <p>Register the account of trader-b</p>
-<pre><code>register_account trader-b BTS6fBqA4pGBXoorHQMcikspLwuZDRMdoXuZeUgsuRx6Ui6Rd3oVw BTS5ez6PFW7gSnZmX2x18cX5swKL4S2TH3zPH51HUKXhVbNVD9UCk nathan nathan 0 true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>register_account trader-b BTS6fBqA4pGBXoorHQMcikspLwuZDRMdoXuZeUgsuRx6Ui6Rd3oVw BTS5ez6PFW7gSnZmX2x18cX5swKL4S2TH3zPH51HUKXhVbNVD9UCk nathan nathan 0 true
+</code></pre></div>
 <p>Transfer core tokens to trader-b</p>
-<pre><code>transfer nathan trader-b 5000 BTS "" true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>transfer nathan trader-b 5000 BTS &quot;&quot; true
+</code></pre></div>
 <h1 id="scenario-1-increased-mcr-should-initiate-a-margin-call">Scenario 1: Increased MCR should initiate a margin call</h1>
 <p>This scenario is similar to mcr_bug_increase_before1270 and mcr_bug_increase_after1270 where an increase of the MCR should make outstanding loans, which were initially well collateralized, to become undercollateralized and available for automatic sale of the collateral by the blockchain.</p>
 <h2 id="1-trader-a-trader-a-borrows-at-cr-of-18">1. Trader A: Trader A Borrows at CR of 1.8</h2>
 <p>Trader A will borrow at CR of 1.8 using 1000 BTS.  Given the published feed price of 20 BTS for 1 USD, 1000 BTS can purchase 27.78 USD --&gt; 1000000 BTS-satoshis for 277800 USD-satoshis.</p>
-<pre><code>unlocked &gt;&gt;&gt; borrow_asset trader-a 27.78 TESTUSDA 1000 true
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; borrow_asset trader-a 27.78 TESTUSDA 1000 true
 borrow_asset trader-a 27.78 TESTUSDA 1000 true
 1517481ms th_a       wallet.cpp:1975               borrow_asset         ] broadcast: true 
 {
-  "ref_block_num": 24514,
-  "ref_block_prefix": 3807515098,
-  "expiration": "2019-03-12T23:25:45",
-  "operations": [[
+  &quot;ref_block_num&quot;: 24514,
+  &quot;ref_block_prefix&quot;: 3807515098,
+  &quot;expiration&quot;: &quot;2019-03-12T23:25:45&quot;,
+  &quot;operations&quot;: [[
       3,{
-        "fee": {
-          "amount": 2000000,
-          "asset_id": "1.3.0"
+        &quot;fee&quot;: {
+          &quot;amount&quot;: 2000000,
+          &quot;asset_id&quot;: &quot;1.3.0&quot;
         },
-        "funding_account": "1.2.23",
-        "delta_collateral": {
-          "amount": 100000000,
-          "asset_id": "1.3.0"
+        &quot;funding_account&quot;: &quot;1.2.23&quot;,
+        &quot;delta_collateral&quot;: {
+          &quot;amount&quot;: 100000000,
+          &quot;asset_id&quot;: &quot;1.3.0&quot;
         },
-        "delta_debt": {
-          "amount": 277800,
-          "asset_id": "1.3.1"
+        &quot;delta_debt&quot;: {
+          &quot;amount&quot;: 277800,
+          &quot;asset_id&quot;: &quot;1.3.1&quot;
         },
-        "extensions": []
+        &quot;extensions&quot;: []
       }
     ]
   ],
-  "extensions": [],
-  "signatures": [
-"1f5cec798432e5297f1b26023506a77a1af6e6d7c8c63223adcb633d59e8f9e3706294f25b85a9e88b00ac10f2a18a91a3f312db56ce526a02e2f016a1a6c44593"
+  &quot;extensions&quot;: [],
+  &quot;signatures&quot;: [
+&quot;1f5cec798432e5297f1b26023506a77a1af6e6d7c8c63223adcb633d59e8f9e3706294f25b85a9e88b00ac10f2a18a91a3f312db56ce526a02e2f016a1a6c44593&quot;
   ]
 }
 
@@ -2999,38 +2977,38 @@ unlocked &gt;&gt;&gt; list_account_balances trader-a
 list_account_balances trader-a
 8980 BTS
 27.7800 TESTUSDA
-</code></pre>
+</code></pre></div>
 <h2 id="2-trader-b-trader-b-borrows-at-cr-of-20">2. Trader B: Trader B Borrows at CR of 2.0</h2>
 <p>Trader B will borrow at CR of 2.0 using 200 BTS.  Given the published feed price of 20 BTS for 1 USD, 200 BTS can purchase 5 USD --&gt; 1000000 BTS-satoshis for 277800 USD-satoshis.</p>
-<pre><code>unlocked &gt;&gt;&gt; borrow_asset trader-b 5.0 TESTUSDA 200 true
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; borrow_asset trader-b 5.0 TESTUSDA 200 true
 borrow_asset trader-b 5.0 TESTUSDA 200 true
 2139269ms th_a       wallet.cpp:1975               borrow_asset         ] broadcast: true 
 {
-  "ref_block_num": 24628,
-  "ref_block_prefix": 1706587157,
-  "expiration": "2019-03-12T23:36:05",
-  "operations": [[
+  &quot;ref_block_num&quot;: 24628,
+  &quot;ref_block_prefix&quot;: 1706587157,
+  &quot;expiration&quot;: &quot;2019-03-12T23:36:05&quot;,
+  &quot;operations&quot;: [[
   3,{
-    "fee": {
-      "amount": 2000000,
-      "asset_id": "1.3.0"
+    &quot;fee&quot;: {
+      &quot;amount&quot;: 2000000,
+      &quot;asset_id&quot;: &quot;1.3.0&quot;
     },
-    "funding_account": "1.2.24",
-    "delta_collateral": {
-      "amount": 20000000,
-      "asset_id": "1.3.0"
+    &quot;funding_account&quot;: &quot;1.2.24&quot;,
+    &quot;delta_collateral&quot;: {
+      &quot;amount&quot;: 20000000,
+      &quot;asset_id&quot;: &quot;1.3.0&quot;
     },
-    "delta_debt": {
-      "amount": 50000,
-      "asset_id": "1.3.1"
+    &quot;delta_debt&quot;: {
+      &quot;amount&quot;: 50000,
+      &quot;asset_id&quot;: &quot;1.3.1&quot;
     },
-    "extensions": []
+    &quot;extensions&quot;: []
   }
 ]
   ],
-  "extensions": [],
-"signatures": [
-"1f4ee4b7bfb12db78c4f11554c5234613d73aca4439e11023cd84a1398d1e492d4604712a60cce8afffaac937c12b014e4fc4db5d253da7acb3c5d80761c320328"
+  &quot;extensions&quot;: [],
+&quot;signatures&quot;: [
+&quot;1f4ee4b7bfb12db78c4f11554c5234613d73aca4439e11023cd84a1398d1e492d4604712a60cce8afffaac937c12b014e4fc4db5d253da7acb3c5d80761c320328&quot;
 ]
 }
 
@@ -3038,18 +3016,18 @@ unlocked &gt;&gt;&gt; list_account_balances trader-b
 list_account_balances trader-b
 4780 BTS
 5 TESTUSDA
-</code></pre>
+</code></pre></div>
 <h2 id="3-feed-publisher-changes-mcr-to-20"><div id="scenario1-step3" /> 3. Feed Publisher: Changes MCR to 2.0</h2>
 <p>The feed producer changes the MCR to 2.0 while not changing the price feed</p>
-<pre><code>publish_asset_feed publisher-a TESTUSDA {"settlement_price":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":2000000,"asset_id":"1.3.0"}},"maintenance_collateral_ratio":2000,"maximum_short_squeeze_ratio":1100,"core_exchange_rate":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":1900000,"asset_id":"1.3.0"}}} true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>publish_asset_feed publisher-a TESTUSDA {&quot;settlement_price&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:2000000,&quot;asset_id&quot;:&quot;1.3.0&quot;}},&quot;maintenance_collateral_ratio&quot;:2000,&quot;maximum_short_squeeze_ratio&quot;:1100,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:1900000,&quot;asset_id&quot;:&quot;1.3.0&quot;}}} true
+</code></pre></div>
 <p>No changes will be visible by inspecting the order book with <code>get_order_book</code></p>
 <p><strong>Before HF1270</strong>, no changes to the debt nor collateral of loans will be apparent by inspecting the loans with <code>get_call_orders</code>.</p>
 <p><strong>After post-HF1270</strong>, no changes to the debt nor collateral of loans will be apparent by inspecting the loans with <code>get_call_orders</code>.  The <code>call_price</code> field of every loan will always appear with an effective price of 1.0 after the hardfork.  The call_price of the bitasset is now left as a calculation to client software to calculate.  The call price of the bitasset denominated in the collateral token (e.g. bitCNY/BTS) should be calculated as</p>
 <p>call_price = (collateral &times; MCR) &div; debt</p>
 <h2 id="4-feed-publisher-reset-the-mcr-to-175">4. Feed Publisher: Reset the MCR to 1.75</h2>
-<pre><code>publish_asset_feed publisher-a TESTUSDA {"settlement_price":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":2000000,"asset_id":"1.3.0"}},"maintenance_collateral_ratio":1750,"maximum_short_squeeze_ratio":1100,"core_exchange_rate":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":1900000,"asset_id":"1.3.0"}}} true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>publish_asset_feed publisher-a TESTUSDA {&quot;settlement_price&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:2000000,&quot;asset_id&quot;:&quot;1.3.0&quot;}},&quot;maintenance_collateral_ratio&quot;:1750,&quot;maximum_short_squeeze_ratio&quot;:1100,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:1900000,&quot;asset_id&quot;:&quot;1.3.0&quot;}}} true
+</code></pre></div>
 <h1 id="scenario-2-triggered-margin-calls-should-disappear-because-of-mcr-decrease">Scenario 2: Triggered Margin Calls Should Disappear because of MCR decrease</h1>
 <h2 id="overview_1">Overview</h2>
 <p>Decreasing the MPA-price of the collateral is the same as increasing the Collateral-Price of the MPA</p>
@@ -3077,46 +3055,46 @@ list_account_balances trader-b
 = 30*10^5 satoshis of BTS per 1 * 10^4 satoshis of USD
 = 3000000 BTS-satoshis per 10000 USD-satoshis</p>
 <p>The CER will also be adjusted to 95% of the feed price: 28.5 BTS per 1 USD = 2850000 BTS-satoshis per 10000 USD-satoshis</p>
-<pre><code>publish_asset_feed publisher-a TESTUSDA {"settlement_price":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":3000000,"asset_id":"1.3.0"}},"maintenance_collateral_ratio":1750,"maximum_short_squeeze_ratio":1100,"core_exchange_rate":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":2850000,"asset_id":"1.3.0"}}} true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>publish_asset_feed publisher-a TESTUSDA {&quot;settlement_price&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:3000000,&quot;asset_id&quot;:&quot;1.3.0&quot;}},&quot;maintenance_collateral_ratio&quot;:1750,&quot;maximum_short_squeeze_ratio&quot;:1100,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:2850000,&quot;asset_id&quot;:&quot;1.3.0&quot;}}} true
+</code></pre></div>
 <p>Check the order book to see for order arising from the initiation of margin calls on the two loans</p>
-<pre><code>unlocked &gt;&gt;&gt; get_call_orders TESTUSDA 3
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; get_call_orders TESTUSDA 3
 get_call_orders TESTUSDA 3
 [{
-    "id": "1.8.0",
-    "borrower": "1.2.23",
-    "collateral": 100000000,
-    "debt": 277800,
-    "call_price": {
-      "base": {
-        "amount": 2000000,
-        "asset_id": "1.3.0"
+    &quot;id&quot;: &quot;1.8.0&quot;,
+    &quot;borrower&quot;: &quot;1.2.23&quot;,
+    &quot;collateral&quot;: 100000000,
+    &quot;debt&quot;: 277800,
+    &quot;call_price&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 2000000,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       },
-      "quote": {
-        "amount": 9723,
-        "asset_id": "1.3.1"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 9723,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;
       }
     }
   },{
-    "id": "1.8.1",
-    "borrower": "1.2.24",
-    "collateral": 20000000,
-    "debt": 50000,
-    "call_price": {
-      "base": {
-        "amount": 1600,
-        "asset_id": "1.3.0"
+    &quot;id&quot;: &quot;1.8.1&quot;,
+    &quot;borrower&quot;: &quot;1.2.24&quot;,
+    &quot;collateral&quot;: 20000000,
+    &quot;debt&quot;: 50000,
+    &quot;call_price&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 1600,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       },
-      "quote": {
-        "amount": 7,
-        "asset_id": "1.3.1"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 7,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;
       }
     }
   }
 ]
-</code></pre>
+</code></pre></div>
 <p><strong>Before</strong></p>
-<pre><code>list_account_balances trader-a
+<div class="language-text highlight"><pre><span></span><code>list_account_balances trader-a
 8980 BTS
 27.7800 TESTUSDA
 
@@ -3125,9 +3103,9 @@ unlocked &gt;&gt;&gt; list_account_balances trader-b
 list_account_balances trader-b
 4780 BTS
 5 TESTUSDA
-</code></pre>
+</code></pre></div>
 <p><strong>After</strong></p>
-<pre><code>list_account_balances trader-a
+<div class="language-text highlight"><pre><span></span><code>list_account_balances trader-a
 8980 BTS
 27.7800 TESTUSDA
 
@@ -3139,49 +3117,49 @@ list_account_balances trader-b
 
 get_call_orders TESTUSDA 5
 [{
-    "id": "1.8.0",
-    "borrower": "1.2.23",
-    "collateral": 83500000,
-    "debt": 227800,
-    "call_price": {
-      "base": {
-        "amount": 1670000,
-        "asset_id": "1.3.0"
+    &quot;id&quot;: &quot;1.8.0&quot;,
+    &quot;borrower&quot;: &quot;1.2.23&quot;,
+    &quot;collateral&quot;: 83500000,
+    &quot;debt&quot;: 227800,
+    &quot;call_price&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 1670000,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       },
-      "quote": {
-        "amount": 7973,
-        "asset_id": "1.3.1"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 7973,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;
       }
     }
   },{
-    "id": "1.8.1",
-    "borrower": "1.2.24",
-    "collateral": 20000000,
-    "debt": 50000,
-    "call_price": {
-      "base": {
-        "amount": 1600,
-        "asset_id": "1.3.0"
+    &quot;id&quot;: &quot;1.8.1&quot;,
+    &quot;borrower&quot;: &quot;1.2.24&quot;,
+    &quot;collateral&quot;: 20000000,
+    &quot;debt&quot;: 50000,
+    &quot;call_price&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 1600,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       },
-      "quote": {
-        "amount": 7,
-        "asset_id": "1.3.1"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 7,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;
       }
     }
-</code></pre>
+</code></pre></div>
 <p>The order had a fee of 5 BTS</p>
-<pre><code>2019-03-13T12:54:05 fill_order_operation trader-b fee: 0 BTS 
+<div class="language-text highlight"><pre><span></span><code>2019-03-13T12:54:05 fill_order_operation trader-b fee: 0 BTS 
 2019-03-13T12:54:05 limit_order_create_operation trader-b fee: 5 BTS   result: 1.7.0
 
 
 100000000 BTS-satoshis - 83500000 BTS-satoshis = 1000.00000 - 835.00000 BTS = 165 BTS --&gt; 33 BTS per 1 USD which is the median published price of 30 BTS per 1 USD times the MSSR of 1.1
-</code></pre>
+</code></pre></div>
 <p>The sale completed and is not sitting on the book.  Trader B sold his MPA (5 TESTUSDA) in exchange for 160 BTS + 5 BTS (fee).</p>
 <h2 id="2-feed-publisher-change-the-mcr-ratio">2. Feed Publisher: Change the MCR ratio</h2>
-<pre><code>publish_asset_feed publisher-a TESTUSDA {"settlement_price":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":3000000,"asset_id":"1.3.0"}},"maintenance_collateral_ratio":1100,"maximum_short_squeeze_ratio":1100,"core_exchange_rate":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":2850000,"asset_id":"1.3.0"}}} true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>publish_asset_feed publisher-a TESTUSDA {&quot;settlement_price&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:3000000,&quot;asset_id&quot;:&quot;1.3.0&quot;}},&quot;maintenance_collateral_ratio&quot;:1100,&quot;maximum_short_squeeze_ratio&quot;:1100,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:2850000,&quot;asset_id&quot;:&quot;1.3.0&quot;}}} true
+</code></pre></div>
 <h2 id="3-trader-b-place-an-order"><div id="scenario2-step3" /> 3. Trader B: Place an order</h2>
-<pre><code>unlocked &gt;&gt;&gt; list_account_balances trader-a
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; list_account_balances trader-a
 list_account_balances trader-a
 8980 BTS
 27.7800 TESTUSDA
@@ -3190,70 +3168,70 @@ unlocked &gt;&gt;&gt; list_account_balances trader-b
 list_account_balances trader-b
 4720 BTS
 5 TESTUSDA
-</code></pre>
+</code></pre></div>
 <p>Place a 25-second fill-or-kill order to sell 5 USD at the current feed price of 30 BTS for 1 USD</p>
-<pre><code>sell_asset trader-b 5 TESTUSDA 150 BTS 25 true false
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>sell_asset trader-b 5 TESTUSDA 150 BTS 25 true false
+</code></pre></div>
 <p>Checking the account history of trader-b</p>
-<pre><code>get_account_history trader-b 5
+<div class="language-text highlight"><pre><span></span><code>get_account_history trader-b 5
 2019-03-13T12:54:05 fill_order_operation trader-b fee: 0 BTS 
 2019-03-13T12:54:05 limit_order_create_operation trader-b fee: 5 BTS   result: 1.7.0
-</code></pre>
+</code></pre></div>
 <p>The limit order, which had a fee of 5 BTS, was filled immediately.  Yet this alone does not indicate how much of the order was filled.</p>
 <p>Check the balances after the sell order is placed.</p>
-<pre><code>unlocked &gt;&gt;&gt; list_account_balances trader-a                      
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; list_account_balances trader-a                      
 list_account_balances trader-a
 8980 BTS
 27.7800 TESTUSDA
-</code></pre>
+</code></pre></div>
 <p>There is no change to the liquid balance of <code>trader-a</code>.</p>
-<pre><code>unlocked &gt;&gt;&gt; list_account_balances trader-b
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; list_account_balances trader-b
 list_account_balances trader-b
 4880 BTS
 0 TESTUSDA
-</code></pre>
+</code></pre></div>
 <p>The account of trader-b has 0 TESTUSDA and his balance of BTS has increased to 4880.  The net increase of BTS is 160 after accounting for the order fee fee of 5 BTS.  The sale was for 165 BTS for 5 TESTUSDA which is equivalent to 33 BTS for 1 TESTUSDA.  That 33 BTS per 1 TESTUSDA is the MSSR price which equals the median feed price of 30 BTS per 1 TESTUSDA multiplied by the MSSR of 1.1.  The 165 BTS were withdrawn not from the liquid account of tester-a but instead from tester-a's loan collateral which was previously at 835 BTS and backing 22.78 TESTUSDA.  Its equivalent is 83500000 BTS-satoshis and 227800 TESTUSDA-satoshis.  After the margin call is partly filled by matching with the limit order that was introduced by tester-b, that loan collateral is reduced to 670 BTS and with the outstanding debt reduced to 17.78 TESTUSDA.  See  Loan 1.8.0 in the output of <code>get_call_orders</code>.</p>
-<pre><code>unlocked &gt;&gt;&gt; get_call_orders TESTUSDA 5                          
+<div class="language-text highlight"><pre><span></span><code>unlocked &gt;&gt;&gt; get_call_orders TESTUSDA 5                          
 get_call_orders TESTUSDA 5
 [{
-    "id": "1.8.1",
-    "borrower": "1.2.24",
-    "collateral": 40000000,
-    "debt": 100000,
-    "call_price": {
-    "base": {
-        "amount": 1600,
-        "asset_id": "1.3.0"
+    &quot;id&quot;: &quot;1.8.1&quot;,
+    &quot;borrower&quot;: &quot;1.2.24&quot;,
+    &quot;collateral&quot;: 40000000,
+    &quot;debt&quot;: 100000,
+    &quot;call_price&quot;: {
+    &quot;base&quot;: {
+        &quot;amount&quot;: 1600,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
     },
-    "quote": {
-        "amount": 7,
-        "asset_id": "1.3.1"
+    &quot;quote&quot;: {
+        &quot;amount&quot;: 7,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;
     }
     }
 },{
-    "id": "1.8.0",
-    "borrower": "1.2.23",
-    "collateral": 67000000,
-    "debt": 177800,
-    "call_price": {
-      "base": {
-        "amount": 3350000,
-        "asset_id": "1.3.0"
+    &quot;id&quot;: &quot;1.8.0&quot;,
+    &quot;borrower&quot;: &quot;1.2.23&quot;,
+    &quot;collateral&quot;: 67000000,
+    &quot;debt&quot;: 177800,
+    &quot;call_price&quot;: {
+      &quot;base&quot;: {
+        &quot;amount&quot;: 3350000,
+        &quot;asset_id&quot;: &quot;1.3.0&quot;
       },
-      "quote": {
-        "amount": 9779,
-        "asset_id": "1.3.1"
+      &quot;quote&quot;: {
+        &quot;amount&quot;: 9779,
+        &quot;asset_id&quot;: &quot;1.3.1&quot;
       }
     }
   }
 ]
-</code></pre>
+</code></pre></div>
 <p><strong>Under pre-HF1270 code</strong>, the order by trader-b was matched against an open margin call order against trader-a's loan even though it should not have been margin called because the MCR had been reduced and should have cancelled the margin call for that loan.  If it had been cancelled it would not have been matched against trader-b's limit order.</p>
 <p><strong>Under post-HF1270 code</strong>, the order by trader-b should not be matched against trader-a's loan because trader-a's loan should no longer be callable.</p>
 <h2 id="4-feed-publisher-reset-the-mcr-to-175-and-the-feed-price-to-the-initial-feed-price">4. Feed Publisher: Reset the MCR to 1.75 and the feed price to the initial feed price</h2>
 <p>Before exiting this scenario, clean up the state of the blockchain by re-publishing the initial feed price and MCR values.</p>
-<pre><code> publish_asset_feed publisher-a TESTUSDA {"settlement_price":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":2000000,"asset_id":"1.3.0"}},"maintenance_collateral_ratio":1750,"maximum_short_squeeze_ratio":1100,"core_exchange_rate":{"base":{"amount":10000,"asset_id":"1.3.1"},"quote":{"amount":1900000,"asset_id":"1.3.0"}}} true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code> publish_asset_feed publisher-a TESTUSDA {&quot;settlement_price&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:2000000,&quot;asset_id&quot;:&quot;1.3.0&quot;}},&quot;maintenance_collateral_ratio&quot;:1750,&quot;maximum_short_squeeze_ratio&quot;:1100,&quot;core_exchange_rate&quot;:{&quot;base&quot;:{&quot;amount&quot;:10000,&quot;asset_id&quot;:&quot;1.3.1&quot;},&quot;quote&quot;:{&quot;amount&quot;:1900000,&quot;asset_id&quot;:&quot;1.3.0&quot;}}} true
+</code></pre></div>
 <p>Note that the loans by tester-a and tester-b are still outstanding.  Cleaning them up will require the paying back of their loans.</p>
 
 
@@ -3301,7 +3279,7 @@ get_call_orders TESTUSDA 5
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
