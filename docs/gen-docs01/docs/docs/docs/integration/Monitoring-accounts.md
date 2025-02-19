@@ -2,7 +2,7 @@ It is recommended that the reader has went through the following introductions:
 
 * [[Introduction to Blockchain Objects|Blockchain-Objects]]
 * [[Introduction to Wallet/Node daemons|Wallet_Full-Nodes_Witness_Nodes]]
-* [[Graphene API|API]]
+* [Graphene API](../architecture/API.md)
 * [[Websocket Subscriptions|Websocket Subscriptions]]
 
 

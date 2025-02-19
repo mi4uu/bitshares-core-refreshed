@@ -1,1 +1,0 @@
-The document is relocated at [[Building-on-macOS]].

@@ -4,7 +4,7 @@ plugins:
   - search
   - autorefs:
       resolve_closest: true
-  - autolinks 
+  - ezlinks
   - awesome-nav
 
 theme:
