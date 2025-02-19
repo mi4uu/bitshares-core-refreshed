@@ -4688,7 +4688,7 @@
 
 <p><a href="/">Home</a> / <a href="/doc.bitshares/">doc.bitshares</a> / <a href="/doc.bitshares/user_guide/">user_guide</a> / <a href="/doc.bitshares/user_guide/accounts/">accounts</a> / bts_permissions</p>
 <h1 id="permissions-acc-permission">Permissions {#acc-permission}</h1>
-<p>::: contents
+<p>::: {.contents}
 Table of Contents
 :::</p>
 <hr />
@@ -4706,14 +4706,12 @@ called <em>authorities</em> together with a so called <em>threshold</em> that ha
 be exceeded in order for a transaction to be valid.</p>
 <ul>
 <li><strong>Authorities</strong> :In BitShares an authority consists of one or many
-    entities that authorize an action, such as transfers or trades.<ul>
+  entities that authorize an action, such as transfers or trades.</li>
 <li>An authority consists of one or several pairs of an account name
     with a weight.</li>
-<li>In order to obtain a valid transaction, the sum of the weights
-    from signing the parties has to exceed the threshold as defined
-    in the permissions.</li>
-</ul>
-</li>
+<li>In order to obtain a valid transaction, the sum of the weights from
+    signing the parties has to exceed the threshold as defined in the
+    permissions.</li>
 <li><strong>Hierarchical Corporate Accounts</strong></li>
 </ul>
 <p>BitShares designs permissions around people, rather than around
@@ -4725,7 +4723,6 @@ than ever. Multi-user control is the single biggest contributor to
 security, and, when used properly, it can virtually eliminate the risk
 of theft due to hacking.</p>
 <p>Read more about <code>bts-multi-sign</code>{.interpreted-text role="ref"}</p>
-<p>| </p>
 <h2 id="permissions-in-wallet-settings">Permissions - in Wallet Settings</h2>
 <p>The Permission page locates in a side menu.</p>
 <ul>
@@ -4748,26 +4745,22 @@ width="700px"}</p>
 <p>Cloud Wallet</p>
 <p>:   You can use this feature, if you want to change your <strong>Cloud
     wallet</strong> password.</p>
-<p>| </p>
 <hr />
 <h1 id="public-key-and-private-key">Public Key and Private Key</h1>
 <h2 id="where-are-publicprivate-keys-where-pub-prv-keys">Where are public/private keys? {#where-pub-prv-keys}</h2>
 <p>In this section, we will show you how to find your private key.</p>
-<p>::: attentions
+<p>::: {.attentions}
 Please check no one around you to keep secret your private keys!
 :::</p>
 <p>You can find each <strong>Public key</strong> and <strong>Private key</strong> on the Permissions
 page.</p>
 <p><img alt="Permissions Keys" src="../permissions-active3.png" />{.align-center
 width="700px"}</p>
-<p>| </p>
 <h2 id="how-to-find-each-private-key">How to find each private key</h2>
-<p>:::: note
-::: title
-Note
-:::</p>
-<p>If you cannot click nor find a link, <em>login</em> to your wallet.
-::::</p>
+<blockquote>
+<p>[!NOTE]
+If you cannot click nor find a link, <em>login</em> to your wallet.</p>
+</blockquote>
 <ol>
 <li><strong>Active and Owner -- Private keys</strong></li>
 </ol>
@@ -4776,9 +4769,9 @@ Note
 <li>Go to [<strong>Settings</strong>] - [<strong>Permissions</strong>]</li>
 <li>Click a private key number or a key image.</li>
 <li>A Private key viewer form opens. You will find a Public Key and a
-    [<strong>SHOW</strong>] button like below.</li>
-<li>Click the [<strong>SHOW</strong>] button. You will find your Private key
-    under the Public key.</li>
+  [<strong>SHOW</strong>] button like below.</li>
+<li>Click the [<strong>SHOW</strong>] button. You will find your Private key under
+  the Public key.</li>
 </ul>
 </blockquote>
 <p><img alt="Permissions Keys" src="../permissions-active4b.png" />{.align-center
@@ -4788,24 +4781,22 @@ width="500px"}</p>
 </ol>
 <blockquote>
 <ul>
-<li>Go to [<strong>Settings</strong>] - [<strong>Permissions</strong>] - [<strong>Memo key</strong>]
-    tab</li>
+<li>Go to [<strong>Settings</strong>] - [<strong>Permissions</strong>] - [<strong>Memo key</strong>] tab</li>
 <li>Click a key image. (It seems a private key number does not have a
-    link.)</li>
+  link.)</li>
 <li>A Private key viewer form opens. You will find a Public Key and a
-    [<strong>SHOW</strong>] button like below.</li>
-<li>Click the [<strong>SHOW</strong>] button. You will find your Private key
-    under the Public key.</li>
+  [<strong>SHOW</strong>] button like below.</li>
+<li>Click the [<strong>SHOW</strong>] button. You will find your Private key under
+  the Public key.</li>
 </ul>
 </blockquote>
-<p>| </p>
 <h2 id="how-to-change-cloud-wallet-password-howto-change-cloud-wallet-pwd">How to change Cloud wallet password {#howto-change-cloud-wallet-pwd}</h2>
 <p>In this section, we will show you how to change your Cloud Wallet
 password.</p>
 <blockquote>
 <ul>
 <li>Go to [<strong>Settings</strong>] - [<strong>Permissions</strong>] - [<strong>Cloud Wallet
-    key</strong>] tab</li>
+  key</strong>] tab</li>
 </ul>
 </blockquote>
 <p>If you want to change your <strong>Cloud Wallet</strong> password, use this page. You
@@ -4820,13 +4811,12 @@ will change your password and your keys during this process.</p>
 so if you have a lot of those we recommend saving the old memo private
 key.</p>
 <ul>
-<li>Go to [<strong>Settings</strong>] - [<strong>Permissions</strong>] - [<strong>Memo key</strong>]
-    tab</li>
+<li>Go to [<strong>Settings</strong>] - [<strong>Permissions</strong>] - [<strong>Memo key</strong>] tab</li>
 <li>Click a key image.</li>
 <li>A Private key viewer form opens. You will find a Public Key and a
-    [<strong>SHOW</strong>] button like below.</li>
+  [<strong>SHOW</strong>] button like below.</li>
 <li>Click the [<strong>SHOW</strong>] button. Log in to your wallet if necessary.
-    You will find your Private key under the Public key.</li>
+  You will find your Private key under the Public key.</li>
 <li>Write down and save the Private key.</li>
 </ul>
 </blockquote>
@@ -4863,14 +4853,14 @@ the keys corresponding to the old password.</p>
 <ul>
 <li>Log out, and log back in with <strong>your new password</strong>.</li>
 <li>Go to [<strong>Settings</strong>] - [<strong>Permissions</strong>] - [<strong>Active key</strong>]
-    tab</li>
+  tab</li>
 </ul>
 <p>You will see the two public keys. The light blue colored key is your
 new public key that is belongs to your new password. You want to keep
 only this key!</p>
 <ul>
 <li>(#6)Click [<strong>REMOVE</strong>] next to the plain colored key. In this
-    case, remove \"P5J3maQ7kCDxaUfbBCRKwTwWnPwCp6h5sZU6va7C9sYW6\".</li>
+  case, remove \"P5J3maQ7kCDxaUfbBCRKwTwWnPwCp6h5sZU6va7C9sYW6\".</li>
 <li>Now go to the Owner tab and do the same for the old owner key.</li>
 <li>(#7)Click [<strong>SAVE</strong>] -- <em>Do not forget to save!</em></li>
 <li>Confirm the Transaction</li>

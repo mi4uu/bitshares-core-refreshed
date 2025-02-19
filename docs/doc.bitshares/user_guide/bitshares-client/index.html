@@ -4866,23 +4866,22 @@
 
 <p><a href="/">Home</a> / <a href="/doc.bitshares/">doc.bitshares</a> / <a href="/doc.bitshares/user_guide/">user_guide</a> / bitshares-client</p>
 <h1 id="bitshares-client-and-login-mode">BitShares Client and Login Mode</h1>
-<p>::: contents
+<p>::: {.contents}
 Table of Contents
 :::</p>
 <hr />
-<p>| </p>
 <h2 id="bitshares-client">BitShares Client</h2>
 <p>You have sole control of your accounts and funds and they are created on
 your computer (within the light-client or the browser web-client).</p>
 <ul>
-<li>If you created a <strong>Clout wallet</strong>, you will be able to access to
-    your wallet by using your credentials (username and password) from
-    any browser or computers. You do not need to worry about a backup
-    files. (<em>You do not have the functionality.</em>)</li>
+<li>If you created a <strong>Clout wallet</strong>, you will be able to access to your
+  wallet by using your credentials (username and password) from any
+  browser or computers. You do not need to worry about a backup files.
+  (<em>You do not have the functionality.</em>)</li>
 <li>If you created a <strong>Local wallet</strong>, you will be able to access your
-    account <strong>only</strong> on the computer that you have used to register and
-    create your account. If you have created a backup file, you can
-    import it and restore your wallet somewhere else.</li>
+  account <strong>only</strong> on the computer that you have used to register and
+  create your account. If you have created a backup file, you can import
+  it and restore your wallet somewhere else.</li>
 </ul>
 <h3 id="light-client">Light Client</h3>
 <p>Download client files and install BitShares Wallet to your computer.</p>
@@ -4891,7 +4890,7 @@ wallet.</strong></p>
 <ul>
 <li><a href="https://bitshares.org/download">Download the Official Light Client</a></li>
 <li><a href="https://github.com/bitshares/bitshares-ui/releases">BitShares-UI -- Latest
-    Release</a></li>
+  Release</a></li>
 </ul>
 <p><strong>BitShares-UI</strong>: This is a web application and runs in a browser. A
 connection is established to a trusted node in the network that serves
@@ -4904,7 +4903,6 @@ partners.</p>
 <li>(more...)</li>
 </ul>
 <hr />
-<p>| </p>
 <h2 id="login-forms">Login Forms</h2>
 <h3 id="cloud-wallet-login">Cloud Wallet Login</h3>
 <p>The cloud wallet only allows for a single account to be accessed at a
@@ -4928,59 +4926,53 @@ login a Local wallet. The <strong>Key file(.bin)</strong> should be your wallet
 backup file name. The backup file contains all your keys information.</p>
 <p><img alt="bitshares" src="../../images/login-local2.png" />{.align-center width="400px"}</p>
 <hr />
-<p>| </p>
 <h2 id="summary">Summary</h2>
 <p>The difference between a Cloud wallet and a Local Wallet.</p>
 <h3 id="cloud-wallet">Cloud Wallet</h3>
 <ul>
-<li>BitShare UI wallet will create a <strong>Cloud wallet</strong> as a default
-    wallet. (i.e., [CREATE ACCOUNT])</li>
-<li>The Cloud wallet allows you to login from any web browser at any
-    time to gain access to your account by using your credentials
-    (username and password).</li>
-<li>The Cloud wallet only allows for a single account to be accessed at
-    a time.</li>
+<li>BitShare UI wallet will create a <strong>Cloud wallet</strong> as a default wallet.
+  (i.e., [CREATE ACCOUNT])</li>
+<li>The Cloud wallet allows you to login from any web browser at any time
+  to gain access to your account by using your credentials (username and
+  password).</li>
+<li>The Cloud wallet only allows for a single account to be accessed at a
+  time.</li>
 <li>If you have a Cloud wallet, you don\'t need to worry about a backup.
-    (<em>You don\'t have the functionality in the Cloud wallet</em>).</li>
+  (<em>You don\'t have the functionality in the Cloud wallet</em>).</li>
 <li><strong>You can switch the INTERFACE by using the [Settings] -
-    [General] - [Login Mode], however your account won\'t switch,
-    only the *interface* switches.</strong></li>
-<li><strong>Even you import Private keys (was in the Cloud wallet) to the
-    Local wallet, you do not have a brain key to associate with the
-    Private keys you imported. Therefor, a brainkey restore won\'t find
-    those Private keys. (In this case, no meaning to do a brainkey
-    backup and restore.)</strong></li>
+  [General] - [Login Mode], however your account won\'t switch, only
+  the *interface* switches.</strong></li>
+<li><strong>Even you import Private keys (was in the Cloud wallet) to the Local
+  wallet, you do not have a brain key to associate with the Private keys
+  you imported. Therefor, a brainkey restore won\'t find those Private
+  keys. (In this case, no meaning to do a brainkey backup and
+  restore.)</strong></li>
 <li><strong>The Cloud wallet has no brainkey.</strong> The password is basically the
-    equivalent of the brainkey, but it\'s only used for that one
-    account.</li>
+  equivalent of the brainkey, but it\'s only used for that one account.</li>
 </ul>
 <h3 id="local-wallet">Local Wallet</h3>
 <ul>
 <li><strong>If you know you want to have a Local wallet, use an [advanced
-    form] link on the Welcome to BitShares form and create a backup
-    file. This is the only way to create a Local wallet.</strong></li>
+  form] link on the Welcome to BitShares form and create a backup file.
+  This is the only way to create a Local wallet.</strong></li>
 <li>The Local wallet creates a correct pair of keys (a brainkey and
-    private keys) and save the information to your browser.</li>
+  private keys) and save the information to your browser.</li>
 <li>The Local wallet creates a database with in your browser. This means
-    that you can only access your funds from the same computer and web
-    browser that you have used to register and create your account. If
-    you attempt to access your local wallet from any other computer, or
-    any other browser, it will fail unless you actively import your
-    backup file from the original browser backup file.</li>
-<li>You have to create a backup files to manage the Cloud wallet
-    account.</li>
+  that you can only access your funds from the same computer and web
+  browser that you have used to register and create your account. If you
+  attempt to access your local wallet from any other computer, or any
+  other browser, it will fail unless you actively import your backup
+  file from the original browser backup file.</li>
+<li>You have to create a backup files to manage the Cloud wallet account.</li>
 <li>The Cloud wallet has Backup options. Go to [Settings] - [Backup]
-    to find.<ul>
-<li><strong>Create local wallet backup</strong> : create a Binary File (.bin)
-    backup.</li>
-<li><strong>Create brainkey backup</strong> : give you long random phrases. You
-    need to write down and keep it in a safe place.</li>
-</ul>
-</li>
+  to find.</li>
+<li><strong>Create local wallet backup</strong> : create a Binary File (.bin) backup.</li>
+<li><strong>Create brainkey backup</strong> : give you long random phrases. You need
+    to write down and keep it in a safe place.</li>
 <li>The backup files can be used to move your local wallet to different
-    computers or different browsers. In order to restore your local
-    wallet you will need the backup file and your password! Therefor,
-    it's extremely important you create a backup and keep a safe place.</li>
+  computers or different browsers. In order to restore your local wallet
+  you will need the backup file and your password! Therefor, it's
+  extremely important you create a backup and keep a safe place.</li>
 </ul>
 <h3 id="settings-login-mode">Settings - LOGIN MODE</h3>
 <p><strong>Users often misunderstand about this feature.</strong></p>
@@ -4992,70 +4984,70 @@ to another.</p>
 <p>&gt; <strong>This feature only switch the *interface*! Not your account
 self.</strong></p>
 <hr />
-<p>| </p>
 <h2 id="frequently-asked-questions">Frequently asked Questions</h2>
 <ul>
 <li>
-<p><strong>Can I switch (by changing the Wallet Mode or importing private
-    keys) my Cloud wallet to a Local wallet?</strong></p>
-<ul>
-<li>No. Your account won\'t switch, only the <em>interface</em> switches.</li>
-</ul>
+<p><strong>Can I switch (by changing the Wallet Mode or importing private keys)
+  my Cloud wallet to a Local wallet?</strong></p>
+</li>
+<li>
+<p>No. Your account won\'t switch, only the <em>interface</em> switches.</p>
 </li>
 <li>
 <p><strong>I have a Cloud wallet. Can I have a Local wallet?</strong></p>
-<ul>
-<li>Yes. But you will have to create new account for the Local
-    wallet.</li>
-</ul>
+</li>
+<li>
+<p>Yes. But you will have to create new account for the Local wallet.</p>
 </li>
 <li>
 <p><strong>How can I move my funds from a Cloud wallet to a Local wallet?</strong></p>
-<ul>
-<li>We mentioned before. You have to create new account for the
-    Local wallet. You can create the Local wallet by using an
-    [<strong>advanced form</strong>] link on Welcome to BitShares form. After
-    you created new Local wallet, send your funds from your old
-    account (Cloud wallet) to new account (Local wallet). And create
-    a backup!!</li>
-</ul>
 </li>
 <li>
-<p><strong>I have a Cloud wallet. Do I have to save my private keys
-    information somewhere?</strong></p>
-<ul>
-<li>Not necessary. Because the Could wallet always do it for extra
-    security. Also lets you login without exposing your owner key,
-    you can login using only the active key.</li>
-</ul>
+<p>We mentioned before. You have to create new account for the Local
+    wallet. You can create the Local wallet by using an [<strong>advanced
+    form</strong>] link on Welcome to BitShares form. After you created new
+    Local wallet, send your funds from your old account (Cloud wallet)
+    to new account (Local wallet). And create a backup!!</p>
+</li>
+<li>
+<p><strong>I have a Cloud wallet. Do I have to save my private keys information
+  somewhere?</strong></p>
+</li>
+<li>
+<p>Not necessary. Because the Could wallet always do it for extra
+    security. Also lets you login without exposing your owner key, you
+    can login using only the active key.</p>
 </li>
 <li>
 <p><strong>Can I change a Cloud wallet password?</strong></p>
-<ul>
-<li>Yes.</li>
-<li>Go to <a href="https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password">How to change a password if using a Cloud
+</li>
+<li>
+<p>Yes.</p>
+</li>
+<li>
+<p>Go to <a href="https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password">How to change a password if using a Cloud
     Wallet</a>
-    : from BitShares UI wiki</li>
-</ul>
+    : from BitShares UI wiki</p>
 </li>
 <li>
 <p><strong>Can I change a Local wallet password?</strong></p>
-<ul>
-<li>Yes.</li>
-</ul>
-<p>- Go to [<strong>Settings</strong>] - [<strong>Password</strong>] - Change your password.
-Use this page .</p>
 </li>
 <li>
-<p><strong>There is [Create Account] in a Side navigation menu. Can I
-    create and add new account in the same wallet I logged in?</strong></p>
-<ul>
-<li>Yes. However, the account you logged in must have a LifeTime
-    Membership (LTM) stats.</li>
-</ul>
+<p>Yes.</p>
 </li>
 </ul>
-<p>| </p>
+<p>- Go to [<strong>Settings</strong>] - [<strong>Password</strong>] - Change your password.
+  Use this page .</p>
+<ul>
+<li>
+<p><strong>There is [Create Account] in a Side navigation menu. Can I create
+  and add new account in the same wallet I logged in?</strong></p>
+</li>
+<li>
+<p>Yes. However, the account you logged in must have a LifeTime
+    Membership (LTM) stats.</p>
+</li>
+</ul>
 
 
 

@@ -4769,7 +4769,7 @@
 <p>In the BitShares Blockchain Network, every operation is assigned an
 individual fee. Each operation has different transaction fee. You can
 check each operation fee schedule if you are interested.</p>
-<p>::: contents
+<p>::: {.contents}
 Table of Contents
 :::</p>
 <hr />
@@ -4788,7 +4788,7 @@ require you to input a necessary information in the memo section. Be
 sure if you put each information in a correct place before you confirm
 your transaction!</p>
 <ul>
-<li><strong>Fee Types</strong><ul>
+<li><strong>Fee Types</strong></li>
 <li>Regular Transaction Fee</li>
 <li>Price per KByte Transaction Size</li>
 <li>Symbols with 3 Characters (Create Asset Operation)</li>
@@ -4797,17 +4797,12 @@ your transaction!</p>
 <li>Basic Fee (Create Account)</li>
 <li>Fee for Premium Names (Create Account)</li>
 <li>(Lifetime Membership Fee)</li>
-</ul>
-</li>
-<li><strong>Fee Schedules</strong><ul>
+<li><strong>Fee Schedules</strong></li>
 <li>You can find <a href="https://wallet.bitshares.org/#/explorer/fees">each Operation Fee List
     here.</a></li>
 </ul>
-</li>
-</ul>
 <p><strong>Example: Fee Schedule View</strong></p>
 <p><img alt="fee schedule" src="../fee_sched_example.png" />{.align-center width="650px"}</p>
-<p>| </p>
 <h3 id="paying-fees">Paying Fees</h3>
 <p>Each time you perform an activity (i.e., send fund, place an order,
 etc), you pay a small amount of fee. Any transaction fee can be paid by
@@ -4820,7 +4815,6 @@ for the transaction.</p>
 of the fee will be payed back to your account. However, this cashback
 will be in BTS (CORE token) and not in the asset you have originally
 paid the fee in.</p>
-<p>| </p>
 <h2 id="standard-fee-and-lifetime-membership-fee">Standard Fee and Lifetime Membership Fee</h2>
 <p>Your transaction fees depend on your membership status. If you are a
 Basic Member, you pay \"Standard Fee\". And if you are a Lifetime
@@ -4830,15 +4824,12 @@ Member, you pay \"Lifetime Member Fee\".</p>
 <p>For many cases it may make sense to upgrade the account even though you
 don't want to participate in marketing at all simply for the reasons to
 get a cashback of 80% of the fees you pay for your own transactions!</p>
-<p>:::: note
-::: title
-Note
-:::</p>
-<p>Technically, the fees that you pay stay the same, but a part of the fees
-is refunded in the form of a <strong>vesting balance</strong>. Once the fees have
-vested you can withdraw them.
-::::</p>
-<p>| </p>
+<blockquote>
+<p>[!NOTE]
+Technically, the fees that you pay stay the same, but a part of the
+fees is refunded in the form of a <strong>vesting balance</strong>. Once the fees
+have vested you can withdraw them.</p>
+</blockquote>
 <h2 id="asset-creation-fee">Asset Creation Fee</h2>
 <p>We talked about \"Transfer Operation\" Fees. Some of the transfer fees
 depend on the length of the memo. Similarly, an <strong>Asset Creation Fee</strong>
@@ -4864,20 +4855,17 @@ fee pool will step in to convert the asset into BTS at the rate that the
 issuer has specified. This means that issuers may charge a premium every
 time users opt to use their asset to pay network fees rather than paying
 them directly with BTS.</p>
-<p>:::: note
-::: title
-Note
-:::</p>
-<p>The purpose of the fee pool is <strong>to provide a convenience to users that
-would like to use an asset without concerning themselves with the
+<blockquote>
+<p>[!NOTE]
+The purpose of the fee pool is <strong>to provide a convenience to users
+that would like to use an asset without concerning themselves with the
 details of acquiring BTS</strong>. Anyone may fund the fee pool, but only the
 issuer may specify the exchange rate. This exchange rate is
-automatically set to the settlement price if the asset is collateralized
-by BTS.
-::::</p>
+automatically set to the settlement price if the asset is
+collateralized by BTS.</p>
+</blockquote>
 <p>If the assets fee pool is funded, the fees can be payed in the native
 UIA instead of BTS.</p>
-<p>| </p>
 
 
 

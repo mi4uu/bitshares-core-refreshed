@@ -4747,15 +4747,13 @@ asset is 1-to-1.</p>
 <p>::: {.contents local=""}
 Table of Contents
 :::</p>
-<p>:::: note
-::: title
-Note
-:::</p>
-<p>In the following, we denote a <em>positive outcome</em> as a predication market
-that resolves to [true]{.title-ref} (i.e. a price feed of
+<blockquote>
+<p>[!NOTE]
+In the following, we denote a <em>positive outcome</em> as a predication
+market that resolves to [true]{.title-ref} (i.e. a price feed of
 [1]{.title-ref}) and a <em>negative outcome</em> to resolve to
-[false]{.title-ref} (i.e., a price feed of [0]{.title-ref})
-::::</p>
+[false]{.title-ref} (i.e., a price feed of [0]{.title-ref})</p>
+</blockquote>
 <p>If the bet resolves to [true]{.title-ref} (i.e. a price feed of
 [1]{.title-ref}), then the PM-asset can be settled release the
 collateral to the holder of the asset.</p>
@@ -4791,12 +4789,17 @@ his borrow position and taking out the collateral:</p>
 <ul>
 <li>
 <p><strong>Settlement in the CLI wallet</strong>: :</p>
-<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; settle_asset &lt;account&gt; &lt;amount&gt; &lt;symbol&gt; True
-</code></pre></div>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>settle_asset <account> <amount> <symbol> True</p>
+</blockquote>
+</blockquote>
+</blockquote>
 </li>
 <li>
-<p><strong>Borrowing in the GUI wallet</strong>: A settlement button is available
-    when hovering the asset in your account\'s overview.</p>
+<p><strong>Borrowing in the GUI wallet</strong>: A settlement button is available when
+  hovering the asset in your account\'s overview.</p>
 </li>
 </ul>
 <h3 id="betting-for-a-negative-outcome">Betting for a Negative Outcome</h3>
@@ -4809,13 +4812,11 @@ collateral at a 1:1 ratio.</p>
 a negative outcome with [100k BTS]{.title-ref}, you can borrow [100k
 PM.PRESIDENT2016]{.title-ref} by paying [100k BTS]{.title-ref} to the
 network.</p>
-<p>:::: note
-::: title
-Note
-:::</p>
-<p>Since PM-Assets can technically be pegged by any other asset, you may
-need to pay USD (or anything else) instead of BTS.
-::::</p>
+<blockquote>
+<p>[!NOTE]
+Since PM-Assets can technically be pegged by any other asset, you may
+need to pay USD (or anything else) instead of BTS.</p>
+</blockquote>
 <p>Once you borrowed the token, you can sell them at any price between
 [0]{.title-ref} and [1]{.title-ref}. If you thing the probability of a
 negative outcome is [20%]{.title-ref}, you should consider selling your
@@ -4833,25 +4834,27 @@ corresponding percentage of the collateral.</p>
 <ul>
 <li>
 <p><strong>Borrowing in the CLI wallet</strong>: :</p>
-<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; borrow_asset &lt;account&gt; &lt;amount&gt; &lt;PMsymbol&gt; &lt;1:1-amount&gt; true
-</code></pre></div>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>borrow_asset <account> <amount> <PMsymbol> &lt;1:1-amount&gt; true</p>
+</blockquote>
+</blockquote>
+</blockquote>
 </li>
 <li>
 <p><strong>Borrowing in the GUI wallet</strong>: Of course, the asset can also be
-    borrowed in the <strong>GUI/web wallet</strong> by using the [Borrow
-    x]{.title-ref} button in the market.</p>
-<p><img alt="Borrow PM-Asset" src="../pm-borrow-btn.png" />{.align-center width="400px"}</p>
+  borrowed in the <strong>GUI/web wallet</strong> by using the [Borrow x]{.title-ref}
+  button in the market.</p>
 </li>
 </ul>
+<p><img alt="Borrow PM-Asset" src="../pm-borrow-btn.png" />{.align-center width="400px"}</p>
 <h2 id="resolving">Resolving</h2>
 <p>A price feed needs to be published for the prediction market by the
 issuer or feed producer. It is essentially a global settlement which
 will set the parameters of the asset such that the holders of the asset
 can settle at the outcome of the bet (0, or 1). The details are shown in
 the guide pm-close-manual (ref: <em>docs.bitshares.dev</em> material)</p>
-<p>| </p>
-<p>| </p>
-<p>| </p>
 
 
 

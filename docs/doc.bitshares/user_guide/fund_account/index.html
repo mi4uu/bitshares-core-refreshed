@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fund-send-transactions" class="md-skip">
+        <a href="#fund-send-transactions-fund-send-transactions" class="md-skip">
           Skip to content
         </a>
       
@@ -4889,21 +4889,20 @@
 
 
 <p><a href="/">Home</a> / <a href="/doc.bitshares/">doc.bitshares</a> / <a href="/doc.bitshares/user_guide/">user_guide</a> / fund_account</p>
-<h1 id="fund-send-transactions">Fund (Send) &amp; Transactions</h1>
-<p>::: contents
+<h1 id="fund-send-transactions-fund-send-transactions">Fund (Send) &amp; Transactions {#fund-send-transactions}</h1>
+<p>::: {.contents}
 Table of Contents
 :::</p>
 <hr />
-<p>| </p>
 <h2 id="fund-your-account">Fund your Account</h2>
 <h3 id="two-options-to-fund-your-account">Two Options to Fund your Account</h3>
 <ul>
-<li><strong>Send (Transfer)</strong>: This is for between BitShares account holders
-    to send funds. On the BitShares Blockchain , people never need to
-    deal with <em>addresses</em> or <em>public keys</em>. BitShares account holders
-    can use their <em>account names</em> for communication.</li>
-<li><strong>Deposits</strong>: BitShares account holders can use one of our partners
-    to move over existing funds into your BitShares account.</li>
+<li><strong>Send (Transfer)</strong>: This is for between BitShares account holders to
+  send funds. On the BitShares Blockchain , people never need to deal
+  with <em>addresses</em> or <em>public keys</em>. BitShares account holders can use
+  their <em>account names</em> for communication.</li>
+<li><strong>Deposits</strong>: BitShares account holders can use one of our partners to
+  move over existing funds into your BitShares account.</li>
 </ul>
 <h2 id="send-transfer">Send (Transfer)</h2>
 <p>Currently, there are two forms to send funds. One is <strong>Send</strong> on the top
@@ -4912,35 +4911,83 @@ same.</p>
 <p>First, we want to list what information on the Send form. Next, you can
 check each item in the Send form images.</p>
 <h3 id="send-forms-items-and-descriptions">Send Forms items and descriptions</h3>
-<p>+---+------------------+------------------------------------------------+
-|   | &gt; Item           | &gt; Description                                  |
-+===+==================+================================================+
-| 1 | Sender\'s        | This would be your BitShares Account Name      |
-|   | BitShares        | (e.g. <em>bitshares-users</em>)                       |
-|   | Account name     |                                                |
-+---+------------------+------------------------------------------------+
-| 2 | TO               | Another BitShares Account name whom you want   |
-|   |                  | to send funds                                  |
-+---+------------------+------------------------------------------------+
-| 3 | QUANTITY         | -   This is a dropdown list and will show all  |
-|   |                  |     assets you have in the wallet account.     |
-+---+------------------+------------------------------------------------+
-|   |                  | -   Type in a sending amount - AVAILABLE: a    |
-|   |                  |     selected asset available total amounts     |
-+---+------------------+------------------------------------------------+
-| 4 | MEMO/MESSAGE     | (option)                                       |
-+---+------------------+------------------------------------------------+
-| 5 | FEE              | Transaction fee you pay                        |
-+---+------------------+------------------------------------------------+
-| 6 | SEND             | (button)                                       |
-+---+------------------+------------------------------------------------+
-| 7 | PASSWORD         | If you have not logged in to the wallet, you   |
-|   |                  | will be asked to login                         |
-+---+------------------+------------------------------------------------+
-| 8 | LOGIN            | (button)                                       |
-+---+------------------+------------------------------------------------+
-| 9 | CONFIRM          | (button) last check before you send founds     |
-+---+------------------+------------------------------------------------+</p>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 27%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><blockquote>
+<p>Item</p>
+</blockquote></th>
+<th><blockquote>
+<p>Description</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Sender's BitShares Account name</td>
+<td>This would be your BitShares Account Name (e.g.
+<em>bitshares-users</em>)</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>TO</td>
+<td>Another BitShares Account name whom you want to send funds</td>
+</tr>
+<tr class="odd">
+<td rowspan="2">3</td>
+<td rowspan="2">QUANTITY</td>
+<td><ul>
+<li>This is a dropdown list and will show all assets you have in the
+wallet account.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li>Type in a sending amount - AVAILABLE: a selected asset available
+total amounts</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>MEMO/MESSAGE</td>
+<td>(option)</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>FEE</td>
+<td>Transaction fee you pay</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>SEND</td>
+<td>(button)</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>PASSWORD</td>
+<td>If you have not logged in to the wallet, you will be asked to
+login</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>LOGIN</td>
+<td>(button)</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>CONFIRM</td>
+<td>(button) last check before you send founds</td>
+</tr>
+</tbody>
+</table>
+
 <h3 id="form-send">Form: Send</h3>
 <p>A send (transfer) operation moves funds from user <code>A</code> to user <code>B</code>. In
 contrast to most other blockchain-based financial networks, we do
@@ -4954,20 +5001,17 @@ contrast to most other blockchain-based financial networks, we do
 <li>memo (optional)</li>
 </ul>
 <p>A transfer may contain a memo with arbitrary text.</p>
-<p>:::: note
-::: title
-Note
-:::</p>
-<p>The <code>memo</code> is <strong>encrypted</strong> by default can only be decrypted by the
-participants of the transfer! The transfer fee depends on the length of
-the memo!
-::::</p>
+<blockquote>
+<p>[!NOTE]
+The <code>memo</code> is <strong>encrypted</strong> by default can only be decrypted by the
+participants of the transfer! The transfer fee depends on the length
+of the memo!</p>
+</blockquote>
 <p><img alt="bitshares" src="../../images/Send-1.png" />{.align-center width="650px"}</p>
 <p>&gt; After click [SEND], you need to login (if it\'s not yet) and
 [CONFIRM] the Transaction.</p>
 <p><strong>Form: Send - Transfer details (legacy form)</strong></p>
 <p><img alt="bitshares" src="../../images/send-transfer2.png" />{.align-center width="650px"}</p>
-<p>| </p>
 <h2 id="deposit">Deposit</h2>
 <p>Currently, there are two forms to deposit funds. One is <strong>Deposit</strong> and
 another one is <strong>Deposit (Beta)</strong>. Both locate on the side menu.</p>
@@ -4976,38 +5020,70 @@ services which you can choose from. Each Transfer service has own
 instruction and available coins to handle. When you select a Transfer
 Service, please follow the instruction. In the next section, we will
 show you several examples and patterns to compare the deposit forms.</p>
-<p>:::: note
-::: title
-Note
-:::</p>
-<p>On the BitShares blockchain, people never need to deal with <em>addresses</em>
-or <em>public keys</em> but can instead use account names. Your account name
-becomes the <em>email address</em> for your funds.
-::::</p>
+<blockquote>
+<p>[!NOTE]
+On the BitShares blockchain, people never need to deal with
+<em>addresses</em> or <em>public keys</em> but can instead use account names. Your
+account name becomes the <em>email address</em> for your funds.</p>
+</blockquote>
 <h3 id="deposit-forms-items-and-descriptions">Deposit Forms Items and Descriptions</h3>
-<p>+---+--------------+----------------------------------------------------+
-|   | &gt; Item       | &gt; Description                                      |
-+===+==============+====================================================+
-| 1 | Transfer     | A dropdown list - Select a transfer service        |
-|   | Service      |                                                    |
-+---+--------------+----------------------------------------------------+
-| 2 | Service Type | A service you use                                  |
-+---+--------------+----------------------------------------------------+
-| 3 | Coin Name    | A dropdown list - Select the coin name you want to |
-|   |              | deposit                                            |
-+---+--------------+----------------------------------------------------+
-| 4 | Deposit /    | Select <em>Deposit</em> tab                               |
-|   | Withdraw     |                                                    |
-|   | tabs         |                                                    |
-+---+--------------+----------------------------------------------------+
-| 5 | Address      | Your deposit address to transfer funds.            |
-+---+--------------+----------------------------------------------------+
-| 6 | Memo         | Your Memo information to transfer funds. (<em>Not all |
-|   |              | coins\' transfers use `Memo`</em>)                   |
-+---+--------------+----------------------------------------------------+
-| 7 | BitShares    | This would be your BitShares Account name          |
-|   | Account Name |                                                    |
-+---+--------------+----------------------------------------------------+</p>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 22%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><blockquote>
+<p>Item</p>
+</blockquote></th>
+<th><blockquote>
+<p>Description</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Transfer Service</td>
+<td>A dropdown list - Select a transfer service</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Service Type</td>
+<td>A service you use</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Coin Name</td>
+<td>A dropdown list - Select the coin name you want to deposit</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Deposit / Withdraw tabs</td>
+<td>Select <em>Deposit</em> tab</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Address</td>
+<td>Your deposit address to transfer funds.</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Memo</td>
+<td>Your Memo information to transfer funds. (<em>Not all coins'
+transfers use `Memo`</em>)</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>BitShares Account Name</td>
+<td>This would be your BitShares Account name</td>
+</tr>
+</tbody>
+</table>
+
 <blockquote>
 <p>If you cannot select an Asset on the Deposit(Beta) form, try to login
 to your wallet first.</p>
@@ -5065,7 +5141,6 @@ the first proposal. This multiple-proposal scheme can be used to acquire
 approval for an arbitrarily deep authority tree.</p>
 <p><img alt="Proposed Transactions" src="../proposed-transactions.png" />{.align-center
 width="890px"}</p>
-<p>| </p>
 <p>Note that each account in the figure can carry a <strong>different weight</strong>.
 An example of how to setup your permissions accordingly is given in
 <code>account-permissions</code>{.interpreted-text role="ref"}.</p>
@@ -5077,8 +5152,6 @@ signatures</a>.</p>
 <p>When privacy is important no account is ever used twice and it is
 impossible for any third party to identify how money is moving through
 blockchain analysis alone.</p>
-<p>| </p>
-<p>| </p>
 
 
 
