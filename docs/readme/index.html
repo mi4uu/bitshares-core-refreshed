@@ -9,22 +9,22 @@
       
       
       
-        <link rel="prev" href="../threading/Threading/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../architecture/">
+        <link rel="next" href="../programs/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
     
     
       
-        <title>API - Bitshares Core refreshed Docs</title>
+        <title>Readme - Bitshares Core refreshed Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
       
       
 
@@ -43,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#node-api" class="md-skip">
+        <a href="#bitshares-core-mod" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Bitshares Core refreshed Docs" class="md-header__button md-logo" aria-label="Bitshares Core refreshed Docs" data-md-component="logo">
+    <a href=".." title="Bitshares Core refreshed Docs" class="md-header__button md-logo" aria-label="Bitshares Core refreshed Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              API
+              Readme
             
           </span>
         </div>
@@ -185,7 +185,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Bitshares Core refreshed Docs" class="md-nav__button md-logo" aria-label="Bitshares Core refreshed Docs" data-md-component="logo">
+    <a href=".." title="Bitshares Core refreshed Docs" class="md-nav__button md-logo" aria-label="Bitshares Core refreshed Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -215,7 +215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -233,10 +233,31 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../readme/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Readme
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -246,6 +267,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      CHANGES:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-and-stopping-node-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running and Stopping Node Software
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-command-line-wallet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Command-Line Wallet
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-built-in-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Built-In APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Built-In APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallet-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wallet API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-restrictable-node-api-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing restrictable node API sets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -257,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../programs/" class="md-nav__link">
+      <a href="../programs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -278,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libs/" class="md-nav__link">
+      <a href="../libs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -335,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/BUILD_UBUNTU/" class="md-nav__link">
+      <a href="../docs/build/BUILD_UBUNTU/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -357,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/BUILD_WIN32/" class="md-nav__link">
+      <a href="../docs/build/BUILD_WIN32/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -379,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/BUILD_WinDevEnv/" class="md-nav__link">
+      <a href="../docs/build/BUILD_WinDevEnv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -401,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/Building-on-macOS/" class="md-nav__link">
+      <a href="../docs/build/Building-on-macOS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -423,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/Building-on-OS-X/" class="md-nav__link">
+      <a href="../docs/build/Building-on-OS-X/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -449,19 +601,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -476,7 +626,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Architecture
@@ -526,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../spv/SPV/" class="md-nav__link">
+      <a href="../docs/architecture/spv/SPV/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -592,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../threading/Threading/" class="md-nav__link">
+      <a href="../docs/architecture/threading/Threading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -619,19 +769,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
         
           
           <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
@@ -646,7 +794,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             Architecture
@@ -657,29 +805,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    API
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../docs/architecture/API/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -689,51 +818,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#node-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Node API
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wallet-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Wallet API
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#accessing-restrictable-node-apis" class="md-nav__link">
-    <span class="md-ellipsis">
-      Accessing restrictable node API's
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -746,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../docs/architecture/architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -768,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blockchain-Objects/" class="md-nav__link">
+      <a href="../docs/architecture/Blockchain-Objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -790,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chain-locked-tx/" class="md-nav__link">
+      <a href="../docs/architecture/chain-locked-tx/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -812,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../P2P-network-protocol/" class="md-nav__link">
+      <a href="../docs/architecture/P2P-network-protocol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../StealthTransfers/" class="md-nav__link">
+      <a href="../docs/architecture/StealthTransfers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -907,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/Delayed-Node/" class="md-nav__link">
+      <a href="../docs/nodes/Delayed-Node/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -929,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/distributed-access-to-the-bitshares-decentralised-exchange/" class="md-nav__link">
+      <a href="../docs/nodes/distributed-access-to-the-bitshares-decentralised-exchange/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -951,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/Guide-to-setup-personal-nodes/" class="md-nav__link">
+      <a href="../docs/nodes/Guide-to-setup-personal-nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -973,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/HaProxy-and-BitShares/" class="md-nav__link">
+      <a href="../docs/nodes/HaProxy-and-BitShares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -995,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/Manage-your-nodes-by-using-gnu-screen/" class="md-nav__link">
+      <a href="../docs/nodes/Manage-your-nodes-by-using-gnu-screen/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1017,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/Memory-Reduction-for-Nodes/" class="md-nav__link">
+      <a href="../docs/nodes/Memory-Reduction-for-Nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1039,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nodes/Node-Initialization/" class="md-nav__link">
+      <a href="../docs/nodes/Node-Initialization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1104,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/CLI-Wallet-Cookbook/" class="md-nav__link">
+      <a href="../docs/wallet/CLI-Wallet-Cookbook/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1126,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/HTLC/" class="md-nav__link">
+      <a href="../docs/wallet/HTLC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1148,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Import-account-to-cli-wallet/" class="md-nav__link">
+      <a href="../docs/wallet/Import-account-to-cli-wallet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Import-BitShares-0.9.3c-wallets-into-BitShares-2.0-CLI-wallet/" class="md-nav__link">
+      <a href="../docs/wallet/Import-BitShares-0.9.3c-wallets-into-BitShares-2.0-CLI-wallet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1192,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Plasma---Wallet-API/" class="md-nav__link">
+      <a href="../docs/wallet/Plasma---Wallet-API/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1214,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Wallet-2-Factor-Authentication-Protocol/" class="md-nav__link">
+      <a href="../docs/wallet/Wallet-2-Factor-Authentication-Protocol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1236,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Wallet-Argument-Format/" class="md-nav__link">
+      <a href="../docs/wallet/Wallet-Argument-Format/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1258,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Wallet-Backup/" class="md-nav__link">
+      <a href="../docs/wallet/Wallet-Backup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1280,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Wallet-Login-Protocol/" class="md-nav__link">
+      <a href="../docs/wallet/Wallet-Login-Protocol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1302,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Wallet-Merchant-Protocol/" class="md-nav__link">
+      <a href="../docs/wallet/Wallet-Merchant-Protocol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1324,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Wallet-Server-Architecture/" class="md-nav__link">
+      <a href="../docs/wallet/Wallet-Server-Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1346,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Wallet_Full-Nodes_Witness_Nodes/" class="md-nav__link">
+      <a href="../docs/wallet/Wallet_Full-Nodes_Witness_Nodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1368,7 +1452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wallet/Web-and-light-wallets-release-procedure/" class="md-nav__link">
+      <a href="../docs/wallet/Web-and-light-wallets-release-procedure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1433,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../witnesses/How-To-become-an-active-witness-in-BitShares-2.0/" class="md-nav__link">
+      <a href="../docs/witnesses/How-To-become-an-active-witness-in-BitShares-2.0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1455,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../witnesses/How-to-setup-your-witness-for-test-net-%28Ubuntu-14.04-LTS-64-bit%29/" class="md-nav__link">
+      <a href="../docs/witnesses/How-to-setup-your-witness-for-test-net-%28Ubuntu-14.04-LTS-64-bit%29/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1477,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../witnesses/witness-rng/" class="md-nav__link">
+      <a href="../docs/witnesses/witness-rng/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1499,7 +1583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../witnesses/witness-scheduler/" class="md-nav__link">
+      <a href="../docs/witnesses/witness-scheduler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1564,7 +1648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/DEV_README/" class="md-nav__link">
+      <a href="../docs/dev/DEV_README/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1586,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/design-issues/" class="md-nav__link">
+      <a href="../docs/dev/design-issues/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1608,7 +1692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/dpos-slot-tickets/" class="md-nav__link">
+      <a href="../docs/dev/dpos-slot-tickets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1630,7 +1714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/quick-tips-for-devs/" class="md-nav__link">
+      <a href="../docs/dev/quick-tips-for-devs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1695,7 +1779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/Testing/" class="md-nav__link">
+      <a href="../docs/testing/Testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1717,7 +1801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/Testing-BSIP40%3A-Custom-Authorities/" class="md-nav__link">
+      <a href="../docs/testing/Testing-BSIP40%3A-Custom-Authorities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1739,7 +1823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/Testing-BSIP81%3A-Simple-Maker-Taker-Fees/" class="md-nav__link">
+      <a href="../docs/testing/Testing-BSIP81%3A-Simple-Maker-Taker-Fees/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1761,7 +1845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/Testing-HF-1268%3A-Market-Fee-Sharing/" class="md-nav__link">
+      <a href="../docs/testing/Testing-HF-1268%3A-Market-Fee-Sharing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1783,7 +1867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../testing/Testing-HF-1270%3A-Effects-of-MCR-Change-on-Call-Price/" class="md-nav__link">
+      <a href="../docs/testing/Testing-HF-1270%3A-Effects-of-MCR-Change-on-Call-Price/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1848,7 +1932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integration/Monitoring-accounts/" class="md-nav__link">
+      <a href="../docs/integration/Monitoring-accounts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1913,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/Contribution-Guide/" class="md-nav__link">
+      <a href="../docs/contributing/Contribution-Guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1935,7 +2019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/Git-Flow/" class="md-nav__link">
+      <a href="../docs/contributing/Git-Flow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1957,7 +2041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/Style-Guide/" class="md-nav__link">
+      <a href="../docs/contributing/Style-Guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2022,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../other/blacklizard-app-finarch/" class="md-nav__link">
+      <a href="../docs/other/blacklizard-app-finarch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2044,7 +2128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../other/blacklizard-app-ideas/" class="md-nav__link">
+      <a href="../docs/other/blacklizard-app-ideas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2109,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/Creating-a-new-FBA/" class="md-nav__link">
+      <a href="../docs/to_sort/Creating-a-new-FBA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2131,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/Custom-Authority-Precautions/" class="md-nav__link">
+      <a href="../docs/to_sort/Custom-Authority-Precautions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2153,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/Custom-Authority-Templates/" class="md-nav__link">
+      <a href="../docs/to_sort/Custom-Authority-Templates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2175,7 +2259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/ElasticSearch-Plugin/" class="md-nav__link">
+      <a href="../docs/to_sort/ElasticSearch-Plugin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2197,7 +2281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/egenesis/" class="md-nav__link">
+      <a href="../docs/to_sort/egenesis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2219,7 +2303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/Howto-import-an-existing-delegate-as-witness-in-BitShares-2.0/" class="md-nav__link">
+      <a href="../docs/to_sort/Howto-import-an-existing-delegate-as-witness-in-BitShares-2.0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2241,7 +2325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/Howto-propose-committee-actions/" class="md-nav__link">
+      <a href="../docs/to_sort/Howto-propose-committee-actions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2263,7 +2347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/private-testnet/" class="md-nav__link">
+      <a href="../docs/to_sort/private-testnet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2285,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/public-testnet/" class="md-nav__link">
+      <a href="../docs/to_sort/public-testnet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2307,7 +2391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/README-debug_node/" class="md-nav__link">
+      <a href="../docs/to_sort/README-debug_node/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2329,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/resolvable-bitassets/" class="md-nav__link">
+      <a href="../docs/to_sort/resolvable-bitassets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2351,7 +2435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/Scripting-websockets-easy/" class="md-nav__link">
+      <a href="../docs/to_sort/Scripting-websockets-easy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2373,7 +2457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/theoretical-theories/" class="md-nav__link">
+      <a href="../docs/to_sort/theoretical-theories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2395,7 +2479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../to_sort/Websocket-Subscriptions/" class="md-nav__link">
+      <a href="../docs/to_sort/Websocket-Subscriptions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2434,6 +2518,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2442,6 +2528,67 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      CHANGES:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-and-stopping-node-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running and Stopping Node Software
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-command-line-wallet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Command-Line Wallet
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-built-in-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Built-In APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Built-In APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#node-api" class="md-nav__link">
     <span class="md-ellipsis">
       Node API
@@ -2449,8 +2596,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#wallet-api" class="md-nav__link">
     <span class="md-ellipsis">
       Wallet API
@@ -2458,11 +2605,34 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#accessing-restrictable-node-apis" class="md-nav__link">
+  <a href="#accessing-restrictable-node-api-sets" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing restrictable node API's
+      Accessing restrictable node API sets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
     </span>
   </a>
   
@@ -2487,53 +2657,203 @@
   
 
 
-  <h1>API</h1>
-
-<h3 id="node-api">Node API</h3>
-<p>The <code>witness_node</code> software provides several different API's, known as <em>node API</em>.</p>
-<p>To provide the API's, the node need to be started with RPC connection enabled, which can be done by starting the node with the <code>--rpc-endpoint</code> parameter, E.G.</p>
+<h1 id="bitshares-core-mod">BitShares Core Mod</h1>
+<p>FORK OF: <a href="https://github.com/mi4uu/bitshares-core-refreshed">BitShares Core</a> is the BitShares blockchain node software and command-line wallet software.</p>
+<h3 id="changes">CHANGES:</h3>
+<ul>
+<li>updated to work on current ubuntu based system.</li>
+<li>updated to build / develop / debug using dev-containers. (https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)</li>
+</ul>
+<p>For UI reference wallet software (browser-based wallet and desktop wallet) visit <a href="https://github.com/bitshares/bitshares-ui">BitShares UI</a>.</p>
+<p>Visit <a href="https://bitshares.github.io/">BitShares.github.io</a> to learn about BitShares and join the community at <a href="https://bitsharestalk.org/">BitSharesTalk.org</a>.</p>
+<p>Information for developers can be found in the <a href="https://github.com/mi4uu/bitshares-core-refreshed/wiki">Wiki</a> and the <a href="https://dev.bitshares.works/">BitShares Developer Portal</a>. Users interested in how BitShares works can go to the <a href="https://how.bitshares.works/">BitShares Documentation</a> site.</p>
+<p>Visit <a href="https://github.com/bitshares/awesome-bitshares">Awesome BitShares</a> to find more resources and links E.G. chat groups, client libraries and extended APIs.</p>
+<ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#support">Support</a></li>
+<li><a href="#using-built-in-apis">Using Built-In APIs</a></li>
+<li><a href="#accessing-restrictable-node-api-sets">Accessing restrictable node API sets</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Branch</th>
+<th>Build Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>master</code></td>
+<td><a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;macOS&quot;+branch%3Amaster"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/macOS/badge.svg?branch=master" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Ubuntu+Debug&quot;+branch%3Amaster"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Ubuntu%20Debug/badge.svg?branch=master" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Ubuntu+Release&quot;+branch%3Amaster"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Ubuntu%20Release/badge.svg?branch=master" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Windows+MinGW64&quot;+branch%3Amaster"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Windows%20MinGW64/badge.svg?branch=master" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A%22Docker%22+branch%3Amaster"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Docker/badge.svg?branch=master" /></a></td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td><a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;macOS&quot;+branch%3Adevelop"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/macOS/badge.svg?branch=develop" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Ubuntu+Debug&quot;+branch%3Adevelop"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Ubuntu%20Debug/badge.svg?branch=develop" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Ubuntu+Release&quot;+branch%3Adevelop"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Ubuntu%20Release/badge.svg?branch=develop" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Windows+MinGW64&quot;+branch%3Adevelop"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Windows%20MinGW64/badge.svg?branch=develop" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A%22Docker%22+branch%3Adevelop"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Docker/badge.svg?branch=develop" /></a></td>
+</tr>
+<tr>
+<td><code>hardfork</code></td>
+<td><a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;macOS&quot;+branch%3Ahardfork"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/macOS/badge.svg?branch=hardfork" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Ubuntu+Debug&quot;+branch%3Ahardfork"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Ubuntu%20Debug/badge.svg?branch=hardfork" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Ubuntu+Release&quot;+branch%3Ahardfork"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Ubuntu%20Release/badge.svg?branch=hardfork" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Windows+MinGW64&quot;+branch%3Ahardfork"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Windows%20MinGW64/badge.svg?branch=hardfork" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A%22Docker%22+branch%3Ahardfork"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Docker/badge.svg?branch=hardfork" /></a></td>
+</tr>
+<tr>
+<td><code>testnet</code></td>
+<td><a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;macOS&quot;+branch%3Atestnet"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/macOS/badge.svg?branch=testnet" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Ubuntu+Debug&quot;+branch%3Atestnet"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Ubuntu%20Debug/badge.svg?branch=testnet" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Ubuntu+Release&quot;+branch%3Atestnet"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Ubuntu%20Release/badge.svg?branch=testnet" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A&quot;Windows+MinGW64&quot;+branch%3Atestnet"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Windows%20MinGW64/badge.svg?branch=testnet" /></a> <a href="https://github.com/mi4uu/bitshares-core-refreshed/actions?query=workflow%3A%22Docker%22+branch%3Atestnet"><img alt="" src="https://github.com/mi4uu/bitshares-core-refreshed/workflows/Docker/badge.svg?branch=testnet" /></a></td>
+</tr>
+<tr>
+<td><code>master</code> of <code>bitshares-fc</code></td>
+<td><a href="https://github.com/bitshares/bitshares-fc/actions?query=workflow%3A&quot;macOS&quot;+branch%3Amaster"><img alt="" src="https://github.com/bitshares/bitshares-fc/workflows/macOS/badge.svg?branch=master" /></a> <a href="https://github.com/bitshares/bitshares-fc/actions?query=workflow%3A&quot;Ubuntu+Debug&quot;+branch%3Amaster"><img alt="" src="https://github.com/bitshares/bitshares-fc/workflows/Ubuntu%20Debug/badge.svg?branch=master" /></a> <a href="https://github.com/bitshares/bitshares-fc/actions?query=workflow%3A&quot;Ubuntu+Release&quot;+branch%3Amaster"><img alt="" src="https://github.com/bitshares/bitshares-fc/workflows/Ubuntu%20Release/badge.svg?branch=master" /></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="getting-started">Getting Started</h2>
+<p>Build instructions and additional documentation are available in the
+<a href="https://github.com/mi4uu/bitshares-core-refreshed/wiki">Wiki</a>.</p>
+<p>Prebuilt binaries can be found in the <a href="https://github.com/mi4uu/bitshares-core-refreshed/releases">releases page</a> for download.</p>
+<h3 id="running-and-stopping-node-software">Running and Stopping Node Software</h3>
+<p><strong>Run Node Software:</strong></p>
+<p>Stay on <code>bitshares-core/build</code> directory before you run the below <code>witness_node</code> command</p>
+<pre><code>./programs/witness_node/witness_node
+</code></pre>
+<p>Under <code>build</code> directory the node run will automatically create the directory <code>witness_node_data_dir</code> along with config files underneath then start synchronizing the blockchain.
+It may take usually several hours to fully synchronize the blockchain data.
+The blockchain data will be stored under the directory <code>witness_node_data_dir</code>.</p>
+<p><strong>Stop Node Software:</strong></p>
+<p>For stopping the node run cleanly, you will need to access the node run terminal then press on <code>Ctrl+C</code> then wait for the run to stop, please note that it may take usually few minutes to exit the run.
+It's recommended to use linux command <a href="https://help.ubuntu.com/community/Screen">screen</a> to initiate the node run so you can go back to the node run screen to stop it.</p>
+<p><strong>IMPORTANT:</strong> By default the node will start in reduced memory mode by using some of the commands detailed in <a href="https://github.com/mi4uu/bitshares-core-refreshed/wiki/Memory-reduction-for-nodes">Memory reduction for nodes</a>.
+In order to run a full node with all the account histories which usually unnecessary, you need to remove <code>partial-operations</code> and <code>max-ops-per-account</code> from your config file. Please note that currently(2018-10-17) a full node will need more than 160GB of RAM to operate and required memory is growing fast. Consider the following table as <strong>minimal requirements</strong> before running a node:</p>
+<table>
+<thead>
+<tr>
+<th>Default</th>
+<th>Full</th>
+<th>Minimal</th>
+<th>ElasticSearch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>150G HDD, 16G RAM</td>
+<td>640G SSD, 64G RAM *</td>
+<td>120G HDD, 4G RAM</td>
+<td>1TB SSD, 32G RAM</td>
+</tr>
+</tbody>
+</table>
+<p>* For this setup, allocate at least 500GB of SSD as swap.</p>
+<p>To use the command-line wallet or other wallets / clients with the node, the node need to be started with RPC connection enabled, which can be done by starting the node with the <code>--rpc-endpoint</code> parameter, E.G.</p>
 <pre><code>./programs/witness_node/witness_node --rpc-endpoint=127.0.0.1:8090
 </code></pre>
-<p>Each API has its own ID and a name.
-When running <code>witness_node</code> with RPC connection enabled, initially two API's are available:
-* API 0 has name <em>"database"</em>, it provides read-only access to the database,
-* API 1 has name <em>"login"</em>, it is used to login and gain access to additional, restrictable API's.</p>
+<p>or configure it in the config file by editing <code>witness_node_data_dir/config.ini</code> as follows:</p>
+<pre><code>rpc-endpoint = 127.0.0.1:8090
+</code></pre>
+<p>You can run the program with <code>--help</code> parameter to see more info:</p>
+<pre><code>./programs/witness_node/witness_node --help
+</code></pre>
+<h3 id="using-command-line-wallet">Using Command-Line Wallet</h3>
+<p>Stay on <code>bitshares-core/build</code> directory before you run the below <code>cli_wallet</code> command</p>
+<pre><code>./programs/cli_wallet/cli_wallet
+</code></pre>
+<p><strong>IMPORTANT:</strong> The <code>cli_wallet</code> or API interfaces to the node wouldn't be fully functional unless the node is fully synchronized with the blockchain. The <code>cli_wallet</code> command <code>info</code> will show result <code>head_block_age</code> which will tell you how far you are from the live current block of the blockchain.</p>
+<p>To check your current block:</p>
+<pre><code>new &gt;&gt;&gt; info
+</code></pre>
+<p>To query the blockchain, E.G. get info about an account:</p>
+<pre><code>new &gt;&gt;&gt; get_account &lt;account_name_or_id&gt;
+</code></pre>
+<p>If you need to transact with your account but not only query, firstly set your initial password and unlock the wallet:</p>
+<ul>
+<li>
+<p>For non-Windows operating systems, you can type the commands and press <code>[ENTER]</code>, then input the password and press <code>[ENTER]</code>, in this case the password won't show:</p>
+<p>new &gt;&gt;&gt; set_password [ENTER]
+  Enter password:
+  locked &gt;&gt;&gt; unlock [ENTER]
+  Enter password:
+  unlocked &gt;&gt;&gt;</p>
+</li>
+<li>
+<p>For Windows, or you'd like to show the password, type the commands with the password:</p>
+<p>new &gt;&gt;&gt; set_password <PASSWORD>
+  locked &gt;&gt;&gt; unlock <PASSWORD>
+  unlocked &gt;&gt;&gt;</p>
+</li>
+</ul>
+<p>To be able to transact with your account, import the corresponding private keys:</p>
+<pre><code>unlocked &gt;&gt;&gt; import_key &lt;ACCOUNT_NAME&gt; &lt;WIF_KEY&gt;
+</code></pre>
+<p>The private keys will be encrypted and stored in the wallet file, the file name is <code>wallet.json</code> by default.
+The private keys are accessible when the wallet is unlocked.</p>
+<pre><code>unlocked &gt;&gt;&gt; dump_private_keys
+</code></pre>
+<p>Use <code>lock</code> command to make the private keys inaccessible. There is no auto-lock feature so far.</p>
+<pre><code>unlocked &gt;&gt;&gt; lock
+</code></pre>
+<p>To import your initial (genesis) balances, import the private keys corresponding to the balances:</p>
+<pre><code>unlocked &gt;&gt;&gt; import_balance &lt;ACCOUNT_NAME&gt; [&lt;WIF_KEY&gt; ...] true
+</code></pre>
+<p>Use <code>help</code> to see all available wallet commands.</p>
+<pre><code>&gt;&gt;&gt; help
+</code></pre>
+<p>Use <code>gethelp &lt;COMMAND&gt;</code> to see more info about individual commands. E.G.</p>
+<pre><code>&gt;&gt;&gt; gethelp get_order_book
+</code></pre>
+<p>The definition of all commands is available in the
+<a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/libraries/wallet/include/graphene/wallet/wallet.hpp">wallet.hpp</a> source code file.
+Corresponding documentation can be found in the <a href="https://bitshares.github.io/doxygen/classgraphene_1_1wallet_1_1wallet__api.html">Doxygen documentation</a>.</p>
+<p>You can run the program with <code>--help</code> parameter to see more info:</p>
+<pre><code>./programs/cli_wallet/cli_wallet --help
+</code></pre>
+<p>There is also some info in the <a href="https://github.com/mi4uu/bitshares-core-refreshed/wiki/CLI-Wallet-Cookbook">Wiki</a>.</p>
+<h2 id="support">Support</h2>
+<p>Technical support is available in the <a href="https://bitsharestalk.org/index.php?board=45.0">BitSharesTalk technical support subforum</a>.</p>
+<p>BitShares Core bugs can be reported directly to the <a href="https://github.com/mi4uu/bitshares-core-refreshed/issues">issue tracker</a>.</p>
+<p>Questions can be posted in <a href="https://github.com/mi4uu/bitshares-core-refreshed/discussions">Github Discussions</a>.</p>
+<p>BitShares UI bugs should be reported to the <a href="https://github.com/bitshares/bitshares-ui/issues">UI issue tracker</a>.</p>
+<p>Up to date online Doxygen documentation can be found at <a href="https://bitshares.github.io/doxygen/hierarchy.html">https://bitshares.github.io/doxygen</a>.</p>
+<h2 id="using-built-in-apis">Using Built-In APIs</h2>
+<h3 id="node-api">Node API</h3>
+<p>The <code>witness_node</code> software provides several different API sets, known as <em>node API</em>.</p>
+<p>Each API set has its own ID and a name.
+When running <code>witness_node</code> with RPC connection enabled, initially two API sets are available:
+* API set with ID <code>0</code> has name <em>"database"</em>, it provides read-only access to the database,
+* API set with ID <code>1</code> has name <em>"login"</em>, it is used to login and gain access to additional, restrictable API sets.</p>
 <p>Here is an example using <code>wscat</code> package from <code>npm</code> for websockets:</p>
 <pre><code>$ npm install -g wscat
 $ wscat -c ws://127.0.0.1:8090
 &gt; {"id":1, "method":"call", "params":[0,"get_accounts",[["1.2.0"]]]}
 &lt; {"id":1,"result":[{"id":"1.2.0","annotations":[],"membership_expiration_date":"1969-12-31T23:59:59","registrar":"1.2.0","referrer":"1.2.0","lifetime_referrer":"1.2.0","network_fee_percentage":2000,"lifetime_referrer_fee_percentage":8000,"referrer_rewards_percentage":0,"name":"committee-account","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[],"address_auths":[]},"active":{"weight_threshold":6,"account_auths":[["1.2.5",1],["1.2.6",1],["1.2.7",1],["1.2.8",1],["1.2.9",1],["1.2.10",1],["1.2.11",1],["1.2.12",1],["1.2.13",1],["1.2.14",1]],"key_auths":[],"address_auths":[]},"options":{"memo_key":"GPH1111111111111111111111111111111114T1Anm","voting_account":"1.2.0","num_witness":0,"num_committee":0,"votes":[],"extensions":[]},"statistics":"2.7.0","whitelisting_accounts":[],"blacklisting_accounts":[]}]}
 </code></pre>
-<p>We can do the same thing using an HTTP client such as <code>curl</code> for API's which do not require login or other session state:</p>
+<p>We can do the same thing using an HTTP client such as <code>curl</code> for APIs which do not require login or other session state:</p>
 <pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "call", "params": [0, "get_accounts", [["1.2.0"]]], "id": 1}' http://127.0.0.1:8090/
 {"id":1,"result":[{"id":"1.2.0","annotations":[],"membership_expiration_date":"1969-12-31T23:59:59","registrar":"1.2.0","referrer":"1.2.0","lifetime_referrer":"1.2.0","network_fee_percentage":2000,"lifetime_referrer_fee_percentage":8000,"referrer_rewards_percentage":0,"name":"committee-account","owner":{"weight_threshold":1,"account_auths":[],"key_auths":[],"address_auths":[]},"active":{"weight_threshold":6,"account_auths":[["1.2.5",1],["1.2.6",1],["1.2.7",1],["1.2.8",1],["1.2.9",1],["1.2.10",1],["1.2.11",1],["1.2.12",1],["1.2.13",1],["1.2.14",1]],"key_auths":[],"address_auths":[]},"options":{"memo_key":"GPH1111111111111111111111111111111114T1Anm","voting_account":"1.2.0","num_witness":0,"num_committee":0,"votes":[],"extensions":[]},"statistics":"2.7.0","whitelisting_accounts":[],"blacklisting_accounts":[]}]}
 </code></pre>
-<p>When using an HTTP client, the API ID can be replaced by the API name, E.G.</p>
+<p>When using an HTTP client, the API set ID can be replaced by the API set name, E.G.</p>
 <pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "call", "params": ["database", "get_accounts", [["1.2.0"]]], "id": 1}' http://127.0.0.1:8090/
 </code></pre>
-<p>The definition of all node API's is available in the source code files including
-<a href="https://github.com/bitshares/bitshares-core/blob/master/libraries/app/include/graphene/app/database_api.hpp">database_api.hpp</a>
-and <a href="https://github.com/bitshares/bitshares-core/blob/master/libraries/app/include/graphene/app/api.hpp">api.hpp</a>.
+<p>The definition of all node APIs is available in the source code files including
+<a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/libraries/app/include/graphene/app/database_api.hpp">database_api.hpp</a>
+and <a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/libraries/app/include/graphene/app/api.hpp">api.hpp</a>.
 Corresponding documentation can be found in Doxygen:
-* <a href="https://doxygen.bitshares.org/classgraphene_1_1app_1_1database__api.html">database API</a>
-* <a href="https://doxygen.bitshares.org/namespacegraphene_1_1app.html">other API's</a></p>
+* <a href="https://bitshares.github.io/doxygen/classgraphene_1_1app_1_1database__api.html">database API</a>
+* <a href="https://bitshares.github.io/doxygen/namespacegraphene_1_1app.html">other APIs</a></p>
 <h3 id="wallet-api">Wallet API</h3>
-<p>The <code>cli_wallet</code> program can also be configured to serve <strong>all of its commands</strong> as API's, known as <em>wallet API</em>.</p>
+<p>The <code>cli_wallet</code> program can also be configured to serve <strong>all of its commands</strong> as APIs, known as <em>wallet API</em>.</p>
 <p>Start <code>cli_wallet</code> with RPC connection enabled:</p>
-<pre><code>$ ./programs/cli_wallet/cli_wallet --rpc-endpoint=127.0.0.1:8091
+<pre><code>$ ./programs/cli_wallet/cli_wallet --rpc-http-endpoint=127.0.0.1:8093
 </code></pre>
 <p>Access the wallet API using an HTTP client:</p>
-<pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "info", "params": [], "id": 1}' http://127.0.0.1:8091/
-$ curl --data '{"jsonrpc": "2.0", "method": "get_account", "params": ["1.2.0"], "id": 1}' http://127.0.0.1:8091/
+<pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "info", "params": [], "id": 1}' http://127.0.0.1:8093/
+$ curl --data '{"jsonrpc": "2.0", "method": "get_account", "params": ["1.2.0"], "id": 1}' http://127.0.0.1:8093/
 </code></pre>
-<p>Note: The syntax to access <em>wallet API</em> is a bit different than accessing <em>node API</em>.</p>
+<p>Note: The syntax to access wallet API is a bit different than accessing node API.</p>
 <p><strong>Important:</strong>
 * When RPC connection is enabled for <code>cli_wallet</code>, sensitive data E.G. private keys which is accessible via commands will be accessible via RPC too. It is recommended that only open network connection to localhost or trusted addresses E.G. configure a firewall.
 * When using wallet API, sensitive data E.G. the wallet password and private keys is transmitted as plain text, thus may be vulnerable to network sniffing. It is recommended that only use wallet API with localhost, or in a clean network, and / or use <code>--rpc-tls-endpoint</code> parameter to only serve wallet API via secure connections.</p>
-<h2 id="accessing-restrictable-node-apis">Accessing restrictable node API's</h2>
-<p>You can restrict node API's to particular users by specifying an <code>api-access</code> file in <code>config.ini</code>
-or by using the <code>--api-access /full/path/to/api-access.json</code> startup node command.  Here is an example <code>api-access</code> file which allows
-user <code>bytemaster</code> with password <code>supersecret</code> to access four different API's, while allowing any other user to access the three public API's
+<h2 id="accessing-restrictable-node-api-sets">Accessing restrictable node API sets</h2>
+<p>You can restrict node API sets to particular users by specifying an <code>api-access</code> file in <code>config.ini</code>
+or by using the <code>--api-access /full/path/to/api-access.json</code> command-line option on node startup. Here is an example <code>api-access</code> file which allows
+user <code>bytemaster</code> with password <code>supersecret</code> to access four different API sets, while allowing any other user to access the three public API sets
 necessary to use the node:</p>
 <pre><code>{
    "permission_map" :
@@ -2557,31 +2877,93 @@ necessary to use the node:</p>
    ]
 }
 </code></pre>
+<p>Note: the <code>login</code> API set is always accessible.</p>
 <p>Passwords are stored in <code>base64</code> as salted <code>sha256</code> hashes.  A simple Python script,
-<a href="https://github.com/bitshares/bitshares-core/blob/master/programs/witness_node/saltpass.py"><code>saltpass.py</code></a>
-is avaliable to obtain hash and salt values from a password.
+<a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/programs/witness_node/saltpass.py"><code>saltpass.py</code></a>
+is available to obtain hash and salt values from a password.
 A single asterisk <code>"*"</code> may be specified as username or password hash to accept any value.</p>
-<p>With the above configuration, here is an example of how to call <code>add_node</code> from the <code>network_node</code> API:</p>
+<p>With the above configuration, here is an example of how to call the <code>add_node</code> API from the <code>network_node</code> API set:</p>
 <pre><code>{"id":1, "method":"call", "params":[1,"login",["bytemaster", "supersecret"]]}
 {"id":2, "method":"call", "params":[1,"network_node",[]]}
 {"id":3, "method":"call", "params":[2,"add_node",["127.0.0.1:9090"]]}
 </code></pre>
-<p>Note, the call to <code>network_node</code> is necessary to obtain the correct API identifier for the network API.  It is not guaranteed that the network API identifier will always be <code>2</code>.</p>
-<p>The restricted API's are accessible via HTTP too using <em>basic access authentication</em>. E.G.</p>
+<p>Note, the call to <code>network_node</code> is necessary to obtain the correct API set ID for the <code>network_node</code> API set.  It is not guaranteed that the API set ID for the <code>network_node</code> API set will always be <code>2</code>.</p>
+<p>The restricted API sets are accessible via HTTP too using <em>basic access authentication</em>. E.G.</p>
 <pre><code>$ curl --data '{"jsonrpc": "2.0", "method": "call", "params": ["network_node", "add_node", ["127.0.0.1:9090"]], "id": 1}' http://bytemaster:supersecret@127.0.0.1:8090/
 </code></pre>
 <p>Our <code>doxygen</code> documentation contains the most up-to-date information
-about API's for the <a href="https://doxygen.bitshares.org/namespacegraphene_1_1app.html">node</a> and the
-<a href="https://doxygen.bitshares.org/classgraphene_1_1wallet_1_1wallet__api.html">wallet</a>.</p>
+about APIs for the <a href="https://bitshares.github.io/doxygen/namespacegraphene_1_1app.html">node</a> and the
+<a href="https://bitshares.github.io/doxygen/classgraphene_1_1wallet_1_1wallet__api.html">wallet</a>.</p>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li>
+<p>Is there a way to generate help with parameter names and method descriptions?</p>
+<p>Yes. Documentation of the code base, including APIs, can be generated using Doxygen. Simply run <code>doxygen</code> in this directory.</p>
+<p>If both Doxygen and perl are available in your build environment, the command-line wallet's <code>help</code> and <code>gethelp</code>
+commands will display help generated from the doxygen documentation.</p>
+<p>If your command-line wallet's <code>help</code> command displays descriptions without parameter names like
+    <code>signed_transaction transfer(string, string, string, string, string, bool)</code>
+it means CMake was unable to find Doxygen or perl during configuration.  If found, the
+output should look like this:
+    <code>signed_transaction transfer(string from, string to, string amount, string asset_symbol, string memo, bool broadcast)</code></p>
+</li>
+<li>
+<p>Is there a way to allow external program to drive <code>cli_wallet</code> via websocket, JSONRPC, or HTTP?</p>
+<p>Yes. External programs may connect to the command-line wallet and make its calls over a websockets API. To do this, run the wallet in
+server mode, i.e. <code>cli_wallet -H "127.0.0.1:9999"</code> and then have the external program connect to it over the specified port
+(in this example, port 9999). Please check the <a href="#using-built-in-apis">"Using Built-In APIs"</a> section for more info.</p>
+</li>
+<li>
+<p>Is there a way to access methods which require login over HTTP?</p>
+<p>Yes. Most of the methods can be accessed by specifying the API name instead of an API ID. If an API is protected by a username and a password, it can be accessed by using <em>basic access authentication</em>. Please check the <a href="#accessing-restrictable-node-api-sets">"Accessing restrictable node API sets"</a> section for more info.</p>
+<p>However, HTTP is not really designed for "server push" notifications, and we would have to figure out a way to queue notifications for a polling client. Websockets solves this problem. If you need to access the stateful methods, use Websockets.</p>
+</li>
+<li>
+<p>What is the meaning of <code>a.b.c</code> numbers?</p>
+<p>The first number specifies the <em>space</em>.  Space <code>1</code> is for protocol objects, <code>2</code> is for implementation objects.
+Protocol space objects can appear on the wire, for example in the binary form of transactions.
+Implementation space objects cannot appear on the wire and solely exist for implementation
+purposes, such as optimization or internal bookkeeping.</p>
+<p>The second number specifies the <em>type</em>.  The type of the object determines what fields it has.  For a
+complete list of type IDs, see <code>GRAPHENE_DEFINE_IDS(protocol, protocol_ids ...)</code> in
+<a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/libraries/protocol/include/graphene/protocol/types.hpp">protocol/types.hpp</a>
+and <code>GRAPHENE_DEFINE_IDS(chain, implementation_ids ...)</code> in <a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/libraries/chain/include/graphene/chain/types.hpp">chain/types.hpp</a>.</p>
+<p>The third number specifies the <em>instance</em>.  The instance of the object is different for each individual
+object.</p>
+</li>
+<li>
+<p>The answer to the previous question was really confusing.  Can you make it clearer?</p>
+<p>All account IDs are of the form <code>1.2.x</code>.  If you were the 9735th account to be registered,
+your account's ID will be <code>1.2.9735</code>.  Account <code>0</code> is special (it's the "committee account",
+which is controlled by the committee members and has a few abilities and restrictions other accounts
+do not).</p>
+<p>All asset IDs are of the form <code>1.3.x</code>.  If you were the 29th asset to be registered,
+your asset's ID will be <code>1.3.29</code>.  Asset <code>0</code> is special (it's BTS, which is considered the "core asset").</p>
+<p>The first and second number together identify the kind of thing you're talking about (<code>1.2</code> for accounts,
+<code>1.3</code> for assets).  The third number identifies the particular thing.</p>
+</li>
+<li>
+<p>How do I get the <code>network_add_nodes</code> command to work?  Why is it so complicated?</p>
+<p>You need to follow the instructions in the <a href="#accessing-restrictable-node-api-sets">"Accessing restrictable node API sets"</a> section to
+allow a username/password access to the <code>network_node</code> API set.  Then you need
+to pass the username/password to the <code>cli_wallet</code> on the command line.</p>
+<p>It's set up this way so that the default configuration is secure even if the RPC port is
+publicly accessible.  It's fine if your <code>witness_node</code> allows the general public to query
+the database or broadcast transactions (in fact, this is how the hosted web UI works).  It's
+less fine if your <code>witness_node</code> allows the general public to control which p2p nodes it's
+connecting to.  Therefore the API to add p2p connections needs to be set up with proper access
+controls.</p>
+</li>
+</ul>
+<h2 id="license">License</h2>
+<p>BitShares Core is under the MIT license. See <a href="https://github.com/mi4uu/bitshares-core-refreshed/blob/master/LICENSE.txt">LICENSE</a>
+for more information.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
@@ -2622,10 +3004,10 @@ about API's for the <a href="https://doxygen.bitshares.org/namespacegraphene_1_1
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
     
   </body>

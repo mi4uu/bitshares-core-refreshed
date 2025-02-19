@@ -1,5 +1,8 @@
 nav:
   - Home: index.md
+  - Readme: readme.md
+  - Programs: programs.md
+  - Libs: libs.md
   - Building: docs/build
   - Architecture: 
     - SPV: docs/architecture/spv/
